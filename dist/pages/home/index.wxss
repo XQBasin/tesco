@@ -19,14 +19,353 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-.content {
+.nav_bar {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.starContent {
-  padding: 50px 50px 0px 50px;
+.nav_bar .nav-bar-col {
+  text-align: center;
 }
-.buttonContent {
-  padding: 50px;
+.nav_bar .nav-bar-col .containertitle {
+  padding: 6px 10px;
+  display: flex;
+}
+.nav_bar .nav-bar-col .containertitle .dingwei {
+  height: 25px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.nav_bar .nav-bar-col .containertitle .dingwei text {
+  margin: 0px 3px;
+}
+.nav_bar .nav-bar-col .nav-bar-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.search {
+  width: 90%;
+  height: 28px;
+  border-radius: 30px;
+  padding: 2px 10px;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  top: 78px;
+  left: 0;
+  right: 0;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.6);
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.search input {
+  width: 100%;
+  padding: 2px 5px;
+  margin: 2px;
+  font-size: 13px;
+}
+.swiper-container {
+  position: relative;
+}
+.swiper-container .swiper {
+  height: 180px;
+}
+.swiper-container .swiper .img {
+  width: 100%;
+  height: 100%;
+}
+.swiper-container .dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  z-index: 9;
+}
+.swiper-container .dots .dot {
+  margin: 10px 2px;
+  width: 5px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 2px;
+}
+.swiper-container .dots .dot.active {
+  width: 12px;
+  background: #fff;
+}
+.swiper-container .groupsources {
+  padding: 5px 10px;
+  background-color: #FFFFFF;
+  margin: 5px 10px;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  top: 160px;
+  left: 0;
+  right: 0;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  border-radius: 20rpx;
+  box-shadow: 0 3px 6px 0 #ececec;
+}
+.swiper-container .groupsources .group-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+.swiper-container .groupsources .group-item .authorise_btn {
+  background-color: #FFFFFF;
+}
+.swiper-container .groupsources .group-item .authorise_btn::after {
+  border: none;
+}
+.swiper-container .groupsources .buttonitem {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-container .groupsources .buttonitem image {
+  text-align: center;
+  width: 55px;
+  height: 55px;
+}
+.swiper-container .groupsources .buttonitem text {
+  text-align: center;
+  font-size: 24rpx;
+}
+.content {
+  margin-top: 200px;
+}
+.manuad .authorise_btn {
+  background-color: #F4F4F4;
+}
+.manuad .authorise_btn::after {
+  border: none;
+}
+.manuad .image {
+  height: 62px;
+  border-radius: 50px;
+}
+.manuad .image image {
+  border-radius: 20rpx;
+}
+.tab-panel-item {
+  margin: 10px;
+  padding: 5px 10px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px 0 #f0f0f0;
+}
+.tab-panel-item .flex-title {
+  position: static;
+}
+.flex-title {
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  text-align: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.flex-title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300%;
+  height: 300%;
+  border: 0 #ccc solid;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  transform: scale(0.33333333);
+  pointer-events: none;
+  z-index: 0;
+  border-bottom-width: 1px;
+}
+.flex-title .label {
+  margin: 10px 0px;
+  width: 5%;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+}
+.flex-title .label .label_content {
+  width: 5px;
+  height: 16px;
+  background-color: #f87005;
+  border-radius: 5px;
+}
+.flex-title .main {
+  margin: 10px 0px;
+  width: 70%;
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+}
+.flex-title .more {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+.flex-title .more .authorise_btn {
+  color: #848484;
+  font-size: 13px;
+  background-color: #FFFFFF;
+  padding-right: 0;
+}
+.flex-title .more .authorise_btn::after {
+  border: none;
+}
+.clear {
+  clear: both;
+}
+.rm-group {
+  margin-bottom: 10px;
+}
+.rm-group .rm-group-left {
+  width: 45%;
+  height: 412rpx;
+  background: #f4f4f4;
+  float: left;
+}
+.rm-group .rm-group-right {
+  width: 54%;
+  height: 412rpx;
+  float: right;
+}
+.rm-group .rm-group-right .rm-group-right1 {
+  margin-bottom: 12rpx;
+}
+.rm-group .rm-group-right .rm-group-right1,
+.rm-group .rm-group-right .rm-group-right2 {
+  width: 100%;
+  height: 200rpx;
+  background: #f4f4f4;
+}
+.special-panel-item {
+  background: none;
+  padding: 0;
+}
+.special-panel-item .special-group-left {
+  width: 49.4%;
+  height: 250rpx;
+  background: pink;
+  float: left;
+  border-radius: 20rpx;
+}
+.special-panel-item .special-group-right {
+  width: 49.4%;
+  height: 250rpx;
+  float: right;
+  background: lawngreen;
+  border-radius: 20rpx;
+}
+.fc-group {
+  padding: 0 1rpx;
+  margin-bottom: 32rpx;
+}
+.fc-group .fc-group-content {
+  width: 23%;
+  height: 270rpx;
+  margin: 0 7rpx;
+  background: pink;
+  float: left;
+}
+.food-panel-item text,
+.life-panel-item text,
+.various-panel-item text {
+  font-size: 12px;
+  color: #f9935a;
+}
+.food-panel-item .group,
+.life-panel-item .group,
+.various-panel-item .group {
+  margin-bottom: 30rpx;
+}
+.food-panel-item .group .group-left,
+.life-panel-item .group .group-left,
+.various-panel-item .group .group-left {
+  width: 49.3%;
+  height: 214rpx;
+  background: pink;
+  float: left;
+}
+.food-panel-item .group .group-right,
+.life-panel-item .group .group-right,
+.various-panel-item .group .group-right {
+  width: 49.3%;
+  height: 214rpx;
+  float: right;
+  background: lawngreen;
+}
+.food-panel-item .group .group-content,
+.life-panel-item .group .group-content,
+.various-panel-item .group .group-content {
+  padding: 0 1rpx;
+  margin-top: 28rpx;
+}
+.food-panel-item .group .group-content .group-content1,
+.life-panel-item .group .group-content .group-content1,
+.various-panel-item .group .group-content .group-content1 {
+  width: 23%;
+  height: 200rpx;
+  margin: 0 7rpx;
+  background: lawngreen;
+  float: left;
+}
+.like-panel-item {
+  margin: 10px;
+  padding: 5px 10px;
+}
+.like-panel-item .like-title {
+  width: 50%;
+  margin: 0 auto;
+}
+.like-panel-item .like-title text {
+  float: left;
+  font-size: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+}
+.like-panel-item .like-title image {
+  margin: 9rpx 6rpx;
+  float: left;
+  width: 91rpx;
+  height: 14rpx;
+}
+.like-panel-item .like-group-content {
+  padding-top: 18rpx;
+}
+.like-panel-item .like-group-content .like-group-content-left:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.like-panel-item .like-group-content .like-group-content-left {
+  margin-top: 18rpx;
+  width: 49%;
+  height: 530rpx;
+  float: left;
+  background: pink;
+}
+.like-panel-item .like-group-content .like-group-content-right {
+  margin-top: 18rpx;
+  width: 49%;
+  height: 530rpx;
+  float: right;
+  background: pink;
 }

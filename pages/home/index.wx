@@ -1,42 +1,826 @@
 <template>
-  <view>
-    <view class="starContent" wx:if="{{ isShow }}">
-      <ui-star></ui-star>
-    </view>
+    <view>
+        <!-- 自定义导航栏 -->
+        <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+            <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+                <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px">
+                    <view class="containertitle">
+                        <view class='dingwei'>
+                            <image src="../../static/image/index/home_icon_Location@2x.png" mode="aspectFit" style="width:20px;height:20px;"/>
+                            <text>广州市番禺区</text>
+                        </view>
+                    </view>
+                </ui-col>
+                <ui-col vertical-align="middle" class="nav-bar-col">
+                    <view class="nav-bar-title">方乐购</view>
+                </ui-col>
+                <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+                </ui-col>
+            </ui-row>
+        </ui-nav-bar>
+        <view style="height:{{NAV_HEIGHT}}"></view>
+        <view class="search">
+            <ui-icon type="sousuo" color="#ffffff" size="13px;"></ui-icon>
+            <input type='text' placeholder="欢乐搜" placeholder-style="color:#ffffff;" confirm-type='search'>
+        </view>
+        <!-- 自动播放广告 -->
+        <view class="swiper-container">
+            <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
+                <block wx:for="{{banner}}" wx:key="unique">
+                    <swiper-item>
+                        <image wx:if="{{index == 0}}" src="{{item.src}}" class="img" mode="aspectFill" data-route='activity/show' data-param='activityid=3' bindtap='navigateToShow'/>
+                        <image wx:else src="{{item.src}}" class="img" mode="aspectFill"/>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <!-- 广告切换图标 -->
+            <view class="dots">
+                <block wx:for="{{banner}}" wx:key="unique">
+                    <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+                </block>
+            </view>
+            <!-- 图标导航 -->
+            <view class='groupsources'>
+                <view class='group'>
+                    <view class='group-item'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon1@2x.png"/>
+                                <text>生活用品</text>
+                            </view>
+                        </button>
+                        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                 <image src="../../static/image/index/home_icon2@2x.png"/>
+                                <text>电子产品</text>
+                            </view>
+                        </button>
+                        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                 <image src="../../static/image/index/home_icon3@2x.png"/>
+                                <text>服装服饰</text>
+                            </view>
+                        </button>
+                        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                 <image src="../../static/image/index/home_icon4@2x.png"/>
+                                <text>美妆洗护</text>
+                            </view>
+                        </button>
+                    </view>
+                    <view class='group-item'>
+                      <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon5@2x.png"/>
+                                <text>书籍特卖</text>
+                            </view>
+                        </button>
+                        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                 <image src="../../static/image/index/home_icon6@2x.png"/>
+                                <text>零食小吃</text>
+                            </view>
+                        </button>
+                        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                 <image src="../../static/image/index/home_icon7@2x.png"/>
+                                <text>体育运动</text>
+                            </view>
+                        </button>
+                        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                            <view class='buttonitem'>
+                                 <image src="../../static/image/index/home_icon8@2x.png"/>
+                                <text>礼品饰物</text>
+                            </view>
+                        </button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='content'>
+            <wxs module="dateUtil" src="../../static/utils/util.wxs"></wxs>
+            <!-- 广告位 -->
+            <view class="manuad">
+                <button class="authorise_btn" data-route="main/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                    <view class="image">
+                        <image src="http://file.taoyuantoday.com/213/20190115/3fd5d9348a62a75ec3dc3b8363627706.jpg"/>
+                    </view>
+                </button>
+            </view>
+            <!-- 热卖抢购 -->
+            <view class="tab-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>热卖抢购</view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='rm-group'>
+                  <view class="rm-group-left"></view>
+                  <view class="rm-group-right">
+                    <view wx:for="rmList" wx:key="rmKey" class="{{index==0? 'rm-group-right1':'rm-group-right2'}}"></view>
+                    <!-- <view class="rm-group-right2"></view> -->
+                  </view>
+                  <view class="clear"></view>
+                </view>
+            </view>
+            <!-- 特卖 -->
+            <view class="tab-panel-item special-panel-item">
+              <view class="special-group-left"></view>
+              <view class="special-group-right">
 
-    <view class="buttonContent">
-      
-      <button type="primary" bindtap="starShow">创建评分控件</button>
-    </view> 
-  </view>
+              </view>
+              <view class="clear"></view>
+            </view>
+            <!-- 方寸推荐 -->
+            <view class="tab-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>方寸推荐</view>
+                    <view class='more'></view>
+                </view>
+                <view class='fc-group'>
+                  <view class="fc-group-content"></view>
+                  <view class="fc-group-content"></view>
+                  <view class="fc-group-content"></view>
+                  <view class="fc-group-content"></view>
+                  <view class="clear"></view>
+                </view>
+            </view>
+            <!-- 吃货小天地 -->
+            <view class="tab-panel-item food-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>吃货小天地<text> · 你也来馋一下吧?!</text></view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='group'>
+                  <view class="group-left"></view>
+                  <view class="group-right">
+
+                  </view>
+                  <view class="clear"></view>
+                  <view class="group-content">
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                  </view>
+                  <view class="clear"></view>
+                </view>
+            </view>
+            <!-- 生活必备 -->
+            <view class="tab-panel-item life-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>生活必备<text> · 看看你需要哪些</text></view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='group'>
+                  <view class="group-left"></view>
+                  <view class="group-right">
+
+                  </view>
+                  <view class="clear"></view>
+                  <view class="group-content">
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                  </view>
+                  <view class="clear"></view>
+                </view>
+            </view>
+            <!-- 五花八门 -->
+            <view class="tab-panel-item various-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>五花八门<text> · 随便挑，绝对有你喜欢的！</text></view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='group'>
+                  <view class="group-left"></view>
+                  <view class="group-right">
+
+                  </view>
+                  <view class="clear"></view>
+                  <view class="group-content">
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                    <view class="group-content1"></view>
+                  </view>
+                  <view class="clear"></view>
+                </view>
+            </view>
+        </view>
+        <!-- 猜你喜欢 -->
+        <view class="like-panel-item">
+          <view class="like-title">
+            <image src="../../static/image/index/home_icon_Left@2x.png" mode="scaleToFill"/>
+            <text>猜你喜欢</text>
+            <image src="../../static/image/index/home_icon_right@2x.png" mode="scaleToFill"/>
+            <view class="clear"></view>
+          </view>
+          <view class="like-group-content">
+            <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}" data-id='{{index}}'>{{item.name}}</view>
+            <view class="clear"></view>
+          </view>
+        </view>
+    
+    </view>
 </template>
 
 <script>
 export default {
-  config: {
-    navigationBarTitleText: '首页',
-    backgroundColor: '#F4F4F4',
-    navigationBarTextStyle: 'black'
-  },
-  data: {
-    isShow:false
-  },
-  starShow () {
-    this.setData({ 
-      isShow: true
-    })
-  }
+    config: {
+        navigationBarTitleText: '方乐购',
+        navigationBarTextStyle: 'black',
+        enablePullDownRefresh: true
+    },
+    data: {
+        NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+        DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+        banner: [
+            {src: 'http://file.taoyuantoday.com/213/20190118/696af11d6687092383174fddfb463137.jpg_0x0.jpg'},
+            {src: 'http://file.taoyuantoday.com/213/20190109/cd0bd4b383fb190dbafddc93edcc562d.jpg'},
+            {src: 'http://file.taoyuantoday.com/213/20190111/f7e9684f2a50926daa2361c19173e582.png'},
+            {src: 'http://file.taoyuantoday.com/213/20190114/29224e27cb98ee82ac2486bbc303bd53.jpg'},
+        ],
+        style: 1,
+        swiperCurrent: 0,
+        current: 0,
+        showBadge: true,
+        isHideLoadMore: false,
+        socials:[],             // 社交消息列表
+        activities: [],         // 最新活动列表
+        uid: '',                // 桃园用户标识
+        rmList:[                //热卖数据
+          {'name':1},
+          {'name':2}
+        ],
+        list:[
+          {'name':1},
+          {'name':2},
+          {'name':3},
+          {'name':4}
+        ]
+    },
+    onLoad(options) {
+        var that = this
+        // 获取社交数据
+        that.getSocials(1)
+        // 获取活动数据
+        that.getActivities(1)
+        wx.login({
+            success(res) {
+                if (res.code) {
+                    //发起网络请求
+                    wx.request({
+                        url: 'https://wx.taoyuantoday.com/mini.Index/wxQuickLogin.html',
+                        data: {
+                            code: res.code
+                        },
+                        header: {
+                            'content-type': 'application/json' // 默认值
+                        },
+                        success(res) {
+                            if (res.data != "") {
+                                that.setData({
+                                    uid: res.data
+                                })
+                            }
+                        }
+                    })
+                } else {
+                    console.log('登录失败，请检查网络设置！' + res.errMsg)
+                }
+            }
+        })
+        wx.showShareMenu({
+            withShareTicket: true
+        })
+    },
+    //下拉刷新
+    onPullDownRefresh:function() {
+        wx.showNavigationBarLoading() //在标题栏中显示加载
+        //模拟加载
+        this.getSocials(1)
+        this.getActivities(1)
+        setTimeout(function() {
+            // complete
+            wx.hideNavigationBarLoading() //完成停止加载
+            wx.stopPullDownRefresh() //停止下拉刷新
+        }, 1500);
+    },
+    //加载更多
+    onReachBottom: function () {
+        setTimeout(() => {
+            this.setData({
+                isHideLoadMore: true,
+            })
+        }, 2000)
+    },
+    // 监听用户滑动页面事件。
+    onPageScroll: function(option) {
+        if (option.scrollTop >= 150) {
+            this.setData({
+                style: 2
+            })
+        } else {
+            this.setData({
+                style: 1
+            })
+        }
+    },
+    swiperChange: function(option) {
+        this.setData({
+            swiperCurrent: option.detail.current
+        })
+    },
+    // 获取用户基本信息
+    bindGetUserInfo(e) {
+        var that = this;
+        let route = e.currentTarget.dataset.route
+        // 判断是否同意授权
+        if (e.detail.userInfo == undefined) {
+            wx.showModal({
+                title: '温馨提示',
+                content: '请先允许授权再继续！',
+                showCancel: false,
+                confirmColor: '#ffd100',
+                confirmText: '我知道啦',
+                success(res) {
+                    if (res.confirm) {
+                        console.log('用户已确认看到提示！')
+                    }
+                }
+            })
+        } else {
+            that.updateUser(e.detail.userInfo, that.data.uid, route)
+        }
+    },
+    // 更新用户信息
+    updateUser: function (userInfo, uid, route) {
+        var that = this;
+        wx.request({
+            url: 'https://wx.taoyuantoday.com/mini.Index/updateUser.html',
+            data: {
+                userInfo: userInfo,
+                uid: uid
+            },
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                that.navigateTo(route)
+            }
+        })
+    },
+    // 获取路由页面
+    navigateTo: function (route) {
+        wx.navigateTo({
+            url: '../' + route
+        })
+    },
+    // 查看社交信息详情
+    getSocInfo: function (option) {
+        let socialid = option.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../social/comments?socialid='+socialid
+        })
+    },
+    // 查看活动详情
+    getActInfo: function (option) {
+        let activityid = option.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../activity/info?activityid='+activityid
+        })
+    },
+    // 获取路由页面
+    navigateToShow: function (e) {
+        let route = e.currentTarget.dataset.route
+        let param = e.currentTarget.dataset.param
+        wx.navigateTo({
+            url: '../' + route + '?' + param
+        })
+    },
+    // 监听Tab切换
+    handleChange (e) {
+        let index = e.detail.index
+        this.setData({
+            current:index
+        })
+    },
+    handleContentChange (e) {
+        let current = e.detail.current
+        this.setData({
+          current:current
+        })
+    },
+    // 活动列表
+    getActivities: function (status) {
+        var that = this;
+        wx.request({
+            url: 'https://wx.taoyuantoday.com/mini.Index/getActivities.html',
+            data: {
+                status: status,
+            },
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                if (res.data != "") {
+                    that.setData({
+                        activities: res.data
+                    })
+                }
+            }
+        })
+    },
+    // 社交列表
+    getSocials: function (status) {
+        var that = this;
+        wx.request({
+            url: 'https://wx.taoyuantoday.com/mini.Index/getSocials.html',
+            data: {
+                status: status,
+            },
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                if (res.data != "") {
+                    that.setData({
+                        socials: res.data
+                    })
+                }
+            }
+        })
+    },
+    previewImage: function(e) {
+        var urls = e.currentTarget.dataset.urls
+        wx.previewImage({
+            current: e.currentTarget.id,    // 当前显示图片的http链接
+            urls: urls                      // 需要预览的图片http链接列表
+        })
+    },
+    // 客服消息
+    handleContact(e) {
+        console.log(e.path)
+        console.log(e.query)
+    }
 }
 </script>
 
 <style lang="less">
-.content{
-  .mix-flex-center();
+// 自定义导航栏
+.nav_bar {
+    .mix-flex-center();
+    .nav-bar-col {
+        text-align: center;
+        .containertitle {
+            padding: 6px 10px;
+            display: flex;
+            .dingwei {
+                height: 25px;
+                display: flex;
+                .mix-text-overflow();
+                .mix-flex-y-center();
+            }
+            .dingwei text {
+                margin: 0px 3px;
+            }
+        }
+        .nav-bar-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
 }
-.starContent{
-  padding:50px 50px 0px 50px;
+// 搜索框
+.search {
+    width: 90%;
+    height: 28px;
+    border-radius: 30px;
+    padding: 2px 10px;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    top: 78px;
+    left: 0;
+    right: 0;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    background: rgba(255, 255, 255, .6);
+    margin: auto;
+    .mix-flex-y-center();
+    input {
+        width: 100%;
+        padding: 2px 5px;
+        margin: 2px;
+        font-size: 13px;
+    }
 }
-.buttonContent{
-  padding:50px;
+// 自动播放广告
+.swiper-container {
+    position: relative;
 }
+.swiper-container .swiper {
+    height: 180px;
+}
+.swiper-container .swiper .img {
+    width: 100%;
+    height: 100%;
+}
+.swiper-container .dots{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    z-index:9;
+}
+.swiper-container .dots .dot{
+    margin: 10px 2px;
+    width: 5px;
+    height: 5px;
+    background: #FFFFFF;
+    border-radius: 2px;
+}
+.swiper-container .dots .dot.active{
+    width: 12px;
+    background: #fff;
+}
+// 图标导航
+.swiper-container .groupsources {
+    padding: 5px 10px;
+    background-color: #FFFFFF;
+    margin: 5px 10px;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    top: 160px;
+    left: 0;
+    right: 0;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    border-radius: 20rpx;
+    box-shadow: 0 3px 6px 0 rgb(236, 236, 236);
+    .group-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        .authorise_btn {
+            background-color: #FFFFFF;
+        }
+        .authorise_btn::after {
+            border: none;
+        }
+    }
+    .buttonitem {
+        display: flex;
+        flex-direction: column;
+        .mix-flex-center();
+        image {
+            text-align: center;
+            width: 55px;
+            height: 55px;
+        }
+        text {
+            text-align: center;
+            font-size: 24rpx;
+        }
+    }
+}
+// 内容区公共样式
+.content {
+    margin-top: 200px;
+}
+// 广告位
+.manuad {
+    .authorise_btn {
+        background-color: #F4F4F4;
+    }
+    .authorise_btn::after {
+        border: none;
+    }
+    .image {
+        height: 62px;
+        border-radius: 50px;
+        image {
+            border-radius: 20rpx;
+        }
+    }
+}
+// 推荐模块
+.tab-panel-item {
+    margin: 10px;
+    padding: 5px 10px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgb(240, 240, 240);
+    .flex-title{
+      position: static;
+    }
+}
+.flex-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    text-align: left;
+    .mix-1px(0, 0, 1, 0, #ccc);
+    .mix-flex-y-center();
+    .label {
+        margin: 10px 0px;
+        width: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        .mix-flex-y-center();
+        .label_content {
+            width: 5px;
+            height: 16px;
+            background-color:#f87005;
+            border-radius: 5px;
+        }
+    }
+    .main {
+        margin: 10px 0px;
+        width: 70%;
+        font-size: 16px;
+        text-align: left;
+        font-weight: 600;
+    }
+    .more {
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        .authorise_btn {
+            color: #848484;
+            font-size: 13px;
+            background-color: #FFFFFF;
+            padding-right: 0;
+        }
+        .authorise_btn::after {
+            border: none;
+        }
+    }
+}
+.clear{
+  clear: both;
+}
+// 热卖抢购
+.rm-group {
+    margin-bottom: 10px;
+    .rm-group-left{
+      width: 45%;
+      height: 412rpx;
+      background: #f4f4f4;
+      float: left;
+    }
+    .rm-group-right{
+      width: 54%;
+      height: 412rpx;
+      float: right;
+      .rm-group-right1{
+        margin-bottom: 12rpx;
+      }
+      .rm-group-right1,.rm-group-right2{
+        width: 100%;
+        height: 200rpx;
+        background: #f4f4f4;
+      }
+    }
+}
+
+// 每日优惠，特卖
+.special-panel-item{
+  background: none;
+  padding: 0;
+  .special-group-left{
+    width: 49.4%;
+    height: 250rpx;
+    background: pink;
+    float: left;
+    border-radius: 20rpx;
+  }
+  .special-group-right{
+    width: 49.4%;
+    height: 250rpx;
+    float: right;
+    background: lawngreen;
+    border-radius: 20rpx;
+  }
+}
+// 方寸推荐
+.fc-group{
+  padding: 0 1rpx;
+  margin-bottom: 32rpx;
+  .fc-group-content{
+    width: 23%;
+    height: 270rpx;
+    margin: 0 7rpx;
+    background: pink;
+    float: left;
+  }
+}
+// 吃货小天地
+.food-panel-item,.life-panel-item,.various-panel-item{
+  text{
+    font-size: 12px;
+    color: #f9935a;
+  }
+  .group {
+    margin-bottom: 30rpx;
+    .group-left{
+      width: 49.3%;
+      height: 214rpx;
+      background: pink;
+      float: left;
+    }
+    .group-right{
+      width: 49.3%;
+      height: 214rpx;
+      float: right;
+      background: lawngreen;
+    }
+    .group-content{
+      padding: 0 1rpx;
+      margin-top: 28rpx;
+      .group-content1{
+        width: 23%;
+        height: 200rpx;
+        margin: 0 7rpx;
+        background: lawngreen;
+        float: left;
+      }
+    }
+  }
+}
+// 猜你喜欢
+.like-panel-item{
+  margin:10px;
+  padding:5px 10px;
+  .like-title{
+    width: 50%;
+    margin: 0 auto;
+    text{
+      float: left;
+      font-size: 32rpx;
+      height: 32rpx;
+      line-height: 32rpx;
+    }
+    image{
+      margin: 9rpx 6rpx;
+      float: left;
+      width: 91rpx;
+      height: 14rpx;
+    }
+  }
+  .like-group-content{
+    padding-top: 18rpx;
+    .like-group-content-left:after{
+      display: block;
+      content: '';
+      clear: both;
+      height: 0;
+    }
+    .like-group-content-left{
+      margin-top: 18rpx;
+      width: 49%;
+      height: 530rpx;
+      float: left;
+      background: pink;
+    }
+    .like-group-content-right{
+      margin-top: 18rpx;
+      width: 49%;
+      height: 530rpx;
+      float: right;
+      background: pink;
+    }
+  }
+  
+}
+
 </style>
