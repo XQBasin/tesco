@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/details/index",
     "pages/home/index"
   ],
   "window": {
@@ -18,32 +19,32 @@
       {
         "pagePath": "pages/home/index",
         "text": "首页",
-        "iconPath": "./static/image/index/tab_icon1@2x.png",
-        "selectedIconPath": "./static/image/index/tab_icon11@2x.png"
+        "iconPath": "./static/image/index/tab_icon1.png",
+        "selectedIconPath": "./static/image/index/tab_icon11.png"
       },
       {
         "pagePath": "pages/home/index",
         "text": "分类",
-        "iconPath": "./static/image/index/tab_icon2@2x.png",
-        "selectedIconPath": "./static/image/index/tab_icon22@2x.png"
+        "iconPath": "./static/image/index/tab_icon2.png",
+        "selectedIconPath": "./static/image/index/tab_icon22.png"
       },
       {
         "pagePath": "pages/home/index",
         "text": "晒一晒",
-        "iconPath": "./static/image/index/tab_icon3@2x.png",
-        "selectedIconPath": "./static/image/index/tab_icon33@2x.png"
+        "iconPath": "./static/image/index/tab_icon3.png",
+        "selectedIconPath": "./static/image/index/tab_icon33.png"
       },
       {
         "pagePath": "pages/home/index",
         "text": "购物车",
-        "iconPath": "./static/image/index/tab_icon4@2x.png",
-        "selectedIconPath": "./static/image/index/tab_icon44@2x.png"
+        "iconPath": "./static/image/index/tab_icon4.png",
+        "selectedIconPath": "./static/image/index/tab_icon44.png"
       },
       {
         "pagePath": "pages/home/index",
         "text": "个人中心",
-        "iconPath": "./static/image/index/tab_icon5@2x.png",
-        "selectedIconPath": "./static/image/index/tab_icon55@2x.png"
+        "iconPath": "./static/image/index/tab_icon5.png",
+        "selectedIconPath": "./static/image/index/tab_icon55.png"
       }
     ],
     "color": "#666666",

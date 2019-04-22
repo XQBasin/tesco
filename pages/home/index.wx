@@ -6,7 +6,7 @@
                 <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px">
                     <view class="containertitle">
                         <view class='dingwei'>
-                            <image src="../../static/image/index/home_icon_Location@2x.png" mode="aspectFit" style="width:20px;height:20px;"/>
+                            <image src="../../static/image/index/home_icon_Location.png" mode="aspectFit" style="width:20px;height:20px;"></image>
                             <text>广州市番禺区</text>
                         </view>
                     </view>
@@ -28,8 +28,8 @@
             <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
                 <block wx:for="{{banner}}" wx:key="unique">
                     <swiper-item>
-                        <image wx:if="{{index == 0}}" src="{{item.src}}" class="img" mode="aspectFill" data-route='activity/show' data-param='activityid=3' bindtap='navigateToShow'/>
-                        <image wx:else src="{{item.src}}" class="img" mode="aspectFill"/>
+                        <image wx:if="{{index == 0}}" src="{{item.src}}" class="img" mode="aspectFill" data-route='activity/show' data-param='activityid=3' bindtap='navigateToShow'></image>
+                        <image wx:else src="{{item.src}}" class="img" mode="aspectFill"></image>
                     </swiper-item>
                 </block>
             </swiper>
@@ -45,25 +45,25 @@
                     <view class='group-item'>
                         <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon1@2x.png"/>
+                                <image src="../../static/image/index/home_icon1.png"></image>
                                 <text>生活用品</text>
                             </view>
                         </button>
                         <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon2@2x.png"/>
+                                 <image src="../../static/image/index/home_icon2.png"></image>
                                 <text>电子产品</text>
                             </view>
                         </button>
                         <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon3@2x.png"/>
+                                 <image src="../../static/image/index/home_icon3.png"></image>
                                 <text>服装服饰</text>
                             </view>
                         </button>
                         <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon4@2x.png"/>
+                                 <image src="../../static/image/index/home_icon4.png"></image>
                                 <text>美妆洗护</text>
                             </view>
                         </button>
@@ -71,25 +71,25 @@
                     <view class='group-item'>
                       <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon5@2x.png"/>
+                                <image src="../../static/image/index/home_icon5.png"></image>
                                 <text>书籍特卖</text>
                             </view>
                         </button>
                         <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon6@2x.png"/>
+                                 <image src="../../static/image/index/home_icon6.png"></image>
                                 <text>零食小吃</text>
                             </view>
                         </button>
                         <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon7@2x.png"/>
+                                 <image src="../../static/image/index/home_icon7.png"></image>
                                 <text>体育运动</text>
                             </view>
                         </button>
                         <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                             <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon8@2x.png"/>
+                                 <image src="../../static/image/index/home_icon8.png"></image>
                                 <text>礼品饰物</text>
                             </view>
                         </button>
@@ -103,7 +103,7 @@
             <view class="manuad">
                 <button class="authorise_btn" data-route="main/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                     <view class="image">
-                        <image src="http://file.taoyuantoday.com/213/20190115/3fd5d9348a62a75ec3dc3b8363627706.jpg"/>
+                        <image src="http://file.taoyuantoday.com/213/20190115/3fd5d9348a62a75ec3dc3b8363627706.jpg"></image>
                     </view>
                 </button>
             </view>
@@ -119,19 +119,59 @@
                     </view>
                 </view>
                 <view class='rm-group'>
-                  <view class="rm-group-left"></view>
+                  <view class="rm-group-left">
+                      <view class="rm-content">
+                          <image class="hot-image" src="../../static/image/index/home_icon_heat.png"></image>
+                          <view class="shop">
+                            <image class="shop-image" src="../../static/image/index/test/computer.png"></image>
+                            <view class="shop-title">苹果电脑最新款按罚款破伤风食品技术附件傲......</view>
+                            <view class="dis">满1000减100</view>
+                            <view class="price">¥ 8888.00<text class="payNum">3452已付款</text></view>
+                          </view>
+                      </view>
+                  </view>
                   <view class="rm-group-right">
-                    <view wx:for="rmList" wx:key="rmKey" class="{{index==0? 'rm-group-right1':'rm-group-right2'}}"></view>
-                    <!-- <view class="rm-group-right2"></view> -->
+                    <view wx:for="{{rmList}}" wx:key="rmKey" class="{{index==0? 'rm-group-right1':'rm-group-right2'}}">
+                        <image class="hot-image" src="../../static/image/index/home_icon_heat.png"></image>
+                        <view class="shop">
+                            <view class="shop-right">
+                                <image class="shop-image" src="../../static/image/index/test/hufu.png" mode="widthFix"></image>
+                                <text class="payNum">3452已付款</text>
+                            </view>
+                            <view class="shop-left">
+                                <view class="shop-title">齐强速效洗粉多买多送......</view>
+                                <view class="dis">满1000减40</view>
+                                <view class="price">¥ 33.90</view>
+                            </view>
+                          </view>
+                    </view>
                   </view>
                   <view class="clear"></view>
                 </view>
             </view>
             <!-- 特卖 -->
             <view class="tab-panel-item special-panel-item">
-              <view class="special-group-left"></view>
+              <view class="special-group-left">
+                    <image class="special-image" src="../../static/image/index/home_icon_Special.png"></image>
+                    <view class="special-title">每日特惠价</view>
+                    <view class="shop-left">
+                        <view class="shop-title">护肤润滑手段和年...</view>
+                        <view class="price">¥ 353</view>
+                    </view>
+                    <view class="shop-right">
+                        <image src="../../static/image/index/test/hufu.png" mode="widthFix"></image>
+                    </view>
+              </view>
               <view class="special-group-right">
-
+                    <image class="special-image" src="../../static/image/index/home_icon_Special.png"></image>
+                    <view class="special-title">爆款精选</view>
+                    <view class="shop-left">
+                        <view class="shop-title">护肤润滑手段和年...</view>
+                        <view class="price">¥ 456</view>
+                    </view>
+                    <view class="shop-right">
+                        <image src="../../static/image/index/test/hufu.png" mode="widthFix"></image>
+                    </view>
               </view>
               <view class="clear"></view>
             </view>
@@ -145,10 +185,26 @@
                     <view class='more'></view>
                 </view>
                 <view class='fc-group'>
-                  <view class="fc-group-content"></view>
-                  <view class="fc-group-content"></view>
-                  <view class="fc-group-content"></view>
-                  <view class="fc-group-content"></view>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/01.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/02.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/01.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/02.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
                   <view class="clear"></view>
                 </view>
             </view>
@@ -158,22 +214,49 @@
                     <view class="label">
                         <text class="label_content"></text>
                     </view>
-                    <view class='main'>吃货小天地<text> · 你也来馋一下吧?!</text></view>
+                    <view class='main'>吃货小天地<text class="sub"> · 你也来馋一下吧?!</text></view>
                     <view class='more'>
                         <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
                     </view>
                 </view>
                 <view class='group'>
-                  <view class="group-left"></view>
+                  <view class="group-left">
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <view class="mask">猪年送大礼，您的优选......</view>
+                  </view>
                   <view class="group-right">
-
+                      <view class="shop-title">
+                          国外进口零食
+                          <text class="shop-type">原装进口</text>   
+                      </view>
+                      <view class="shop-subtitle">
+                          无加工 无添加产品
+                      </view>
+                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:left;"></image>
+                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:right;"></image>
                   </view>
                   <view class="clear"></view>
                   <view class="group-content">
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
+                    <view class="group-content1">
+                        <view class="shop-title">坚果类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">肉干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">饼干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">果冻布丁</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
                   </view>
                   <view class="clear"></view>
                 </view>
@@ -184,22 +267,49 @@
                     <view class="label">
                         <text class="label_content"></text>
                     </view>
-                    <view class='main'>生活必备<text> · 看看你需要哪些</text></view>
+                    <view class='main'>生活必备<text class="sub"> · 看看你需要哪些</text></view>
                     <view class='more'>
                         <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
                     </view>
                 </view>
                 <view class='group'>
-                  <view class="group-left"></view>
+                  <view class="group-left">
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <view class="mask">猪年送大礼，您的优选......</view>
+                  </view>
                   <view class="group-right">
-
+                      <view class="shop-title">
+                          国外进口零食
+                          <text class="shop-type">原装进口</text>   
+                      </view>
+                      <view class="shop-subtitle">
+                          无加工 无添加产品
+                      </view>
+                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:left;"></image>
+                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:right"></image>
                   </view>
                   <view class="clear"></view>
                   <view class="group-content">
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
+                    <view class="group-content1">
+                        <view class="shop-title">坚果类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">肉干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">饼干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">果冻布丁</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
                   </view>
                   <view class="clear"></view>
                 </view>
@@ -210,22 +320,49 @@
                     <view class="label">
                         <text class="label_content"></text>
                     </view>
-                    <view class='main'>五花八门<text> · 随便挑，绝对有你喜欢的！</text></view>
+                    <view class='main'>五花八门<text class="sub"> · 随便挑，绝对有你喜欢的！</text></view>
                     <view class='more'>
                         <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
                     </view>
                 </view>
                 <view class='group'>
-                  <view class="group-left"></view>
+                  <view class="group-left">
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <view class="mask">猪年送大礼，您的优选......</view>
+                  </view>
                   <view class="group-right">
-
+                      <view class="shop-title">
+                          国外进口零食
+                          <text class="shop-type">原装进口</text>   
+                      </view>
+                      <view class="shop-subtitle">
+                          无加工 无添加产品
+                      </view>
+                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:left;"></image>
+                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:right"></image>
                   </view>
                   <view class="clear"></view>
                   <view class="group-content">
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
-                    <view class="group-content1"></view>
+                    <view class="group-content1">
+                        <view class="shop-title">坚果类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">肉干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">饼干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">果冻布丁</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
                   </view>
                   <view class="clear"></view>
                 </view>
@@ -234,16 +371,24 @@
         <!-- 猜你喜欢 -->
         <view class="like-panel-item">
           <view class="like-title">
-            <image src="../../static/image/index/home_icon_Left@2x.png" mode="scaleToFill"/>
+            <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill"></image>
             <text>猜你喜欢</text>
-            <image src="../../static/image/index/home_icon_right@2x.png" mode="scaleToFill"/>
+            <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill"></image>
             <view class="clear"></view>
           </view>
           <view class="like-group-content">
-            <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}" data-id='{{index}}'>{{item.name}}</view>
+            <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}" data-id='{{index}}'>
+                <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
+                <view class="shop-detail">
+                    <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿......</view>
+                    <text class="dis">秒199减99</text>
+                    <view class="price">¥124<text class="coupon">+66寸金</text><text class="payNum">2390人付款</text></view>
+                </view>
+            </view>
             <view class="clear"></view>
           </view>
         </view>
+    <view class="clear"></view>
     
     </view>
 </template>
@@ -264,31 +409,20 @@ export default {
             {src: 'http://file.taoyuantoday.com/213/20190111/f7e9684f2a50926daa2361c19173e582.png'},
             {src: 'http://file.taoyuantoday.com/213/20190114/29224e27cb98ee82ac2486bbc303bd53.jpg'},
         ],
-        style: 1,
         swiperCurrent: 0,
-        current: 0,
-        showBadge: true,
-        isHideLoadMore: false,
-        socials:[],             // 社交消息列表
-        activities: [],         // 最新活动列表
-        uid: '',                // 桃园用户标识
         rmList:[                //热卖数据
           {'name':1},
           {'name':2}
         ],
         list:[
-          {'name':1},
-          {'name':2},
-          {'name':3},
-          {'name':4}
+          {'src':'../../static/image/index/test/car.png'},
+          {'src':'../../static/image/index/test/cooker.png'},
+          {'src':'../../static/image/index/test/cooker.png'},
+          {'src':'../../static/image/index/test/car.png'}
         ]
     },
     onLoad(options) {
-        var that = this
-        // 获取社交数据
-        that.getSocials(1)
-        // 获取活动数据
-        that.getActivities(1)
+        var that = this;
         wx.login({
             success(res) {
                 if (res.code) {
@@ -314,104 +448,20 @@ export default {
                 }
             }
         })
-        wx.showShareMenu({
-            withShareTicket: true
-        })
     },
     //下拉刷新
     onPullDownRefresh:function() {
         wx.showNavigationBarLoading() //在标题栏中显示加载
         //模拟加载
-        this.getSocials(1)
-        this.getActivities(1)
         setTimeout(function() {
             // complete
             wx.hideNavigationBarLoading() //完成停止加载
             wx.stopPullDownRefresh() //停止下拉刷新
         }, 1500);
     },
-    //加载更多
-    onReachBottom: function () {
-        setTimeout(() => {
-            this.setData({
-                isHideLoadMore: true,
-            })
-        }, 2000)
-    },
-    // 监听用户滑动页面事件。
-    onPageScroll: function(option) {
-        if (option.scrollTop >= 150) {
-            this.setData({
-                style: 2
-            })
-        } else {
-            this.setData({
-                style: 1
-            })
-        }
-    },
     swiperChange: function(option) {
         this.setData({
             swiperCurrent: option.detail.current
-        })
-    },
-    // 获取用户基本信息
-    bindGetUserInfo(e) {
-        var that = this;
-        let route = e.currentTarget.dataset.route
-        // 判断是否同意授权
-        if (e.detail.userInfo == undefined) {
-            wx.showModal({
-                title: '温馨提示',
-                content: '请先允许授权再继续！',
-                showCancel: false,
-                confirmColor: '#ffd100',
-                confirmText: '我知道啦',
-                success(res) {
-                    if (res.confirm) {
-                        console.log('用户已确认看到提示！')
-                    }
-                }
-            })
-        } else {
-            that.updateUser(e.detail.userInfo, that.data.uid, route)
-        }
-    },
-    // 更新用户信息
-    updateUser: function (userInfo, uid, route) {
-        var that = this;
-        wx.request({
-            url: 'https://wx.taoyuantoday.com/mini.Index/updateUser.html',
-            data: {
-                userInfo: userInfo,
-                uid: uid
-            },
-            header: {
-                'content-type': 'application/json' // 默认值
-            },
-            success(res) {
-                that.navigateTo(route)
-            }
-        })
-    },
-    // 获取路由页面
-    navigateTo: function (route) {
-        wx.navigateTo({
-            url: '../' + route
-        })
-    },
-    // 查看社交信息详情
-    getSocInfo: function (option) {
-        let socialid = option.currentTarget.dataset.id
-        wx.navigateTo({
-            url: '../social/comments?socialid='+socialid
-        })
-    },
-    // 查看活动详情
-    getActInfo: function (option) {
-        let activityid = option.currentTarget.dataset.id
-        wx.navigateTo({
-            url: '../activity/info?activityid='+activityid
         })
     },
     // 获取路由页面
@@ -421,100 +471,13 @@ export default {
         wx.navigateTo({
             url: '../' + route + '?' + param
         })
-    },
-    // 监听Tab切换
-    handleChange (e) {
-        let index = e.detail.index
-        this.setData({
-            current:index
-        })
-    },
-    handleContentChange (e) {
-        let current = e.detail.current
-        this.setData({
-          current:current
-        })
-    },
-    // 活动列表
-    getActivities: function (status) {
-        var that = this;
-        wx.request({
-            url: 'https://wx.taoyuantoday.com/mini.Index/getActivities.html',
-            data: {
-                status: status,
-            },
-            header: {
-                'content-type': 'application/json' // 默认值
-            },
-            success(res) {
-                if (res.data != "") {
-                    that.setData({
-                        activities: res.data
-                    })
-                }
-            }
-        })
-    },
-    // 社交列表
-    getSocials: function (status) {
-        var that = this;
-        wx.request({
-            url: 'https://wx.taoyuantoday.com/mini.Index/getSocials.html',
-            data: {
-                status: status,
-            },
-            header: {
-                'content-type': 'application/json' // 默认值
-            },
-            success(res) {
-                if (res.data != "") {
-                    that.setData({
-                        socials: res.data
-                    })
-                }
-            }
-        })
-    },
-    previewImage: function(e) {
-        var urls = e.currentTarget.dataset.urls
-        wx.previewImage({
-            current: e.currentTarget.id,    // 当前显示图片的http链接
-            urls: urls                      // 需要预览的图片http链接列表
-        })
-    },
-    // 客服消息
-    handleContact(e) {
-        console.log(e.path)
-        console.log(e.query)
     }
 }
 </script>
 
 <style lang="less">
-// 自定义导航栏
-.nav_bar {
-    .mix-flex-center();
-    .nav-bar-col {
-        text-align: center;
-        .containertitle {
-            padding: 6px 10px;
-            display: flex;
-            .dingwei {
-                height: 25px;
-                display: flex;
-                .mix-text-overflow();
-                .mix-flex-y-center();
-            }
-            .dingwei text {
-                margin: 0px 3px;
-            }
-        }
-        .nav-bar-title {
-            font-size: 18px;
-            font-weight: 600;
-        }
-    }
-}
+@import '../../static/styles/weui.wxss';
+
 // 搜索框
 .search {
     width: 90%;
@@ -686,12 +649,59 @@ export default {
         }
     }
 }
+
+// 商品展示区公共样式
 .clear{
   clear: both;
+}
+.shop-title{
+    font-size: 24rpx;
+    line-height: 36rpx;
+}
+.price{
+    font-size: 30rpx;
+    color: #eb0202;
+    font-weight: bold;
 }
 // 热卖抢购
 .rm-group {
     margin-bottom: 10px;
+    .rm-content{
+        position: relative;
+        padding: 0 10rpx 0 16rpx;
+        .hot-image{
+            width: 34rpx;
+            height: 46rpx;
+            position: absolute;
+        }
+        .shop{
+            width: 282rpx;
+            .shop-image{
+                height: 230rpx;
+            }
+            .dis{
+                width: 136rpx;
+                text-align: center;
+                height: 30rpx;
+                line-height: 30rpx;
+                font-size: 18rpx;
+                background: #f87005;
+                border-radius: 10rpx;
+                margin-top: 18rpx;
+                color: #fff;
+            }
+            .price{
+                margin-top: 20rpx;
+            }
+            .payNum{
+                font-size: 20rpx;
+                color: #999999;
+                margin-left: 20rpx;
+                font-weight: normal;
+            }
+        }
+        
+    }
     .rm-group-left{
       width: 45%;
       height: 412rpx;
@@ -709,27 +719,96 @@ export default {
         width: 100%;
         height: 200rpx;
         background: #f4f4f4;
+        padding: 0 10rpx 0 18rpx;
+        .hot-image{
+            width: 34rpx;
+            height: 46rpx;
+            position: absolute;
+        }
+        .shop-left{
+            float: left;
+            width: 55%;
+            padding-top: 44rpx;
+            .dis{
+                width: 136rpx;
+                text-align: center;
+                height: 30rpx;
+                line-height: 30rpx;
+                font-size: 18rpx;
+                background: #f87005;
+                border-radius: 10rpx;
+                margin-top: 3rpx;
+                color: #fff;
+            }
+            .price{
+                margin-top: 10rpx;
+            }
+        }
+        .shop-right{
+            float: right;
+            width: 45%;
+            padding-top: 15rpx;
+            .payNum{
+                font-size: 20rpx;
+                color: #999999;
+            }
+        }
       }
     }
 }
-
 // 每日优惠，特卖
 .special-panel-item{
   background: none;
   padding: 0;
+  margin-top: 39rpx;
   .special-group-left{
     width: 49.4%;
     height: 250rpx;
-    background: pink;
+    background: #fff;
     float: left;
     border-radius: 20rpx;
+    position: relative;
   }
   .special-group-right{
     width: 49.4%;
     height: 250rpx;
     float: right;
-    background: lawngreen;
+    background: #fff;
     border-radius: 20rpx;
+    position: relative;
+  }
+  //公共样式   
+  .special-title{
+      font-weight: bold;
+      color: #fff;
+      position: absolute;
+      line-height: 51rpx;
+      font-size: 30rpx;
+      top: -15rpx;
+      left: 15rpx;
+  }
+  .special-image{
+      position: absolute;
+      top: -15rpx;
+      width: 191rpx;
+      height: 52rpx;
+  }
+  .shop-left{
+      width: 50%;
+      float: left;
+      padding-left: 18rpx;
+      padding-top: 30rpx;
+      .shop-title{
+          margin-top: 42rpx;   
+      }
+      .price{
+          margin-top: 46rpx;
+      }
+  }
+  .shop-right{
+      width: 50%;
+      float: right;
+      padding-top: 40rpx;
   }
 }
 // 方寸推荐
@@ -738,43 +817,75 @@ export default {
   margin-bottom: 32rpx;
   .fc-group-content{
     width: 23%;
-    height: 270rpx;
+    height: 250rpx;
     margin: 0 7rpx;
-    background: pink;
     float: left;
+    .shop-title{
+        text-align: center;
+        margin-top: 12rpx;
+    }
+    .price{
+        text-align: center;
+    }
   }
 }
 // 吃货小天地
 .food-panel-item,.life-panel-item,.various-panel-item{
-  text{
-    font-size: 12px;
-    color: #f9935a;
+  .sub{
+    font-size: 24rpx;
+    color: #f87005;
   }
   .group {
-    margin-bottom: 30rpx;
+    margin-bottom: 20rpx;
     .group-left{
       width: 49.3%;
-      height: 214rpx;
-      background: pink;
+      height: 250rpx;
       float: left;
+      position: relative;
+      .mask{
+          width: 100%;
+          height: 40rpx;
+          color: #fff;
+          line-height: 40rpx;
+          padding-left: 20rpx;
+          background: rgba(0, 0, 0, 0.3);
+          position: absolute;
+          bottom: 0;
+      }
     }
     .group-right{
       width: 49.3%;
-      height: 214rpx;
+      height: 250rpx;
       float: right;
-      background: lawngreen;
+      background: #f4f4f4;
     }
     .group-content{
       padding: 0 1rpx;
       margin-top: 28rpx;
       .group-content1{
         width: 23%;
-        height: 200rpx;
         margin: 0 7rpx;
-        background: lawngreen;
         float: left;
       }
     }
+    // 公共样式
+    .shop-title{
+        font-weight: bold;
+        font-size: 28rpx;
+        margin: 10rpx 0 0 10rpx;
+    }
+    .shop-type{
+        color: #fff;
+        font-size: 20rpx;
+        background: #ffb345;
+        padding: 0 17rpx;
+        border-radius: 16rpx;
+    }
+    .shop-subtitle{
+        color: rgb(186, 186, 186);
+        margin-left: 10rpx;
+    }
+    
   }
 }
 // 猜你喜欢
@@ -784,6 +895,7 @@ export default {
   .like-title{
     width: 50%;
     margin: 0 auto;
+    text-align: center;
     text{
       float: left;
       font-size: 32rpx;
@@ -791,33 +903,59 @@ export default {
       line-height: 32rpx;
     }
     image{
-      margin: 9rpx 6rpx;
       float: left;
       width: 91rpx;
       height: 14rpx;
     }
+    .left-image{
+        margin: 9rpx 12rpx 9rpx 0;
+    }
+    .right-image{
+        margin: 9rpx 0 9rpx 12rpx;
+    }
   }
   .like-group-content{
     padding-top: 18rpx;
-    .like-group-content-left:after{
-      display: block;
-      content: '';
-      clear: both;
-      height: 0;
+    .like-group-content-left,.like-group-content-right{
+        margin-top: 18rpx;
+        width: 49%;
+        height: 530rpx;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 2rpx 4rpx 5rpx #c4c4c4;
+        overflow: hidden;
+        .shop-detail{
+            padding: 0 17rpx;
+            .dis{
+                margin-top: 12rpx;
+                padding: 0 10rpx;
+                border-radius: 32rpx;
+                border: 1px solid rgb(248, 112, 5);
+                display: inline-block;
+                color: rgb(248, 112, 5);
+            }
+            .price{
+                margin-top: 24rpx;
+                .payNum{
+                    font-size: 22rpx;
+                    color: #999999;
+                    margin-left: 10rpx;
+                    font-weight: normal;
+                }
+                .coupon{
+                    color: #f87005;
+                    font-size: 22rpx;
+                    margin-left: 5rpx;
+                    font-weight: normal;
+                }
+            }
+        }
     }
     .like-group-content-left{
-      margin-top: 18rpx;
-      width: 49%;
-      height: 530rpx;
       float: left;
-      background: pink;
     }
     .like-group-content-right{
-      margin-top: 18rpx;
-      width: 49%;
-      height: 530rpx;
       float: right;
-      background: pink;
     }
   }
   

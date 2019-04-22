@@ -1,0 +1,213 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">商品详情</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+
+    <!-- 商品展示区 -->
+    <view class="show-area">
+      <image src="../../static/image/details/test/img2.png" mode="widthFix"></image>
+      <view class="price">¥9999.00<text class="del">¥9999.00</text></view>
+      <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到</view>
+      <text class="shop-type">时尚休闲</text>
+    </view>
+
+    <!-- 优惠 -->
+    <ui-row-list class="discount" bindtap="openDis" data-show="{{ true }}">
+      <ui-row>
+          <ui-col class="text" >
+              优惠
+          </ui-col>
+          <text class="tip">得888方金</text>
+          <ui-col width="40" style="line-height:90rpx;">
+              <ui-icon type="gengduo"></ui-icon>
+          </ui-col>
+      </ui-row>
+    </ui-row-list>
+    <!-- 优惠选项界面 -->
+    <ui-popup show="{{ disFlag }}" position="bottom" height="450" class="dis-mask">
+      <view class="text">优惠</view>
+      <ui-icon type="shanchu" color="#333333" size="20px;" class="sc-icon" bindtap="disHide"></ui-icon>
+      <view class="dis-content">
+        <view class="title">促销</view>
+        <view class="tip">获得  <text>888寸金</text></view>
+        <view class="title">优惠券</view>
+      </view>
+      <scroll-view scroll-y style="height: 620rpx;">
+        <view wx:for="{{disSrc}}" wx:key="disKey">
+          <view style="position:relative;">
+            <image class="dis-image" src="{{item.src}}" mode="widthFix"></image>
+            <view class="dis-image-content">
+              <view class="disNum">
+                <text class="pre">¥</text>
+                <text class="number">{{item.discount}}</text>
+              </view>
+              <view class="validity">有效期：{{item.time}}</view>
+              <view class="fill">满{{item.fill}}使用</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </ui-popup>
+
+    <!--  -->
+    
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '商品详情',
+    navigationBarTextStyle: 'black',
+    enablePullDownRefresh: true
+  },
+  data: {
+    disFlag:false,  //优惠选项状态
+    disSrc:[
+      {discount:'500',src:'../../static/image/details/02.png',fill:'1000',time:'2019.03.20-2019.03.28'},
+      {discount:'30',src:'../../static/image/details/01.png',fill:'1000',time:'2019.03.20-2019.03.28'},
+      {discount:'500',src:'../../static/image/details/02.png',fill:'1000',time:'2019.03.20-2019.03.28'},
+      {discount:'100',src:'../../static/image/details/02.png',fill:'1000',time:'2019.03.20-2019.03.28'}
+    ]
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 优惠
+  openDis(e){
+    let show = e.currentTarget.dataset.show;
+    console.log(show)
+    this.setData({
+      disFlag: show
+    })
+  },
+  disHide(){
+    this.setData({
+      disFlag:false
+    })
+  }
+
+}
+</script>
+
+<style lang="less">
+@import '../../static/styles/weui.wxss';
+page{
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #333333;
+}
+// 商品展示区
+.show-area{
+  background: #fff;
+  margin: 66px 0 12rpx 0;
+  padding: 0 26rpx 25rpx 26rpx;
+  .price{
+    font-size: 36rpx;
+    color: rgb(248, 112, 5);
+    font-weight: bold;
+    margin: 34rpx 0 22rpx 0;
+  }
+  .del{
+    font-size: 24rpx;
+    color: rgb(153, 153, 153);
+    text-decoration: line-through;
+    font-weight: normal;
+    margin-left: 30rpx;
+  }
+  .shop-title{
+    margin-bottom: 19rpx;
+  }
+  .shop-type{
+    display: inline-block;
+    background: #bababa;
+    color: #fff;
+    border-radius: 20rpx;
+    padding: 0 24rpx;
+  }
+}
+// 优惠
+.discount{
+  background: #fff;
+  position: relative;
+  .text{
+    line-height: 90rpx;
+    padding-left: 26rpx;
+  }
+  .tip{
+    position: absolute;
+    top: 20rpx;
+    left: 105rpx;
+    border-radius: 50rpx;
+    border:1px solid #f87005;
+    color: #f87005;
+    padding: 5rpx 20rpx;
+  }
+}
+.dis-mask{
+  .text{
+    width: 100%;
+    background: #ececec;
+    line-height: 72rpx;
+    height: 72rpx;
+    text-align: center;
+  }
+  .sc-icon{
+    position: absolute;
+    right:38rpx;
+    top:0;
+    line-height: 72rpx;
+  }
+  .dis-content{
+    padding: 0 20rpx;
+    .title{
+      color: #999999;
+      margin: 20rpx 0;
+    }
+    .tip{
+      text{
+        color: #f87005;
+        font-weight: bold;
+      }
+    }
+  }
+  .dis-image{
+    margin-bottom: 20rpx;
+  }
+  .dis-image-content{
+    position: absolute;
+    top: 0;
+    left: 60rpx;
+    color: #fff;
+    font-size: 20rpx;
+    .disNum{
+      height: 104rpx;
+    }
+    .pre{
+      font-size: 46rpx;
+    }
+    .number{
+      font-size: 80rpx;
+    }
+    .validity,.fill{
+      margin-top: 5rpx;
+    }
+  }
+}
+</style>

@@ -1,78 +1,76 @@
 <template>
-  <view>
-    <page></page>
-  </view>
+  <page></page>
 </template>
 
 <script>
-  import system from './static/utils/system'
-  export default {
-    config: {
-      usingComponents: {
-      },
-      pages: [
-        'pages/home/index'
-      ],
-      window: {
-         backgroundTextStyle: 'dark',
-        backgroundColor: '#F4F4F4',
-        navigationBarBackgroundColor: '#FFD100',
-        navigationBarTitleText: '方乐购',
-        navigationStyle: 'custom'
-      },
-      networkTimeout: {
-        request: 60000,
-        downloadFile: 60000
-      },
-      tabBar: {
-      list: [
-        {
+import system from './static/utils/system'
+export default {
+  config: {
+    usingComponents: {},
+    pages: [
+      'pages/details/index',
+      // 商城首页
+      'pages/home/index'
+    ],
+    window: {
+      backgroundTextStyle: 'dark',
+      backgroundColor: '#F4F4F4',
+      navigationBarBackgroundColor: '#FFD100',
+      navigationBarTitleText: '方乐购',
+      navigationStyle: 'custom'
+    },
+    networkTimeout: {
+      request: 60000,
+      downloadFile: 60000
+    },
+    tabBar: {
+      list: [{
           pagePath: 'pages/home/index',
           text: '首页',
-          iconPath: './static/image/index/tab_icon1@2x.png',
-          selectedIconPath: './static/image/index/tab_icon11@2x.png'
+          iconPath: './static/image/index/tab_icon1.png',
+          selectedIconPath: './static/image/index/tab_icon11.png'
         },
         {
           pagePath: 'pages/home/index',
           text: '分类',
-          iconPath: './static/image/index/tab_icon2@2x.png',
-          selectedIconPath: './static/image/index/tab_icon22@2x.png'
+          iconPath: './static/image/index/tab_icon2.png',
+          selectedIconPath: './static/image/index/tab_icon22.png'
         },
         {
           pagePath: 'pages/home/index',
           text: '晒一晒',
-          iconPath: './static/image/index/tab_icon3@2x.png',
-          selectedIconPath: './static/image/index/tab_icon33@2x.png'
+          iconPath: './static/image/index/tab_icon3.png',
+          selectedIconPath: './static/image/index/tab_icon33.png'
         },
         {
           pagePath: 'pages/home/index',
           text: '购物车',
-          iconPath: './static/image/index/tab_icon4@2x.png',
-          selectedIconPath: './static/image/index/tab_icon44@2x.png'
+          iconPath: './static/image/index/tab_icon4.png',
+          selectedIconPath: './static/image/index/tab_icon44.png'
         },
         {
           pagePath: 'pages/home/index',
           text: '个人中心',
-          iconPath: './static/image/index/tab_icon5@2x.png',
-          selectedIconPath: './static/image/index/tab_icon55@2x.png'
-        },
+          iconPath: './static/image/index/tab_icon5.png',
+          selectedIconPath: './static/image/index/tab_icon55.png'
+        }
       ],
-        color: '#666666',
-        selectedColor: '#f87005',
-        backgroundColor: '#FFFFFF',
-        borderStyle:'white'
-      },
-      theme: {
-        'theme-color': '#39f'
-      }
+      color: '#666666',
+      selectedColor: '#f87005',
+      backgroundColor: '#FFFFFF',
+      borderStyle: 'white'
     },
-    globalData: { },
-    onLaunch () { 
-      system.attachInfo()
-    },
-    onShow () { },
-    onHide () { }
-  }
+    theme: {
+      'theme-color': '#39f'
+    }
+  },
+  globalData: {},
+  onLaunch() {
+    system.attachInfo()
+  },
+  onShow() {},
+  onHide() {}
+}
 </script>
 
 <style lang="less">
@@ -83,5 +81,31 @@ page {
   line-height: 1.6;
   color: #333333;
   background-color: #F4F4F4;
+}
+
+// 自定义导航栏
+.nav_bar {
+    .mix-flex-center();
+    .nav-bar-col {
+        text-align: center;
+        .containertitle {
+            padding: 6px 10px;
+            display: flex;
+            .dingwei {
+                height: 25px;
+                display: flex;
+                .mix-flex-y-center();
+            }
+            .dingwei text {
+                size: 16px;
+                // color: #848484;
+                // margin: 0px 3px;
+            }
+        }
+        .nav-bar-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
 }
 </style>

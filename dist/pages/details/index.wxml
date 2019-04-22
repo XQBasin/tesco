@@ -1,0 +1,78 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">商品详情</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+
+  <!-- 商品展示区 -->
+  <view class="show-area">
+    <image src="../../static/image/details/test/img2.png" mode="widthFix" />
+    <view class="price">¥9999.00<text class="del">¥9999.00</text></view>
+    <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到</view>
+    <text class="shop-type">时尚休闲</text>
+  </view>
+
+  <!-- 优惠 -->
+  <view class="discount ui-row-list" bindtap="openDis" data-show="{{ true }}" style="">
+    <view class="ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          优惠
+        </view>
+      </view>
+      <text class="tip">得888方金</text>
+      <view style="line-height:90rpx;flex:0 0 40px;" class="ui-col">
+        <view class="ui-col-content">
+          <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 优惠选项界面 -->
+  <ui-popup show="{{ disFlag }}" position="bottom" height="450" class="dis-mask" _pid="{{_pid}}">
+    <view class="text">优惠</view>
+    <span type="shanchu" color="#333333" size="20px;" class="sc-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #333333;font-size: 20px;px;"></span>
+    <view class="dis-content">
+      <view class="title">促销</view>
+      <view class="tip">获得 <text>888寸金</text></view>
+      <view class="title">优惠券</view>
+    </view>
+    <scroll-view scroll-y style="height: 620rpx;">
+      <view wx:for="{{disSrc}}" wx:key="disKey">
+        <view style="position:relative;">
+          <image class="dis-image" src="{{item.src}}" mode="widthFix" />
+          <view class="dis-image-content">
+            <view class="disNum">
+              <text class="pre">¥</text>
+              <text class="number">{{item.discount}}</text>
+            </view>
+            <view class="validity">有效期：{{item.time}}</view>
+            <view class="fill">满{{item.fill}}使用</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </ui-popup>
+
+  <!--  -->
+
+</view>
