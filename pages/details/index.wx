@@ -27,21 +27,21 @@
     </view>
 
     <!-- 优惠 -->
-    <ui-row-list class="discount" bindtap="openDis" data-show="{{ true }}">
+    <ui-row-list class="discount" border-indent bindtap="openDis" data-show="{{ true }}">
       <ui-row>
           <ui-col class="text" >
               优惠
           </ui-col>
           <text class="tip">得888方金</text>
-          <ui-col width="40" style="line-height:90rpx;">
+          <ui-col width="20" style="line-height:90rpx;">
               <ui-icon type="gengduo"></ui-icon>
           </ui-col>
       </ui-row>
     </ui-row-list>
     <!-- 优惠选项界面 -->
-    <ui-popup show="{{ disFlag }}" position="bottom" height="450" class="dis-mask">
+    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" style="height:900rpx">
       <view class="text">优惠</view>
-      <ui-icon type="shanchu" color="#333333" size="20px;" class="sc-icon" bindtap="disHide"></ui-icon>
+      <ui-icon type="shanchu" color="#333333" size="20px;" class="cancel-icon" bindtap="disHide"></ui-icon>
       <view class="dis-content">
         <view class="title">促销</view>
         <view class="tip">获得  <text>888寸金</text></view>
@@ -64,8 +64,198 @@
       </scroll-view>
     </ui-popup>
 
-    <!--  -->
+    <!-- 选择规格 -->
+    <ui-row-list class="specs" border-indent bindtap="openSpecs">
+      <ui-row class="{{specsFlag==true? 'bottom':''}}">
+          <ui-col class="text" >
+              已选
+          </ui-col>
+          <text class="tip">{{color}}、{{size}}、{{number}}个</text>
+          <ui-col width="20" style="line-height:90rpx;">
+              <ui-icon type="{{specsFlag==true? 'xiangxiajiantou':'shangjiantou-copy'}}"></ui-icon>
+          </ui-col>
+      </ui-row>
+    </ui-row-list>
+    <ui-row-list class="specs-content" wx:if={{specsFlag}} border-indent>
+      <view class="colors-title">颜色</view>
+      <view class="colors">
+        <view class="one {{colorsId==0? 'active':''}}" data-id='0' bindtap="selectColors" data-color="红色">红色</view>
+        <view class="one {{colorsId==1? 'active':''}}" data-id='1' bindtap="selectColors" data-color="黄色">黄色</view>
+        <view class="one {{colorsId==2? 'active':''}}" data-id='2' bindtap="selectColors" data-color="黑色">黑色</view>
+        <view class="one {{colorsId==3? 'active':''}}" data-id='3' bindtap="selectColors" data-color="绿色">绿色</view>
+        <view class="one {{colorsId==4? 'active':''}}" data-id='4' bindtap="selectColors" data-color="紫色">紫色</view>
+        <view class="one {{colorsId==5? 'active':''}}" data-id='5' bindtap="selectColors" data-color="棕色">棕色</view>
+      </view>
+      <view class="size-title">尺码</view>
+      <view class="sizes">
+        <view class="one {{sizesId==0? 'active':''}}" data-id='0' bindtap="selectSize" data-size="S">S</view>
+        <view class="one {{sizesId==1? 'active':''}}" data-id='1' bindtap="selectSize" data-size="M">M</view>
+        <view class="one {{sizesId==2? 'active':''}}" data-id='2' bindtap="selectSize" data-size="L">L</view>
+        <view class="one {{sizesId==3? 'active':''}}" data-id='3' bindtap="selectSize" data-size="XL">XL</view>
+      </view>
+      <view class="num-title">数量</view>
+      <view class="number">
+        <view class="num-botton">
+          <view class="reduce" bindtap="reduce">-</view>
+          <view class="figure">{{number}}</view>
+          <view class="add" bindtap="add">+</view>
+        </view>
+      </view>
+      <view class="clear"></view>
+    </ui-row-list>
     
+    <!-- 送货地址 -->
+    <ui-row-list class="sel-address" border-indent bindtap="openAddress">
+      <ui-row>
+          <ui-col class="text" >
+              送至
+          </ui-col>
+          <ui-icon type="dingwei" class="local" color="#f87005"></ui-icon>
+          <text class="tip">广东 广州 番禺区</text>
+          <ui-col width="20" style="line-height:90rpx;">
+              <ui-icon type="gengduo"></ui-icon>
+          </ui-col>
+      </ui-row>
+    </ui-row-list>
+    <!-- 地址选项 -->
+    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" style="height:900rpx">
+      <view class="text">选择地址</view>
+      <ui-icon type="shanchu" color="#333333" size="20px;" class="cancel-icon" bindtap="addressHide"></ui-icon>
+      <view class="info">
+        <view class="hook"></view>
+        <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
+      </view>
+      <view class="info">
+        <view class="hook"></view>
+        <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
+      </view>
+      <view class="info">
+        <view class="hook"></view>
+        <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
+      </view>
+
+      <view class="line"></view>
+      <view class="other-address">选择其它区域地址<ui-icon type="rightarrow"></ui-icon></view>
+      
+    </ui-popup>
+    <!-- 运费 -->
+    <ui-row-list class="freight" border-indent>
+      <ui-row>
+          <ui-col class="text" >
+              运费
+          </ui-col>
+          <text class="tip" >免运费</text>
+      </ui-row>
+    </ui-row-list>
+
+    <!-- 服务条款 -->
+    <ui-row-list class="service" border-indent bindtap="openDis">
+      <ui-row>
+          <ui-col class="text" >
+              服务
+          </ui-col>
+          <text class="tip">极速退货·正品保证·极速退款</text>
+          <ui-col width="20" style="line-height:90rpx;">
+              <ui-icon type="gengduo"></ui-icon>
+          </ui-col>
+      </ui-row>
+    </ui-row-list>
+
+    <!-- 商品评价 -->
+    <view class="comment-area-title">评论区</view>
+    <view class="tab-panel-item">
+      <view class="flex-title">
+          <view class="label">
+              <text class="label_content"></text>
+          </view>
+          <view class='main'>评价（1223）</view>
+          <view class='more'>
+              <button class="authorise_btn">99%好评率 <ui-icon type="gengduo" color="#f87005" size="15"></ui-icon></button>
+          </view>
+      </view>
+      <view class="comment-area">
+        <view class="user">
+          卡卡***佳
+          <view class="starts">
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a2.png'></image>
+          </view>
+        </view>
+        <view class="content">
+          非常啊啊啊打开了啊大家快来看！
+        </view>
+      </view>
+      <view class="comment-area">
+        <view class="user">
+          卡卡***佳
+          <view class="starts">
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a.png'></image>
+            <image src='../../static/image/details/icon_star_a2.png'></image>
+          </view>
+        </view>
+        <view class="content">
+          非常啊啊啊打开了啊大家快来看！
+        </view>
+      </view>
+      <view class="all">
+        <view class="all-btn">全部评价</view>
+      </view>
+    </view>
+
+    <!-- 店铺信息 -->
+    <view class="tab-panel-item store">
+      <view class="top">
+        <image src="../../static/image/details/icon_star_a.png" class="store-image"></image>
+        <view  class="store-info">
+          <view>LKSJDF服装店</view>
+          <view class="score">店铺评分：<text>4.99</text>分</view>
+        </view>
+        <view class="more">
+          <text class="more-collect">收藏店铺</text>
+          <text class="more-enter">进入店铺</text>
+        </view>
+      </view>
+      <view class="clear"></view>
+      <view class="middle">
+        <view class="collectNum">
+          <text>86578</text>
+          <text>店铺收藏</text>
+        </view>
+        <view class="productNum">
+          <text>全部商品</text>
+          <text>230</text>
+        </view>
+        <view class="service">
+          <view><text>商品：4.94</text><image src="../../static/image/details/icon_arrow1.png"></image></view>
+          <view><text>服务：4.94</text><image src="../../static/image/details/icon_arrow2.png"></image></view>
+          <view><text>物流：4.94</text><image src="../../static/image/details/icon_arrow1.png"></image></view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 商品详情 -->
+    <view class="details-title">详情</view>
+    <view class="details-nav">
+      <view class="{{navId==0? 'active':''}}" data-id='0' bindtap="selectNav">图文详情</view>
+      <view class="{{navId==1? 'active':''}}" data-id='1' bindtap="selectNav">规格参数</view>
+      <view class="{{navId==2? 'active':''}}" data-id='2' bindtap="selectNav">包装售后</view>
+    </view>
+    <view style="width:100%;height:838rpx;background:#999999"></view>
+
+    <!-- 底部导航 -->
+    <view class="tab">
+      <view class="tab-store"><image src="../../static/image/details/icon_bottom.png"></image><text>店铺</text></view>
+      <view class="tab-shopCart"><image src="../../static/image/details/icon_bottom_shop.png"></image><text>购物车</text></view>
+      <view class="tab-add-shopCart">加入购物车</view>
+      <view class="tab-buy">立即购买</view>
+      <view></view>
+    </view>
   </view>
 </template>
 
@@ -83,7 +273,18 @@ export default {
       {discount:'30',src:'../../static/image/details/01.png',fill:'1000',time:'2019.03.20-2019.03.28'},
       {discount:'500',src:'../../static/image/details/02.png',fill:'1000',time:'2019.03.20-2019.03.28'},
       {discount:'100',src:'../../static/image/details/02.png',fill:'1000',time:'2019.03.20-2019.03.28'}
-    ]
+    ],
+    specsFlag:false,  //是否打开规格内容选择
+    color:'红色',
+    size:'S',
+    number:1,       //数量
+    colorsId:0,
+    sizesId:0,
+    addressFlag:false,
+    navId:0         //详情类别id
+  },
+  onLoad(){
+    
   },
   // 导航返回
   navigateBack () {
@@ -100,6 +301,64 @@ export default {
   disHide(){
     this.setData({
       disFlag:false
+    })
+  },
+  // 选择规格
+  // 是否打开规格选择内容区
+  openSpecs(){
+    var flag = this.data.specsFlag;
+    this.setData({
+      specsFlag:!flag
+    });
+  },
+  // 选择颜色
+  selectColors(e){
+    this.setData({
+      colorsId:e.target.dataset.id,
+      color:e.target.dataset.color
+    })
+  },
+  // 选择尺寸
+  selectSize(e){
+    this.setData({
+      sizesId:e.target.dataset.id,
+      size:e.target.dataset.size
+    })
+  },
+  // 减少
+  reduce(){
+    var number = --this.data.number;
+    if(number <= 1){
+      number = 1;
+    }
+    this.setData({
+      number:number
+    })
+  },
+  // 增加
+  add(){
+    var number = ++this.data.number;
+    this.setData({
+      number:number
+    })
+  },
+  // 打开地址选择
+  openAddress(){
+    var flag = this.data.addressFlag;
+    this.setData({
+      addressFlag:!flag
+    });
+  },
+  // 地址信息隐藏
+  addressHide(){
+    this.setData({
+      addressFlag:false
+    })
+  },
+  // 选择详情类别
+  selectNav(e){
+    this.setData({
+      navId:e.target.dataset.id
     })
   }
 
@@ -145,10 +404,9 @@ page{
 // 优惠
 .discount{
   background: #fff;
-  position: relative;
+  margin-bottom: 12rpx;
   .text{
     line-height: 90rpx;
-    padding-left: 26rpx;
   }
   .tip{
     position: absolute;
@@ -168,7 +426,7 @@ page{
     height: 72rpx;
     text-align: center;
   }
-  .sc-icon{
+  .cancel-icon{
     position: absolute;
     right:38rpx;
     top:0;
@@ -208,6 +466,422 @@ page{
     .validity,.fill{
       margin-top: 5rpx;
     }
+  }
+}
+// 选择规格
+.specs{
+  background: #fff;
+  .bottom{
+    border-bottom: 1px solid #CCC;
+  }
+  .text{
+    line-height: 90rpx;
+  }
+  .tip{
+    position: absolute;
+    top: 0;
+    left: 105rpx;
+    line-height: 90rpx;
+  }
+}
+.specs-content{
+  background: #fff;
+  padding-bottom: 40rpx;
+  .colors-title,.colors{
+    float: left;
+    margin-top: 37rpx;
+  }
+  .size-title,.sizes,.num-title,.number{
+    float: left;
+    margin-top: 25rpx;
+  }
+  .colors,.sizes,.number{
+    width: 85%;
+    margin-left: 23rpx;
+    .one{
+      float: left;
+      width: 129rpx;
+      height: 44rpx;
+      text-align: center;
+      line-height: 44rpx;
+      border:1px solid rgb(204, 204, 204);
+      border-radius: 22rpx;
+      color: rgb(204, 204, 204);
+      margin: 0 9rpx;
+      margin-bottom: 20rpx;
+    }
+    .active{
+      border:1px solid #f87005;
+      color: #f87005;
+    }
+  }
+  .number{
+    .num-botton{
+      width: 248rpx;
+      height: 54rpx;
+      border-radius: 27rpx;
+      line-height: 54rpx;
+      text-align: center;
+      border: 1px solid #ccc;
+      font-size: 28rpx;
+      color: #cccccc;
+      margin-left: 9rpx;
+      .reduce,.add{
+        float: left;
+        width: 73rpx;
+      }
+      .figure{
+        float: left;
+        width: 100rpx;
+        border-right: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+      }
+    }
+  }
+}
+// 送货地址
+.sel-address,.freight{
+  background: #fff;
+  position: relative;
+  .text{
+    line-height: 90rpx;
+  }
+  .tip{
+    position: absolute;
+    top: 0;
+    left: 105rpx;
+    line-height: 90rpx;
+  }
+  .local{
+    position: absolute;
+    top:0;
+    left:105rpx;
+    line-height: 90rpx;
+  }
+}
+.sel-address{
+  margin-top: 12rpx;
+  .tip{
+    left: 140rpx;
+  }
+}
+.freight{
+  margin-bottom: 1px;
+}
+// 地址信息选择
+.address-mask{
+  .text{
+    width: 100%;
+    background: #ececec;
+    line-height: 72rpx;
+    height: 72rpx;
+    padding-left: 24rpx;
+  }
+  .cancel-icon{
+    position: absolute;
+    right:38rpx;
+    top:0;
+    line-height: 72rpx;
+  }
+  .info{
+    padding-left: 24rpx;
+    position: relative;
+    margin-top: 25rpx;
+    .hook{
+      width: 25rpx;
+      height: 25rpx;
+      display: block;
+      border: 1px solid #191919;
+      border-radius: 50%;
+      position: absolute;
+      top: 10rpx;
+    }
+    .address-content{
+      padding-left: 30rpx;
+      
+    }
+  }
+  .info::after{
+    display: block;
+    height: 0;
+    content: "";
+    clear: both;
+  }
+  .line{
+    width: 100%;
+    height: 1px;
+    border-top:1px dashed #999999;
+    margin: 40rpx 0;
+  }
+  .other-address{
+    width: 348rpx;
+    height: 60rpx;
+    background: #ececec;
+    border-radius: 28rpx;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 60rpx;
+  }
+}
+// 服务条款
+.service{
+  background: #fff;
+  .text{
+    line-height: 90rpx;
+  }
+  .tip{
+    position: absolute;
+    top: 0;
+    left: 105rpx;
+    line-height: 90rpx;
+  }
+}
+// 商品评论区
+.comment-area-title,.details-title{
+  height: 78rpx;
+  text-align: center;
+  line-height: 78rpx;
+  color: #999999;
+}
+.comment-area{
+  border-top: 1px solid #999999;
+  padding: 14rpx 0;
+  position: relative;
+  .user{
+    font-size: 24rpx;
+    color: rgb(153, 153, 153);
+  }
+  .starts{
+    position: absolute;
+    right: 0;
+    top: 16rpx;
+    image{
+      width: 22rpx;
+      height: 22rpx;
+      float: left;
+      margin: 0 4rpx;
+    }
+  }
+  .content{
+    font-size: 28rpx;
+  }   
+}
+.all{
+  width: 100%;
+  padding: 32rpx 0 36rpx 0;
+  .all-btn{
+    width: 240rpx;
+    height: 50rpx;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 25rpx;
+    text-align: center;
+    margin: 0 auto;
+    color: #999999;
+  }
+}
+.tab-panel-item {
+    padding: 5px 15px;
+    position: relative;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgb(240, 240, 240);
+    .flex-title{
+      position: static;
+    }
+}
+.flex-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    text-align: left;
+    .mix-1px(0, 0, 1, 0, #ccc);
+    .mix-flex-y-center();
+    .label {
+        margin: 20rpx 0;
+        width: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        .mix-flex-y-center();
+        .label_content {
+            width: 10rpx;
+            height: 32rpx;
+            background-color:#f87005;
+            border-radius: 10rpx;
+        }
+    }
+    .main {
+        margin: 20rpx 0px;
+        width: 69%;
+        font-size: 32rpx;
+        text-align: left;
+        font-weight: normal;
+        color: rgb(153, 153, 153)
+    }
+    .more {
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        .authorise_btn {
+            color: #f87005;
+            font-size: 26rpx;
+            background-color: #FFFFFF;
+            padding-right: 0;
+        }
+        .authorise_btn::after {
+            border: none;
+        }
+    }
+}
+// 店铺信息
+.store{
+  margin-top: 25rpx;
+  padding-top: 20rpx;
+  .top{
+    .store-image,.store-info{
+      float: left;
+    }
+    .store-image{
+      width: 100rpx;
+      height: 100rpx;
+      display: block;
+      margin-right: 20rpx;
+    }
+    .store-info .score{
+      font-size: 24rpx;
+      color: #999999;
+      margin-top: 25rpx;
+      text{
+        color: #f87005;
+      }
+    }
+    .more{
+      float: right;
+      padding-top: 16rpx;
+      .more-collect{
+        padding: 14rpx 16rpx;
+        font-size: 28rpx;
+        color: rgb(248, 112, 5);
+        border: 1px solid rgb(248, 112, 5);
+        border-radius: 6rpx;
+      }
+      .more-enter{
+        padding: 14rpx 16rpx;
+        font-size: 28rpx;
+        color: #fff;
+        background: rgb(248, 112, 5);
+        border: 1px solid rgb(248, 112, 5);
+        border-radius: 6rpx;
+        margin-left: 14rpx;
+      }
+    }
+  }
+  .middle{
+    margin-top: 24rpx;
+    .collectNum,.productNum,.service{
+      float: left;
+      width: 33.3%;
+      line-height: 45rpx;
+      text{
+        display: block;
+        text-align: center;
+        color: #999999;
+      }
+    }
+    .collectNum,.productNum{
+      border-right: 1px solid #999999;
+    }
+    .service{
+      margin-top: -20rpx;
+      view{
+        width: 100%;
+        text-align: center;
+      }
+      text{
+        display: inline;
+      }
+      image{
+        width: 20rpx;
+        height: 32rpx;
+        margin-left: 5rpx;
+        display: inline-block;
+      }
+    }
+  }
+  .middle::after{
+    display: block;
+    height: 0;
+    content: "";
+    clear: both;
+  }
+}
+.store::after{
+  display: block;
+  height: 0;
+  content: "";
+  clear: both;
+}
+// 商品详情
+.details-nav{
+  width: 100%;
+  padding: 0 50rpx;
+  padding-bottom: 10rpx;
+  view{
+    width: 33.3%;
+    height: 70rpx;
+    float: left;
+    line-height: 70rpx;
+    text-align: center; 
+  }
+  view.active{
+    color: #f87005;
+    border-bottom: 4rpx solid #f87005;
+  }
+}
+.details-nav::after{
+  display: block;
+  height: 0;
+  content: "";
+  clear: both;
+}
+// 底部导航
+.tab{
+  position: fixed;
+  bottom:0;
+  height: 110rpx;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  .tab-store,.tab-shopCart{
+    width:15%;
+    height: 100%;
+    float: left;
+    color: #999999;
+    padding-top: 10rpx;
+    image{
+      width: 54rpx;
+      height: 54rpx;
+      margin: 0 auto;
+    }
+  }
+  .tab-add-shopCart,.tab-buy{
+    line-height: 110rpx;
+    width:35%;
+    height: 100%;
+    float: left;
+    font-size: 36rpx;
+  }
+  .tab-add-shopCart{
+    color: #f87005;
+    box-sizing: border-box;
+    border: 1px solid #f87005;
+  }
+  .tab-buy{
+    background: #f87005;
+    color: #fff;
   }
 }
 </style>
