@@ -1,0 +1,197 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">选择区域地址</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+
+    <!-- 填写区域 -->
+    <ui-row-list class="address" border-indent>
+    <ui-row height="78rpx;">
+        <ui-col class="text">
+            <text class="left-top">地址</text><text class="content">{{info[0]}}省{{info[1]}}市{{info[2]}}区{{info[3]}}街道</text>
+        </ui-col>
+    </ui-row>
+    <ui-row height="78rpx;">
+        <ui-col class="text">
+            <text class="left-text">所在地区</text>
+            <picker class="area" bindchange="changePro" value="{{provinceId}}" range="{{province}}">
+                <view class="picker">
+                {{province[provinceId]}}
+                </view>
+            </picker>
+        </ui-col>
+    </ui-row>
+    <ui-row height="78rpx;">
+        <ui-col class="text">
+            <text class="left-text">市</text>
+            <picker class="area" bindchange="changeCity" value="{{cityId}}" range="{{city}}">
+                <view class="picker">
+                {{city[cityId]}}
+                </view>
+            </picker>
+        </ui-col>
+    </ui-row>
+    <ui-row height="78rpx;">
+        <ui-col class="text">
+            <text class="left-text">区/县</text>
+            <picker class="area" bindchange="changeReg" value="{{regionId}}" range="{{region}}">
+                <view class="picker">
+                {{region[regionId]}}
+                </view>
+            </picker>
+        </ui-col>
+    </ui-row>
+    <ui-row height="78rpx;">
+        <ui-col class="text">
+            <text class="left-text">乡镇/街道</text>
+            <picker class="area" bindchange="changeTown" value="{{townShipId}}" range="{{townShip}}">
+                <view class="picker">
+                {{townShip[townShipId]}}
+                </view>
+            </picker>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 底部确认区域 -->
+    <view class="bottom">
+        <view class="cancel">取消</view>
+        <view class="confirm">确定</view>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '选择区域地址',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+      province: ['广东', '广西', '海南', '湖南'],
+      provinceId: 0,
+      cityId:0,
+      city:['广州','深圳','佛山'],
+      regionId:0,
+      region:['番禺','天河','越秀'],
+      townShipId:0,
+      townShip:['城区','郊外'],
+      info:['广东','广州','番禺','市桥地铁口兴华']
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  //改变后的值
+  changePro(e) {
+    this.data.info[0] = this.data.province[e.detail.value];
+    var info;
+    info = this.data.info;
+    this.setData({
+      provinceId: e.detail.value,
+      info:info
+    })
+  },
+  changeCity(e) {
+    this.data.info[1] = this.data.city[e.detail.value];
+    var info;
+    info = this.data.info;
+    this.setData({
+      cityId: e.detail.value,
+      info:info
+    })
+  },
+  changeReg(e) {
+    this.data.info[2] = this.data.region[e.detail.value];
+    var info;
+    info = this.data.info;
+    this.setData({
+      regionId: e.detail.value,
+      info:info
+    })
+  },
+  changeTown(e) {
+    this.data.info[3] = this.data.townShip[e.detail.value];
+    var info;
+    info = this.data.info;
+    this.setData({
+      townShipId: e.detail.value,
+      info:info
+    })
+  }
+}
+</script>
+
+<style lang="less">
+// 填写区域
+.address::before{
+    width: 1px;
+    height: 67px;
+    display: block;
+    content: '';
+}
+.address{
+  line-height: 78rpx;
+  background: #fff;
+  .text{
+    position: relative;
+    .left-top{
+        font-weight: bold;
+    }
+    .left-text{
+        color: #999999;
+    }
+    .content{
+      position: absolute;
+      top: 0;
+      left: 150rpx;
+      .mix-text-overflow();
+    }
+    .area{
+      position: absolute;
+      top: 0;
+      left: 150rpx;
+      color: #f87005;
+    }
+  }
+}
+
+// 底部确认区域
+.bottom{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    view{
+        width: 50%;
+        box-sizing: border-box;
+        float: left;
+    }
+    .cancel,.confirm{
+        height: 98rpx;
+        line-height: 98rpx;
+        text-align: center;
+    }
+    .cancel{
+        border-right: 1px solid #eeeeee;
+        color: #999999;
+    }
+    .confirm{
+        color: #f87005;
+    }
+}
+</style>

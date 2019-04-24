@@ -1,0 +1,171 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.top::before {
+  width: 1px;
+  height: 66px;
+  display: block;
+  content: '';
+}
+.top {
+  background: #fff;
+}
+.top .text {
+  line-height: 120rpx;
+}
+.top .select {
+  height: 120rpx;
+  position: relative;
+  line-height: 120rpx;
+}
+.top .select image {
+  width: 62rpx;
+  height: 62rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -31rpx;
+  margin-left: -31rpx;
+}
+.order-title {
+  background: #fff;
+  margin-top: 18rpx;
+}
+.order-title .text {
+  line-height: 80rpx;
+  color: #999999;
+  font-size: 24rpx;
+}
+.order-title .store-image {
+  height: 80rpx;
+  line-height: 80rpx;
+  position: relative;
+}
+.order-title .store-image image {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -21rpx;
+  margin-left: -21rpx;
+}
+.order-content {
+  padding-top: 12rpx;
+}
+.order-content .text {
+  padding-right: 24rpx;
+  font-size: 24rpx;
+}
+.order-content .text .specs {
+  color: #999999;
+  margin: 10rpx 0;
+}
+.order-content .text .total {
+  width: 100%;
+}
+.order-content .text .total .sum {
+  float: left;
+  color: #f87005;
+}
+.order-content .text .total .number {
+  float: right;
+  color: #666666;
+}
+.order-content .stop-image {
+  height: 220rpx;
+  line-height: 220rpx;
+  position: relative;
+}
+.order-content .stop-image image {
+  width: 174rpx;
+  height: 180rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -87rpx;
+  margin-left: -90rpx;
+}
+.coupon,
+.coupon-list,
+.message,
+.goods-total {
+  padding-left: 10px;
+  background: #fff;
+  margin-bottom: 6rpx;
+}
+.coupon .text,
+.coupon-list .text,
+.message .text,
+.goods-total .text {
+  line-height: 80rpx;
+  position: relative;
+}
+.coupon .text text,
+.coupon-list .text text,
+.message .text text,
+.goods-total .text text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #999999;
+}
+.message {
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.message .msg-area {
+  position: absolute;
+  top: 0;
+  left: 145rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.goods-total {
+  padding-right: 10px;
+}
+.goods-total .text text {
+  position: relative;
+}
+.goods-total .text .price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #999999;
+}
+.goods-total .text .price .number {
+  color: #f87005;
+}
+.pay::before {
+  content: '';
+  display: block;
+  height: 332rpx;
+  width: 1px;
+}
+.pay view {
+  width: 100%;
+  height: 120rpx;
+  background: #61b077;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 120rpx;
+  color: #fff;
+}

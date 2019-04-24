@@ -1,0 +1,293 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">确认订单</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+
+    <!-- 选择收货地址 -->
+    <ui-row-list class="top" bindtap="toAddressEdit">
+    <ui-row>
+        <ui-col width="120rpx;" class="select">
+          <image src="../../static/image/details/icon_increase.png"></image>
+        </ui-col>
+        <ui-col class="text">
+            选择收货地址
+        </ui-col>
+        <ui-col width="60rpx;" style="line-height:120rpx;">
+            <ui-icon type="gengduo"></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    <image src="../../static/image/details/Slider.png" mode="widthFix"></image>
+
+    <!-- 订单店铺信息 -->
+    <ui-row-list class="order-title">
+    <ui-row>
+        <ui-col width="90rpx;" class="store-image">
+          <image src="../../static/image/details/icon_bottom.png"></image>
+        </ui-col>
+        <ui-col class="text">
+            sfiasdih 旗舰店
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    <!-- 订单内容 -->
+    <ui-row-list class="order-content">
+    <ui-row>
+        <ui-col width="240rpx;" class="stop-image">
+          <image src="../../static/image/details/icon_bottom.png"></image>
+        </ui-col>
+        <ui-col class="text">
+            <view>方式开发商就会防晒服还发收款爱神的箭奥斯卡大囧大事记</view>
+            <view class="specs">规格</view>
+            <view class="total">
+              <text class="sum">¥89.8</text>
+              <text class="number">x2</text>
+            </view>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 优惠券 -->
+    <ui-row-list class="coupon">
+    <ui-row>
+        <ui-col class="text">
+            优惠券
+            <text>暂无可用</text>
+        </ui-col>
+        <ui-col width="60rpx;" style="line-height:80rpx;">
+            <ui-icon type="gengduo"></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    <ui-row-list class="coupon-list">
+    <ui-row>
+        <ui-col class="text">
+            可用20寸金抵扣20元
+        </ui-col>
+        <ui-col width="60rpx;" style="line-height:80rpx;" bindtap="checked">
+            <ui-icon type="gouxuan" color="#f87005" wx:if="{{checked}}"></ui-icon>
+            <ui-icon type="yuanquan" color="#999999" wx:if="{{!checked}}"></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 买家留言 -->
+    <ui-row-list class="message">
+    <ui-row>
+        <ui-col class="text">
+            买家留言
+            <input class="msg-area" placeholder="向卖家留言（50字以内）" placeholder-style="color:#999999;" maxlength="50"/>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 商品总额 -->
+    <ui-row-list class="goods-total">
+    <ui-row>
+        <ui-col class="text">
+            商品总额
+            <view class="price">合计：<text class="number">¥159.6</text></view>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 微信支付 -->
+    <view class="pay">
+      <view bindtap="wxPay">微信支付</view>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '确认订单',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    checked:true  //优惠券勾选状态
+  },
+  // 链接到地址管理页面
+  toAddressEdit(){
+    wx.navigateTo({ url: '/pages/details/addressEdit' });
+  },
+  // 微信支付功能
+  wxPay(){
+    wx.navigateTo({ url: '/pages/details/paySuccess' });
+  },
+  // 优惠券勾选
+  checked(){
+    this.setData({
+      checked:!this.data.checked
+    })
+  }
+}
+</script>
+
+<style lang="less">
+// 选择收货地址
+.top::before{
+    width: 1px;
+    height: 66px;
+    display: block;
+    content: '';
+}
+.top{
+  background: #fff;
+  .text{
+    line-height: 120rpx; 
+  }
+  .select{
+    height: 120rpx;
+    position: relative;
+    line-height: 120rpx;
+    image{
+      width: 62rpx;
+      height: 62rpx;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -31rpx;
+      margin-left: -31rpx;
+    }
+  }
+}
+// 订单店铺信息
+.order-title{
+  background: #fff;
+  margin-top: 18rpx;
+  .text{
+    line-height: 80rpx;
+    color: #999999;
+    font-size: 24rpx;
+  }
+  .store-image{
+    height: 80rpx;
+    line-height: 80rpx;
+    position: relative;
+    image{
+      width: 42rpx;
+      height: 42rpx;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -21rpx;
+      margin-left: -21rpx;
+    }
+  }
+}
+// 订单内容
+.order-content{
+  padding-top: 12rpx;
+  .text{
+    padding-right: 24rpx;
+    font-size: 24rpx;
+    .specs{
+      color: #999999;
+      margin: 10rpx 0;
+    }
+    .total{
+      width: 100%;
+      .sum{
+        float: left;
+        color: #f87005;
+      }
+      .number{
+        float: right;
+        color: rgb(102, 102, 102)
+      }
+    }
+  }
+  .stop-image{
+    height: 220rpx;
+    line-height: 220rpx;
+    position: relative;
+    image{
+      width: 174rpx;
+      height: 180rpx;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -87rpx;
+      margin-left: -90rpx;
+    }
+  }
+}
+// 优惠券
+.coupon,.coupon-list,.message,.goods-total{
+  padding-left: 10px;
+  background: #fff;
+  margin-bottom: 6rpx;
+  .text{
+    line-height: 80rpx;
+    position: relative;
+    text{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #999999;
+    }
+  }
+}
+// 买家留言
+.message{
+  position: relative;
+  margin-bottom: 20rpx;
+  .msg-area{
+    position: absolute;
+    top: 0;
+    left: 145rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+  }
+}
+// 商品总额
+.goods-total{
+  padding-right: 10px;
+  .text{
+    text{
+      position: relative;
+    }
+    .price{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #999999;
+      .number{
+        color: #f87005;
+      }
+    }
+  }
+}
+// 微信支付
+.pay::before{
+  content: '';
+  display: block;
+  height: 332rpx;
+  width: 1px;
+}
+.pay view{
+  width: 100%;
+  height: 120rpx;
+  background: #61b077;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 120rpx;
+  color: #fff;
+}
+</style>

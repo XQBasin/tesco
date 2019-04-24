@@ -25,7 +25,15 @@
 
   <!-- 商品展示区 -->
   <view class="show-area">
-    <image src="../../static/image/details/test/img2.png" mode="widthFix" />
+    <swiper style="height:700rpx" bindchange="imgChange">
+      <block wx:for="{{imgUrls}}" wx:key="imgKey">
+        <swiper-item>
+          <image src="{{item}}" mode="widthFix" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="bottom">{{imgNum}}/{{totalNum}}</view>
+
     <view class="price">¥9999.00<text class="del">¥9999.00</text></view>
     <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到</view>
     <text class="shop-type">时尚休闲</text>
@@ -48,9 +56,9 @@
     </view>
   </view>
   <!-- 优惠选项界面 -->
-  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" style="height:900rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="900rpx" _pid="{{_pid}}">
     <view class="text">优惠</view>
-    <span type="shanchu" color="#333333" size="20px;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #333333;font-size: 20px;px;"></span>
+    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #333333;font-size: 40rpx;px;"></span>
     <view class="dis-content">
       <view class="title">促销</view>
       <view class="tip">获得 <text>888寸金</text></view>
@@ -125,7 +133,7 @@
           送至
         </view>
       </view>
-      <span type="dingwei" class="local ui-icon icon-dingwei" color="#f87005" style="color: #f87005;font-size: 16px;"></span>
+      <span type="dingwei" class="local ui-icon icon-dingwei" color="#f87005" size="32rpx;" style="color: #f87005;font-size: 32rpx;px;"></span>
       <text class="tip">广东 广州 番禺区</text>
       <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
         <view class="ui-col-content">
@@ -135,11 +143,13 @@
     </view>
   </view>
   <!-- 地址选项 -->
-  <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" style="height:900rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" height="700rpx" _pid="{{_pid}}">
     <view class="text">选择地址</view>
-    <span type="shanchu" color="#333333" size="20px;" class="cancel-icon ui-icon icon-shanchu" bindtap="addressHide" style="color: #333333;font-size: 20px;px;"></span>
+    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="serviceHide" style="color: #333333;font-size: 40rpx;px;"></span>
     <view class="info">
-      <view class="hook"></view>
+      <view class="hook">
+        <!-- <image src="../../static/image/details/icon_check.png" mode="widthFix"></image> -->
+      </view>
       <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
     </view>
     <view class="info">
@@ -150,11 +160,10 @@
       <view class="hook"></view>
       <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
     </view>
-
     <view class="line"></view>
-    <view class="other-address">选择其它区域地址<span type="rightarrow" class="ui-icon icon-rightarrow" style="font-size: 16px;"></span></view>
-
+    <view class="other-address">选择其它区域地址 <span type="rightarrow" size="28rpx;" class="ui-icon icon-rightarrow" style="font-size: 28rpx;px;"></span></view>
   </ui-popup>
+
   <!-- 运费 -->
   <view class="freight ui-row-list ui-row-list-border-indent" style="">
     <view class="ui-row" style="">
@@ -168,7 +177,7 @@
   </view>
 
   <!-- 服务条款 -->
-  <view class="service ui-row-list ui-row-list-border-indent" bindtap="openDis" style="">
+  <view class="service ui-row-list ui-row-list-border-indent" bindtap="openService" style="">
     <view class="ui-row" style="">
       <view class="text ui-col" style="">
         <view class="ui-col-content">
@@ -183,6 +192,46 @@
       </view>
     </view>
   </view>
+  <!-- 基础服务 -->
+  <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="920rpx" _pid="{{_pid}}">
+    <view class="text">基础服务</view>
+    <view class="info">
+      <view class="hook">1</view>
+      <view class="info-content">
+        <text class="type">破损包退</text>
+        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+      </view>
+    </view>
+    <view class="info">
+      <view class="hook">2</view>
+      <view class="info-content">
+        <text class="type">正品保证</text>
+        <text class="type-text">该商品由XXX承保正品保证险</text>
+      </view>
+    </view>
+    <view class="info">
+      <view class="hook">3</view>
+      <view class="info-content">
+        <text class="type">7天无理由退货</text>
+        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+      </view>
+    </view>
+    <view class="info">
+      <view class="hook">4</view>
+      <view class="info-content">
+        <text class="type">极速退款</text>
+        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+      </view>
+    </view>
+    <view class="info">
+      <view class="hook">5</view>
+      <view class="info-content">
+        <text class="type">赠运费险</text>
+        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+      </view>
+    </view>
+    <view class="complete" bindtap="complete">完成</view>
+  </ui-popup>
 
   <!-- 商品评价 -->
   <view class="comment-area-title">评论区</view>

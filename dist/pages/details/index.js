@@ -5,6 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Page({
   data: {
+    imgUrls: ['../../static/image/details/test/img2.png', '../../static/image/details/test/img2.png', '../../static/image/details/test/img2.png'],
+    imgNum: 1, //当前张数
+    totalNum: 3, //总张数
     disFlag: false, //优惠选项状态
     disSrc: [{ discount: '500', src: '../../static/image/details/02.png', fill: '1000', time: '2019.03.20-2019.03.28' }, { discount: '30', src: '../../static/image/details/01.png', fill: '1000', time: '2019.03.20-2019.03.28' }, { discount: '500', src: '../../static/image/details/02.png', fill: '1000', time: '2019.03.20-2019.03.28' }, { discount: '100', src: '../../static/image/details/02.png', fill: '1000', time: '2019.03.20-2019.03.28' }],
     specsFlag: false, //是否打开规格内容选择
@@ -14,6 +17,7 @@ exports.default = Page({
     colorsId: 0,
     sizesId: 0,
     addressFlag: false,
+    serviceFlag: false,
     navId: 0 //详情类别id
   },
   onLoad: function onLoad() {},
@@ -21,6 +25,14 @@ exports.default = Page({
   // 导航返回
   navigateBack: function navigateBack() {
     wx.navigateBack();
+  },
+
+  // 商品滑块图
+  imgChange: function imgChange(e) {
+    // console.log(e.detail.current)
+    this.setData({
+      imgNum: ++e.detail.current
+    });
   },
 
   // 优惠
@@ -93,6 +105,21 @@ exports.default = Page({
   addressHide: function addressHide() {
     this.setData({
       addressFlag: false
+    });
+  },
+
+  // 打开服务条款
+  openService: function openService() {
+    var flag = this.data.serviceFlag;
+    this.setData({
+      serviceFlag: !flag
+    });
+  },
+
+  // 服务条款信息隐藏
+  complete: function complete() {
+    this.setData({
+      serviceFlag: false
     });
   },
 

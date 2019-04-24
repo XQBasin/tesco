@@ -8,9 +8,14 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/details/index',
+      'pages/details/confirmOrder',
+      'pages/details/paySuccess',
+      'pages/details/selectAddress',
+      'pages/details/addressEdit',
       // 商城首页
-      'pages/home/index'
+      'pages/home/index',
+      // 商品详情页
+      'pages/details/index'
     ],
     window: {
       backgroundTextStyle: 'dark',
@@ -85,31 +90,36 @@ page {
 
 // 自定义导航栏
 .nav_bar {
-    .mix-flex-center();
-    .nav-bar-col {
-        text-align: center;
-        .containertitle {
-            padding: 6px 10px;
-            display: flex;
-            .dingwei {
-                height: 25px;
-                display: flex;
-                .mix-flex-y-center();
-            }
-            .dingwei text {
-                size: 16px;
-                // color: #848484;
-                // margin: 0px 3px;
-            }
-        }
-        .nav-bar-title {
-            font-size: 18px;
-            font-weight: 600;
-        }
+  .mix-flex-center();
+
+  .nav-bar-col {
+    text-align: center;
+
+    .containertitle {
+      padding: 6px 10px;
+      display: flex;
+
+      .dingwei {
+        height: 25px;
+        display: flex;
+        .mix-flex-y-center();
+      }
+
+      .dingwei text {
+        size: 16px;
+        // color: #848484;
+        // margin: 0px 3px;
+      }
     }
+
+    .nav-bar-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
 }
 
-.clear{
+.clear {
   clear: both;
 }
 </style>

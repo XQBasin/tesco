@@ -1,0 +1,78 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.address::before {
+  width: 1px;
+  height: 67px;
+  display: block;
+  content: '';
+}
+.address {
+  line-height: 78rpx;
+  background: #fff;
+}
+.address .text {
+  position: relative;
+}
+.address .text .left-top {
+  font-weight: bold;
+}
+.address .text .left-text {
+  color: #999999;
+}
+.address .text .content {
+  position: absolute;
+  top: 0;
+  left: 150rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.address .text .area {
+  position: absolute;
+  top: 0;
+  left: 150rpx;
+  color: #f87005;
+}
+.bottom {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}
+.bottom view {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+}
+.bottom .cancel,
+.bottom .confirm {
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+}
+.bottom .cancel {
+  border-right: 1px solid #eeeeee;
+  color: #999999;
+}
+.bottom .confirm {
+  color: #f87005;
+}

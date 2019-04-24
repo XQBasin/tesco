@@ -1,0 +1,144 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">确认订单</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+
+  <!-- 选择收货地址 -->
+  <view class="top ui-row-list" bindtap="toAddressEdit" style="">
+    <view class="ui-row" style="">
+      <view class="select ui-col" style="flex:0 0 120rpx;px;">
+        <view class="ui-col-content">
+          <image src="../../static/image/details/icon_increase.png" />
+        </view>
+      </view>
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          选择收货地址
+        </view>
+      </view>
+      <view style="line-height:120rpx;flex:0 0 60rpx;px;" class="ui-col">
+        <view class="ui-col-content">
+          <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
+        </view>
+      </view>
+    </view>
+  </view>
+  <image src="../../static/image/details/Slider.png" mode="widthFix" />
+
+  <!-- 订单店铺信息 -->
+  <view class="order-title ui-row-list" style="">
+    <view class="ui-row" style="">
+      <view class="store-image ui-col" style="flex:0 0 90rpx;px;">
+        <view class="ui-col-content">
+          <image src="../../static/image/details/icon_bottom.png" />
+        </view>
+      </view>
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          sfiasdih 旗舰店
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 订单内容 -->
+  <view class="order-content ui-row-list" style="">
+    <view class="ui-row" style="">
+      <view class="stop-image ui-col" style="flex:0 0 240rpx;px;">
+        <view class="ui-col-content">
+          <image src="../../static/image/details/icon_bottom.png" />
+        </view>
+      </view>
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          <view>方式开发商就会防晒服还发收款爱神的箭奥斯卡大囧大事记</view>
+          <view class="specs">规格</view>
+          <view class="total">
+            <text class="sum">¥89.8</text>
+            <text class="number">x2</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 优惠券 -->
+  <view class="coupon ui-row-list" style="">
+    <view class="ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          优惠券
+          <text>暂无可用</text>
+        </view>
+      </view>
+      <view style="line-height:80rpx;flex:0 0 60rpx;px;" class="ui-col">
+        <view class="ui-col-content">
+          <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="coupon-list ui-row-list" style="">
+    <view class="ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          可用20寸金抵扣20元
+        </view>
+      </view>
+      <view style="line-height:80rpx;flex:0 0 60rpx;px;" bindtap="checked" class="ui-col">
+        <view class="ui-col-content">
+          <span type="gouxuan" color="#f87005" wx:if="{{checked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 16px;"></span>
+          <span type="yuanquan" color="#999999" wx:if="{{!checked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 16px;"></span>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 买家留言 -->
+  <view class="message ui-row-list" style="">
+    <view class="ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          买家留言
+          <input class="msg-area" placeholder="向卖家留言（50字以内）" placeholder-style="color:#999999;" maxlength="50"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品总额 -->
+  <view class="goods-total ui-row-list" style="">
+    <view class="ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          商品总额
+          <view class="price">合计：<text class="number">¥159.6</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 微信支付 -->
+  <view class="pay">
+    <view bindtap="wxPay">微信支付</view>
+  </view>
+</view>

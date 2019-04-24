@@ -1,0 +1,116 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">地址管理</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+
+    <!-- 地址管理 -->
+    <ui-row-list class="address">
+    <ui-row height="64rpx">
+        <ui-col width="80rpx;" style="padding-left:26rpx;">
+            <ui-icon type="yuanquan" size="40rpx;" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+            <view class="user">卡卡西丿<text>123******09</text></view>
+            <view class="content"><text>[默认]</text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
+        </ui-col>
+        <ui-col width="80rpx;" style="padding-right:26rpx;">
+            <ui-icon type="gengduo" size="40rpx;"></ui-icon>
+        </ui-col>
+    </ui-row>
+    <ui-row height="64rpx">
+        <ui-col width="80rpx;" style="padding-left:26rpx;">
+            <ui-icon type="yuanquan" size="40rpx;" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+            <view class="user">卡卡西丿<text>123******09</text></view>
+            <view class="content"><text></text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
+        </ui-col>
+        <ui-col width="80rpx;" style="padding-right:26rpx;">
+            <ui-icon type="gengduo" size="40rpx;"></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 添加新地址 -->
+    <view class="add">+添加新的地址</view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '地址管理',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+      
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  }
+}
+</script>
+
+<style lang="less">
+.address::before{
+    width: 1px;
+    height: 67px;
+    display: block;
+    content: '';
+}
+.address{
+  line-height: 164rpx;
+  background: #fff;
+  .text{
+    height: 164rpx;
+    padding-top: 28rpx;
+    .mix-flex-y-center();
+    .user{
+      font-size: 28rpx;
+      line-height: 42rpx;
+      text{
+        margin-left: 74rpx;
+      }
+    }
+    .content{
+      font-size: 26rpx;
+      line-height: 39rpx;
+      color: #999999;
+      text{
+        color: #f87005;
+      }
+    }
+  }
+}
+// 添加新地址
+.add{
+  width: 698rpx;
+  height: 96rpx;
+  background: #f87005;
+  font-size: 36rpx;
+  line-height: 96rpx;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  margin-left: -349rpx;
+  bottom: 30rpx;
+  border-radius: 10rpx;
+}
+</style>

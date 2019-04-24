@@ -935,7 +935,7 @@ export default {
                 color: rgb(248, 112, 5);
             }
             .price{
-                margin-top: 24rpx;
+                margin-top: 12rpx;
                 .payNum{
                     font-size: 22rpx;
                     color: #999999;

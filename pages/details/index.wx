@@ -20,7 +20,15 @@
 
     <!-- 商品展示区 -->
     <view class="show-area">
-      <image src="../../static/image/details/test/img2.png" mode="widthFix"></image>
+      <swiper style="height:700rpx" bindchange="imgChange">
+        <block wx:for="{{imgUrls}}" wx:key="imgKey">
+          <swiper-item>
+            <image src="{{item}}" mode="widthFix"/>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="bottom">{{imgNum}}/{{totalNum}}</view>
+
       <view class="price">¥9999.00<text class="del">¥9999.00</text></view>
       <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到</view>
       <text class="shop-type">时尚休闲</text>
@@ -39,9 +47,9 @@
       </ui-row>
     </ui-row-list>
     <!-- 优惠选项界面 -->
-    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" style="height:900rpx">
+    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="900rpx">
       <view class="text">优惠</view>
-      <ui-icon type="shanchu" color="#333333" size="20px;" class="cancel-icon" bindtap="disHide"></ui-icon>
+      <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="disHide"></ui-icon>
       <view class="dis-content">
         <view class="title">促销</view>
         <view class="tip">获得  <text>888寸金</text></view>
@@ -110,7 +118,7 @@
           <ui-col class="text" >
               送至
           </ui-col>
-          <ui-icon type="dingwei" class="local" color="#f87005"></ui-icon>
+          <ui-icon type="dingwei" class="local" color="#f87005" size="32rpx;"></ui-icon>
           <text class="tip">广东 广州 番禺区</text>
           <ui-col width="20" style="line-height:90rpx;">
               <ui-icon type="gengduo"></ui-icon>
@@ -118,11 +126,13 @@
       </ui-row>
     </ui-row-list>
     <!-- 地址选项 -->
-    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" style="height:900rpx">
+    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" height="700rpx">
       <view class="text">选择地址</view>
-      <ui-icon type="shanchu" color="#333333" size="20px;" class="cancel-icon" bindtap="addressHide"></ui-icon>
+      <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="serviceHide"></ui-icon>
       <view class="info">
-        <view class="hook"></view>
+        <view class="hook">
+          <!-- <image src="../../static/image/details/icon_check.png" mode="widthFix"></image> -->
+        </view>
         <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
       </view>
       <view class="info">
@@ -133,11 +143,10 @@
         <view class="hook"></view>
         <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
       </view>
-
       <view class="line"></view>
-      <view class="other-address">选择其它区域地址<ui-icon type="rightarrow"></ui-icon></view>
-      
+      <view class="other-address">选择其它区域地址 <ui-icon type="rightarrow" size="28rpx;"></ui-icon></view>  
     </ui-popup>
+
     <!-- 运费 -->
     <ui-row-list class="freight" border-indent>
       <ui-row>
@@ -149,7 +158,7 @@
     </ui-row-list>
 
     <!-- 服务条款 -->
-    <ui-row-list class="service" border-indent bindtap="openDis">
+    <ui-row-list class="service" border-indent bindtap="openService">
       <ui-row>
           <ui-col class="text" >
               服务
@@ -160,6 +169,46 @@
           </ui-col>
       </ui-row>
     </ui-row-list>
+    <!-- 基础服务 -->
+    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="920rpx">
+      <view class="text">基础服务</view>
+      <view class="info">
+        <view class="hook">1</view>
+        <view class="info-content">
+          <text class="type">破损包退</text>
+          <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+        </view>
+      </view>
+      <view class="info">
+        <view class="hook">2</view>
+        <view class="info-content">
+          <text class="type">正品保证</text>
+          <text class="type-text">该商品由XXX承保正品保证险</text>
+        </view>
+      </view>
+      <view class="info">
+        <view class="hook">3</view>
+        <view class="info-content">
+          <text class="type">7天无理由退货</text>
+          <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+        </view>
+      </view>
+      <view class="info">
+        <view class="hook">4</view>
+        <view class="info-content">
+          <text class="type">极速退款</text>
+          <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+        </view>
+      </view>
+      <view class="info">
+        <view class="hook">5</view>
+        <view class="info-content">
+          <text class="type">赠运费险</text>
+          <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+        </view>
+      </view>
+      <view class="complete" bindtap="complete">完成</view>  
+    </ui-popup>
 
     <!-- 商品评价 -->
     <view class="comment-area-title">评论区</view>
@@ -267,6 +316,13 @@ export default {
     enablePullDownRefresh: true
   },
   data: {
+    imgUrls: [
+      '../../static/image/details/test/img2.png',
+      '../../static/image/details/test/img2.png',
+      '../../static/image/details/test/img2.png'
+    ],
+    imgNum:1,       //当前张数
+    totalNum:3,      //总张数
     disFlag:false,  //优惠选项状态
     disSrc:[
       {discount:'500',src:'../../static/image/details/02.png',fill:'1000',time:'2019.03.20-2019.03.28'},
@@ -281,6 +337,7 @@ export default {
     colorsId:0,
     sizesId:0,
     addressFlag:false,
+    serviceFlag:false,
     navId:0         //详情类别id
   },
   onLoad(){
@@ -289,6 +346,13 @@ export default {
   // 导航返回
   navigateBack () {
       wx.navigateBack()
+  },
+  // 商品滑块图
+  imgChange(e){
+    // console.log(e.detail.current)
+    this.setData({
+      imgNum:++e.detail.current
+    })
   },
   // 优惠
   openDis(e){
@@ -355,6 +419,19 @@ export default {
       addressFlag:false
     })
   },
+  // 打开服务条款
+  openService(){
+    var flag = this.data.serviceFlag;
+    this.setData({
+      serviceFlag:!flag
+    });
+  },
+  // 服务条款信息隐藏
+  complete(){
+    this.setData({
+      serviceFlag:false
+    })
+  },
   // 选择详情类别
   selectNav(e){
     this.setData({
@@ -377,11 +454,27 @@ page{
   background: #fff;
   margin: 66px 0 12rpx 0;
   padding: 0 26rpx 25rpx 26rpx;
+  position: relative;
+  .bottom{
+    // padding: 0 27rpx;
+    width: 88rpx;
+    height: 40rpx;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 40rpx;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 28rpx;
+    position: absolute;
+    top: 650rpx;
+    left: 50%;
+    margin-left: -44rpx;
+    color: #fff;
+  }
   .price{
     font-size: 36rpx;
     color: rgb(248, 112, 5);
     font-weight: bold;
-    margin: 34rpx 0 22rpx 0;
+    margin: 20rpx 0 10rpx 0;
   }
   .del{
     font-size: 24rpx;
@@ -595,10 +688,10 @@ page{
       border-radius: 50%;
       position: absolute;
       top: 10rpx;
+      // background: #fff;
     }
     .address-content{
-      padding-left: 30rpx;
-      
+      padding: 0 30rpx 0 30rpx;
     }
   }
   .info::after{
@@ -634,6 +727,62 @@ page{
     top: 0;
     left: 105rpx;
     line-height: 90rpx;
+  }
+}
+.service-mask{
+  .text{
+    width: 100%;
+    line-height: 72rpx;
+    height: 72rpx;
+    text-align: center;
+    font-size: 36rpx;
+    font-weight: bold;
+  }
+  .info{
+    padding-left: 24rpx;
+    position: relative;
+    margin-top: 25rpx;
+    .hook{
+      width: 40rpx;
+      height: 40rpx;
+      display: block;
+      border: 1px solid #f87005;
+      color: #f87005;
+      border-radius: 50%;
+      position: absolute;
+      text-align: center;
+      line-height: 40rpx;
+    }
+    .info-content{
+      padding: 0 30rpx 0 50rpx;
+      text{
+        display: block;
+      }
+      .type{
+        font-size: 30rpx;
+      }
+      .type-text{
+        font-size: 28rpx;
+        color: rgb(153, 153, 153);
+      }
+    }
+  }
+  .info::after{
+    display: block;
+    height: 0;
+    content: "";
+    clear: both;
+  }
+  .complete{
+    background: #f87005;
+    border-radius: 50rpx;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 36rpx;
+    font-weight: bold;
   }
 }
 // 商品评论区

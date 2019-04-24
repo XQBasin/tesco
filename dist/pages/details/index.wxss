@@ -1060,12 +1060,27 @@ page {
   background: #fff;
   margin: 66px 0 12rpx 0;
   padding: 0 26rpx 25rpx 26rpx;
+  position: relative;
+}
+.show-area .bottom {
+  width: 88rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 28rpx;
+  position: absolute;
+  top: 650rpx;
+  left: 50%;
+  margin-left: -44rpx;
+  color: #fff;
 }
 .show-area .price {
   font-size: 36rpx;
   color: #f87005;
   font-weight: bold;
-  margin: 34rpx 0 22rpx 0;
+  margin: 20rpx 0 10rpx 0;
 }
 .show-area .del {
   font-size: 24rpx;
@@ -1286,7 +1301,7 @@ page {
   top: 10rpx;
 }
 .address-mask .info .address-content {
-  padding-left: 30rpx;
+  padding: 0 30rpx 0 30rpx;
 }
 .address-mask .info::after {
   display: block;
@@ -1320,6 +1335,60 @@ page {
   top: 0;
   left: 105rpx;
   line-height: 90rpx;
+}
+.service-mask .text {
+  width: 100%;
+  line-height: 72rpx;
+  height: 72rpx;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.service-mask .info {
+  padding-left: 24rpx;
+  position: relative;
+  margin-top: 25rpx;
+}
+.service-mask .info .hook {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  border: 1px solid #f87005;
+  color: #f87005;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  line-height: 40rpx;
+}
+.service-mask .info .info-content {
+  padding: 0 30rpx 0 50rpx;
+}
+.service-mask .info .info-content text {
+  display: block;
+}
+.service-mask .info .info-content .type {
+  font-size: 30rpx;
+}
+.service-mask .info .info-content .type-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+.service-mask .info::after {
+  display: block;
+  height: 0;
+  content: "";
+  clear: both;
+}
+.service-mask .complete {
+  background: #f87005;
+  border-radius: 50rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
 }
 .comment-area-title,
 .details-title {

@@ -1542,7 +1542,7 @@ icon {
 }
 .like-panel-item .like-group-content .like-group-content-left .shop-detail .price,
 .like-panel-item .like-group-content .like-group-content-right .shop-detail .price {
-  margin-top: 24rpx;
+  margin-top: 12rpx;
 }
 .like-panel-item .like-group-content .like-group-content-left .shop-detail .price .payNum,
 .like-panel-item .like-group-content .like-group-content-right .shop-detail .price .payNum {
