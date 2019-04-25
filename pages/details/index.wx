@@ -316,6 +316,8 @@ export default {
     enablePullDownRefresh: true
   },
   data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     imgUrls: [
       '../../static/image/details/test/img2.png',
       '../../static/image/details/test/img2.png',
@@ -452,7 +454,7 @@ page{
 // 商品展示区
 .show-area{
   background: #fff;
-  margin: 66px 0 12rpx 0;
+  // margin: 66px 0 12rpx 0;
   padding: 0 26rpx 25rpx 26rpx;
   position: relative;
   .bottom{

@@ -82,7 +82,7 @@
   </view>
 
   <!-- 优惠券 -->
-  <view class="coupon ui-row-list" style="">
+  <view class="coupon ui-row-list" bindtap="openDis" data-show="{{ true }}" style="">
     <view class="ui-row" style="">
       <view class="text ui-col" style="">
         <view class="ui-col-content">
@@ -97,6 +97,77 @@
       </view>
     </view>
   </view>
+  <!-- 优惠券内容区 -->
+  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="920rpx" _pid="{{_pid}}">
+    <view class="text">优惠</view>
+    <span type="shanchu" color="#dbdbdb" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #dbdbdb;font-size: 40rpx;px;"></span>
+    <view class="dis-title">
+      <view class="available {{disId==0? 'active':''}}" bindtap="select" data-id="0">
+        可用优惠券（23）
+        <view class="bottom" wx:if="{{disId==0}}"></view>
+      </view>
+      <view class="unavailable {{disId==1? 'active':''}}" bindtap="select" data-id="1">
+        不可用优惠券（33）
+        <view class="bottom" wx:if="{{disId==1}}"></view>
+      </view>
+    </view>
+    <view class="tip" wx:if="{{disId==0}}">您已选中优惠券1张<text class="price">可抵用<text>¥20.00</text></text></view>
+    <!-- 可用优惠券 -->
+    <scroll-view scroll-y style="height: 620rpx;" wx:if="{{disId==0}}">
+      <view class="dis-item" bindtap="bindDis" data-id="1">
+        <image src="../../static/image/details/coupons.png" mode="widthFix" class="dis-image" />
+        <view class="price"><text>¥</text>20</view>
+        <view class="fill">满100使用</view>
+        <view class="specs-title">店铺特卷</view>
+        <view class="store">卡刷卡号旗舰店</view>
+        <view class="time">有效期：2019.03.20-2019.03.28</view>
+        <view class="limit">仅限于洗护用品使用</view>
+        <view class="circle">
+          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disChecked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!disChecked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+      <view class="dis-item" bindtap="bindDis">
+        <image src="../../static/image/details/coupons.png" mode="widthFix" class="dis-image" />
+        <view class="price"><text>¥</text>20</view>
+        <view class="fill">满100使用</view>
+        <view class="specs-title">店铺特卷</view>
+        <view class="store">卡刷卡号旗舰店</view>
+        <view class="time">有效期：2019.03.20-2019.03.28</view>
+        <view class="limit">仅限于洗护用品使用</view>
+        <view class="circle">
+          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disChecked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!disChecked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 不可用优惠券 -->
+    <scroll-view scroll-y style="height: 620rpx;" wx:if="{{disId==1}}">
+      <view class="dis-item">
+        <image src="../../static/image/details/coupons_b.png" mode="widthFix" class="dis-image" />
+        <view class="price"><text>¥</text>20</view>
+        <view class="fill">满100使用</view>
+        <view class="specs-title">店铺特卷</view>
+        <view class="store">卡刷卡号旗舰店</view>
+        <view class="time">有效期：2019.03.20-2019.03.28</view>
+        <view class="limit">仅限于洗护用品使用</view>
+      </view>
+      <view class="dis-item">
+        <image src="../../static/image/details/coupons_b.png" mode="widthFix" class="dis-image" />
+        <view class="price"><text>¥</text>20</view>
+        <view class="fill">满100使用</view>
+        <view class="specs-title">店铺特卷</view>
+        <view class="store">卡刷卡号旗舰店</view>
+        <view class="time">有效期：2019.03.20-2019.03.28</view>
+        <view class="limit">仅限于洗护用品使用</view>
+      </view>
+    </scroll-view>
+    <!-- 立即使用 -->
+    <view class="use" wx:if="{{disId==0}}">
+      使用
+    </view>
+  </ui-popup>
+
   <view class="coupon-list ui-row-list" style="">
     <view class="ui-row" style="">
       <view class="text ui-col" style="">
@@ -106,8 +177,8 @@
       </view>
       <view style="line-height:80rpx;flex:0 0 60rpx;px;" bindtap="checked" class="ui-col">
         <view class="ui-col-content">
-          <span type="gouxuan" color="#f87005" wx:if="{{checked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 16px;"></span>
-          <span type="yuanquan" color="#999999" wx:if="{{!checked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 16px;"></span>
+          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{checked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!checked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
         </view>
       </view>
     </view>

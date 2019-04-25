@@ -1,0 +1,162 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.top::before {
+  width: 1px;
+  height: 67px;
+  display: block;
+  content: '';
+}
+.top .title {
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  padding-left: 15px;
+  background: #fff;
+}
+.top .title text {
+  font-size: 22rpx;
+  color: #f87005;
+}
+.tabs {
+  background: #fff;
+}
+.tabs .item {
+  width: 20%;
+  height: 100rpx;
+  float: left;
+  text-align: center;
+  position: relative;
+}
+.tabs .item .item-title {
+  font-size: 30rpx;
+}
+.tabs .item .numbers {
+  font-size: 22rpx;
+  color: #999999;
+}
+.tabs .item .line {
+  width: 50rpx;
+  height: 4rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: #f87005;
+  margin-left: -25rpx;
+  border-radius: 2rpx;
+}
+.tabs .item .active {
+  color: #f87005;
+}
+.tabs::after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.comment-area {
+  margin-top: 11rpx;
+}
+.comment-area .comment,
+.comment-area .comment-bottom {
+  background: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 26rpx;
+}
+.comment-area .comment .user-image,
+.comment-area .comment-bottom .user-image {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -30rpx;
+  margin-top: -30rpx;
+}
+.comment-area .comment .text,
+.comment-area .comment-bottom .text {
+  padding-left: 16rpx;
+}
+.comment-area .comment .text .stars,
+.comment-area .comment-bottom .text .stars {
+  position: absolute;
+  top: 50%;
+  left: 140rpx;
+  margin-top: -11rpx;
+}
+.comment-area .comment .text .stars image,
+.comment-area .comment-bottom .text .stars image {
+  float: left;
+  margin: 0 5rpx;
+  width: 22rpx;
+  height: 22rpx;
+}
+.comment-area .comment .text .stars::after,
+.comment-area .comment-bottom .text .stars::after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.comment-area .comment .time,
+.comment-area .comment-bottom .time {
+  color: #999999;
+}
+.comment-area .comment-middle {
+  background: #fff;
+  padding: 0 26rpx;
+}
+.comment-area .comment-middle .text {
+  display: block;
+}
+.comment-area .comment-image {
+  background: #fff;
+  padding-top: 26rpx;
+}
+.comment-area .comment-image .img image {
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 10rpx;
+  border: 1px solid pink;
+  float: left;
+}
+.comment-area .comment-image::after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.comment-area .comment-bottom .text {
+  font-size: 26rpx;
+  color: #999999;
+}
+.comment-area .comment-bottom .text .icon-good {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  right: 0;
+  top: 50%;
+  margin-top: -15rpx;
+}
+.ui-row {
+  position: static;
+}

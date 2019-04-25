@@ -128,6 +128,134 @@
   right: 0;
   color: #999999;
 }
+.dis-mask .text {
+  width: 100%;
+  background: #ececec;
+  line-height: 72rpx;
+  height: 72rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  padding-left: 30rpx;
+}
+.dis-mask .cancel-icon {
+  position: absolute;
+  right: 38rpx;
+  top: 0;
+  line-height: 72rpx;
+}
+.dis-mask .dis-title {
+  height: 70rpx;
+}
+.dis-mask .dis-title .available.active,
+.dis-mask .dis-title .unavailable.active {
+  color: #f87005;
+}
+.dis-mask .dis-title .available,
+.dis-mask .dis-title .unavailable {
+  width: 50%;
+  line-height: 70rpx;
+  color: #999999;
+  text-align: center;
+  float: left;
+  font-size: 28rpx;
+  position: relative;
+}
+.dis-mask .dis-title .available .bottom,
+.dis-mask .dis-title .unavailable .bottom {
+  width: 144rpx;
+  height: 4rpx;
+  background: #f87005;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -85rpx;
+}
+.dis-mask .tip {
+  padding-left: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background: rgba(248, 112, 5, 0.24);
+}
+.dis-mask .tip .price {
+  margin-left: 60rpx;
+}
+.dis-mask .tip .price text {
+  color: #eb0202;
+}
+.dis-mask .dis-image {
+  margin-bottom: 20rpx;
+}
+.dis-mask .dis-item {
+  position: relative;
+  padding: 0 30rpx;
+  margin-top: 40rpx;
+}
+.dis-mask .dis-item view {
+  position: absolute;
+}
+.dis-mask .dis-item .price {
+  left: 90rpx;
+  top: 0;
+  font-size: 90rpx;
+  font-weight: bold;
+  color: #fff;
+}
+.dis-mask .dis-item .price text {
+  font-size: 46rpx;
+}
+.dis-mask .dis-item .fill {
+  top: 146rpx;
+  left: 90rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+.dis-mask .dis-item .specs-title {
+  top: 15rpx;
+  left: 295rpx;
+  width: 130rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 20rpx;
+  background: rgba(248, 112, 5, 0.24);
+  font-size: 24rpx;
+}
+.dis-mask .dis-item .store {
+  top: 73rpx;
+  left: 295rpx;
+  font-weight: bold;
+  font-size: 24rpx;
+}
+.dis-mask .dis-item .time {
+  top: 133rpx;
+  left: 295rpx;
+  color: #666666;
+  font-size: 20rpx;
+}
+.dis-mask .dis-item .limit {
+  top: 160rpx;
+  left: 295rpx;
+  color: #666666;
+  font-size: 20rpx;
+}
+.dis-mask .dis-item .circle {
+  right: 40rpx;
+  top: 0;
+  line-height: 200rpx;
+}
+.dis-mask .use {
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #f87005;
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #fff;
+  border-radius: 40rpx;
+}
 .message {
   position: relative;
   margin-bottom: 20rpx;

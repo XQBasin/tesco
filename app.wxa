@@ -8,14 +8,16 @@ export default {
   config: {
     usingComponents: {},
     pages: [
+      'pages/details/index',
+      'pages/home/search',
+      // 商城首页
+      'pages/home/index',
+      // 商品详情页
       'pages/details/confirmOrder',
       'pages/details/paySuccess',
       'pages/details/selectAddress',
       'pages/details/addressEdit',
-      // 商城首页
-      'pages/home/index',
-      // 商品详情页
-      'pages/details/index'
+      'pages/details/rating'
     ],
     window: {
       backgroundTextStyle: 'dark',
@@ -80,6 +82,7 @@ export default {
 
 <style lang="less">
 @import './static/styles/index.less';
+// @import '../../static/styles/weui.wxss';
 
 page {
   font-size: 28rpx;

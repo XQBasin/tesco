@@ -1,0 +1,55 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.search {
+  width: 80%;
+  height: 28px;
+  border-radius: 30px;
+  padding: 2px 10px;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  top: 78px;
+  left: 10px;
+  right: 0;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+}
+.search input {
+  width: 100%;
+  padding: 2rpx 5rpx;
+  margin: 2rpx;
+  font-size: 13px;
+}
+.text {
+  height: 28px;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  top: 78px;
+  right: 50rpx;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}

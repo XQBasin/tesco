@@ -1,11 +1,13 @@
 {
   "pages": [
+    "pages/details/index",
+    "pages/home/search",
+    "pages/home/index",
     "pages/details/confirmOrder",
     "pages/details/paySuccess",
     "pages/details/selectAddress",
     "pages/details/addressEdit",
-    "pages/home/index",
-    "pages/details/index"
+    "pages/details/rating"
   ],
   "window": {
     "backgroundTextStyle": "dark",

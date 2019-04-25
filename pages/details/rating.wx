@@ -1,0 +1,308 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">商品评价</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+
+    <!-- 好评率 -->
+    <view class="top">
+      <view class="title">
+        好评率　<text>99%</text>
+      </view>
+    </view>
+
+    <!-- 选项卡 -->
+    <view class="tabs">
+      <view class="item" data-id="0" bindtap="bindItem">
+        <view class="item-title {{itemId==0? 'active':''}}">全部</view>
+        <view class="numbers {{itemId==0? 'active':''}}">2.6万+</view>
+        <view class="line" wx:if="{{itemId==0}}"></view>
+      </view>
+      <view class="item" data-id="1" bindtap="bindItem">
+        <view class="item-title {{itemId==1? 'active':''}}">好评</view>
+        <view class="numbers {{itemId==1? 'active':''}}">2.6万+</view>
+        <view class="line" wx:if="{{itemId==1}}"></view>
+      </view>
+      <view class="item" data-id="2" bindtap="bindItem">
+        <view class="item-title {{itemId==2? 'active':''}}">中评</view>
+        <view class="numbers {{itemId==2? 'active':''}}">100+</view>
+        <view class="line" wx:if="{{itemId==2}}"></view>
+      </view>
+      <view class="item" data-id="3" bindtap="bindItem">
+        <view class="item-title {{itemId==3? 'active':''}}">差评</view>
+        <view class="numbers {{itemId==3? 'active':''}}">99</view>
+        <view class="line" wx:if="{{itemId==3}}"></view>
+      </view>
+      <view class="item" data-id="4" bindtap="bindItem">
+        <view class="item-title {{itemId==4? 'active':''}}">晒单</view>
+        <view class="numbers {{itemId==4? 'active':''}}">2.6万+</view>
+        <view class="line" wx:if="{{itemId==4}}"></view>
+      </view>
+    </view>
+
+    <!-- 评论内容区 -->
+    <ui-row-list class="comment-area" bordered>
+      <ui-row class="comment">
+        <ui-col width="80rpx;" style="position:relative;">
+            <image class="user-image" src="../../static/image/details/icon_Successful.png"></image>
+        </ui-col>
+        <ui-col class="text">
+            4***9
+            <view class="stars">
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+            </view>
+        </ui-col>
+        <ui-col width="160rpx;" class="time">
+            2019-2-25
+        </ui-col>
+      </ui-row>
+      <ui-row class="comment-middle">
+        <view class="text">
+          时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
+        </view>
+      </ui-row>
+      <ui-row class="comment-image">
+        <view class="img">
+          <image src="../../static/image/details/test/img2.png"></image>
+          <image src="../../static/image/details/test/img2.png"></image>
+          <image src="../../static/image/details/test/img2.png"></image>
+        </view>
+      </ui-row>
+      <ui-row class="comment-bottom">
+        <ui-col class="text">
+            好卡3旗舰店
+            <image src="../../static/image/details/icon_good_a.png" class="icon-good"></image>
+        </ui-col>
+        <ui-col width="160rpx;" class="time">
+            （5454）
+        </ui-col>
+      </ui-row>
+    </ui-row-list>
+
+    <ui-row-list class="comment-area" bordered>
+      <ui-row class="comment">
+        <ui-col width="80rpx;" style="position:relative;">
+            <image class="user-image" src="../../static/image/details/icon_Successful.png"></image>
+        </ui-col>
+        <ui-col class="text">
+            4***9
+            <view class="stars">
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+              <image src="../../static/image/details/icon_star_a.png"></image>
+            </view>
+        </ui-col>
+        <ui-col width="160rpx;" class="time">
+            2019-2-25
+        </ui-col>
+      </ui-row>
+      <ui-row class="comment-middle">
+        <view class="text">
+          时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
+        </view>
+      </ui-row>
+      <ui-row class="comment-image">
+        <view class="img">
+          <image src="../../static/image/details/test/img2.png"></image>
+          <image src="../../static/image/details/test/img2.png"></image>
+          <image src="../../static/image/details/test/img2.png"></image>
+        </view>
+      </ui-row>
+      <ui-row class="comment-bottom">
+        <ui-col class="text">
+            好卡3旗舰店
+            <image src="../../static/image/details/icon_good_a.png" class="icon-good"></image>
+        </ui-col>
+        <ui-col width="160rpx;" class="time">
+            （5454）
+        </ui-col>
+      </ui-row>
+    </ui-row-list>
+
+    <view style="width:1px;height:190rpx;"></view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '商品评价',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    itemId:0   //选项卡序号id
+  },
+  // 点击选项卡
+  bindItem(e){
+    this.setData({
+      itemId:e.currentTarget.dataset.id
+    })
+  }
+}
+</script>
+
+<style lang="less">
+
+// 好评率
+.top::before{
+    width: 1px;
+    height: 67px;
+    display: block;
+    content: '';
+}
+.top .title{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  padding-left: 15px;
+  background: #fff;
+  text{
+    font-size: 22rpx;
+    color: #f87005;
+  }
+}
+// 选项卡
+.tabs{
+  background: #fff;
+  .item{
+    width: 20%;
+    height: 100rpx;
+    float: left;
+    text-align: center;
+    position: relative;
+    .item-title{
+      font-size: 30rpx;
+    }
+    .numbers{
+      font-size: 22rpx;
+      color: #999999;
+    }
+    .line{
+      width: 50rpx;
+      height: 4rpx;
+      position: absolute;
+      bottom:0;
+      left: 50%;
+      background: #f87005;
+      margin-left: -25rpx;
+      border-radius: 2rpx;
+    }
+    .active{
+      color: #f87005;
+    }
+  } 
+}
+.tabs::after{
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+// 评论内容区
+.comment-area{
+  margin-top: 11rpx;
+  .comment,.comment-bottom{
+    background: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 0 26rpx;
+    .user-image{
+      width: 60rpx;
+      height: 60rpx;
+      position: absolute;
+      top:50%;
+      left:50%;
+      margin-left: -30rpx;
+      margin-top: -30rpx;
+    }
+    .text{
+      padding-left: 16rpx;
+      .stars{
+        position: absolute;
+        top: 50%;
+        left: 140rpx;
+        margin-top: -11rpx;
+        image{
+          float: left;
+          margin: 0 5rpx;
+          width: 22rpx;
+          height: 22rpx;
+        }
+      }
+      .stars::after{
+        display: block;
+        content: '';
+        clear: both;
+        height: 0;
+      }
+    }
+    .time{
+      color: #999999;
+    }
+  }
+  .comment-middle{
+    background: #fff;
+    padding: 0 26rpx;
+    .text{
+      display: block
+    }
+  }
+  .comment-image{
+    background: #fff;
+    padding-top: 26rpx;
+    .img{
+      image{
+        width: 210rpx;
+        height: 210rpx;
+        border-radius:10rpx; 
+        border: 1px solid pink;
+        float: left;
+      }
+    }
+  }
+  .comment-image::after{
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
+  }
+  .comment-bottom{
+    .text{
+      font-size: 26rpx;
+      color: #999999;
+      .icon-good{
+        position: absolute;
+        width: 30rpx;
+        height: 30rpx;
+        right:0;
+        top: 50%;
+        margin-top: -15rpx;
+      }
+    }
+  }
+}
+// 去除ui-row的底线样式
+.ui-row{
+  position: static;
+}
+</style>

@@ -1,0 +1,36 @@
+<view style="height:100%;background:#fff;">
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">搜索</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+
+  <view class="top">
+    <view class="search">
+      <span type="sousuo" color="#666666" size="13px;" class="ui-icon icon-sousuo" style="color: #666666;font-size: 13px;px;"></span>
+      <input type="text" placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type="search"></input>
+    </view>
+    <view class="text">
+      搜索
+    </view>
+  </view>
+
+</view>

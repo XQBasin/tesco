@@ -1058,7 +1058,6 @@ page {
 }
 .show-area {
   background: #fff;
-  margin: 66px 0 12rpx 0;
   padding: 0 26rpx 25rpx 26rpx;
   position: relative;
 }

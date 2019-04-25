@@ -1,0 +1,83 @@
+<template>
+  <view style="height:100%;background:#fff;">
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">搜索</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+
+    <view class="top">
+      <view class="search">
+          <ui-icon type="sousuo" color="#666666" size="13px;"></ui-icon>
+          <input type='text' placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type='search'>
+      </view>
+      <view class="text">
+        搜索
+      </view>
+    </view>
+    
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '搜索',
+    navigationBarTextStyle: 'black'
+  },
+  data: {}
+}
+</script>
+
+<style lang="less">
+// 搜索框
+// .top::before{
+//     width: 1px;
+//     height: 67px;
+//     display: block;
+//     content: '';
+// }
+.search {
+  width: 80%;
+  height: 28px;
+  border-radius: 30px;
+  padding: 2px 10px;
+  display: flex;
+  position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  top: 78px;
+  left: 10px;
+  right: 0;               /* 决定了搜索框置顶 */
+  z-index: 2;
+  background: #f4f4f4;
+  .mix-flex-y-center();
+  input {
+      width: 100%;
+      padding: 2rpx 5rpx;
+      margin: 2rpx;
+      font-size: 13px;
+  }
+}
+.text {
+  height: 28px;
+  display: flex;
+  position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  top: 78px;
+  // left: 10px;
+  right: 50rpx;               /* 决定了搜索框置顶 */
+  z-index: 2;
+  font-size: 16px;
+  .mix-flex-y-center();
+}
+</style>

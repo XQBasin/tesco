@@ -1,0 +1,168 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">商品评价</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+
+  <!-- 好评率 -->
+  <view class="top">
+    <view class="title">
+      好评率　<text>99%</text>
+    </view>
+  </view>
+
+  <!-- 选项卡 -->
+  <view class="tabs">
+    <view class="item" data-id="0" bindtap="bindItem">
+      <view class="item-title {{itemId==0? 'active':''}}">全部</view>
+      <view class="numbers {{itemId==0? 'active':''}}">2.6万+</view>
+      <view class="line" wx:if="{{itemId==0}}"></view>
+    </view>
+    <view class="item" data-id="1" bindtap="bindItem">
+      <view class="item-title {{itemId==1? 'active':''}}">好评</view>
+      <view class="numbers {{itemId==1? 'active':''}}">2.6万+</view>
+      <view class="line" wx:if="{{itemId==1}}"></view>
+    </view>
+    <view class="item" data-id="2" bindtap="bindItem">
+      <view class="item-title {{itemId==2? 'active':''}}">中评</view>
+      <view class="numbers {{itemId==2? 'active':''}}">100+</view>
+      <view class="line" wx:if="{{itemId==2}}"></view>
+    </view>
+    <view class="item" data-id="3" bindtap="bindItem">
+      <view class="item-title {{itemId==3? 'active':''}}">差评</view>
+      <view class="numbers {{itemId==3? 'active':''}}">99</view>
+      <view class="line" wx:if="{{itemId==3}}"></view>
+    </view>
+    <view class="item" data-id="4" bindtap="bindItem">
+      <view class="item-title {{itemId==4? 'active':''}}">晒单</view>
+      <view class="numbers {{itemId==4? 'active':''}}">2.6万+</view>
+      <view class="line" wx:if="{{itemId==4}}"></view>
+    </view>
+  </view>
+
+  <!-- 评论内容区 -->
+  <view class="comment-area ui-row-list ui-row-list-bordered" style="">
+    <view class="comment ui-row" style="">
+      <view style="position:relative;flex:0 0 80rpx;px;" class="ui-col">
+        <view class="ui-col-content">
+          <image class="user-image" src="../../static/image/details/icon_Successful.png" />
+        </view>
+      </view>
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+      </view>
+      <view class="time ui-col" style="flex:0 0 160rpx;px;">
+        <view class="ui-col-content">
+          2019-2-25
+        </view>
+      </view>
+    </view>
+    <view class="comment-middle ui-row" style="">
+      <view class="text">
+        时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
+      </view>
+    </view>
+    <view class="comment-image ui-row" style="">
+      <view class="img">
+        <image src="../../static/image/details/test/img2.png" />
+        <image src="../../static/image/details/test/img2.png" />
+        <image src="../../static/image/details/test/img2.png" />
+      </view>
+    </view>
+    <view class="comment-bottom ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          好卡3旗舰店
+          <image src="../../static/image/details/icon_good_a.png" class="icon-good" />
+        </view>
+      </view>
+      <view class="time ui-col" style="flex:0 0 160rpx;px;">
+        <view class="ui-col-content">
+          （5454）
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="comment-area ui-row-list ui-row-list-bordered" style="">
+    <view class="comment ui-row" style="">
+      <view style="position:relative;flex:0 0 80rpx;px;" class="ui-col">
+        <view class="ui-col-content">
+          <image class="user-image" src="../../static/image/details/icon_Successful.png" />
+        </view>
+      </view>
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+      </view>
+      <view class="time ui-col" style="flex:0 0 160rpx;px;">
+        <view class="ui-col-content">
+          2019-2-25
+        </view>
+      </view>
+    </view>
+    <view class="comment-middle ui-row" style="">
+      <view class="text">
+        时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
+      </view>
+    </view>
+    <view class="comment-image ui-row" style="">
+      <view class="img">
+        <image src="../../static/image/details/test/img2.png" />
+        <image src="../../static/image/details/test/img2.png" />
+        <image src="../../static/image/details/test/img2.png" />
+      </view>
+    </view>
+    <view class="comment-bottom ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          好卡3旗舰店
+          <image src="../../static/image/details/icon_good_a.png" class="icon-good" />
+        </view>
+      </view>
+      <view class="time ui-col" style="flex:0 0 160rpx;px;">
+        <view class="ui-col-content">
+          （5454）
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style="width:1px;height:190rpx;"></view>
+</view>

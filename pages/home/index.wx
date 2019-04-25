@@ -476,7 +476,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../static/styles/weui.wxss';
+// @import '../../static/styles/weui.wxss';
 
 // 搜索框
 .search {
