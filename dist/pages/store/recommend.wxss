@@ -1,0 +1,129 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.text {
+  text-align: center;
+  width: 130rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  background: #fff;
+  float: left;
+}
+.warp {
+  padding: 0 10px;
+  margin-bottom: 27rpx;
+}
+.warp .item {
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+.warp .item .top {
+  margin-bottom: 19rpx;
+}
+.warp .item .top .store-image,
+.warp .item .top .store-info {
+  float: left;
+}
+.warp .item .top .store-image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background: #999999;
+}
+.warp .item .top .store-info {
+  margin-left: 20rpx;
+}
+.warp .item .top .store-info .name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.warp .item .top .store-info .detail {
+  font-size: 24rpx;
+  color: #999999;
+}
+.warp .item .top .enter {
+  font-size: 24rpx;
+  border-radius: 25rpx;
+  width: 120rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border: 1px solid #f87005;
+  color: #f87005;
+  float: right;
+}
+.warp .item .image {
+  margin-bottom: 28rpx;
+}
+.warp .item .image .t1 {
+  float: left;
+  width: 70%;
+  height: 370rpx;
+  background: pink;
+  border-radius: 10rpx;
+}
+.warp .item .image .t2 {
+  float: right;
+  width: 29%;
+}
+.warp .item .image .t2 .t2-1,
+.warp .item .image .t2 .t2-2 {
+  width: 100%;
+  height: 180rpx;
+  background: pink;
+  border-radius: 10rpx;
+}
+.warp .item .image .t2 .t2-1 {
+  margin-bottom: 10rpx;
+}
+.warp .item .bottom .browse,
+.warp .item .bottom .praise {
+  height: 24rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #bababa;
+}
+.warp .item .bottom .browse view,
+.warp .item .bottom .praise view {
+  float: left;
+}
+.warp .item .bottom .browse image,
+.warp .item .bottom .praise image {
+  float: left;
+  width: 24rpx;
+  height: 24rpx;
+}
+.warp .item .bottom .browse {
+  float: left;
+}
+.warp .item .bottom .praise {
+  float: right;
+}
+.warp .item .top::after,
+.warp .item .image::after,
+.warp .item .bottom::after {
+  display: block;
+  height: 0;
+  clear: both;
+  content: '';
+}

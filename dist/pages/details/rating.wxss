@@ -19,12 +19,6 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-.top::before {
-  width: 1px;
-  height: 67px;
-  display: block;
-  content: '';
-}
 .top .title {
   height: 70rpx;
   line-height: 70rpx;
@@ -136,8 +130,8 @@
   width: 210rpx;
   height: 210rpx;
   border-radius: 10rpx;
-  border: 1px solid pink;
   float: left;
+  margin-right: 20rpx;
 }
 .comment-area .comment-image::after {
   display: block;

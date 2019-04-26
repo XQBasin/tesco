@@ -19,12 +19,6 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-.address::before {
-  width: 1px;
-  height: 67px;
-  display: block;
-  content: '';
-}
 .address {
   line-height: 78rpx;
   background: #fff;

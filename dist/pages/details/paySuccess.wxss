@@ -19,12 +19,6 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-.top::before {
-  width: 1px;
-  height: 66px;
-  display: block;
-  content: '';
-}
 .top {
   padding-top: 50rpx;
   background: #fff;

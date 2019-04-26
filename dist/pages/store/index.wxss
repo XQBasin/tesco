@@ -1,0 +1,130 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.top {
+  margin: 1px 0 1px 0;
+  padding: 22rpx 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+}
+.top .search {
+  width: 80%;
+  height: 56rpx;
+  border-radius: 30px;
+  padding: 2px 10px;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  left: 10px;
+  right: 0;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+}
+.top .search input {
+  width: 100%;
+  padding: 2rpx 5rpx;
+  margin: 2rpx;
+  font-size: 26rpx;
+}
+.top .text {
+  height: 56rpx;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  right: 60rpx;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+.top .text image {
+  width: 56rpx;
+  height: 56rpx;
+}
+.store-info {
+  height: 126rpx;
+  background: #fff;
+  padding: 0 10px;
+  margin-bottom: 9rpx;
+}
+.store-info .store-image {
+  width: 80rpx;
+  height: 80rpx;
+  background: #b8b8b8;
+  border-radius: 50%;
+}
+.store-info .text {
+  padding-left: 10rpx;
+}
+.store-info .text .name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.store-info .text .fans {
+  font-size: 24rpx;
+  color: #999999;
+}
+.store-info .follow {
+  font-size: 24rpx;
+  color: #f87005;
+  border-radius: 25rpx;
+  border: 1px solid #f87005;
+  padding: 7rpx 15rpx;
+}
+.item {
+  font-weight: bold;
+  height: 80rpx;
+  background: #fff;
+}
+.item view {
+  width: 25%;
+  line-height: 80rpx;
+  float: left;
+  text-align: center;
+}
+.item .active {
+  color: #f87005;
+}
+.t {
+  margin: 17rpx 0 37rpx 0;
+  height: 150rpx;
+  padding: 0 20rpx;
+}
+.t view {
+  width: 48%;
+  height: 150rpx;
+  background: pink;
+}
+.t .t1 {
+  float: left;
+}
+.t .t2 {
+  float: right;
+}
+.t::after {
+  display: block;
+  content: '';
+  height: 0;
+  clear: both;
+}

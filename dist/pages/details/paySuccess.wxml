@@ -22,6 +22,7 @@
       </view>
     </view>
   </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
 
   <!-- 支付成功标识 -->
   <view class="top">

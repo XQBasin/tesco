@@ -8,16 +8,19 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/details/index',
-      'pages/home/search',
+      'pages/store/index',
+      'pages/store/recommend',
       // 商城首页
       'pages/home/index',
+      'pages/home/search',
       // 商品详情页
+      'pages/details/index',
       'pages/details/confirmOrder',
       'pages/details/paySuccess',
       'pages/details/selectAddress',
       'pages/details/addressEdit',
-      'pages/details/rating'
+      'pages/details/rating',
+      // 店铺页
     ],
     window: {
       backgroundTextStyle: 'dark',
@@ -82,7 +85,7 @@ export default {
 
 <style lang="less">
 @import './static/styles/index.less';
-// @import '../../static/styles/weui.wxss';
+@import './static/styles/weui.wxss';
 
 page {
   font-size: 28rpx;
@@ -109,9 +112,8 @@ page {
       }
 
       .dingwei text {
-        size: 16px;
-        // color: #848484;
-        // margin: 0px 3px;
+        // size: 32rpx;
+        font-size: 14px;
       }
     }
 
@@ -120,9 +122,5 @@ page {
       font-weight: 600;
     }
   }
-}
-
-.clear {
-  clear: both;
 }
 </style>

@@ -17,6 +17,7 @@
             </ui-col>
         </ui-row>
     </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 选择收货地址 -->
     <ui-row-list class="top" bindtap="toAddressEdit">
@@ -191,10 +192,16 @@ export default {
     navigationBarTextStyle: 'black'
   },
   data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     checked:true,     //优惠券勾选状态
     disFlag:false,    //优惠选项状态
     disId:0,          //优惠券选项序号
     disChecked:false  //优惠券勾选状态
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
   },
   // 链接到地址管理页面
   toAddressEdit(){
@@ -241,12 +248,6 @@ export default {
 
 <style lang="less">
 // 选择收货地址
-.top::before{
-    width: 1px;
-    height: 66px;
-    display: block;
-    content: '';
-}
 .top{
   background: #fff;
   .text{

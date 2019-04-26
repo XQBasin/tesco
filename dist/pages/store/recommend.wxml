@@ -1,0 +1,135 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">店铺热推</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- <scroll-view scroll-x style="width: 500rpx;height:52rpx;overflow:hidden;">
+      <view class="text">为你推荐</view>
+      <view class="text">零食小吃</view>
+      <view class="text">智能电器</view>
+      <view class="text">画册书籍</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+    </scroll-view> -->
+
+  <!-- 店铺 -->
+  <view class="warp">
+    <view class="item">
+      <view class="top">
+        <view class="store-image"></view>
+        <view class="store-info">
+          <view class="name">Skuidsnsdd旗舰店</view>
+          <view class="detail">水电费很多事复合肥好阀口袋...</view>
+        </view>
+        <view class="enter" bindtap="toStroe">进入店铺</view>
+      </view>
+      <view class="image">
+        <view class="t1"></view>
+        <view class="t2">
+          <view class="t2-1"></view>
+          <view class="t2-2"></view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="browse">
+          <image src="../../static/image/store/icon_browse.png" />
+          <view>　浏览10.6万次</view>
+        </view>
+        <view class="praise">
+          <image src="../../static/image/details/icon_good_a.png" />
+          <view>　9999</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="warp">
+    <view class="item">
+      <view class="top">
+        <view class="store-image"></view>
+        <view class="store-info">
+          <view class="name">Skuidsnsdd旗舰店</view>
+          <view class="detail">水电费很多事复合肥好阀口袋...</view>
+        </view>
+        <view class="enter" bindtap="toStroe">进入店铺</view>
+      </view>
+      <view class="image">
+        <view class="t1"></view>
+        <view class="t2">
+          <view class="t2-1"></view>
+          <view class="t2-2"></view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="browse">
+          <image src="../../static/image/store/icon_browse.png" />
+          <view>　浏览10.6万次</view>
+        </view>
+        <view class="praise">
+          <image src="../../static/image/details/icon_good_a.png" />
+          <view>　9999</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="warp">
+    <view class="item">
+      <view class="top">
+        <view class="store-image"></view>
+        <view class="store-info">
+          <view class="name">Skuidsnsdd旗舰店</view>
+          <view class="detail">水电费很多事复合肥好阀口袋...</view>
+        </view>
+        <view class="enter" bindtap="toStroe">进入店铺</view>
+      </view>
+      <view class="image">
+        <view class="t1"></view>
+        <view class="t2">
+          <view class="t2-1"></view>
+          <view class="t2-2"></view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="browse">
+          <image src="../../static/image/store/icon_browse.png" />
+          <view>　浏览10.6万次</view>
+        </view>
+        <view class="praise">
+          <image src="../../static/image/details/icon_good_a.png" />
+          <view>　9999</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

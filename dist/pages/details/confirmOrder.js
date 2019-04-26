@@ -5,11 +5,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Page({
   data: {
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     checked: true, //优惠券勾选状态
     disFlag: false, //优惠选项状态
     disId: 0, //优惠券选项序号
     disChecked: false //优惠券勾选状态
   },
+  // 导航返回
+  navigateBack: function navigateBack() {
+    wx.navigateBack();
+  },
+
   // 链接到地址管理页面
   toAddressEdit: function toAddressEdit() {
     wx.navigateTo({ url: '/pages/details/addressEdit' });

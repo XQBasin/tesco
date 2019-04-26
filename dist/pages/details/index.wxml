@@ -22,6 +22,7 @@
       </view>
     </view>
   </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
 
   <!-- 商品展示区 -->
   <view class="show-area">
@@ -56,7 +57,7 @@
     </view>
   </view>
   <!-- 优惠选项界面 -->
-  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="900rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="950rpx" _pid="{{_pid}}">
     <view class="text">优惠</view>
     <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #333333;font-size: 40rpx;px;"></span>
     <view class="dis-content">
@@ -122,7 +123,6 @@
         <view class="add" bindtap="add">+</view>
       </view>
     </view>
-    <view class="clear"></view>
   </view>
 
   <!-- 送货地址 -->
@@ -145,7 +145,7 @@
   <!-- 地址选项 -->
   <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" height="700rpx" _pid="{{_pid}}">
     <view class="text">选择地址</view>
-    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="serviceHide" style="color: #333333;font-size: 40rpx;px;"></span>
+    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="addressHide" style="color: #333333;font-size: 40rpx;px;"></span>
     <view class="info">
       <view class="hook">
         <!-- <image src="../../static/image/details/icon_check.png" mode="widthFix"></image> -->
@@ -193,7 +193,7 @@
     </view>
   </view>
   <!-- 基础服务 -->
-  <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="920rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="950rpx" _pid="{{_pid}}">
     <view class="text">基础服务</view>
     <view class="info">
       <view class="hook">1</view>
@@ -276,7 +276,7 @@
       </view>
     </view>
     <view class="all">
-      <view class="all-btn">全部评价</view>
+      <view class="all-btn" bindtap="torRating">全部评价</view>
     </view>
   </view>
 
@@ -293,7 +293,6 @@
         <text class="more-enter">进入店铺</text>
       </view>
     </view>
-    <view class="clear"></view>
     <view class="middle">
       <view class="collectNum">
         <text>86578</text>
@@ -333,7 +332,45 @@
     <view class="tab-shopCart">
       <image src="../../static/image/details/icon_bottom_shop.png" /><text>购物车</text></view>
     <view class="tab-add-shopCart">加入购物车</view>
-    <view class="tab-buy">立即购买</view>
-    <view></view>
+    <view class="tab-buy" bindtap="buy" data-show="{{true}}">立即购买</view>
   </view>
+  <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" height="876rpx" _pid="{{_pid}}">
+    <view class="top">
+      <image class="product-image" src="../../static/image/details/test/img3.png" />
+      <view class="product-info">
+        <view class="name">海兴县信用卡三大哈哈</view>
+        <view class="price"><text class="pre">¥</text>80.9　<text class="number">+44</text><text class="unit">寸金</text></view>
+        <view class="reserve">存库12340箱</view>
+      </view>
+    </view>
+    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="buyHide" style="color: #333333;font-size: 40rpx;px;"></span>
+    <view class="content">
+      <view class="title">味道</view>
+      <view class="item">
+        <view>草莓味</view>
+        <view>草莓味</view>
+        <view>草莓味</view>
+        <view>草莓味</view>
+        <view>草莓味</view>
+        <view>草莓味</view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="title">包装颜色</view>
+      <view class="item">
+        <view>彩色包装</view>
+        <view>普通包装</view>
+      </view>
+    </view>
+    <view class="counts">
+      <view class="title">购买数量</view>
+      <view class="num-botton">
+        <view class="reduce" bindtap="reduce">-</view>
+        <view class="figure">{{number}}</view>
+        <view class="add" bindtap="add">+</view>
+      </view>
+    </view>
+    <view class="next" bindtap="next">下一步</view>
+  </ui-popup>
+
 </view>

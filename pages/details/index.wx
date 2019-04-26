@@ -17,6 +17,7 @@
             </ui-col>
         </ui-row>
     </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 商品展示区 -->
     <view class="show-area">
@@ -47,7 +48,7 @@
       </ui-row>
     </ui-row-list>
     <!-- 优惠选项界面 -->
-    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="900rpx">
+    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="950rpx">
       <view class="text">优惠</view>
       <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="disHide"></ui-icon>
       <view class="dis-content">
@@ -109,7 +110,6 @@
           <view class="add" bindtap="add">+</view>
         </view>
       </view>
-      <view class="clear"></view>
     </ui-row-list>
     
     <!-- 送货地址 -->
@@ -128,7 +128,7 @@
     <!-- 地址选项 -->
     <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" height="700rpx">
       <view class="text">选择地址</view>
-      <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="serviceHide"></ui-icon>
+      <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="addressHide"></ui-icon>
       <view class="info">
         <view class="hook">
           <!-- <image src="../../static/image/details/icon_check.png" mode="widthFix"></image> -->
@@ -170,7 +170,7 @@
       </ui-row>
     </ui-row-list>
     <!-- 基础服务 -->
-    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="920rpx">
+    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="950rpx">
       <view class="text">基础服务</view>
       <view class="info">
         <view class="hook">1</view>
@@ -253,7 +253,7 @@
         </view>
       </view>
       <view class="all">
-        <view class="all-btn">全部评价</view>
+        <view class="all-btn" bindtap="torRating">全部评价</view>
       </view>
     </view>
 
@@ -270,7 +270,6 @@
           <text class="more-enter">进入店铺</text>
         </view>
       </view>
-      <view class="clear"></view>
       <view class="middle">
         <view class="collectNum">
           <text>86578</text>
@@ -302,9 +301,47 @@
       <view class="tab-store"><image src="../../static/image/details/icon_bottom.png"></image><text>店铺</text></view>
       <view class="tab-shopCart"><image src="../../static/image/details/icon_bottom_shop.png"></image><text>购物车</text></view>
       <view class="tab-add-shopCart">加入购物车</view>
-      <view class="tab-buy">立即购买</view>
-      <view></view>
+      <view class="tab-buy" bindtap="buy" data-show="{{true}}">立即购买</view>
     </view>
+    <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" height="876rpx">
+      <view class="top">
+        <image class="product-image" src="../../static/image/details/test/img3.png"></image>
+        <view class="product-info">
+          <view class="name">海兴县信用卡三大哈哈</view>
+          <view class="price"><text class="pre">¥</text>80.9　<text class="number">+44</text><text class="unit">寸金</text></view>
+          <view class="reserve">存库12340箱</view>
+        </view>
+      </view>
+      <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="buyHide"></ui-icon>
+      <view class="content">
+        <view class="title">味道</view>
+        <view class="item">
+          <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="title">包装颜色</view>
+        <view class="item">
+          <view>彩色包装</view>
+          <view>普通包装</view>
+        </view>
+      </view>
+      <view class="counts">
+        <view class="title">购买数量</view>
+          <view class="num-botton">
+            <view class="reduce" bindtap="reduce">-</view>
+            <view class="figure">{{number}}</view>
+            <view class="add" bindtap="add">+</view>
+          </view>
+      </view>
+      <view class="next" bindtap="next">下一步</view>
+    </ui-popup>
+
   </view>
 </template>
 
@@ -312,8 +349,7 @@
 export default {
   config: {
     navigationBarTitleText: '商品详情',
-    navigationBarTextStyle: 'black',
-    enablePullDownRefresh: true
+    navigationBarTextStyle: 'black'
   },
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
@@ -340,7 +376,8 @@ export default {
     sizesId:0,
     addressFlag:false,
     serviceFlag:false,
-    navId:0         //详情类别id
+    navId:0,         //详情类别id
+    buyFlag:false    //立即购买状态
   },
   onLoad(){
     
@@ -434,23 +471,35 @@ export default {
       serviceFlag:false
     })
   },
+  // 跳转到商品评价页面
+  torRating(){
+    wx.navigateTo({ url: '/pages/details/rating' });
+  },
   // 选择详情类别
   selectNav(e){
     this.setData({
       navId:e.target.dataset.id
     })
+  },
+  // 底部立即购买
+  buy(e){
+    this.setData({
+      buyFlag:e.target.dataset.show
+    })
+  },
+  buyHide(){
+    this.setData({
+      buyFlag:false
+    })
+  },
+  // 下一步操作
+  next(){
+    wx.navigateTo({ url: '/pages/details/confirmOrder' });
   }
-
 }
 </script>
 
 <style lang="less">
-@import '../../static/styles/weui.wxss';
-page{
-  font-size: 28rpx;
-  line-height: 1.5;
-  color: #333333;
-}
 // 商品展示区
 .show-area{
   background: #fff;
@@ -523,7 +572,7 @@ page{
   }
   .cancel-icon{
     position: absolute;
-    right:38rpx;
+    right: 20rpx;
     top:0;
     line-height: 72rpx;
   }
@@ -623,7 +672,7 @@ page{
       margin-left: 9rpx;
       .reduce,.add{
         float: left;
-        width: 73rpx;
+        width: 72rpx;
       }
       .figure{
         float: left;
@@ -633,6 +682,12 @@ page{
       }
     }
   }
+}
+.specs-content::after{
+  display: block;
+  height: 0;
+  content: "";
+  clear: both;
 }
 // 送货地址
 .sel-address,.freight{
@@ -674,8 +729,8 @@ page{
   }
   .cancel-icon{
     position: absolute;
-    right:38rpx;
-    top:0;
+    right: 20rpx;
+    top: 0;
     line-height: 72rpx;
   }
   .info{
@@ -690,7 +745,6 @@ page{
       border-radius: 50%;
       position: absolute;
       top: 10rpx;
-      // background: #fff;
     }
     .address-content{
       padding: 0 30rpx 0 30rpx;
@@ -930,6 +984,12 @@ page{
       }
     }
   }
+  .top::after{
+    display: block;
+    height: 0;
+    content: "";
+    clear: both;
+  }
   .middle{
     margin-top: 24rpx;
     .collectNum,.productNum,.service{
@@ -1033,6 +1093,122 @@ page{
   .tab-buy{
     background: #f87005;
     color: #fff;
+  }
+}
+// 立即购买
+.buy-mask{
+  .cancel-icon{
+    position: absolute;
+    right:20rpx;
+    top:0;
+    line-height: 72rpx;
+  }
+  .top{
+    padding-left: 20rpx;
+    .product-image{
+      width: 200rpx;
+      height: 200rpx;
+      float: left;
+      border: 1rpx solid #fff;
+      margin: -40rpx 28rpx 0 0;
+      border-radius: 10rpx;
+    }
+    .product-info{
+      float: left;
+      padding-top: 23rpx;
+      .price{
+        font-size: 36rpx;
+        color: rgb(235, 2, 2);
+        .pre{
+          font-size: 24rpx;
+        }
+        .number{
+          font-size: 18rpx;
+          color: rgb(235, 2, 2)
+        }
+        .unit{
+          font-size: 18rpx;
+          color: rgb(25, 25, 25)
+        }
+      }
+      .reserve{
+        color: #999999;
+      }
+    }
+  }
+  .top::after{
+    display: block;
+    height: 0;
+    content: '';
+    clear: both;
+  }
+  .content{
+    padding: 20rpx;
+    border-bottom: 1px solid #eeeeee;
+    .item{
+      view{
+        width: 192rpx;
+        height: 56rpx;
+        float: left; 
+        margin: 20rpx 45rpx 20rpx 0;
+        color: rgb(102, 102, 102);
+        border-radius: 10rpx;
+        background: #ececec;
+        text-align: center;
+        line-height: 56rpx;
+      }
+    }
+    .item::after{
+      display: block;
+      height: 0;
+      content: '';
+      clear: both;
+    }
+  }
+  .counts{
+    position: relative;
+    height: 120rpx;
+    padding-left: 20rpx;
+    .title{
+      position: absolute;
+      line-height: 120rpx;
+      top: 0;
+    }
+    .num-botton{
+      width: 248rpx;
+      height: 54rpx;
+      border-radius: 27rpx;
+      line-height: 54rpx;
+      text-align: center;
+      border: 1px solid #ccc;
+      font-size: 28rpx;
+      margin-left: 9rpx;
+      position: absolute;
+      top: 50%;
+      right: 20rpx;
+      margin-top: -27rpx;
+      .reduce,.add{
+        float: left;
+        width: 72rpx;
+      }
+      .figure{
+        float: left;
+        width: 100rpx;
+        border-right: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+      }
+    }
+  }
+  .next{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80rpx;
+    background: #f87005;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color:#fff;
   }
 }
 </style>

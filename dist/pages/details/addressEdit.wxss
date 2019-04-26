@@ -19,32 +19,26 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-.address::before {
-  width: 1px;
-  height: 67px;
-  display: block;
-  content: '';
-}
 .address {
-  line-height: 164rpx;
   background: #fff;
 }
+.address .center {
+  padding-left: 26rpx;
+  line-height: 164rpx;
+}
 .address .text {
-  height: 164rpx;
-  padding-top: 28rpx;
+  padding: 28rpx 0;
   display: flex;
   align-items: center;
 }
 .address .text .user {
   font-size: 28rpx;
-  line-height: 42rpx;
 }
 .address .text .user text {
   margin-left: 74rpx;
 }
 .address .text .content {
   font-size: 26rpx;
-  line-height: 39rpx;
   color: #999999;
 }
 .address .text .content text {

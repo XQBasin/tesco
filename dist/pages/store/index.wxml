@@ -1,0 +1,72 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">salks旗舰店</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 搜索框 -->
+  <view class="top">
+    <view class="search">
+      <span type="sousuo" color="#666666" size="26rpx;" class="ui-icon icon-sousuo" style="color: #666666;font-size: 26rpx;px;"></span>
+      <input type="text" placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type="search"></input>
+    </view>
+    <view class="text">
+      <image src="../../static/image/store/icon_screening3.png" />
+    </view>
+  </view>
+
+  <!-- 店铺信息 -->
+  <view class="ui-row-list" style="">
+    <view class="store-info ui-row" style="">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 80rpx;px;">
+        <view class="ui-col-content align-center valign-middle">
+          <view class="store-image"></view>
+        </view>
+      </view>
+      <view class="text ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="name">salks旗舰店</view>
+          <view class="fans">435.1万粉丝</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 120rpx;px;">
+        <view class="ui-col-content align-center valign-middle">
+          <view class="follow">+　关注</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 选项卡 -->
+  <view class="item">
+    <view class="active">商品</view>
+    <view>推荐</view>
+    <view>商品</view>
+    <view>新品</view>
+  </view>
+  <view style="height:300rpx;background:pink"></view>
+  <view class="t">
+    <view class="t1"></view>
+    <view class="t2"></view>
+  </view>
+</view>

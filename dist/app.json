@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/details/index",
-    "pages/home/search",
+    "pages/store/index",
+    "pages/store/recommend",
     "pages/home/index",
+    "pages/home/search",
+    "pages/details/index",
     "pages/details/confirmOrder",
     "pages/details/paySuccess",
     "pages/details/selectAddress",

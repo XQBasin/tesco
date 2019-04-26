@@ -17,6 +17,7 @@
             </ui-col>
         </ui-row>
     </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 填写区域 -->
     <ui-row-list class="address" border-indent>
@@ -82,15 +83,17 @@ export default {
     navigationBarTextStyle: 'black'
   },
   data: {
-      province: ['广东', '广西', '海南', '湖南'],
-      provinceId: 0,
-      cityId:0,
-      city:['广州','深圳','佛山'],
-      regionId:0,
-      region:['番禺','天河','越秀'],
-      townShipId:0,
-      townShip:['城区','郊外'],
-      info:['广东','广州','番禺','市桥地铁口兴华']
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    province: ['广东', '广西', '海南', '湖南'],
+    provinceId: 0,
+    cityId:0,
+    city:['广州','深圳','佛山'],
+    regionId:0,
+    region:['番禺','天河','越秀'],
+    townShipId:0,
+    townShip:['城区','郊外'],
+    info:['广东','广州','番禺','市桥地铁口兴华']
   },
   // 导航返回
   navigateBack () {
@@ -138,12 +141,6 @@ export default {
 
 <style lang="less">
 // 填写区域
-.address::before{
-    width: 1px;
-    height: 67px;
-    display: block;
-    content: '';
-}
 .address{
   line-height: 78rpx;
   background: #fff;

@@ -134,19 +134,19 @@
                     <view wx:for="{{rmList}}" wx:key="rmKey" class="{{index==0? 'rm-group-right1':'rm-group-right2'}}">
                         <image class="hot-image" src="../../static/image/index/home_icon_heat.png"></image>
                         <view class="shop">
-                            <view class="shop-right">
-                                <image class="shop-image" src="../../static/image/index/test/hufu.png" mode="widthFix"></image>
-                                <text class="payNum">3452已付款</text>
-                            </view>
                             <view class="shop-left">
                                 <view class="shop-title">齐强速效洗粉多买多送......</view>
                                 <view class="dis">满1000减40</view>
                                 <view class="price">¥ 33.90</view>
                             </view>
-                          </view>
+                            <view class="shop-right">
+                                <image class="shop-image" src="../../static/image/index/test/hufu.png"></image>
+                                <text class="payNum">3452已付款</text>
+                            </view>
+                        </view>
                     </view>
                   </view>
-                  <view class="clear"></view>
+                <view class="clear"></view>
                 </view>
             </view>
             <!-- 特卖 -->
@@ -232,8 +232,8 @@
                       <view class="shop-subtitle">
                           无加工 无添加产品
                       </view>
-                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:left;"></image>
-                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:right;"></image>
+                      <image src="../../static/image/index/test/03.png" class="img1"></image>
+                      <image src="../../static/image/index/test/03.png" class="img2"></image>
                   </view>
                   <view class="clear"></view>
                   <view class="group-content">
@@ -285,8 +285,8 @@
                       <view class="shop-subtitle">
                           无加工 无添加产品
                       </view>
-                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:left;"></image>
-                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:right"></image>
+                      <image src="../../static/image/index/test/03.png" class="img1"></image>
+                      <image src="../../static/image/index/test/03.png" class="img2"></image>
                   </view>
                   <view class="clear"></view>
                   <view class="group-content">
@@ -338,8 +338,8 @@
                       <view class="shop-subtitle">
                           无加工 无添加产品
                       </view>
-                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:left;"></image>
-                      <image src="../../static/image/index/test/03.png" mode="widthFix" style="width:50%;float:right"></image>
+                      <image src="../../static/image/index/test/03.png" class="img1"></image>
+                      <image src="../../static/image/index/test/03.png" class="img2"></image>
                   </view>
                   <view class="clear"></view>
                   <view class="group-content">
@@ -389,7 +389,6 @@
           </view>
         </view>
     <view class="clear"></view>
-    
     </view>
 </template>
 
@@ -415,10 +414,10 @@ export default {
           {'name':2}
         ],
         list:[
-          {'src':'../../static/image/index/test/car.png'},
           {'src':'../../static/image/index/test/cooker.png'},
           {'src':'../../static/image/index/test/cooker.png'},
-          {'src':'../../static/image/index/test/car.png'}
+          {'src':'../../static/image/index/test/cooker.png'},
+          {'src':'../../static/image/index/test/cooker.png'}
         ]
     },
     onLoad(options) {
@@ -476,8 +475,6 @@ export default {
 </script>
 
 <style lang="less">
-// @import '../../static/styles/weui.wxss';
-
 // 搜索框
 .search {
     width: 90%;
@@ -747,7 +744,10 @@ export default {
         .shop-right{
             float: right;
             width: 45%;
-            padding-top: 15rpx;
+            .shop-image{
+                width: 180rpx;
+                height: 160rpx;
+            }
             .payNum{
                 font-size: 20rpx;
                 color: #999999;
@@ -851,6 +851,7 @@ export default {
           background: rgba(0, 0, 0, 0.3);
           position: absolute;
           bottom: 0;
+          .mix-text-overflow();
       }
     }
     .group-right{
@@ -858,6 +859,16 @@ export default {
       height: 250rpx;
       float: right;
       background: #f4f4f4;
+      .img1{
+          width:50%;
+          height: 155rpx;
+          float: left;
+      }
+      .img2{
+          width:50%;
+          height: 155rpx;
+          float: right;
+      }
     }
     .group-content{
       padding: 0 1rpx;

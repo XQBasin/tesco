@@ -17,6 +17,7 @@
             </ui-col>
         </ui-row>
     </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 好评率 -->
     <view class="top">
@@ -150,7 +151,13 @@ export default {
     navigationBarTextStyle: 'black'
   },
   data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     itemId:0   //选项卡序号id
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
   },
   // 点击选项卡
   bindItem(e){
@@ -162,14 +169,7 @@ export default {
 </script>
 
 <style lang="less">
-
 // 好评率
-.top::before{
-    width: 1px;
-    height: 67px;
-    display: block;
-    content: '';
-}
 .top .title{
   height: 70rpx;
   line-height: 70rpx;
@@ -274,9 +274,9 @@ export default {
       image{
         width: 210rpx;
         height: 210rpx;
-        border-radius:10rpx; 
-        border: 1px solid pink;
+        border-radius: 10rpx; 
         float: left;
+        margin-right: 20rpx
       }
     }
   }

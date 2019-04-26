@@ -17,17 +17,31 @@
             </ui-col>
         </ui-row>
     </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
+    <!-- 搜索框 -->
     <view class="top">
       <view class="search">
-          <ui-icon type="sousuo" color="#666666" size="13px;"></ui-icon>
+          <ui-icon type="sousuo" color="#666666" size="26rpx;"></ui-icon>
           <input type='text' placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type='search'>
       </view>
       <view class="text">
         搜索
       </view>
     </view>
-    
+    <!-- 热门搜索 -->
+    <view class="search-content">
+      <view class="title">热门搜索</view>
+      <view class="text">
+        <view>iPhone8s</view>
+        <view>iPhone8s</view>
+        <view>iPhone8s</view>
+        <view>iPhone8s</view>
+        <view>iPhone8s</view>
+        <view>iPhone8s</view>
+        <view>iPhone8s</view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -37,47 +51,76 @@ export default {
     navigationBarTitleText: '搜索',
     navigationBarTextStyle: 'black'
   },
-  data: {}
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  }
 }
 </script>
 
 <style lang="less">
 // 搜索框
-// .top::before{
-//     width: 1px;
-//     height: 67px;
-//     display: block;
-//     content: '';
-// }
-.search {
-  width: 80%;
-  height: 28px;
-  border-radius: 30px;
-  padding: 2px 10px;
-  display: flex;
-  position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
-  top: 78px;
-  left: 10px;
-  right: 0;               /* 决定了搜索框置顶 */
-  z-index: 2;
-  background: #f4f4f4;
-  .mix-flex-y-center();
-  input {
-      width: 100%;
-      padding: 2rpx 5rpx;
-      margin: 2rpx;
-      font-size: 13px;
+.top{
+  margin-top: 22rpx;
+  height: 56rpx;
+  .search {
+    width: 80%;
+    height: 56rpx;
+    border-radius: 30px;
+    padding: 2px 10px;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    left: 10px;
+    right: 0;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    background: #f4f4f4;
+    .mix-flex-y-center();
+    input {
+        width: 100%;
+        padding: 2rpx 5rpx;
+        margin: 2rpx;
+        font-size: 26rpx;
+    }
+  }
+  .text {
+    height: 56rpx;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    right: 50rpx;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    font-size: 32rpx;
+    .mix-flex-y-center();
   }
 }
-.text {
-  height: 28px;
-  display: flex;
-  position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
-  top: 78px;
-  // left: 10px;
-  right: 50rpx;               /* 决定了搜索框置顶 */
-  z-index: 2;
-  font-size: 16px;
-  .mix-flex-y-center();
+
+// 热门搜索
+.search-content{
+  padding-left: 20rpx;
+  .title{
+    padding: 24rpx 0 19rpx 0;
+  }
+  .text{
+    view{
+      float: left;
+      width: 220rpx;
+      height: 58rpx;
+      font-size: 28rpx;
+      border-radius: 16rpx;
+      background: rgb(244, 244, 244);
+      text-align: center;
+      line-height: 58rpx;
+      margin: 0 20rpx 20rpx 0;
+    }
+  }
+  .text::after{
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
+  }
 }
 </style>

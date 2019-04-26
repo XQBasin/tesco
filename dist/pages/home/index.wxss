@@ -305,7 +305,11 @@
 .rm-group .rm-group-right .rm-group-right2 .shop-right {
   float: right;
   width: 45%;
-  padding-top: 15rpx;
+}
+.rm-group .rm-group-right .rm-group-right1 .shop-right .shop-image,
+.rm-group .rm-group-right .rm-group-right2 .shop-right .shop-image {
+  width: 180rpx;
+  height: 160rpx;
 }
 .rm-group .rm-group-right .rm-group-right1 .shop-right .payNum,
 .rm-group .rm-group-right .rm-group-right2 .shop-right .payNum {
@@ -412,6 +416,9 @@
   background: rgba(0, 0, 0, 0.3);
   position: absolute;
   bottom: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .food-panel-item .group .group-right,
 .life-panel-item .group .group-right,
@@ -420,6 +427,20 @@
   height: 250rpx;
   float: right;
   background: #f4f4f4;
+}
+.food-panel-item .group .group-right .img1,
+.life-panel-item .group .group-right .img1,
+.various-panel-item .group .group-right .img1 {
+  width: 50%;
+  height: 155rpx;
+  float: left;
+}
+.food-panel-item .group .group-right .img2,
+.life-panel-item .group .group-right .img2,
+.various-panel-item .group .group-right .img2 {
+  width: 50%;
+  height: 155rpx;
+  float: right;
 }
 .food-panel-item .group .group-content,
 .life-panel-item .group .group-content,

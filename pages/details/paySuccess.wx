@@ -17,6 +17,7 @@
             </ui-col>
         </ui-row>
     </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 支付成功标识 -->
     <view class="top">
@@ -72,7 +73,12 @@ export default {
     navigationBarTextStyle: 'black'
   },
   data: {
-
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
   },
   //回到首页   
   toHome(){
@@ -83,12 +89,6 @@ export default {
 
 <style lang="less">
 // 支付成功标识
-.top::before{
-    width: 1px;
-    height: 66px;
-    display: block;
-    content: '';
-}
 .top{
     padding-top: 50rpx;
     background: #fff;

@@ -1,0 +1,211 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">salks旗舰店</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 搜索框 -->
+    <view class="top">
+      <view class="search">
+          <ui-icon type="sousuo" color="#666666" size="26rpx;"></ui-icon>
+          <input type='text' placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type='search'>
+      </view>
+      <view class="text">
+        <image src="../../static/image/store/icon_screening3.png"></image>
+      </view>
+    </view>
+
+    <!-- 店铺信息 -->
+    <ui-row-list>
+    <ui-row class="store-info">
+        <ui-col width="80rpx;" vertical-align="middle" align="center">
+          <view class="store-image"></view>
+        </ui-col>
+        <ui-col class="text" vertical-align="middle">
+            <view class="name">salks旗舰店</view>
+            <view class="fans">435.1万粉丝</view>
+        </ui-col>
+        <ui-col width="120rpx;" vertical-align="middle" align="center">
+            <view class="follow">+　关注</view>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 选项卡 -->
+    <view class="item">
+      <view class="active">商品</view>
+      <view>推荐</view>
+      <view>商品</view>
+      <view>新品</view>
+    </view>
+    <view style="height:300rpx;background:pink"></view>
+    <view class="t">
+      <view class="t1"></view>
+      <view class="t2"></view>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '店铺主页',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    current2: 0,
+    activeTabStyle:{
+      'color': '#f87005',
+    },
+    inkBarStyle:{
+      'border-bottom': '2px solid #f87005',
+      'width': '20%'
+    }
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  handleChange2 (e) {
+      let index = e.detail.index
+      this.setData({
+        current2:index
+      })
+  },
+  handleContentChange2 (e) {
+      let current = e.detail.current
+      this.setData({
+        current2:current
+      })
+  }
+}
+</script>
+
+<style lang="less">
+// 搜索框
+.top{
+  margin:1px 0 1px 0;
+  padding: 22rpx 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+  .search {
+    width: 80%;
+    height: 56rpx;
+    border-radius: 30px;
+    padding: 2px 10px;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    left: 10px;
+    right: 0;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    background: #f4f4f4;
+    .mix-flex-y-center();
+    input {
+        width: 100%;
+        padding: 2rpx 5rpx;
+        margin: 2rpx;
+        font-size: 26rpx;
+    }
+  }
+  .text {
+    height: 56rpx;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    right: 60rpx;           /* 决定了搜索框置顶 */
+    z-index: 2;
+    font-size: 32rpx;
+    .mix-flex-y-center();
+    image{
+      width: 56rpx;
+      height: 56rpx;
+    }
+  }
+}
+// 店铺信息
+.store-info{
+  height: 126rpx;
+  background: #fff;
+  padding: 0 10px;
+  margin-bottom: 9rpx;
+  .store-image{
+    width: 80rpx;
+    height: 80rpx;
+    background: #b8b8b8;
+    border-radius: 50%;
+  }
+  .text{
+    padding-left: 10rpx;
+    .name{
+      font-size: 28rpx;
+      font-weight: bold;
+    }
+    .fans{
+      font-size: 24rpx;
+      color: rgb(153, 153, 153);
+    }
+  }
+  .follow{
+    font-size: 24rpx;
+    color: rgb(248, 112, 5);
+    border-radius: 25rpx;
+    border: 1px solid rgb(248, 112, 5);
+    padding: 7rpx 15rpx;
+  }
+}
+
+// 选项卡
+.item{
+  font-weight: bold;
+  height: 80rpx;
+  background: #fff;
+  view{
+    width: 25%;
+    line-height: 80rpx;
+    float: left;
+    text-align: center;
+  }
+  .active{
+    color:#f87005;
+  }
+}
+.t{
+  margin: 17rpx 0 37rpx 0;
+  height: 150rpx;
+  padding: 0 20rpx;
+  view{
+    width: 48%;
+    height: 150rpx;
+    background: pink;
+  }
+  .t1{
+    float: left;
+  }
+  .t2{
+    float: right;
+  }
+}
+.t::after{
+  display: block;
+  content: '';
+  height: 0;
+  clear: both;
+}
+</style>

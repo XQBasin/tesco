@@ -22,6 +22,7 @@
       </view>
     </view>
   </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
 
   <!-- 填写区域 -->
   <view class="address ui-row-list ui-row-list-border-indent" style="">

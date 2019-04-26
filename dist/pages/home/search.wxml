@@ -22,15 +22,29 @@
       </view>
     </view>
   </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
 
+  <!-- 搜索框 -->
   <view class="top">
     <view class="search">
-      <span type="sousuo" color="#666666" size="13px;" class="ui-icon icon-sousuo" style="color: #666666;font-size: 13px;px;"></span>
+      <span type="sousuo" color="#666666" size="26rpx;" class="ui-icon icon-sousuo" style="color: #666666;font-size: 26rpx;px;"></span>
       <input type="text" placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type="search"></input>
     </view>
     <view class="text">
       搜索
     </view>
   </view>
-
+  <!-- 热门搜索 -->
+  <view class="search-content">
+    <view class="title">热门搜索</view>
+    <view class="text">
+      <view>iPhone8s</view>
+      <view>iPhone8s</view>
+      <view>iPhone8s</view>
+      <view>iPhone8s</view>
+      <view>iPhone8s</view>
+      <view>iPhone8s</view>
+      <view>iPhone8s</view>
+    </view>
+  </view>
 </view>

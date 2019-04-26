@@ -11,7 +11,7 @@ exports.default = Page({
         swiperCurrent: 0,
         rmList: [//热卖数据
         { 'name': 1 }, { 'name': 2 }],
-        list: [{ 'src': '../../static/image/index/test/car.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/car.png' }]
+        list: [{ 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }]
     },
     onLoad: function onLoad(options) {
         var that = this;

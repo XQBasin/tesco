@@ -20,7 +20,8 @@ exports.default = Page({
     sizesId: 0,
     addressFlag: false,
     serviceFlag: false,
-    navId: 0 //详情类别id
+    navId: 0, //详情类别id
+    buyFlag: false //立即购买状态
   },
   onLoad: function onLoad() {},
 
@@ -125,10 +126,32 @@ exports.default = Page({
     });
   },
 
+  // 跳转到商品评价页面
+  torRating: function torRating() {
+    wx.navigateTo({ url: '/pages/details/rating' });
+  },
+
   // 选择详情类别
   selectNav: function selectNav(e) {
     this.setData({
       navId: e.target.dataset.id
     });
+  },
+
+  // 底部立即购买
+  buy: function buy(e) {
+    this.setData({
+      buyFlag: e.target.dataset.show
+    });
+  },
+  buyHide: function buyHide() {
+    this.setData({
+      buyFlag: false
+    });
+  },
+
+  // 下一步操作
+  next: function next() {
+    wx.navigateTo({ url: '/pages/details/confirmOrder' });
   }
 });

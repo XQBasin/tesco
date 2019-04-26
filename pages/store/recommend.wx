@@ -1,0 +1,262 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">店铺热推</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- <scroll-view scroll-x style="width: 500rpx;height:52rpx;overflow:hidden;">
+      <view class="text">为你推荐</view>
+      <view class="text">零食小吃</view>
+      <view class="text">智能电器</view>
+      <view class="text">画册书籍</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+      <view class="text">美妆护肤</view>
+    </scroll-view> -->
+
+    <!-- 店铺 -->
+    <view class="warp">
+      <view class="item">
+        <view class="top">
+          <view class="store-image"></view>
+          <view class="store-info">
+            <view class="name">Skuidsnsdd旗舰店</view>
+            <view class="detail">水电费很多事复合肥好阀口袋...</view>
+          </view>
+          <view class="enter" bindtap="toStroe">进入店铺</view>
+        </view>
+        <view class="image">
+          <view class="t1"></view>
+          <view class="t2">
+            <view class="t2-1"></view>
+            <view class="t2-2"></view>
+          </view>
+        </view>
+        <view class="bottom">
+          <view class="browse">
+            <image src="../../static/image/store/icon_browse.png"></image>
+            <view>　浏览10.6万次</view>
+          </view>
+          <view class="praise">
+            <image src="../../static/image/details/icon_good_a.png"></image>
+            <view>　9999</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="warp">
+      <view class="item">
+        <view class="top">
+          <view class="store-image"></view>
+          <view class="store-info">
+            <view class="name">Skuidsnsdd旗舰店</view>
+            <view class="detail">水电费很多事复合肥好阀口袋...</view>
+          </view>
+          <view class="enter" bindtap="toStroe">进入店铺</view>
+        </view>
+        <view class="image">
+          <view class="t1"></view>
+          <view class="t2">
+            <view class="t2-1"></view>
+            <view class="t2-2"></view>
+          </view>
+        </view>
+        <view class="bottom">
+          <view class="browse">
+            <image src="../../static/image/store/icon_browse.png"></image>
+            <view>　浏览10.6万次</view>
+          </view>
+          <view class="praise">
+            <image src="../../static/image/details/icon_good_a.png"></image>
+            <view>　9999</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="warp">
+      <view class="item">
+        <view class="top">
+          <view class="store-image"></view>
+          <view class="store-info">
+            <view class="name">Skuidsnsdd旗舰店</view>
+            <view class="detail">水电费很多事复合肥好阀口袋...</view>
+          </view>
+          <view class="enter" bindtap="toStroe">进入店铺</view>
+        </view>
+        <view class="image">
+          <view class="t1"></view>
+          <view class="t2">
+            <view class="t2-1"></view>
+            <view class="t2-2"></view>
+          </view>
+        </view>
+        <view class="bottom">
+          <view class="browse">
+            <image src="../../static/image/store/icon_browse.png"></image>
+            <view>　浏览10.6万次</view>
+          </view>
+          <view class="praise">
+            <image src="../../static/image/details/icon_good_a.png"></image>
+            <view>　9999</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '店铺热推',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 跳转到的店铺页面
+  toStroe(){
+    wx.navigateTo({ url: '/pages/store/index' });
+  }
+}
+</script>
+
+<style lang="less">
+// 为你推荐
+.text{
+  text-align: center;
+  width: 130rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  background: #fff;
+  float: left;
+}
+// 店铺
+.warp{
+  padding: 0 10px;
+  margin-bottom: 27rpx;
+  .item{
+    background: #fff;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    .top{
+      margin-bottom: 19rpx;
+      .store-image,.store-info{
+        float: left;
+      }
+      .store-image{
+        width: 80rpx;
+        height: 80rpx;
+        border-radius: 10rpx;
+        background: #999999;
+      }
+      .store-info{
+        margin-left: 20rpx;
+        .name{
+          font-size: 28rpx;
+          font-weight: bold;
+        }
+        .detail{
+          font-size: 24rpx;
+          color: #999999;
+        }
+      }
+      .enter{
+        font-size: 24rpx;
+        border-radius: 25rpx;
+        width: 120rpx;
+        height: 50rpx;
+        text-align: center;
+        line-height: 50rpx;
+        border:1px solid #f87005;
+        color: #f87005;
+        float: right;
+      }
+    }
+    .image{
+      margin-bottom: 28rpx;
+      .t1{
+        float: left;
+        width: 70%;
+        height: 370rpx;
+        background: pink;
+        border-radius: 10rpx;
+      }
+      .t2{
+        float: right;
+        width: 29%;
+        .t2-1,.t2-2{
+          width: 100%;
+          height: 180rpx;
+          background: pink;
+          border-radius: 10rpx;
+        }
+        .t2-1{
+          margin-bottom: 10rpx;
+        }
+      }
+    }
+    .bottom{
+      .browse,.praise{
+        height: 24rpx;
+        font-size: 24rpx;
+        line-height: 24rpx;
+        color: rgb(186, 186, 186);
+        view{
+          float: left;
+        }
+        image{
+          float: left;
+          width: 24rpx;
+          height: 24rpx;
+        }
+      }
+      .browse{
+        float: left;
+      }
+      .praise{
+        float: right;
+      }
+    }
+    .top::after,.image::after,.bottom::after{
+      display: block;
+      height: 0;
+      clear: both;
+      content:'';
+    }
+  }
+}
+
+
+</style>
