@@ -2,6 +2,6 @@
   "usingComponents": {
     "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index"
   },
-  "navigationBarTitleText": "asahs",
+  "navigationBarTitleText": "购物车",
   "navigationBarTextStyle": "black"
 }

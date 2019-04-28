@@ -48,11 +48,12 @@
       </ui-row>
     </ui-row-list>
     <!-- 优惠选项界面 -->
-    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="950rpx">
+    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask">
       <view class="text">优惠</view>
       <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="disHide"></ui-icon>
       <view class="dis-content">
         <view class="title">促销</view>
+        <view class="tip">获得  <text>888寸金</text></view>
         <view class="tip">获得  <text>888寸金</text></view>
         <view class="title">优惠券</view>
       </view>
@@ -88,19 +89,11 @@
     <ui-row-list class="specs-content" wx:if={{specsFlag}} border-indent>
       <view class="colors-title">颜色</view>
       <view class="colors">
-        <view class="one {{colorsId==0? 'active':''}}" data-id='0' bindtap="selectColors" data-color="红色">红色</view>
-        <view class="one {{colorsId==1? 'active':''}}" data-id='1' bindtap="selectColors" data-color="黄色">黄色</view>
-        <view class="one {{colorsId==2? 'active':''}}" data-id='2' bindtap="selectColors" data-color="黑色">黑色</view>
-        <view class="one {{colorsId==3? 'active':''}}" data-id='3' bindtap="selectColors" data-color="绿色">绿色</view>
-        <view class="one {{colorsId==4? 'active':''}}" data-id='4' bindtap="selectColors" data-color="紫色">紫色</view>
-        <view class="one {{colorsId==5? 'active':''}}" data-id='5' bindtap="selectColors" data-color="棕色">棕色</view>
+        <ui-tags data="{{colors}}" fixed-width item-space="2" bindchange="singleColor"></ui-tags>
       </view>
       <view class="size-title">尺码</view>
       <view class="sizes">
-        <view class="one {{sizesId==0? 'active':''}}" data-id='0' bindtap="selectSize" data-size="S">S</view>
-        <view class="one {{sizesId==1? 'active':''}}" data-id='1' bindtap="selectSize" data-size="M">M</view>
-        <view class="one {{sizesId==2? 'active':''}}" data-id='2' bindtap="selectSize" data-size="L">L</view>
-        <view class="one {{sizesId==3? 'active':''}}" data-id='3' bindtap="selectSize" data-size="XL">XL</view>
+        <ui-tags data="{{sizes}}" fixed-width item-space="2" bindchange="singleSize"></ui-tags>
       </view>
       <view class="num-title">数量</view>
       <view class="number">
@@ -126,13 +119,11 @@
       </ui-row>
     </ui-row-list>
     <!-- 地址选项 -->
-    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" height="700rpx">
+    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask">
       <view class="text">选择地址</view>
       <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="addressHide"></ui-icon>
       <view class="info">
-        <view class="hook">
-          <!-- <image src="../../static/image/details/icon_check.png" mode="widthFix"></image> -->
-        </view>
+        <view class="hook"></view>
         <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
       </view>
       <view class="info">
@@ -144,7 +135,7 @@
         <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
       </view>
       <view class="line"></view>
-      <view class="other-address">选择其它区域地址 <ui-icon type="rightarrow" size="28rpx;"></ui-icon></view>  
+      <view class="other-address" bindtap="toSelectAddress">选择其它区域地址 <ui-icon type="rightarrow" size="28rpx;"></ui-icon></view>  
     </ui-popup>
 
     <!-- 运费 -->
@@ -170,7 +161,7 @@
       </ui-row>
     </ui-row-list>
     <!-- 基础服务 -->
-    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="950rpx">
+    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask">
       <view class="text">基础服务</view>
       <view class="info">
         <view class="hook">1</view>
@@ -316,19 +307,22 @@
       <view class="content">
         <view class="title">味道</view>
         <view class="item">
+          <!-- <view>草莓味</view>
           <view>草莓味</view>
           <view>草莓味</view>
           <view>草莓味</view>
           <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view>
+          <view>草莓味</view> -->
+          <ui-tags data="{{taste}}" bindchange="singleTaste" fixed-width item-space="1" col-number="3"></ui-tags>
+
         </view>
       </view>
       <view class="content">
         <view class="title">包装颜色</view>
         <view class="item">
-          <view>彩色包装</view>
-          <view>普通包装</view>
+          <!-- <view>彩色包装</view>
+          <view>普通包装</view> -->
+          <ui-tags data="{{pack}}" bindchange="singlePack" fixed-width item-space="1" col-number="3"></ui-tags>
         </view>
       </view>
       <view class="counts">
@@ -346,12 +340,179 @@
 </template>
 
 <script>
+// 选择颜色样式
+const tagColorStyle = `float: left;
+  width: 129rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  border:1px solid rgb(204, 204, 204);
+  border-radius: 22rpx;
+  color: rgb(204, 204, 204);
+  margin: 0 9rpx;
+  margin-bottom: 20rpx;
+`
+const selectColorStyle = `float: left;
+  width: 129rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  border-radius: 22rpx;
+  margin: 0 9rpx;
+  margin-bottom: 20rpx;
+  border:1px solid #f87005;
+  color: #f87005;
+`
+// 选择尺寸样式
+const tagSizeStyle = `float: left;
+  width: 129rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  border:1px solid rgb(204, 204, 204);
+  border-radius: 22rpx;
+  color: rgb(204, 204, 204);
+  margin: 0 9rpx;
+  margin-bottom: 20rpx;
+`
+const selectSizeStyle = `float: left;
+  width: 129rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  border-radius: 22rpx;
+  margin: 0 9rpx;
+  margin-bottom: 20rpx;
+  border:1px solid #f87005;
+  color: #f87005;
+`
+// 立即购买弹框样式
+const tagStyle = `background: #ececec;
+  color: rgb(102, 102, 102);
+  padding: 0 5px;
+  border-radius: 10rpx;
+  text-align: center;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 20px;
+  margin: 0 20rpx 15rpx 0;
+`
+const selectStyle = `background: #f87005;
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 10rpx;
+  text-align: center;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 20px;
+  margin: 0 20rpx 15rpx 0;
+`
+
 export default {
   config: {
     navigationBarTitleText: '商品详情',
     navigationBarTextStyle: 'black'
   },
   data: {
+    colors: [{
+        text: '红色',
+        tagStyle: tagColorStyle,
+        tagSelectedStyle: selectColorStyle,
+        checked: true
+    }, {
+        text: '黑色',
+        tagStyle: tagColorStyle,
+        tagSelectedStyle: selectColorStyle,
+        checked: false
+    }, {
+        text: '棕色',
+        tagStyle: tagColorStyle,
+        tagSelectedStyle: selectColorStyle,
+        checked: false
+    }, {
+        text: '黄色',
+        tagStyle: tagColorStyle,
+        tagSelectedStyle: selectColorStyle,
+        checked: false
+    }, {
+        text: '红色',
+        tagStyle: tagColorStyle,
+        tagSelectedStyle: selectColorStyle,
+        checked: false
+    }, {
+        text: '红色',
+        tagStyle: tagColorStyle,
+        tagSelectedStyle: selectColorStyle,
+        checked: false
+    }],
+    sizes: [{
+        text: 'S',
+        tagStyle: tagSizeStyle,
+        tagSelectedStyle: selectSizeStyle,
+        checked: true
+    }, {
+        text: 'M',
+        tagStyle: tagSizeStyle,
+        tagSelectedStyle: selectSizeStyle,
+        checked: false
+    }, {
+        text: 'L',
+        tagStyle: tagSizeStyle,
+        tagSelectedStyle: selectSizeStyle,
+        checked: false
+    }, {
+        text: 'XL',
+        tagStyle: tagSizeStyle,
+        tagSelectedStyle: selectSizeStyle,
+        checked: false
+    }],
+    taste: [{
+        text: '草莓味',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: true
+    }, {
+        text: '草莓味',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '草莓味',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '草莓味',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '草莓味',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '草莓味',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }],
+    pack: [{
+        text: '彩色包装',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: true
+    }, {
+        text: '普通包装',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }],
+
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     imgUrls: [
@@ -381,6 +542,18 @@ export default {
   },
   onLoad(){
     
+  },
+  // 跳转到选择区域地址页面
+  toSelectAddress(){
+    wx.navigateTo({ url: '/pages/details/selectAddress' });
+  },
+  // 跳转到商品评价页面
+  torRating(){
+    wx.navigateTo({ url: '/pages/details/rating' });
+  },
+  // 下一步操作
+  next(){
+    wx.navigateTo({ url: '/pages/details/confirmOrder' });
   },
   // 导航返回
   navigateBack () {
@@ -415,18 +588,26 @@ export default {
     });
   },
   // 选择颜色
-  selectColors(e){
-    this.setData({
-      colorsId:e.target.dataset.id,
-      color:e.target.dataset.color
-    })
+  singleColor (e) {
+      let opt = e.detail.index;
+      this.data.colors.forEach((item, index) => {
+          item.checked = (index === opt)
+      })
+      this.setData({
+          colors:this.data.colors,
+          color:this.data.colors[opt].text
+      })
   },
   // 选择尺寸
-  selectSize(e){
-    this.setData({
-      sizesId:e.target.dataset.id,
-      size:e.target.dataset.size
-    })
+  singleSize (e) {
+      let opt = e.detail.index;
+      this.data.sizes.forEach((item, index) => {
+          item.checked = (index === opt)
+      })
+      this.setData({
+          sizes:this.data.sizes,
+          size:this.data.sizes[opt].text
+      })
   },
   // 减少
   reduce(){
@@ -471,10 +652,6 @@ export default {
       serviceFlag:false
     })
   },
-  // 跳转到商品评价页面
-  torRating(){
-    wx.navigateTo({ url: '/pages/details/rating' });
-  },
   // 选择详情类别
   selectNav(e){
     this.setData({
@@ -492,9 +669,31 @@ export default {
       buyFlag:false
     })
   },
-  // 下一步操作
-  next(){
-    wx.navigateTo({ url: '/pages/details/confirmOrder' });
+  singleTaste (e) {
+      let opt = e.detail.index
+      wx.showToast({
+          title: this.data.taste[opt].text,
+          icon:'none'
+      })
+      this.data.taste.forEach((item, index) => {
+          item.checked = (index === opt)
+      })
+      this.setData({
+          taste:this.data.taste
+      })
+  },
+  singlePack (e) {
+      let opt = e.detail.index
+      wx.showToast({
+          title: this.data.pack[opt].text,
+          icon:'none'
+      })
+      this.data.pack.forEach((item, index) => {
+          item.checked = (index === opt)
+      })
+      this.setData({
+          pack:this.data.pack
+      })
   }
 }
 </script>
@@ -642,22 +841,6 @@ export default {
   .colors,.sizes,.number{
     width: 85%;
     margin-left: 23rpx;
-    .one{
-      float: left;
-      width: 129rpx;
-      height: 44rpx;
-      text-align: center;
-      line-height: 44rpx;
-      border:1px solid rgb(204, 204, 204);
-      border-radius: 22rpx;
-      color: rgb(204, 204, 204);
-      margin: 0 9rpx;
-      margin-bottom: 20rpx;
-    }
-    .active{
-      border:1px solid #f87005;
-      color: #f87005;
-    }
   }
   .number{
     .num-botton{
@@ -770,8 +953,10 @@ export default {
     margin: 0 auto;
     text-align: center;
     line-height: 60rpx;
+    margin-bottom: 200rpx;
   }
 }
+
 // 服务条款
 .service{
   background: #fff;
@@ -839,6 +1024,7 @@ export default {
     color: #fff;
     font-size: 36rpx;
     font-weight: bold;
+    margin-bottom: 30rpx;
   }
 }
 // 商品评论区
@@ -1144,19 +1330,20 @@ export default {
   }
   .content{
     padding: 20rpx;
+    padding-bottom: 0;
     border-bottom: 1px solid #eeeeee;
     .item{
-      view{
-        width: 192rpx;
-        height: 56rpx;
-        float: left; 
-        margin: 20rpx 45rpx 20rpx 0;
-        color: rgb(102, 102, 102);
-        border-radius: 10rpx;
-        background: #ececec;
-        text-align: center;
-        line-height: 56rpx;
-      }
+      // .list{
+      //   width: 192rpx;
+      //   height: 56rpx;
+      //   float: left; 
+      //   margin: 20rpx 45rpx 20rpx 0;
+      //   color: rgb(102, 102, 102);
+      //   border-radius: 10rpx;
+      //   background: #ececec;
+      //   text-align: center;
+      //   line-height: 56rpx;
+      // }
     }
     .item::after{
       display: block;

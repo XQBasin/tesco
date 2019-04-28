@@ -156,26 +156,15 @@
     </view>
     <!-- 特卖 -->
     <view class="tab-panel-item special-panel-item">
-      <view class="special-group-left">
+      <view wx:for="{{specialList}}" wx:key="specialKey" class="{{index%2==0? 'special-group-left':'special-group-right'}}">
         <image class="special-image" src="../../static/image/index/home_icon_Special.png" />
-        <view class="special-title">每日特惠价</view>
+        <view class="special-title">{{item.title}}</view>
         <view class="shop-left">
           <view class="shop-title">护肤润滑手段和年...</view>
           <view class="price">¥ 353</view>
         </view>
         <view class="shop-right">
-          <image src="../../static/image/index/test/hufu.png" mode="widthFix" />
-        </view>
-      </view>
-      <view class="special-group-right">
-        <image class="special-image" src="../../static/image/index/home_icon_Special.png" />
-        <view class="special-title">爆款精选</view>
-        <view class="shop-left">
-          <view class="shop-title">护肤润滑手段和年...</view>
-          <view class="price">¥ 456</view>
-        </view>
-        <view class="shop-right">
-          <image src="../../static/image/index/test/hufu.png" mode="widthFix" />
+          <image src="{{item.src}}" mode="widthFix" />
         </view>
       </view>
       <view class="clear"></view>
@@ -382,10 +371,10 @@
       <view class="clear"></view>
     </view>
     <view class="like-group-content">
-      <view wx:for="{{list}}" wx:key="likeKey" class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}" data-id="{{index}}">
+      <view wx:for="{{list}}" wx:key="likeKey" class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
         <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
         <view class="shop-detail">
-          <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿......</view>
+          <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿浦东烤盘批次卡贫困阿</view>
           <text class="dis">秒199减99</text>
           <view class="price">¥124<text class="coupon">+66寸金</text><text class="payNum">2390人付款</text></view>
         </view>

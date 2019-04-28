@@ -151,26 +151,15 @@
             </view>
             <!-- 特卖 -->
             <view class="tab-panel-item special-panel-item">
-              <view class="special-group-left">
+                <view wx:for="{{specialList}}" wx:key="specialKey" class="{{index%2==0? 'special-group-left':'special-group-right'}}">
                     <image class="special-image" src="../../static/image/index/home_icon_Special.png"></image>
-                    <view class="special-title">每日特惠价</view>
+                    <view class="special-title">{{item.title}}</view>
                     <view class="shop-left">
                         <view class="shop-title">护肤润滑手段和年...</view>
                         <view class="price">¥ 353</view>
                     </view>
                     <view class="shop-right">
-                        <image src="../../static/image/index/test/hufu.png" mode="widthFix"></image>
-                    </view>
-              </view>
-              <view class="special-group-right">
-                    <image class="special-image" src="../../static/image/index/home_icon_Special.png"></image>
-                    <view class="special-title">爆款精选</view>
-                    <view class="shop-left">
-                        <view class="shop-title">护肤润滑手段和年...</view>
-                        <view class="price">¥ 456</view>
-                    </view>
-                    <view class="shop-right">
-                        <image src="../../static/image/index/test/hufu.png" mode="widthFix"></image>
+                        <image src="{{item.src}}" mode="widthFix"></image>
                     </view>
               </view>
               <view class="clear"></view>
@@ -377,10 +366,10 @@
             <view class="clear"></view>
           </view>
           <view class="like-group-content">
-            <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}" data-id='{{index}}'>
+            <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
                 <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
                 <view class="shop-detail">
-                    <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿......</view>
+                    <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿浦东烤盘批次卡贫困阿</view>
                     <text class="dis">秒199减99</text>
                     <view class="price">¥124<text class="coupon">+66寸金</text><text class="payNum">2390人付款</text></view>
                 </view>
@@ -413,7 +402,11 @@ export default {
           {'name':1},
           {'name':2}
         ],
-        list:[
+        specialList:[
+            {src:'../../static/image/index/test/hufu.png',title:'每日特惠价'},
+            {src:'../../static/image/index/test/hufu.png',title:'爆款精选'}
+        ],
+        list:[                  //猜你喜欢数据
           {'src':'../../static/image/index/test/cooker.png'},
           {'src':'../../static/image/index/test/cooker.png'},
           {'src':'../../static/image/index/test/cooker.png'},
@@ -937,6 +930,13 @@ export default {
         overflow: hidden;
         .shop-detail{
             padding: 0 17rpx;
+            .shop-title{
+                display: -webkit-box;
+                -webkit-line-clamp:2;
+                -webkit-box-orient:vertical;
+                overflow:hidden;
+                text-overflow: ellipsis;
+            }
             .dis{
                 margin-top: 12rpx;
                 padding: 0 10rpx;

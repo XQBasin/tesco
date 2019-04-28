@@ -7,29 +7,27 @@ exports.default = Page({
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
-    current2: 0,
-    activeTabStyle: {
-      'color': '#f87005'
-    },
-    inkBarStyle: {
-      'border-bottom': '2px solid #f87005',
-      'width': '20%'
-    }
+    item: ['首页', '推荐', '商品', '新品'], //选项卡选项
+    itemId: 0, //选项卡选项序号
+    followFlag: false, //关注状态
+    list: [{ 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }]
   },
   // 导航返回
   navigateBack: function navigateBack() {
     wx.navigateBack();
   },
-  handleChange2: function handleChange2(e) {
-    var index = e.detail.index;
+
+  // 顶部选项卡选择
+  bindItem: function bindItem(e) {
     this.setData({
-      current2: index
+      itemId: e.currentTarget.dataset.id
     });
   },
-  handleContentChange2: function handleContentChange2(e) {
-    var current = e.detail.current;
+
+  // 是否关注
+  bindFollow: function bindFollow() {
     this.setData({
-      current2: current
+      followFlag: !this.data.followFlag
     });
   }
 });

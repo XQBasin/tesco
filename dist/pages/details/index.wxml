@@ -57,11 +57,12 @@
     </view>
   </view>
   <!-- 优惠选项界面 -->
-  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="950rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" _pid="{{_pid}}">
     <view class="text">优惠</view>
     <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #333333;font-size: 40rpx;px;"></span>
     <view class="dis-content">
       <view class="title">促销</view>
+      <view class="tip">获得 <text>888寸金</text></view>
       <view class="tip">获得 <text>888寸金</text></view>
       <view class="title">优惠券</view>
     </view>
@@ -101,19 +102,11 @@
   <view class="specs-content ui-row-list ui-row-list-border-indent" wx:if="{{specsFlag}}" style="">
     <view class="colors-title">颜色</view>
     <view class="colors">
-      <view class="one {{colorsId==0? 'active':''}}" data-id="0" bindtap="selectColors" data-color="红色">红色</view>
-      <view class="one {{colorsId==1? 'active':''}}" data-id="1" bindtap="selectColors" data-color="黄色">黄色</view>
-      <view class="one {{colorsId==2? 'active':''}}" data-id="2" bindtap="selectColors" data-color="黑色">黑色</view>
-      <view class="one {{colorsId==3? 'active':''}}" data-id="3" bindtap="selectColors" data-color="绿色">绿色</view>
-      <view class="one {{colorsId==4? 'active':''}}" data-id="4" bindtap="selectColors" data-color="紫色">紫色</view>
-      <view class="one {{colorsId==5? 'active':''}}" data-id="5" bindtap="selectColors" data-color="棕色">棕色</view>
+      <ui-tags data="{{colors}}" fixed-width item-space="2" bindchange="singleColor" _pid="{{_pid}}"></ui-tags>
     </view>
     <view class="size-title">尺码</view>
     <view class="sizes">
-      <view class="one {{sizesId==0? 'active':''}}" data-id="0" bindtap="selectSize" data-size="S">S</view>
-      <view class="one {{sizesId==1? 'active':''}}" data-id="1" bindtap="selectSize" data-size="M">M</view>
-      <view class="one {{sizesId==2? 'active':''}}" data-id="2" bindtap="selectSize" data-size="L">L</view>
-      <view class="one {{sizesId==3? 'active':''}}" data-id="3" bindtap="selectSize" data-size="XL">XL</view>
+      <ui-tags data="{{sizes}}" fixed-width item-space="2" bindchange="singleSize" _pid="{{_pid}}"></ui-tags>
     </view>
     <view class="num-title">数量</view>
     <view class="number">
@@ -143,13 +136,11 @@
     </view>
   </view>
   <!-- 地址选项 -->
-  <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" height="700rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" _pid="{{_pid}}">
     <view class="text">选择地址</view>
     <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="addressHide" style="color: #333333;font-size: 40rpx;px;"></span>
     <view class="info">
-      <view class="hook">
-        <!-- <image src="../../static/image/details/icon_check.png" mode="widthFix"></image> -->
-      </view>
+      <view class="hook"></view>
       <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
     </view>
     <view class="info">
@@ -161,7 +152,7 @@
       <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
     </view>
     <view class="line"></view>
-    <view class="other-address">选择其它区域地址 <span type="rightarrow" size="28rpx;" class="ui-icon icon-rightarrow" style="font-size: 28rpx;px;"></span></view>
+    <view class="other-address" bindtap="toSelectAddress">选择其它区域地址 <span type="rightarrow" size="28rpx;" class="ui-icon icon-rightarrow" style="font-size: 28rpx;px;"></span></view>
   </ui-popup>
 
   <!-- 运费 -->
@@ -193,7 +184,7 @@
     </view>
   </view>
   <!-- 基础服务 -->
-  <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" height="950rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" _pid="{{_pid}}">
     <view class="text">基础服务</view>
     <view class="info">
       <view class="hook">1</view>
@@ -347,19 +338,22 @@
     <view class="content">
       <view class="title">味道</view>
       <view class="item">
-        <view>草莓味</view>
-        <view>草莓味</view>
-        <view>草莓味</view>
-        <view>草莓味</view>
-        <view>草莓味</view>
-        <view>草莓味</view>
+        <!-- <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view>
+          <view>草莓味</view> -->
+        <ui-tags data="{{taste}}" bindchange="singleTaste" fixed-width item-space="1" col-number="3" _pid="{{_pid}}"></ui-tags>
+
       </view>
     </view>
     <view class="content">
       <view class="title">包装颜色</view>
       <view class="item">
-        <view>彩色包装</view>
-        <view>普通包装</view>
+        <!-- <view>彩色包装</view>
+          <view>普通包装</view> -->
+        <ui-tags data="{{pack}}" bindchange="singlePack" fixed-width item-space="1" col-number="3" _pid="{{_pid}}"></ui-tags>
       </view>
     </view>
     <view class="counts">

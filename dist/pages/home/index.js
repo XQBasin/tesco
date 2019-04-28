@@ -11,7 +11,9 @@ exports.default = Page({
         swiperCurrent: 0,
         rmList: [//热卖数据
         { 'name': 1 }, { 'name': 2 }],
-        list: [{ 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }]
+        specialList: [{ src: '../../static/image/index/test/hufu.png', title: '每日特惠价' }, { src: '../../static/image/index/test/hufu.png', title: '爆款精选' }],
+        list: [//猜你喜欢数据
+        { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }]
     },
     onLoad: function onLoad(options) {
         var that = this;

@@ -3,8 +3,113 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+// 选择颜色样式
+var tagColorStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border:1px solid rgb(204, 204, 204);\n  border-radius: 22rpx;\n  color: rgb(204, 204, 204);\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n';
+var selectColorStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border-radius: 22rpx;\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  border:1px solid #f87005;\n  color: #f87005;\n';
+// 选择尺寸样式
+var tagSizeStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border:1px solid rgb(204, 204, 204);\n  border-radius: 22rpx;\n  color: rgb(204, 204, 204);\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n';
+var selectSizeStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border-radius: 22rpx;\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  border:1px solid #f87005;\n  color: #f87005;\n';
+// 立即购买弹框样式
+var tagStyle = 'background: #ececec;\n  color: rgb(102, 102, 102);\n  padding: 0 5px;\n  border-radius: 10rpx;\n  text-align: center;\n  height: 56rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  margin: 0 20rpx 15rpx 0;\n';
+var selectStyle = 'background: #f87005;\n  color: #fff;\n  padding: 0 5px;\n  border-radius: 10rpx;\n  text-align: center;\n  height: 56rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  margin: 0 20rpx 15rpx 0;\n';
+
 exports.default = Page({
   data: {
+    colors: [{
+      text: '红色',
+      tagStyle: tagColorStyle,
+      tagSelectedStyle: selectColorStyle,
+      checked: true
+    }, {
+      text: '黑色',
+      tagStyle: tagColorStyle,
+      tagSelectedStyle: selectColorStyle,
+      checked: false
+    }, {
+      text: '棕色',
+      tagStyle: tagColorStyle,
+      tagSelectedStyle: selectColorStyle,
+      checked: false
+    }, {
+      text: '黄色',
+      tagStyle: tagColorStyle,
+      tagSelectedStyle: selectColorStyle,
+      checked: false
+    }, {
+      text: '红色',
+      tagStyle: tagColorStyle,
+      tagSelectedStyle: selectColorStyle,
+      checked: false
+    }, {
+      text: '红色',
+      tagStyle: tagColorStyle,
+      tagSelectedStyle: selectColorStyle,
+      checked: false
+    }],
+    sizes: [{
+      text: 'S',
+      tagStyle: tagSizeStyle,
+      tagSelectedStyle: selectSizeStyle,
+      checked: true
+    }, {
+      text: 'M',
+      tagStyle: tagSizeStyle,
+      tagSelectedStyle: selectSizeStyle,
+      checked: false
+    }, {
+      text: 'L',
+      tagStyle: tagSizeStyle,
+      tagSelectedStyle: selectSizeStyle,
+      checked: false
+    }, {
+      text: 'XL',
+      tagStyle: tagSizeStyle,
+      tagSelectedStyle: selectSizeStyle,
+      checked: false
+    }],
+    taste: [{
+      text: '草莓味',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: true
+    }, {
+      text: '草莓味',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: false
+    }, {
+      text: '草莓味',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: false
+    }, {
+      text: '草莓味',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: false
+    }, {
+      text: '草莓味',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: false
+    }, {
+      text: '草莓味',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: false
+    }],
+    pack: [{
+      text: '彩色包装',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: true
+    }, {
+      text: '普通包装',
+      tagStyle: tagStyle,
+      tagSelectedStyle: selectStyle,
+      checked: false
+    }],
+
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     imgUrls: ['../../static/image/details/test/img2.png', '../../static/image/details/test/img2.png', '../../static/image/details/test/img2.png'],
@@ -24,6 +129,21 @@ exports.default = Page({
     buyFlag: false //立即购买状态
   },
   onLoad: function onLoad() {},
+
+  // 跳转到选择区域地址页面
+  toSelectAddress: function toSelectAddress() {
+    wx.navigateTo({ url: '/pages/details/selectAddress' });
+  },
+
+  // 跳转到商品评价页面
+  torRating: function torRating() {
+    wx.navigateTo({ url: '/pages/details/rating' });
+  },
+
+  // 下一步操作
+  next: function next() {
+    wx.navigateTo({ url: '/pages/details/confirmOrder' });
+  },
 
   // 导航返回
   navigateBack: function navigateBack() {
@@ -62,18 +182,26 @@ exports.default = Page({
   },
 
   // 选择颜色
-  selectColors: function selectColors(e) {
+  singleColor: function singleColor(e) {
+    var opt = e.detail.index;
+    this.data.colors.forEach(function (item, index) {
+      item.checked = index === opt;
+    });
     this.setData({
-      colorsId: e.target.dataset.id,
-      color: e.target.dataset.color
+      colors: this.data.colors,
+      color: this.data.colors[opt].text
     });
   },
 
   // 选择尺寸
-  selectSize: function selectSize(e) {
+  singleSize: function singleSize(e) {
+    var opt = e.detail.index;
+    this.data.sizes.forEach(function (item, index) {
+      item.checked = index === opt;
+    });
     this.setData({
-      sizesId: e.target.dataset.id,
-      size: e.target.dataset.size
+      sizes: this.data.sizes,
+      size: this.data.sizes[opt].text
     });
   },
 
@@ -126,11 +254,6 @@ exports.default = Page({
     });
   },
 
-  // 跳转到商品评价页面
-  torRating: function torRating() {
-    wx.navigateTo({ url: '/pages/details/rating' });
-  },
-
   // 选择详情类别
   selectNav: function selectNav(e) {
     this.setData({
@@ -149,9 +272,30 @@ exports.default = Page({
       buyFlag: false
     });
   },
-
-  // 下一步操作
-  next: function next() {
-    wx.navigateTo({ url: '/pages/details/confirmOrder' });
+  singleTaste: function singleTaste(e) {
+    var opt = e.detail.index;
+    wx.showToast({
+      title: this.data.taste[opt].text,
+      icon: 'none'
+    });
+    this.data.taste.forEach(function (item, index) {
+      item.checked = index === opt;
+    });
+    this.setData({
+      taste: this.data.taste
+    });
+  },
+  singlePack: function singlePack(e) {
+    var opt = e.detail.index;
+    wx.showToast({
+      title: this.data.pack[opt].text,
+      icon: 'none'
+    });
+    this.data.pack.forEach(function (item, index) {
+      item.checked = index === opt;
+    });
+    this.setData({
+      pack: this.data.pack
+    });
   }
 });

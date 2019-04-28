@@ -49,9 +49,9 @@
           <view class="fans">435.1万粉丝</view>
         </view>
       </view>
-      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 120rpx;px;">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 140rpx;px;">
         <view class="ui-col-content align-center valign-middle">
-          <view class="follow">+　关注</view>
+          <view class="{{followFlag==true? 'unfollow':'follow'}}" bindtap="bindFollow">+　关注</view>
         </view>
       </view>
     </view>
@@ -59,14 +59,27 @@
 
   <!-- 选项卡 -->
   <view class="item">
-    <view class="active">商品</view>
-    <view>推荐</view>
-    <view>商品</view>
-    <view>新品</view>
+    <view wx:for="{{item}}" wx:key="itemKey" data-id="{{index}}" bindtap="bindItem" class="{{itemId==index? 'active':''}}">
+      {{item}}
+      <view class="line" wx:if="{{itemId==index}}"></view>
+    </view>
   </view>
-  <view style="height:300rpx;background:pink"></view>
+  <view style="height:300rpx;background:#cccccc"></view>
   <view class="t">
     <view class="t1"></view>
     <view class="t2"></view>
   </view>
+
+  <view class="like-group-content">
+    <view wx:for="{{list}}" wx:key="likeKey" class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
+      <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
+      <view class="shop-detail">
+        <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>
+        <view class="price">¥124<text class="coupon">+66寸金</text></view>
+        <view class="fill">满199减100</view>
+        <view class="evaluate">10+评价　100好评</view>
+      </view>
+    </view>
+  </view>
+
 </view>

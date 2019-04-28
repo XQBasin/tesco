@@ -1,0 +1,109 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">购物车</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- header区域 -->
+  <view class="ui-row-list" style="">
+    <view class="head ui-row" style="">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 80rpx;px;">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="dingwei" size="40rpx;" color="#999999" class="ui-icon icon-dingwei" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          <text>广州市番禺区广州市番禺区广州市番禺区广州市番禺区...</text>
+        </view>
+      </view>
+      <view style="color:#f87005;flex:0 0 140rpx;px;" class="ui-col ui-col-align-center align-center valign-middle">
+        <view class="ui-col-content align-center valign-middle">
+          商品编辑
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单详细内容 -->
+  <view class="order">
+    <view class="ui-row-list" style="">
+      <view class="order-head ui-row" style="">
+        <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 80rpx;px;">
+          <view class="ui-col-content align-center valign-middle">
+            <span type="gouxuan" size="40rpx;" color="#f87005" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          </view>
+        </view>
+        <view class="ui-col ui-col-align-left align-left valign-middle" style="flex:0 0 60rpx;px;">
+          <view class="ui-col-content align-left valign-middle">
+            <image src="../../static/image/shop/icon_shop.png" style="width:40rpx;height:40rpx;" />
+          </view>
+        </view>
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            <text>汽车品牌专卖店 ></text>
+          </view>
+        </view>
+        <view style="color:#f87005;flex:0 0 120rpx;px;" class="ui-col ui-col-align-center align-center valign-middle">
+          <view class="ui-col-content align-center valign-middle">
+            优惠券
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="ui-row-list" style="">
+      <view class="order-content ui-row" style="">
+        <view style="line-height:150rpx;flex:0 0 80rpx;px;" class="ui-col ui-col-align-center align-center">
+          <view class="ui-col-content align-center">
+            <span type="gouxuan" size="40rpx;" color="#f87005" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          </view>
+        </view>
+        <view class="ui-col" style="">
+          <view class="ui-col-content">
+            <view class="info">
+              <view class="image"></view>
+              <view class="text">
+                <view class="name">2019第三方防静电死哦公司丢时代峰峻骚粉建设大街圣诞节欧式的窘迫设大街圣诞节欧式的窘迫...设大街圣诞节欧式的窘迫...</view>
+                <view class="selector">米色皮革+黑色</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="preview">
+      <view class="selector">
+        <view class="reduce">-</view>
+        <view class="number">1</view>
+        <view class="plus">+</view>
+      </view>
+      <view class="price">¥569.00</view>
+    </view>
+  </view>
+
+  <!-- 底部操作界面 -->
+  <view class="bottom">
+    <view class="check">11</view>
+    <view class="total">
+      <view><text class="all">总计：</text><text class="number">¥569.00</text></view>
+      <view class="detail">总额¥569.00<text>优惠¥0.00</text></view>
+    </view>
+    <view class="pay">去结算<text>（1件）</text></view>
+  </view>
+</view>

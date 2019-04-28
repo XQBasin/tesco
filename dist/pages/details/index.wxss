@@ -161,26 +161,6 @@
   width: 85%;
   margin-left: 23rpx;
 }
-.specs-content .colors .one,
-.specs-content .sizes .one,
-.specs-content .number .one {
-  float: left;
-  width: 129rpx;
-  height: 44rpx;
-  text-align: center;
-  line-height: 44rpx;
-  border: 1px solid #cccccc;
-  border-radius: 22rpx;
-  color: #cccccc;
-  margin: 0 9rpx;
-  margin-bottom: 20rpx;
-}
-.specs-content .colors .active,
-.specs-content .sizes .active,
-.specs-content .number .active {
-  border: 1px solid #f87005;
-  color: #f87005;
-}
 .specs-content .number .num-botton {
   width: 248rpx;
   height: 54rpx;
@@ -291,6 +271,7 @@
   margin: 0 auto;
   text-align: center;
   line-height: 60rpx;
+  margin-bottom: 200rpx;
 }
 .service {
   background: #fff;
@@ -357,6 +338,7 @@
   color: #fff;
   font-size: 36rpx;
   font-weight: bold;
+  margin-bottom: 30rpx;
 }
 .comment-area-title,
 .details-title {
@@ -678,18 +660,8 @@
 }
 .buy-mask .content {
   padding: 20rpx;
+  padding-bottom: 0;
   border-bottom: 1px solid #eeeeee;
-}
-.buy-mask .content .item view {
-  width: 192rpx;
-  height: 56rpx;
-  float: left;
-  margin: 20rpx 45rpx 20rpx 0;
-  color: #666666;
-  border-radius: 10rpx;
-  background: #ececec;
-  text-align: center;
-  line-height: 56rpx;
 }
 .buy-mask .content .item::after {
   display: block;
