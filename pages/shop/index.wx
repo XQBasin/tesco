@@ -4,6 +4,11 @@
     <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
         <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
             <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px">
+              <view class="containertitle">
+                <view class='dingwei'>
+                    <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                </view>
+              </view>
             </ui-col>
             <ui-col vertical-align="middle" class="nav-bar-col">
                 <view class="nav-bar-title">购物车</view>
@@ -14,6 +19,7 @@
     </ui-nav-bar>
     <view style="height:{{NAV_HEIGHT}}"></view>
 
+    <view wx:if='{{!emptyFlag}}'>
     <!-- header区域 -->
     <ui-row-list>
       <ui-row class="head">
@@ -23,8 +29,12 @@
           <ui-col class="text" >
               <text>广州市番禺区广州市番禺区广州市番禺区广州市番禺区...</text>
           </ui-col>
-          <ui-col width="140rpx;" vertical-align="middle" align="center" style="color:#f87005;">
+          <ui-col width="140rpx;" vertical-align="middle" align="center" style="color:#f87005;" wx:if="{{!flag}}" bindtap="clickEdit">
               商品编辑
+          </ui-col>
+          <text class="clear" wx:if="{{flag}}">一键清空</text>
+          <ui-col width="90rpx;" vertical-align="middle" align="center" style="color:#f87005;" wx:if="{{flag}}" bindtap="clickEdit">
+              完成
           </ui-col>
       </ui-row>
     </ui-row-list>
@@ -55,20 +65,23 @@
             <ui-col>
               <view class="info" >
                 <view class="image"></view>
-              <view class="text">
-                <view class="name">2019第三方防静电死哦公司丢时代峰峻骚粉建设大街圣诞节欧式的窘迫设大街圣诞节欧式的窘迫...设大街圣诞节欧式的窘迫...</view>
-                <view class="selector">米色皮革+黑色</view>
+                <view class="text">
+                  <view class="name">2019第三方防静电死哦公司丢时代峰峻骚粉建设大街圣诞节欧式的窘迫设大街圣诞节欧式的窘迫...设大街圣诞节欧式的窘迫...</view>
+                  <view class="checkbox">米色皮革+黑色<ui-icon class="gengduo" type="xiangxiajiantou" size="36rpx;" color="#999999"></ui-icon></view>
+                </view>
               </view>
-              </view>
-              
             </ui-col>
         </ui-row>
       </ui-row-list>
       <view class="preview">
         <view class="selector">
-          <view class="reduce">-</view>
+          <view class="reduce">
+            <ui-icon type="jiansvg" color="#999999" size="36rpx;"></ui-icon>
+          </view>
           <view class="number">1</view>
-          <view class="plus">+</view>
+          <view class="plus">
+            <ui-icon type="jia" color="#999999" size="36rpx;"></ui-icon>
+          </view>
         </view>
         <view class="price">¥569.00</view>
       </view>
@@ -76,12 +89,34 @@
 
     <!-- 底部操作界面 -->
     <view class="bottom">
-      <view class="check">11</view>
-      <view class="total">
-        <view><text class="all">总计：</text><text class="number">¥569.00</text></view>
-        <view class="detail">总额¥569.00<text>优惠¥0.00</text></view>
+      <view class="check">
+        <ui-icon type="yuanquan" color="#999999" size="36rpx;"></ui-icon>
+        <view>全选</view>
       </view>
-      <view class="pay">去结算<text>（1件）</text></view>
+      <view class="total" wx:if="{{!flag}}">
+        <view>
+          <text class="all">总计：</text>
+          <text class="number">¥569.00</text>
+        </view>
+        <view class="detail">总额　¥569.00<text>优惠　¥0.00</text></view>
+      </view>
+      <view class="pay" wx:if="{{!flag}}">去结算<text>（1件）</text></view>
+
+      <view wx:if="{{flag}}" class="operation">
+        <button class="collect">移到收藏</button>
+        <button class="cancel">删除</button>
+      </view>
+    </view>
+    </view>
+
+    <!-- 购物车为空 -->
+    <view wx:if="{{emptyFlag}}" class="empty">
+      <image class="background" src="../../static/image/shop/shopping_default.png" mode="aspectFit"></image>
+      <view class="title">购物车还是空的哦，还不快去逛逛~</view>
+      <view class="middle">
+        <image class="button" src="../../static/image/btn_sure_nor.png"></image>
+        <view class="text">去逛逛</view>
+      </view>
     </view>
   </view>
 </template>
@@ -94,7 +129,15 @@ export default {
   },
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
-    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    emptyFlag:false,   //缺省页状态值
+    flag:false        //商品编辑状态
+  },
+  // 商品编辑
+  clickEdit(){
+    this.setData({
+      flag:!this.data.flag
+    })
   }
 }
 </script>
@@ -106,6 +149,7 @@ export default {
   line-height: 90rpx;
   background: #fff;
   margin-bottom: 32rpx;
+  position: relative;
   .text text{
     width: 200rpx;
     color: rgb(153, 153, 153);
@@ -113,11 +157,17 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .clear{
+    position:absolute;
+    top: 0;
+    right: 120rpx;
+  }
 }
 
 // 订单详细内容
 .order{
   background: #fff;
+  margin-bottom: 28rpx;
   .order-head{
     height: 78rpx;
     line-height: 78rpx;
@@ -152,6 +202,24 @@ export default {
           text-overflow: ellipsis;
           display: -webkit-box;
         }
+        .checkbox{
+          width: 100%;
+          height: 56rpx;
+          line-height: 56rpx;
+          font-size: 28rpx;
+          color: rgb(153, 153, 153);
+          padding-left: 20rpx;
+          border:1px solid rgb(169, 169, 169);
+          border-radius: 10rpx;
+          margin-top: 10rpx;
+          position: relative;
+          .gengduo{
+            position:absolute;
+            top: 0;
+            right:10rpx;
+          }
+        }
+        
       }
     }
   }
@@ -195,17 +263,39 @@ export default {
   background: #fff;
   height: 100rpx;
   width: 100%;
-  .check,.pay{
-    width: 25%;
+  .check{
+    width: 10%;
     float: left;
+    text-align: center;
+    padding-left: 20rpx;
+    view{
+      font-size: 22rpx;
+      color: rgb(153, 153, 153);
+    }
   }
   .total{
-    width: 50%;
+    width: 65%;
     float: left;
     text-align: right;
     padding-right: 36rpx;
+    .all,.number{
+      font-weight: bold;
+      font-size: 36rpx;
+    }
+    .number{
+      color: #eb0202;
+    }
+    .detail{
+      font-size: 24rpx;
+      color: #999999;
+      text{
+        margin-left: 46rpx;
+      }
+    }
   }
   .pay{
+    width: 25%;
+    float: left;
     color: #fff;
     background: #f87005;
     font-size: 32rpx;
@@ -216,6 +306,79 @@ export default {
       font-size: 20rpx;
     }
   }
+  .operation{
+    width: 90%;
+    line-height: 100rpx;
+    float: right;
+    .mix-flex-center();
+    text-align: rigth;
+    button{
+      width: 204rpx;
+      height: 64rpx;
+      font-size: 32rpx;
+      border-radius: 32rpx;
+      float: left;
+      font-weight: bold;
+      .mix-flex-center();
+    }
+    button::after{
+      border:none;
+    }
+    .collect{
+      color: #f87005;
+      background: #fff;
+      border-radius: 32rpx;
+      border: 1px solid #f87005;
+    }
+    .cancel{
+      color: #fff;
+      background: #f87005;
+      margin-left: 26rpx;
+    }
+  }
+  .operation::after{
+    display: block;
+    content: "";
+    height: 0;
+    clear: both;
+  }
 }
-
+// 购物车为空
+.empty{
+  .background{
+    width: 750rpx;
+    height: 345rpx;
+  }
+  .title{
+    height: 113rpx;
+    line-height: 113rpx;
+    text-align: center;
+    color: #9e9e9e;
+  }
+  .middle{
+    position: relative;
+    .button{
+      width: 180rpx;
+      height: 60rpx;
+      margin: 0 auto;
+    }
+    .text{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      line-height: 60rpx;
+      font-size: 30rpx;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  
+}
+.empty::before{
+  height: 260rpx;
+  width: 1px;
+  display: block;
+  content: '';
+}
 </style>

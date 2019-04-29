@@ -24,6 +24,7 @@
   line-height: 90rpx;
   background: #fff;
   margin-bottom: 32rpx;
+  position: relative;
 }
 .head .text text {
   width: 200rpx;
@@ -32,8 +33,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.head .clear {
+  position: absolute;
+  top: 0;
+  right: 120rpx;
+}
 .order {
   background: #fff;
+  margin-bottom: 28rpx;
 }
 .order .order-head {
   height: 78rpx;
@@ -72,6 +79,23 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+}
+.order .order-content .info .text .checkbox {
+  width: 100%;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  color: #999999;
+  padding-left: 20rpx;
+  border: 1px solid #a9a9a9;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+  position: relative;
+}
+.order .order-content .info .text .checkbox .gengduo {
+  position: absolute;
+  top: 0;
+  right: 10rpx;
 }
 .order .preview {
   background: #fff;
@@ -112,18 +136,40 @@
   height: 100rpx;
   width: 100%;
 }
-.bottom .check,
-.bottom .pay {
-  width: 25%;
+.bottom .check {
+  width: 10%;
   float: left;
+  text-align: center;
+  padding-left: 20rpx;
+}
+.bottom .check view {
+  font-size: 22rpx;
+  color: #999999;
 }
 .bottom .total {
-  width: 50%;
+  width: 65%;
   float: left;
   text-align: right;
   padding-right: 36rpx;
 }
+.bottom .total .all,
+.bottom .total .number {
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.bottom .total .number {
+  color: #eb0202;
+}
+.bottom .total .detail {
+  font-size: 24rpx;
+  color: #999999;
+}
+.bottom .total .detail text {
+  margin-left: 46rpx;
+}
 .bottom .pay {
+  width: 25%;
+  float: left;
   color: #fff;
   background: #f87005;
   font-size: 32rpx;
@@ -135,4 +181,78 @@
 }
 .bottom .pay text {
   font-size: 20rpx;
+}
+.bottom .operation {
+  width: 90%;
+  line-height: 100rpx;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: rigth;
+}
+.bottom .operation button {
+  width: 204rpx;
+  height: 64rpx;
+  font-size: 32rpx;
+  border-radius: 32rpx;
+  float: left;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom .operation button::after {
+  border: none;
+}
+.bottom .operation .collect {
+  color: #f87005;
+  background: #fff;
+  border-radius: 32rpx;
+  border: 1px solid #f87005;
+}
+.bottom .operation .cancel {
+  color: #fff;
+  background: #f87005;
+  margin-left: 26rpx;
+}
+.bottom .operation::after {
+  display: block;
+  content: "";
+  height: 0;
+  clear: both;
+}
+.empty .background {
+  width: 750rpx;
+  height: 345rpx;
+}
+.empty .title {
+  height: 113rpx;
+  line-height: 113rpx;
+  text-align: center;
+  color: #9e9e9e;
+}
+.empty .middle {
+  position: relative;
+}
+.empty .middle .button {
+  width: 180rpx;
+  height: 60rpx;
+  margin: 0 auto;
+}
+.empty .middle .text {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.empty::before {
+  height: 260rpx;
+  width: 1px;
+  display: block;
+  content: '';
 }

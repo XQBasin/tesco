@@ -19,6 +19,13 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
+.popup {
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+}
 .show-area {
   background: #fff;
   padding: 0 26rpx 25rpx 26rpx;
@@ -53,6 +60,11 @@
 }
 .show-area .shop-title {
   margin-bottom: 19rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .show-area .shop-type {
   display: inline-block;
@@ -240,16 +252,11 @@
   margin-top: 25rpx;
 }
 .address-mask .info .hook {
-  width: 25rpx;
-  height: 25rpx;
-  display: block;
-  border: 1px solid #191919;
-  border-radius: 50%;
   position: absolute;
   top: 10rpx;
 }
 .address-mask .info .address-content {
-  padding: 0 30rpx 0 30rpx;
+  padding: 0 30rpx 0 45rpx;
 }
 .address-mask .info::after {
   display: block;
@@ -673,6 +680,7 @@
   position: relative;
   height: 120rpx;
   padding-left: 20rpx;
+  margin-bottom: 80rpx;
 }
 .buy-mask .counts .title {
   position: absolute;
@@ -714,4 +722,20 @@
   text-align: center;
   line-height: 80rpx;
   color: #fff;
+}
+.empty .background {
+  width: 750rpx;
+  height: 345rpx;
+}
+.empty .title {
+  height: 113rpx;
+  line-height: 113rpx;
+  text-align: center;
+  color: #9e9e9e;
+}
+.empty::before {
+  height: 260rpx;
+  width: 1px;
+  display: block;
+  content: '';
 }

@@ -202,8 +202,17 @@
 .flex-title .more .authorise_btn::after {
   border: none;
 }
-.clear {
+.rm-group::after,
+.special-panel-item::after,
+.fc-group::after,
+.group-right::after,
+.group-content::after,
+.like-panel-item::after,
+.like-group-content::after {
+  display: block;
+  content: '';
   clear: both;
+  height: 0;
 }
 .shop-title {
   font-size: 24rpx;

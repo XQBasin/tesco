@@ -112,6 +112,7 @@ exports.default = Page({
 
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    emptyFlag: false, //缺省页状态值
     imgUrls: ['../../static/image/details/test/img2.png', '../../static/image/details/test/img2.png', '../../static/image/details/test/img2.png'],
     imgNum: 1, //当前张数
     totalNum: 3, //总张数

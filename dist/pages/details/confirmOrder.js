@@ -9,8 +9,11 @@ exports.default = Page({
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     checked: true, //优惠券勾选状态
     disFlag: false, //优惠选项状态
-    disId: 0, //优惠券选项序号
-    disChecked: false //优惠券勾选状态
+    disId: 0, //popup可用和不可用优惠券序号
+    disNum: -1, //popup优惠券张数序号
+    disChecked: false, //popup优惠券勾选状态
+    disPrice: '0', //popup优惠券金额
+    couponId: 0 //寸金优惠序号
   },
   // 导航返回
   navigateBack: function navigateBack() {
@@ -28,16 +31,15 @@ exports.default = Page({
   },
 
   // 优惠券勾选
-  checked: function checked() {
+  checked: function checked(e) {
     this.setData({
-      checked: !this.data.checked
+      couponId: e.currentTarget.dataset.id
     });
   },
 
   // 打开优惠卷内容区
   openDis: function openDis(e) {
     var show = e.currentTarget.dataset.show;
-    console.log(show);
     this.setData({
       disFlag: show
     });
@@ -59,7 +61,7 @@ exports.default = Page({
   bindDis: function bindDis(e) {
     this.setData({
       disPrice: e.currentTarget.dataset.price,
-      disChecked: !this.data.disChecked
+      disNum: e.currentTarget.dataset.num
     });
   }
 });

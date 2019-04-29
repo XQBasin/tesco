@@ -1,16 +1,16 @@
 {
   "pages": [
-    "pages/details/rating",
-    "pages/shop/index",
+    "pages/details/index",
     "pages/home/index",
     "pages/home/search",
-    "pages/details/index",
     "pages/details/confirmOrder",
     "pages/details/paySuccess",
     "pages/details/selectAddress",
     "pages/details/addressEdit",
+    "pages/details/rating",
     "pages/store/index",
-    "pages/store/recommend"
+    "pages/store/recommend",
+    "pages/shop/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

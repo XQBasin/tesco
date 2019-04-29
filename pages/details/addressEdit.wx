@@ -20,33 +20,32 @@
     <view style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 地址管理 -->
-    <ui-row-list class="address">
-    <ui-row height="64rpx">
-        <ui-col width="80rpx;" class="center">
-            <ui-icon type="yuanquan" size="40rpx;" color="#545454"></ui-icon>
-        </ui-col>
-        <ui-col class="text" vertical-align="middle">
+    <view class="address" bindtap="clickCheck" data-id="0">
+        <view class="left">
+            <ui-icon type="gouxuan" size="40rpx;" color="#f87005" wx:if="{{addressId==0}}"></ui-icon>
+            <ui-icon type="yuanquan" size="40rpx;" color="#545454" wx:else></ui-icon>
+        </view>
+        <view class="text">
             <view class="user">卡卡西丿<text>123******09</text></view>
             <view class="content"><text>[默认]</text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
-        </ui-col>
-        <ui-col width="80rpx;" class="center">
-            <ui-icon type="gengduo" size="40rpx;"></ui-icon>
-        </ui-col>
-    </ui-row>
-    <ui-row height="64rpx">
-        <ui-col width="80rpx;" class="center">
-            <ui-icon type="yuanquan" size="40rpx;" color="#545454"></ui-icon>
-        </ui-col>
-        <ui-col class="text">
+        </view>
+        <view class="right">
+            <ui-icon type="gengduo" size="40rpx;" align="right"></ui-icon>
+        </view>
+    </view>
+    <view class="address" bindtap="clickCheck" data-id="1">
+        <view class="left">
+            <ui-icon type="gouxuan" size="40rpx;" color="#f87005" wx:if="{{addressId==1}}"></ui-icon>
+            <ui-icon type="yuanquan" size="40rpx;" color="#545454" wx:else></ui-icon>
+        </view>
+        <view class="text">
             <view class="user">卡卡西丿<text>123******09</text></view>
             <view class="content"><text></text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
-        </ui-col>
-        <ui-col width="80rpx;" class="center">
-            <ui-icon type="gengduo" size="40rpx;"></ui-icon>
-        </ui-col>
-    </ui-row>
-    </ui-row-list>
-
+        </view>
+        <view class="right">
+            <ui-icon type="gengduo" size="40rpx;" align="right"></ui-icon>
+        </view>
+    </view>
     <!-- 添加新地址 -->
     <view class="add">+添加新的地址</view>
   </view>
@@ -61,38 +60,65 @@ export default {
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    addressId:0
   },
   // 导航返回
   navigateBack () {
       wx.navigateBack()
-  }
+  },
+  // 选中地址
+  clickCheck(e){
+      this.setData({
+          addressId:e.currentTarget.dataset.id
+      })
+  }  
 }
 </script>
 
 <style lang="less">
 .address{
   background: #fff;
-  .center{
-    padding-left:26rpx;
-    line-height: 164rpx;
+  margin-bottom: 1px;
+  .left,.right{
+      float: left;
+      width: 15%;
+      line-height: 164rpx;
+  }
+  .left{
+      padding-left:26rpx;
   }
   .text{
-    padding: 28rpx 0;
-    .mix-flex-y-center();
-    .user{
-      font-size: 28rpx;
-      text{
-        margin-left: 74rpx;
-      }
+        padding: 28rpx 0;
+        width: 75%;
+        float: left;
+        .user{
+            font-size: 28rpx;
+            text{
+                margin-left: 74rpx;
+            }
+        }
+        .content{
+            font-size: 26rpx;
+            color: #999999;
+            display: -webkit-box;
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+            overflow:hidden;
+            text-overflow: ellipsis;
+            text{
+                color: #f87005;
+            }
+        }
     }
-    .content{
-      font-size: 26rpx;
-      color: #999999;
-      text{
-        color: #f87005;
-      }
+    .right{
+        width: 10%;
     }
-  }
+}
+.address::after{
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
 }
 // 添加新地址
 .add{

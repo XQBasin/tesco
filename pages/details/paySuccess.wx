@@ -30,27 +30,27 @@
     <view class="user-info">
         <view class="item">
             <text class="item-left">收件人：</text>
-            <text class="item-right">卡卡西</text>
+            <text class="item-right">{{user}}</text>
         </view>
         <view class="item">
             <text class="item-left">订单编号：</text>
-            <text class="item-right">3425352355552</text>
+            <text class="item-right">{{orderNum}}</text>
         </view>
         <view class="item">
             <text class="item-left">收货地址：</text>
-            <text class="item-right">广东省广州市番禺区对话框按时发链接广告费的故事大概 大V搜索</text>
+            <text class="item-right">{{address}}</text>
         </view>
         <view class="item">
             <text class="item-left">支付金额：</text>
-            <text class="item-right">¥280.00</text>
+            <text class="item-right">¥{{pay}}</text>
         </view>
         <view class="item">
             <text class="item-left">优惠金额：</text>
-            <text class="item-right">¥52.00</text>
+            <text class="item-right">¥{{discount}}</text>
         </view>
         <view class="item">
             <text class="item-left">下单时间：</text>
-            <text class="item-right">2019.03.24 12:35:10</text>
+            <text class="item-right">{{time}}</text>
         </view>
     </view>
 
@@ -74,7 +74,13 @@ export default {
   },
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
-    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    user:'卡卡西',            //收件人信息
+    orderNum:'3425352355552',
+    address:'广东省广州市番禺区对话框按时发链接广告费的故事大概 大V搜索',
+    pay:'280.00',
+    discount:'52.00',
+    time:'2019.03.24 12:35:10'
   },
   // 导航返回
   navigateBack () {

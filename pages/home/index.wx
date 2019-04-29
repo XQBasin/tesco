@@ -146,7 +146,6 @@
                         </view>
                     </view>
                   </view>
-                <view class="clear"></view>
                 </view>
             </view>
             <!-- 特卖 -->
@@ -161,8 +160,7 @@
                     <view class="shop-right">
                         <image src="{{item.src}}" mode="widthFix"></image>
                     </view>
-              </view>
-              <view class="clear"></view>
+                </view>
             </view>
             <!-- 方寸推荐 -->
             <view class="tab-panel-item">
@@ -194,7 +192,6 @@
                       <view class="shop-title">护肤水晶华液</view>
                       <view class="price">¥ 456</view>
                   </view>
-                  <view class="clear"></view>
                 </view>
             </view>
             <!-- 吃货小天地 -->
@@ -224,7 +221,6 @@
                       <image src="../../static/image/index/test/03.png" class="img1"></image>
                       <image src="../../static/image/index/test/03.png" class="img2"></image>
                   </view>
-                  <view class="clear"></view>
                   <view class="group-content">
                     <view class="group-content1">
                         <view class="shop-title">坚果类</view>
@@ -247,7 +243,6 @@
                         <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
                     </view>
                   </view>
-                  <view class="clear"></view>
                 </view>
             </view>
             <!-- 生活必备 -->
@@ -277,7 +272,6 @@
                       <image src="../../static/image/index/test/03.png" class="img1"></image>
                       <image src="../../static/image/index/test/03.png" class="img2"></image>
                   </view>
-                  <view class="clear"></view>
                   <view class="group-content">
                     <view class="group-content1">
                         <view class="shop-title">坚果类</view>
@@ -300,7 +294,6 @@
                         <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
                     </view>
                   </view>
-                  <view class="clear"></view>
                 </view>
             </view>
             <!-- 五花八门 -->
@@ -330,7 +323,6 @@
                       <image src="../../static/image/index/test/03.png" class="img1"></image>
                       <image src="../../static/image/index/test/03.png" class="img2"></image>
                   </view>
-                  <view class="clear"></view>
                   <view class="group-content">
                     <view class="group-content1">
                         <view class="shop-title">坚果类</view>
@@ -353,7 +345,6 @@
                         <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
                     </view>
                   </view>
-                  <view class="clear"></view>
                 </view>
             </view>
         </view>
@@ -363,7 +354,7 @@
             <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill"></image>
             <text>猜你喜欢</text>
             <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill"></image>
-            <view class="clear"></view>
+            
           </view>
           <view class="like-group-content">
             <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
@@ -374,10 +365,10 @@
                     <view class="price">¥124<text class="coupon">+66寸金</text><text class="payNum">2390人付款</text></view>
                 </view>
             </view>
-            <view class="clear"></view>
+            
           </view>
         </view>
-    <view class="clear"></view>
+    
     </view>
 </template>
 
@@ -641,8 +632,12 @@ export default {
 }
 
 // 商品展示区公共样式
-.clear{
-  clear: both;
+.rm-group::after,.special-panel-item::after,.fc-group::after,.group-right::after,
+.group-content::after,.like-panel-item::after,.like-group-content::after{
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
 }
 .shop-title{
     font-size: 24rpx;

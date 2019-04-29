@@ -67,66 +67,6 @@
       </view>
     </view>
 
-    <view class="warp">
-      <view class="item">
-        <view class="top">
-          <view class="store-image"></view>
-          <view class="store-info">
-            <view class="name">Skuidsnsdd旗舰店</view>
-            <view class="detail">水电费很多事复合肥好阀口袋...</view>
-          </view>
-          <view class="enter" bindtap="toStroe">进入店铺</view>
-        </view>
-        <view class="image">
-          <view class="t1"></view>
-          <view class="t2">
-            <view class="t2-1"></view>
-            <view class="t2-2"></view>
-          </view>
-        </view>
-        <view class="bottom">
-          <view class="browse">
-            <image src="../../static/image/store/icon_browse.png"></image>
-            <view>　浏览10.6万次</view>
-          </view>
-          <view class="praise">
-            <image src="../../static/image/details/icon_good_a.png"></image>
-            <view>　9999</view>
-          </view>
-        </view>
-      </view>
-    </view>
-
-    <view class="warp">
-      <view class="item">
-        <view class="top">
-          <view class="store-image"></view>
-          <view class="store-info">
-            <view class="name">Skuidsnsdd旗舰店</view>
-            <view class="detail">水电费很多事复合肥好阀口袋...</view>
-          </view>
-          <view class="enter" bindtap="toStroe">进入店铺</view>
-        </view>
-        <view class="image">
-          <view class="t1"></view>
-          <view class="t2">
-            <view class="t2-1"></view>
-            <view class="t2-2"></view>
-          </view>
-        </view>
-        <view class="bottom">
-          <view class="browse">
-            <image src="../../static/image/store/icon_browse.png"></image>
-            <view>　浏览10.6万次</view>
-          </view>
-          <view class="praise">
-            <image src="../../static/image/details/icon_good_a.png"></image>
-            <view>　9999</view>
-          </view>
-        </view>
-      </view>
-    </view>
-
   </view>
 </template>
 

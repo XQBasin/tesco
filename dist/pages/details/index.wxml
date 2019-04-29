@@ -24,347 +24,345 @@
   </ui-nav-bar>
   <view style="height:{{NAV_HEIGHT}}"></view>
 
-  <!-- 商品展示区 -->
-  <view class="show-area">
-    <swiper style="height:700rpx" bindchange="imgChange">
-      <block wx:for="{{imgUrls}}" wx:key="imgKey">
-        <swiper-item>
-          <image src="{{item}}" mode="widthFix" />
-        </swiper-item>
-      </block>
-    </swiper>
-    <view class="bottom">{{imgNum}}/{{totalNum}}</view>
-
-    <view class="price">¥9999.00<text class="del">¥9999.00</text></view>
-    <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到</view>
-    <text class="shop-type">时尚休闲</text>
-  </view>
-
-  <!-- 优惠 -->
-  <view class="discount ui-row-list ui-row-list-border-indent" bindtap="openDis" data-show="{{ true }}" style="">
-    <view class="ui-row" style="">
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
-          优惠
-        </view>
-      </view>
-      <text class="tip">得888方金</text>
-      <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
-        <view class="ui-col-content">
-          <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
-        </view>
-      </view>
+  <view wx:if="{{!emptyFlag}}">
+    <!-- 商品展示区 -->
+    <view class="show-area">
+      <swiper style="height:700rpx" bindchange="imgChange">
+        <block wx:for="{{imgUrls}}" wx:key="imgKey">
+          <swiper-item>
+            <image src="{{item}}" mode="widthFix" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="bottom">{{imgNum}}/{{totalNum}}</view>
+      <view class="price">¥9999.00<text class="del">¥9999.00</text></view>
+      <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到】】</view>
+      <text class="shop-type">时尚休闲</text>
     </view>
-  </view>
-  <!-- 优惠选项界面 -->
-  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" _pid="{{_pid}}">
-    <view class="text">优惠</view>
-    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #333333;font-size: 40rpx;px;"></span>
-    <view class="dis-content">
-      <view class="title">促销</view>
-      <view class="tip">获得 <text>888寸金</text></view>
-      <view class="tip">获得 <text>888寸金</text></view>
-      <view class="title">优惠券</view>
-    </view>
-    <scroll-view scroll-y style="height: 620rpx;">
-      <view wx:for="{{disSrc}}" wx:key="disKey">
-        <view style="position:relative;">
-          <image class="dis-image" src="{{item.src}}" mode="widthFix" />
-          <view class="dis-image-content">
-            <view class="disNum">
-              <text class="pre">¥</text>
-              <text class="number">{{item.discount}}</text>
-            </view>
-            <view class="validity">有效期：{{item.time}}</view>
-            <view class="fill">满{{item.fill}}使用</view>
+
+    <!-- 优惠 -->
+    <view class="discount ui-row-list ui-row-list-border-indent" bindtap="openDis" data-show="{{ true }}" style="">
+      <view class="ui-row" style="">
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            优惠
+          </view>
+        </view>
+        <text class="tip">得888方金</text>
+        <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
+          <view class="ui-col-content">
+            <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
           </view>
         </view>
       </view>
-    </scroll-view>
-  </ui-popup>
+    </view>
+    <!-- 优惠选项界面 -->
+    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" background="transparent" _pid="{{_pid}}">
+      <view class="popup">
+        <view class="text">优惠</view>
+        <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #333333;font-size: 40rpx;px;"></span>
+        <view class="dis-content">
+          <view class="title">促销</view>
+          <view class="tip">获得 <text>888寸金</text></view>
+          <view class="tip">获得 <text>888寸金</text></view>
+          <view class="title">优惠券</view>
+        </view>
+        <scroll-view scroll-y style="height: 620rpx;">
+          <view wx:for="{{disSrc}}" wx:key="disKey">
+            <view style="position:relative;">
+              <image class="dis-image" src="{{item.src}}" mode="widthFix" />
+              <view class="dis-image-content">
+                <view class="disNum">
+                  <text class="pre">¥</text>
+                  <text class="number">{{item.discount}}</text>
+                </view>
+                <view class="validity">有效期：{{item.time}}</view>
+                <view class="fill">满{{item.fill}}使用</view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </ui-popup>
 
-  <!-- 选择规格 -->
-  <view class="specs ui-row-list ui-row-list-border-indent" bindtap="openSpecs" style="">
-    <view class="{{specsFlag==true? 'bottom':''}} ui-row" style="">
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
-          已选
+    <!-- 选择规格 -->
+    <view class="specs ui-row-list ui-row-list-border-indent" bindtap="openSpecs" style="">
+      <view class="{{specsFlag==true? 'bottom':''}} ui-row" style="">
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            已选
+          </view>
+        </view>
+        <text class="tip">{{color}}、{{size}}、{{number}}个</text>
+        <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
+          <view class="ui-col-content">
+            <span type="{{specsFlag==true? 'xiangxiajiantou':'shangjiantou-copy'}}" class="ui-icon icon-{{specsFlag==true? 'xiangxiajiantou':'shangjiantou-copy'}}" style="font-size: 16px;"></span>
+          </view>
         </view>
       </view>
-      <text class="tip">{{color}}、{{size}}、{{number}}个</text>
-      <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
-        <view class="ui-col-content">
-          <span type="{{specsFlag==true? 'xiangxiajiantou':'shangjiantou-copy'}}" class="ui-icon icon-{{specsFlag==true? 'xiangxiajiantou':'shangjiantou-copy'}}" style="font-size: 16px;"></span>
+    </view>
+    <view class="specs-content ui-row-list ui-row-list-border-indent" wx:if="{{specsFlag}}" style="">
+      <view class="colors-title">颜色</view>
+      <view class="colors">
+        <ui-tags data="{{colors}}" fixed-width item-space="2" bindchange="singleColor" _pid="{{_pid}}"></ui-tags>
+      </view>
+      <view class="size-title">尺码</view>
+      <view class="sizes">
+        <ui-tags data="{{sizes}}" fixed-width item-space="2" bindchange="singleSize" _pid="{{_pid}}"></ui-tags>
+      </view>
+      <view class="num-title">数量</view>
+      <view class="number">
+        <view class="num-botton">
+          <view class="reduce" bindtap="reduce">-</view>
+          <view class="figure">{{number}}</view>
+          <view class="add" bindtap="add">+</view>
         </view>
       </view>
     </view>
-  </view>
-  <view class="specs-content ui-row-list ui-row-list-border-indent" wx:if="{{specsFlag}}" style="">
-    <view class="colors-title">颜色</view>
-    <view class="colors">
-      <ui-tags data="{{colors}}" fixed-width item-space="2" bindchange="singleColor" _pid="{{_pid}}"></ui-tags>
-    </view>
-    <view class="size-title">尺码</view>
-    <view class="sizes">
-      <ui-tags data="{{sizes}}" fixed-width item-space="2" bindchange="singleSize" _pid="{{_pid}}"></ui-tags>
-    </view>
-    <view class="num-title">数量</view>
-    <view class="number">
-      <view class="num-botton">
-        <view class="reduce" bindtap="reduce">-</view>
-        <view class="figure">{{number}}</view>
-        <view class="add" bindtap="add">+</view>
-      </view>
-    </view>
-  </view>
 
-  <!-- 送货地址 -->
-  <view class="sel-address ui-row-list ui-row-list-border-indent" bindtap="openAddress" style="">
-    <view class="ui-row" style="">
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
-          送至
+    <!-- 送货地址 -->
+    <view class="sel-address ui-row-list ui-row-list-border-indent" bindtap="openAddress" style="">
+      <view class="ui-row" style="">
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            送至
+          </view>
+        </view>
+        <span type="dingwei" class="local ui-icon icon-dingwei" color="#f87005" size="32rpx;" style="color: #f87005;font-size: 32rpx;px;"></span>
+        <text class="tip">广东 广州 番禺区</text>
+        <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
+          <view class="ui-col-content">
+            <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
+          </view>
         </view>
       </view>
-      <span type="dingwei" class="local ui-icon icon-dingwei" color="#f87005" size="32rpx;" style="color: #f87005;font-size: 32rpx;px;"></span>
-      <text class="tip">广东 广州 番禺区</text>
-      <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
-        <view class="ui-col-content">
-          <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
+    </view>
+    <!-- 地址选项 -->
+    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" background="transparent" _pid="{{_pid}}">
+      <view class="popup">
+        <view class="text">选择地址</view>
+        <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="addressHide" style="color: #333333;font-size: 40rpx;px;"></span>
+        <view class="info">
+          <!-- <view class="hook"></view> -->
+          <span class="hook ui-icon icon-gouxuan" type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disNum==0}}" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span class="hook ui-icon icon-yuanquan" type="yuanquan" color="#999999" size="40rpx;" wx:else="" style="color: #999999;font-size: 40rpx;px;"></span>
+          <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
         </view>
+        <view class="line"></view>
+        <view class="other-address" bindtap="toSelectAddress">选择其它区域地址 <span type="rightarrow" size="28rpx;" class="ui-icon icon-rightarrow" style="font-size: 28rpx;px;"></span></view>
       </view>
-    </view>
-  </view>
-  <!-- 地址选项 -->
-  <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" _pid="{{_pid}}">
-    <view class="text">选择地址</view>
-    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="addressHide" style="color: #333333;font-size: 40rpx;px;"></span>
-    <view class="info">
-      <view class="hook"></view>
-      <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
-    </view>
-    <view class="info">
-      <view class="hook"></view>
-      <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
-    </view>
-    <view class="info">
-      <view class="hook"></view>
-      <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
-    </view>
-    <view class="line"></view>
-    <view class="other-address" bindtap="toSelectAddress">选择其它区域地址 <span type="rightarrow" size="28rpx;" class="ui-icon icon-rightarrow" style="font-size: 28rpx;px;"></span></view>
-  </ui-popup>
+    </ui-popup>
 
-  <!-- 运费 -->
-  <view class="freight ui-row-list ui-row-list-border-indent" style="">
-    <view class="ui-row" style="">
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
-          运费
+    <!-- 运费 -->
+    <view class="freight ui-row-list ui-row-list-border-indent" style="">
+      <view class="ui-row" style="">
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            运费
+          </view>
         </view>
+        <text class="tip">免运费</text>
       </view>
-      <text class="tip">免运费</text>
     </view>
-  </view>
 
-  <!-- 服务条款 -->
-  <view class="service ui-row-list ui-row-list-border-indent" bindtap="openService" style="">
-    <view class="ui-row" style="">
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
-          服务
+    <!-- 服务条款 -->
+    <view class="service ui-row-list ui-row-list-border-indent" bindtap="openService" style="">
+      <view class="ui-row" style="">
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            服务
+          </view>
+        </view>
+        <text class="tip">极速退货·正品保证·极速退款</text>
+        <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
+          <view class="ui-col-content">
+            <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
+          </view>
         </view>
       </view>
-      <text class="tip">极速退货·正品保证·极速退款</text>
-      <view style="line-height:90rpx;flex:0 0 20px;" class="ui-col">
-        <view class="ui-col-content">
-          <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
+    </view>
+    <!-- 基础服务 -->
+    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" background="transparent" _pid="{{_pid}}">
+      <view class="popup">
+        <view class="text">基础服务</view>
+        <view class="info">
+          <view class="hook">1</view>
+          <view class="info-content">
+            <text class="type">破损包退</text>
+            <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+          </view>
         </view>
+        <view class="info">
+          <view class="hook">2</view>
+          <view class="info-content">
+            <text class="type">正品保证</text>
+            <text class="type-text">该商品由XXX承保正品保证险</text>
+          </view>
+        </view>
+        <view class="info">
+          <view class="hook">3</view>
+          <view class="info-content">
+            <text class="type">7天无理由退货</text>
+            <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+          </view>
+        </view>
+        <view class="info">
+          <view class="hook">4</view>
+          <view class="info-content">
+            <text class="type">极速退款</text>
+            <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+          </view>
+        </view>
+        <view class="info">
+          <view class="hook">5</view>
+          <view class="info-content">
+            <text class="type">赠运费险</text>
+            <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
+          </view>
+        </view>
+        <view class="complete" bindtap="complete">完成</view>
       </view>
-    </view>
-  </view>
-  <!-- 基础服务 -->
-  <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" _pid="{{_pid}}">
-    <view class="text">基础服务</view>
-    <view class="info">
-      <view class="hook">1</view>
-      <view class="info-content">
-        <text class="type">破损包退</text>
-        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
-      </view>
-    </view>
-    <view class="info">
-      <view class="hook">2</view>
-      <view class="info-content">
-        <text class="type">正品保证</text>
-        <text class="type-text">该商品由XXX承保正品保证险</text>
-      </view>
-    </view>
-    <view class="info">
-      <view class="hook">3</view>
-      <view class="info-content">
-        <text class="type">7天无理由退货</text>
-        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
-      </view>
-    </view>
-    <view class="info">
-      <view class="hook">4</view>
-      <view class="info-content">
-        <text class="type">极速退款</text>
-        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
-      </view>
-    </view>
-    <view class="info">
-      <view class="hook">5</view>
-      <view class="info-content">
-        <text class="type">赠运费险</text>
-        <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
-      </view>
-    </view>
-    <view class="complete" bindtap="complete">完成</view>
-  </ui-popup>
+    </ui-popup>
 
-  <!-- 商品评价 -->
-  <view class="comment-area-title">评论区</view>
-  <view class="tab-panel-item">
-    <view class="flex-title">
-      <view class="label">
-        <text class="label_content"></text>
+    <!-- 商品评价 -->
+    <view class="comment-area-title">评论区</view>
+    <view class="tab-panel-item">
+      <view class="flex-title">
+        <view class="label">
+          <text class="label_content"></text>
+        </view>
+        <view class="main">评价（1223）</view>
+        <view class="more">
+          <button class="authorise_btn">99%好评率 <span type="gengduo" color="#f87005" size="15" class="ui-icon icon-gengduo" style="color: #f87005;font-size: 15px;"></span></button>
+        </view>
       </view>
-      <view class="main">评价（1223）</view>
-      <view class="more">
-        <button class="authorise_btn">99%好评率 <span type="gengduo" color="#f87005" size="15" class="ui-icon icon-gengduo" style="color: #f87005;font-size: 15px;"></span></button>
+      <view class="comment-area">
+        <view class="user">
+          卡卡***佳
+          <view class="starts">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a2.png" />
+          </view>
+        </view>
+        <view class="content">
+          非常啊啊啊打开了啊大家快来看！
+        </view>
+      </view>
+      <view class="comment-area">
+        <view class="user">
+          卡卡***佳
+          <view class="starts">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a2.png" />
+          </view>
+        </view>
+        <view class="content">
+          非常啊啊啊打开了啊大家快来看！
+        </view>
+      </view>
+      <view class="all">
+        <view class="all-btn" bindtap="torRating">全部评价</view>
       </view>
     </view>
-    <view class="comment-area">
-      <view class="user">
-        卡卡***佳
-        <view class="starts">
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a2.png" />
+
+    <!-- 店铺信息 -->
+    <view class="tab-panel-item store">
+      <view class="top">
+        <image src="../../static/image/details/icon_star_a.png" class="store-image" />
+        <view class="store-info">
+          <view>LKSJDF服装店</view>
+          <view class="score">店铺评分：<text>4.99</text>分</view>
+        </view>
+        <view class="more">
+          <text class="more-collect">收藏店铺</text>
+          <text class="more-enter">进入店铺</text>
+        </view>
+      </view>
+      <view class="middle">
+        <view class="collectNum">
+          <text>86578</text>
+          <text>店铺收藏</text>
+        </view>
+        <view class="productNum">
+          <text>全部商品</text>
+          <text>230</text>
+        </view>
+        <view class="service">
+          <view><text>商品：4.94</text>
+            <image src="../../static/image/details/icon_arrow1.png" />
+          </view>
+          <view><text>服务：4.94</text>
+            <image src="../../static/image/details/icon_arrow2.png" />
+          </view>
+          <view><text>物流：4.94</text>
+            <image src="../../static/image/details/icon_arrow1.png" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 商品详情 -->
+    <view class="details-title">详情</view>
+    <view class="details-nav">
+      <view class="{{navId==0? 'active':''}}" data-id="0" bindtap="selectNav">图文详情</view>
+      <view class="{{navId==1? 'active':''}}" data-id="1" bindtap="selectNav">规格参数</view>
+      <view class="{{navId==2? 'active':''}}" data-id="2" bindtap="selectNav">包装售后</view>
+    </view>
+    <view style="width:100%;height:838rpx;background:#999999"></view>
+
+    <!-- 底部导航 -->
+    <view class="tab">
+      <view class="tab-store">
+        <image src="../../static/image/details/icon_bottom.png" /><text>店铺</text></view>
+      <view class="tab-shopCart">
+        <image src="../../static/image/details/icon_bottom_shop.png" /><text>购物车</text></view>
+      <view class="tab-add-shopCart">加入购物车</view>
+      <view class="tab-buy" bindtap="buy" data-show="{{true}}">立即购买</view>
+    </view>
+    <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" _pid="{{_pid}}">
+      <view class="top">
+        <image class="product-image" src="../../static/image/details/test/img3.png" />
+        <view class="product-info">
+          <view class="name">海兴县信用卡三大哈哈</view>
+          <view class="price"><text class="pre">¥</text>80.9　<text class="number">+44</text><text class="unit">寸金</text></view>
+          <view class="reserve">存库12340箱</view>
+        </view>
+      </view>
+      <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="buyHide" style="color: #333333;font-size: 40rpx;px;"></span>
+      <view class="content">
+        <view class="title">味道</view>
+        <view class="item">
+          <ui-tags data="{{taste}}" bindchange="singleTaste" fixed-width item-space="1" col-number="3" _pid="{{_pid}}"></ui-tags>
         </view>
       </view>
       <view class="content">
-        非常啊啊啊打开了啊大家快来看！
-      </view>
-    </view>
-    <view class="comment-area">
-      <view class="user">
-        卡卡***佳
-        <view class="starts">
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a.png" />
-          <image src="../../static/image/details/icon_star_a2.png" />
+        <view class="title">包装颜色</view>
+        <view class="item">
+          <ui-tags data="{{pack}}" bindchange="singlePack" fixed-width item-space="1" col-number="3" _pid="{{_pid}}"></ui-tags>
         </view>
       </view>
-      <view class="content">
-        非常啊啊啊打开了啊大家快来看！
-      </view>
-    </view>
-    <view class="all">
-      <view class="all-btn" bindtap="torRating">全部评价</view>
-    </view>
-  </view>
-
-  <!-- 店铺信息 -->
-  <view class="tab-panel-item store">
-    <view class="top">
-      <image src="../../static/image/details/icon_star_a.png" class="store-image" />
-      <view class="store-info">
-        <view>LKSJDF服装店</view>
-        <view class="score">店铺评分：<text>4.99</text>分</view>
-      </view>
-      <view class="more">
-        <text class="more-collect">收藏店铺</text>
-        <text class="more-enter">进入店铺</text>
-      </view>
-    </view>
-    <view class="middle">
-      <view class="collectNum">
-        <text>86578</text>
-        <text>店铺收藏</text>
-      </view>
-      <view class="productNum">
-        <text>全部商品</text>
-        <text>230</text>
-      </view>
-      <view class="service">
-        <view><text>商品：4.94</text>
-          <image src="../../static/image/details/icon_arrow1.png" />
-        </view>
-        <view><text>服务：4.94</text>
-          <image src="../../static/image/details/icon_arrow2.png" />
-        </view>
-        <view><text>物流：4.94</text>
-          <image src="../../static/image/details/icon_arrow1.png" />
+      <view class="counts">
+        <view class="title">购买数量</view>
+        <view class="num-botton">
+          <view class="reduce" bindtap="reduce">-</view>
+          <view class="figure">{{number}}</view>
+          <view class="add" bindtap="add">+</view>
         </view>
       </view>
-    </view>
+      <view class="next" bindtap="next">下一步</view>
+    </ui-popup>
   </view>
 
-  <!-- 商品详情 -->
-  <view class="details-title">详情</view>
-  <view class="details-nav">
-    <view class="{{navId==0? 'active':''}}" data-id="0" bindtap="selectNav">图文详情</view>
-    <view class="{{navId==1? 'active':''}}" data-id="1" bindtap="selectNav">规格参数</view>
-    <view class="{{navId==2? 'active':''}}" data-id="2" bindtap="selectNav">包装售后</view>
+  <!-- 详情为空 -->
+  <view wx:if="{{emptyFlag}}" class="empty">
+    <image class="background" src="../../static/image/details/details_default.png" mode="aspectFit" />
+    <view class="title">该商品还没有详情展示哦~</view>
   </view>
-  <view style="width:100%;height:838rpx;background:#999999"></view>
-
-  <!-- 底部导航 -->
-  <view class="tab">
-    <view class="tab-store">
-      <image src="../../static/image/details/icon_bottom.png" /><text>店铺</text></view>
-    <view class="tab-shopCart">
-      <image src="../../static/image/details/icon_bottom_shop.png" /><text>购物车</text></view>
-    <view class="tab-add-shopCart">加入购物车</view>
-    <view class="tab-buy" bindtap="buy" data-show="{{true}}">立即购买</view>
-  </view>
-  <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" height="876rpx" _pid="{{_pid}}">
-    <view class="top">
-      <image class="product-image" src="../../static/image/details/test/img3.png" />
-      <view class="product-info">
-        <view class="name">海兴县信用卡三大哈哈</view>
-        <view class="price"><text class="pre">¥</text>80.9　<text class="number">+44</text><text class="unit">寸金</text></view>
-        <view class="reserve">存库12340箱</view>
-      </view>
-    </view>
-    <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="buyHide" style="color: #333333;font-size: 40rpx;px;"></span>
-    <view class="content">
-      <view class="title">味道</view>
-      <view class="item">
-        <!-- <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view> -->
-        <ui-tags data="{{taste}}" bindchange="singleTaste" fixed-width item-space="1" col-number="3" _pid="{{_pid}}"></ui-tags>
-
-      </view>
-    </view>
-    <view class="content">
-      <view class="title">包装颜色</view>
-      <view class="item">
-        <!-- <view>彩色包装</view>
-          <view>普通包装</view> -->
-        <ui-tags data="{{pack}}" bindchange="singlePack" fixed-width item-space="1" col-number="3" _pid="{{_pid}}"></ui-tags>
-      </view>
-    </view>
-    <view class="counts">
-      <view class="title">购买数量</view>
-      <view class="num-botton">
-        <view class="reduce" bindtap="reduce">-</view>
-        <view class="figure">{{number}}</view>
-        <view class="add" bindtap="add">+</view>
-      </view>
-    </view>
-    <view class="next" bindtap="next">下一步</view>
-  </ui-popup>
 
 </view>

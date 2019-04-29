@@ -33,6 +33,14 @@
 .tabs {
   background: #fff;
 }
+.tabs .numbers {
+  font-size: 22rpx;
+  color: #999999;
+}
+.tabs .item.active,
+.tabs .item.active .numbers {
+  color: #f87005;
+}
 .tabs .item {
   width: 20%;
   height: 100rpx;
@@ -43,10 +51,6 @@
 .tabs .item .item-title {
   font-size: 30rpx;
 }
-.tabs .item .numbers {
-  font-size: 22rpx;
-  color: #999999;
-}
 .tabs .item .line {
   width: 50rpx;
   height: 4rpx;
@@ -56,9 +60,6 @@
   background: #f87005;
   margin-left: -25rpx;
   border-radius: 2rpx;
-}
-.tabs .item .active {
-  color: #f87005;
 }
 .tabs::after {
   display: block;

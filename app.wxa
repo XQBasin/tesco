@@ -8,8 +8,7 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/details/rating',
-      'pages/shop/index',
+      'pages/details/index',
       // 商城首页
       'pages/home/index',
       'pages/home/search',
@@ -116,7 +115,6 @@ page {
       }
 
       .dingwei text {
-        // size: 32rpx;
         font-size: 14px;
       }
     }

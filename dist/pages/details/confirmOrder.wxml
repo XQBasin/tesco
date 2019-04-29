@@ -112,10 +112,10 @@
         <view class="bottom" wx:if="{{disId==1}}"></view>
       </view>
     </view>
-    <view class="tip" wx:if="{{disId==0}}">您已选中优惠券1张<text class="price">可抵用<text>¥20.00</text></text></view>
+    <view class="tip" wx:if="{{disId==0}}">您已选中优惠券1张<text class="price">可抵用<text>¥{{disPrice}}</text></text></view>
     <!-- 可用优惠券 -->
     <scroll-view scroll-y style="height: 620rpx;" wx:if="{{disId==0}}">
-      <view class="dis-item" bindtap="bindDis" data-id="1">
+      <view class="dis-item" bindtap="bindDis" data-num="0" data-price="20">
         <image src="../../static/image/details/coupons.png" mode="widthFix" class="dis-image" />
         <view class="price"><text>¥</text>20</view>
         <view class="fill">满100使用</view>
@@ -124,21 +124,21 @@
         <view class="time">有效期：2019.03.20-2019.03.28</view>
         <view class="limit">仅限于洗护用品使用</view>
         <view class="circle">
-          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disChecked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
-          <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!disChecked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disNum==0}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span type="yuanquan" color="#999999" size="40rpx;" wx:else="" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
         </view>
       </view>
-      <view class="dis-item" bindtap="bindDis">
+      <view class="dis-item" bindtap="bindDis" data-num="1" data-price="50">
         <image src="../../static/image/details/coupons.png" mode="widthFix" class="dis-image" />
-        <view class="price"><text>¥</text>20</view>
-        <view class="fill">满100使用</view>
+        <view class="price"><text>¥</text>50</view>
+        <view class="fill">满1000使用</view>
         <view class="specs-title">店铺特卷</view>
         <view class="store">卡刷卡号旗舰店</view>
         <view class="time">有效期：2019.03.20-2019.03.28</view>
         <view class="limit">仅限于洗护用品使用</view>
         <view class="circle">
-          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disChecked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
-          <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!disChecked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disNum==1}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span type="yuanquan" color="#999999" size="40rpx;" wx:else="" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
         </view>
       </view>
     </scroll-view>
@@ -169,31 +169,44 @@
     </view>
   </ui-popup>
 
-  <view class="coupon-list ui-row-list" style="">
+
+  <view class="coupon-list ui-row-list" bindtap="checked" data-id="0" style="">
     <view class="ui-row" style="">
       <view class="text ui-col" style="">
         <view class="ui-col-content">
           可用20寸金抵扣20元
         </view>
       </view>
-      <view style="line-height:80rpx;flex:0 0 60rpx;px;" bindtap="checked" class="ui-col">
+      <view style="line-height:80rpx;flex:0 0 60rpx;px;" class="ui-col">
         <view class="ui-col-content">
-          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{checked}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
-          <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!checked}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{couponId==0}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span type="yuanquan" color="#999999" size="40rpx;" wx:else="" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="coupon-list ui-row-list" bindtap="checked" data-id="1" style="">
+    <view class="ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          可用20寸金抵扣20元
+        </view>
+      </view>
+      <view style="line-height:80rpx;flex:0 0 60rpx;px;" class="ui-col">
+        <view class="ui-col-content">
+          <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{couponId==1}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+          <span type="yuanquan" color="#999999" size="40rpx;" wx:else="" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
         </view>
       </view>
     </view>
   </view>
 
+
   <!-- 买家留言 -->
-  <view class="message ui-row-list" style="">
-    <view class="ui-row" style="">
-      <view class="text ui-col" style="">
-        <view class="ui-col-content">
-          买家留言
-          <input class="msg-area" placeholder="向卖家留言（50字以内）" placeholder-style="color:#999999;" maxlength="50"></input>
-        </view>
-      </view>
+  <view class="message">
+    <view class="text">
+      买家留言
+      <input class="msg-area" placeholder="向卖家留言（50字以内）" placeholder-style="color:#999999;" maxlength="50"></input>
     </view>
   </view>
 

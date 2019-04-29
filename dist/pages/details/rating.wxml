@@ -33,29 +33,29 @@
 
   <!-- 选项卡 -->
   <view class="tabs">
-    <view class="item" data-id="0" bindtap="bindItem">
-      <view class="item-title {{itemId==0? 'active':''}}">全部</view>
-      <view class="numbers {{itemId==0? 'active':''}}">2.6万+</view>
+    <view class="item {{itemId==0? 'active':''}}" data-id="0" bindtap="bindItem">
+      <view class="item-title">全部</view>
+      <view class="numbers">2.6万+</view>
       <view class="line" wx:if="{{itemId==0}}"></view>
     </view>
-    <view class="item" data-id="1" bindtap="bindItem">
-      <view class="item-title {{itemId==1? 'active':''}}">好评</view>
-      <view class="numbers {{itemId==1? 'active':''}}">2.6万+</view>
+    <view class="item {{itemId==1? 'active':''}}" data-id="1" bindtap="bindItem">
+      <view class="item-title">好评</view>
+      <view class="numbers">2.6万+</view>
       <view class="line" wx:if="{{itemId==1}}"></view>
     </view>
-    <view class="item" data-id="2" bindtap="bindItem">
-      <view class="item-title {{itemId==2? 'active':''}}">中评</view>
-      <view class="numbers {{itemId==2? 'active':''}}">100+</view>
+    <view class="item {{itemId==2? 'active':''}}" data-id="2" bindtap="bindItem">
+      <view class="item-title">中评</view>
+      <view class="numbers">100+</view>
       <view class="line" wx:if="{{itemId==2}}"></view>
     </view>
-    <view class="item" data-id="3" bindtap="bindItem">
-      <view class="item-title {{itemId==3? 'active':''}}">差评</view>
-      <view class="numbers {{itemId==3? 'active':''}}">99</view>
+    <view class="item {{itemId==3? 'active':''}}" data-id="3" bindtap="bindItem">
+      <view class="item-title">差评</view>
+      <view class="numbers">99</view>
       <view class="line" wx:if="{{itemId==3}}"></view>
     </view>
-    <view class="item" data-id="4" bindtap="bindItem">
-      <view class="item-title {{itemId==4? 'active':''}}">晒单</view>
-      <view class="numbers {{itemId==4? 'active':''}}">2.6万+</view>
+    <view class="item {{itemId==4? 'active':''}}" data-id="4" bindtap="bindItem">
+      <view class="item-title">晒单</view>
+      <view class="numbers">2.6万+</view>
       <view class="line" wx:if="{{itemId==4}}"></view>
     </view>
   </view>

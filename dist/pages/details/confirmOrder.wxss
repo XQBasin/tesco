@@ -260,6 +260,7 @@
   left: 145rpx;
   height: 80rpx;
   line-height: 80rpx;
+  width: 550rpx;
 }
 .goods-total {
   padding-right: 10px;

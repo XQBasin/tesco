@@ -22,6 +22,13 @@
 .address {
   line-height: 78rpx;
   background: #fff;
+  padding: 0 10px;
+}
+.address .ui-row {
+  border-bottom: 1px solid #e5e5e5;
+}
+.address .clear-border {
+  border: none;
 }
 .address .text {
   position: relative;
@@ -36,9 +43,10 @@
   position: absolute;
   top: 0;
   left: 150rpx;
+  width: 545rpx;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden;
 }
 .address .text .area {
   position: absolute;
@@ -46,22 +54,31 @@
   left: 150rpx;
   color: #f87005;
 }
+.address .right-text {
+  position: absolute;
+  width: 585rpx;
+  line-height: 78rpx;
+  top: 0;
+  left: 135rpx;
+  padding: 14rpx;
+}
 .bottom {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background: #fff;
-}
-.bottom view {
-  width: 50%;
-  box-sizing: border-box;
-  float: left;
 }
 .bottom .cancel,
 .bottom .confirm {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
   height: 98rpx;
   line-height: 98rpx;
   text-align: center;
+  margin: 0;
+  background: #fff;
+  border-radius: 0;
+  font-size: 36rpx;
 }
 .bottom .cancel {
   border-right: 1px solid #eeeeee;
@@ -69,4 +86,8 @@
 }
 .bottom .confirm {
   color: #f87005;
+}
+.bottom .confirm::after,
+.bottom .cancel::after {
+  border: none;
 }

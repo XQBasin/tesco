@@ -20,58 +20,59 @@
     <view style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 填写区域 -->
-    <ui-row-list class="address" border-indent>
-    <ui-row height="78rpx;">
-        <ui-col class="text">
-            <text class="left-top">地址</text><text class="content">{{info[0]}}省{{info[1]}}市{{info[2]}}区{{info[3]}}街道</text>
-        </ui-col>
-    </ui-row>
-    <ui-row height="78rpx;">
-        <ui-col class="text">
-            <text class="left-text">所在地区</text>
-            <picker class="area" bindchange="changePro" value="{{provinceId}}" range="{{province}}">
-                <view class="picker">
-                {{province[provinceId]}}
+    <view class="address">
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-top">地址</text>
+                <text class="content">
+                    <text wx:for="{{info}}" wx:key="infoKey">{{item}}</text>
+                </text>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-text">所在地区</text>
+                <picker class="area" bindchange="changePro" value="{{provinceId}}" range="{{province}}">
+                    <view class="picker">
+                    {{province[provinceId]}}
+                    </view>
+                </picker>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-text">市</text>
+                <picker class="area" bindchange="changeCity" value="{{cityId}}" range="{{city}}">
+                    <view class="picker">
+                    {{city[cityId]}}
+                    </view>
+                </picker>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-text">区/县</text>
+                <picker class="area" bindchange="changeReg" value="{{regionId}}" range="{{region}}">
+                    <view class="picker">
+                    {{region[regionId]}}
+                    </view>
+                </picker>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;" class="clear-border">
+            <ui-col class="text">
+                <text class="left-text">详细地址</text>
+                <view class="right-text">
+                    <input type="text" placeholder="请输入详细地址" name="detail" bindinput="keyUp"/>
                 </view>
-            </picker>
-        </ui-col>
-    </ui-row>
-    <ui-row height="78rpx;">
-        <ui-col class="text">
-            <text class="left-text">市</text>
-            <picker class="area" bindchange="changeCity" value="{{cityId}}" range="{{city}}">
-                <view class="picker">
-                {{city[cityId]}}
-                </view>
-            </picker>
-        </ui-col>
-    </ui-row>
-    <ui-row height="78rpx;">
-        <ui-col class="text">
-            <text class="left-text">区/县</text>
-            <picker class="area" bindchange="changeReg" value="{{regionId}}" range="{{region}}">
-                <view class="picker">
-                {{region[regionId]}}
-                </view>
-            </picker>
-        </ui-col>
-    </ui-row>
-    <ui-row height="78rpx;">
-        <ui-col class="text">
-            <text class="left-text">乡镇/街道</text>
-            <picker class="area" bindchange="changeTown" value="{{townShipId}}" range="{{townShip}}">
-                <view class="picker">
-                {{townShip[townShipId]}}
-                </view>
-            </picker>
-        </ui-col>
-    </ui-row>
-    </ui-row-list>
+            </ui-col>
+        </ui-row>
+    </view>
 
     <!-- 底部确认区域 -->
     <view class="bottom">
-        <view class="cancel">取消</view>
-        <view class="confirm">确定</view>
+        <button class="cancel" bindtap="navigateBack" type="default">取消</button>
+        <button class="confirm" type="default" bindtap="confirm">确定</button>
     </view>
   </view>
 </template>
@@ -85,15 +86,14 @@ export default {
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
-    province: ['广东', '广西', '海南', '湖南'],
+    province: ['广东省', '广西省', '海南省', '湖南省'],
     provinceId: 0,
     cityId:0,
-    city:['广州','深圳','佛山'],
+    city:['广州市','深圳市','佛山市'],
     regionId:0,
-    region:['番禺','天河','越秀'],
-    townShipId:0,
-    townShip:['城区','郊外'],
-    info:['广东','广州','番禺','市桥地铁口兴华']
+    region:['番禺区','天河区','越秀区'],
+    detail:'',
+    info:['广东省','广州市','番禺区','市桥地铁口兴华']
   },
   // 导航返回
   navigateBack () {
@@ -102,39 +102,35 @@ export default {
   //改变后的值
   changePro(e) {
     this.data.info[0] = this.data.province[e.detail.value];
-    var info;
-    info = this.data.info;
     this.setData({
       provinceId: e.detail.value,
-      info:info
+      info:this.data.info
     })
   },
   changeCity(e) {
     this.data.info[1] = this.data.city[e.detail.value];
-    var info;
-    info = this.data.info;
     this.setData({
       cityId: e.detail.value,
-      info:info
+      info:this.data.info
     })
   },
   changeReg(e) {
     this.data.info[2] = this.data.region[e.detail.value];
-    var info;
-    info = this.data.info;
     this.setData({
       regionId: e.detail.value,
-      info:info
+      info:this.data.info
     })
   },
-  changeTown(e) {
-    this.data.info[3] = this.data.townShip[e.detail.value];
-    var info;
-    info = this.data.info;
+  keyUp(e){
+    this.data.info[3] = e.detail.value;
     this.setData({
-      townShipId: e.detail.value,
-      info:info
+        info:this.data.info
     })
+  },
+  // 表单数据收集
+  confirm(){
+      var info = this.data.info.join('');
+      console.log(info);
   }
 }
 </script>
@@ -144,6 +140,13 @@ export default {
 .address{
   line-height: 78rpx;
   background: #fff;
+  padding: 0 10px;
+  .ui-row{
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .clear-border{
+      border: none;
+  }
   .text{
     position: relative;
     .left-top{
@@ -156,7 +159,10 @@ export default {
       position: absolute;
       top: 0;
       left: 150rpx;
-      .mix-text-overflow();
+      width: 545rpx;
+      overflow:hidden; 
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .area{
       position: absolute;
@@ -165,6 +171,14 @@ export default {
       color: #f87005;
     }
   }
+  .right-text{
+      position: absolute;
+      width: 585rpx;
+      line-height: 78rpx;
+      top: 0;
+      left: 135rpx;
+      padding: 14rpx;
+  }
 }
 
 // 底部确认区域
@@ -172,16 +186,17 @@ export default {
     width: 100%;
     position: fixed;
     bottom: 0;
-    background: #fff;
-    view{
-        width: 50%;
-        box-sizing: border-box;
-        float: left;
-    }
     .cancel,.confirm{
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
         height: 98rpx;
         line-height: 98rpx;
         text-align: center;
+        margin: 0;
+        background: #fff;
+        border-radius:0;
+        font-size: 36rpx;
     }
     .cancel{
         border-right: 1px solid #eeeeee;
@@ -189,6 +204,9 @@ export default {
     }
     .confirm{
         color: #f87005;
+    }
+    .confirm::after,.cancel::after{
+        border:none;
     }
 }
 </style>

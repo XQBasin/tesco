@@ -35,27 +35,27 @@
   <view class="user-info">
     <view class="item">
       <text class="item-left">收件人：</text>
-      <text class="item-right">卡卡西</text>
+      <text class="item-right">{{user}}</text>
     </view>
     <view class="item">
       <text class="item-left">订单编号：</text>
-      <text class="item-right">3425352355552</text>
+      <text class="item-right">{{orderNum}}</text>
     </view>
     <view class="item">
       <text class="item-left">收货地址：</text>
-      <text class="item-right">广东省广州市番禺区对话框按时发链接广告费的故事大概 大V搜索</text>
+      <text class="item-right">{{address}}</text>
     </view>
     <view class="item">
       <text class="item-left">支付金额：</text>
-      <text class="item-right">¥280.00</text>
+      <text class="item-right">¥{{pay}}</text>
     </view>
     <view class="item">
       <text class="item-left">优惠金额：</text>
-      <text class="item-right">¥52.00</text>
+      <text class="item-right">¥{{discount}}</text>
     </view>
     <view class="item">
       <text class="item-left">下单时间：</text>
-      <text class="item-right">2019.03.24 12:35:10</text>
+      <text class="item-right">{{time}}</text>
     </view>
   </view>
 

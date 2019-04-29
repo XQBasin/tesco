@@ -4,11 +4,11 @@
     <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
         <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
             <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
-                <view class="containertitle">
-                    <view class='dingwei'>
-                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
-                    </view>
-                </view>
+              <view class="containertitle">
+                  <view class='dingwei'>
+                      <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                  </view>
+              </view>
             </ui-col>
             <ui-col vertical-align="middle" class="nav-bar-col">
                 <view class="nav-bar-title">商品详情</view>
@@ -19,6 +19,7 @@
     </ui-nav-bar>
     <view style="height:{{NAV_HEIGHT}}"></view>
 
+    <view wx:if='{{!emptyFlag}}'>
     <!-- 商品展示区 -->
     <view class="show-area">
       <swiper style="height:700rpx" bindchange="imgChange">
@@ -29,9 +30,8 @@
         </block>
       </swiper>
       <view class="bottom">{{imgNum}}/{{totalNum}}</view>
-
       <view class="price">¥9999.00<text class="del">¥9999.00</text></view>
-      <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到</view>
+      <view class="shop-title">房产局看附加按扫法师撒娇爱上大牌【【阿发丝发声方法访谈法还是gas方式是否感受到】】</view>
       <text class="shop-type">时尚休闲</text>
     </view>
 
@@ -48,7 +48,8 @@
       </ui-row>
     </ui-row-list>
     <!-- 优惠选项界面 -->
-    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask">
+    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" background="transparent">
+      <view class="popup">
       <view class="text">优惠</view>
       <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="disHide"></ui-icon>
       <view class="dis-content">
@@ -72,6 +73,7 @@
           </view>
         </view>
       </scroll-view>
+      </view>
     </ui-popup>
 
     <!-- 选择规格 -->
@@ -119,23 +121,19 @@
       </ui-row>
     </ui-row-list>
     <!-- 地址选项 -->
-    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask">
+    <ui-popup show="{{ addressFlag }}" position="bottom" class="address-mask" background="transparent">
+      <view class="popup">
       <view class="text">选择地址</view>
       <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="addressHide"></ui-icon>
       <view class="info">
-        <view class="hook"></view>
-        <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
-      </view>
-      <view class="info">
-        <view class="hook"></view>
-        <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
-      </view>
-      <view class="info">
-        <view class="hook"></view>
+        <!-- <view class="hook"></view> -->
+        <ui-icon class="hook" type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disNum==0}}"></ui-icon>
+        <ui-icon class="hook" type="yuanquan" color="#999999" size="40rpx;" wx:else></ui-icon>
         <view class="address-content">广东省广州市番禺区市桥地铁口兴华街道来回件街道12巷33号</view>
       </view>
       <view class="line"></view>
-      <view class="other-address" bindtap="toSelectAddress">选择其它区域地址 <ui-icon type="rightarrow" size="28rpx;"></ui-icon></view>  
+      <view class="other-address" bindtap="toSelectAddress">选择其它区域地址 <ui-icon type="rightarrow" size="28rpx;"></ui-icon></view>
+      </view>
     </ui-popup>
 
     <!-- 运费 -->
@@ -161,7 +159,8 @@
       </ui-row>
     </ui-row-list>
     <!-- 基础服务 -->
-    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask">
+    <ui-popup show="{{ serviceFlag }}" position="bottom" class="service-mask" background="transparent">
+      <view class="popup">
       <view class="text">基础服务</view>
       <view class="info">
         <view class="hook">1</view>
@@ -198,7 +197,8 @@
           <text class="type-text">收到控股还是贷款舒服哈萨克金凤凰收款方好事卡核黄素还是算F KSDHFAH</text>
         </view>
       </view>
-      <view class="complete" bindtap="complete">完成</view>  
+      <view class="complete" bindtap="complete">完成</view> 
+      </view> 
     </ui-popup>
 
     <!-- 商品评价 -->
@@ -294,7 +294,7 @@
       <view class="tab-add-shopCart">加入购物车</view>
       <view class="tab-buy" bindtap="buy" data-show="{{true}}">立即购买</view>
     </view>
-    <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" height="876rpx">
+    <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" >
       <view class="top">
         <image class="product-image" src="../../static/image/details/test/img3.png"></image>
         <view class="product-info">
@@ -307,21 +307,12 @@
       <view class="content">
         <view class="title">味道</view>
         <view class="item">
-          <!-- <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view>
-          <view>草莓味</view> -->
           <ui-tags data="{{taste}}" bindchange="singleTaste" fixed-width item-space="1" col-number="3"></ui-tags>
-
         </view>
       </view>
       <view class="content">
         <view class="title">包装颜色</view>
         <view class="item">
-          <!-- <view>彩色包装</view>
-          <view>普通包装</view> -->
           <ui-tags data="{{pack}}" bindchange="singlePack" fixed-width item-space="1" col-number="3"></ui-tags>
         </view>
       </view>
@@ -335,6 +326,13 @@
       </view>
       <view class="next" bindtap="next">下一步</view>
     </ui-popup>
+    </view>
+
+    <!-- 详情为空 -->
+    <view wx:if="{{emptyFlag}}" class="empty">
+      <image class="background" src="../../static/image/details/details_default.png" mode="aspectFit"></image>
+      <view class="title">该商品还没有详情展示哦~</view>
+    </view>
 
   </view>
 </template>
@@ -515,6 +513,7 @@ export default {
 
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    emptyFlag:false,   //缺省页状态值
     imgUrls: [
       '../../static/image/details/test/img2.png',
       '../../static/image/details/test/img2.png',
@@ -699,6 +698,14 @@ export default {
 </script>
 
 <style lang="less">
+.popup{
+  width: 100%;
+  background-color:#fff;
+  margin:0 auto;
+  border-radius:20rpx 20rpx 0 0;
+  overflow:hidden;
+}
+
 // 商品展示区
 .show-area{
   background: #fff;
@@ -735,6 +742,11 @@ export default {
   }
   .shop-title{
     margin-bottom: 19rpx;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow: ellipsis;
   }
   .shop-type{
     display: inline-block;
@@ -921,16 +933,11 @@ export default {
     position: relative;
     margin-top: 25rpx;
     .hook{
-      width: 25rpx;
-      height: 25rpx;
-      display: block;
-      border: 1px solid #191919;
-      border-radius: 50%;
       position: absolute;
       top: 10rpx;
     }
     .address-content{
-      padding: 0 30rpx 0 30rpx;
+      padding: 0 30rpx 0 45rpx;
     }
   }
   .info::after{
@@ -1332,19 +1339,6 @@ export default {
     padding: 20rpx;
     padding-bottom: 0;
     border-bottom: 1px solid #eeeeee;
-    .item{
-      // .list{
-      //   width: 192rpx;
-      //   height: 56rpx;
-      //   float: left; 
-      //   margin: 20rpx 45rpx 20rpx 0;
-      //   color: rgb(102, 102, 102);
-      //   border-radius: 10rpx;
-      //   background: #ececec;
-      //   text-align: center;
-      //   line-height: 56rpx;
-      // }
-    }
     .item::after{
       display: block;
       height: 0;
@@ -1356,6 +1350,7 @@ export default {
     position: relative;
     height: 120rpx;
     padding-left: 20rpx;
+    margin-bottom: 80rpx;
     .title{
       position: absolute;
       line-height: 120rpx;
@@ -1397,5 +1392,24 @@ export default {
     line-height: 80rpx;
     color:#fff;
   }
+}
+// 详情为空
+.empty{
+  .background{
+    width: 750rpx;
+    height: 345rpx;
+  }
+  .title{
+    height: 113rpx;
+    line-height: 113rpx;
+    text-align: center;
+    color: #9e9e9e;
+  }
+}
+.empty::before{
+  height: 260rpx;
+  width: 1px;
+  display: block;
+  content: '';
 }
 </style>
