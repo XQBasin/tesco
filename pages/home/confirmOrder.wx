@@ -219,11 +219,11 @@ export default {
   },
   // 链接到地址管理页面
   toAddressEdit(){
-    wx.navigateTo({ url: '/pages/details/addressEdit' });
+    wx.navigateTo({ url: '/pages/home/addressEdit' });
   },
   // 微信支付功能
   wxPay(){
-    wx.navigateTo({ url: '/pages/details/paySuccess' });
+    wx.navigateTo({ url: '/pages/home/paySuccess' });
   },
   // 优惠券勾选
   checked(e){

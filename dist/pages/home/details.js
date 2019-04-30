@@ -133,17 +133,17 @@ exports.default = Page({
 
   // 跳转到选择区域地址页面
   toSelectAddress: function toSelectAddress() {
-    wx.navigateTo({ url: '/pages/details/selectAddress' });
+    wx.navigateTo({ url: '/pages/home/selectAddress' });
   },
 
   // 跳转到商品评价页面
   torRating: function torRating() {
-    wx.navigateTo({ url: '/pages/details/rating' });
+    wx.navigateTo({ url: '/pages/home/rating' });
   },
 
   // 下一步操作
   next: function next() {
-    wx.navigateTo({ url: '/pages/details/confirmOrder' });
+    wx.navigateTo({ url: '/pages/home/confirmOrder' });
   },
 
   // 导航返回

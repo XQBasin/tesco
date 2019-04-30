@@ -22,12 +22,12 @@ exports.default = Page({
 
   // 链接到地址管理页面
   toAddressEdit: function toAddressEdit() {
-    wx.navigateTo({ url: '/pages/details/addressEdit' });
+    wx.navigateTo({ url: '/pages/home/addressEdit' });
   },
 
   // 微信支付功能
   wxPay: function wxPay() {
-    wx.navigateTo({ url: '/pages/details/paySuccess' });
+    wx.navigateTo({ url: '/pages/home/paySuccess' });
   },
 
   // 优惠券勾选

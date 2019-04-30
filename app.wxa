@@ -8,22 +8,22 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/details/index',
+      
       // 商城首页
       'pages/home/index',
       'pages/home/search',
       // 商品详情页
-      'pages/details/index',
-      'pages/details/confirmOrder',
-      'pages/details/paySuccess',
-      'pages/details/selectAddress',
-      'pages/details/addressEdit',
-      'pages/details/rating',
+      'pages/home/details',
+      'pages/home/confirmOrder',
+      'pages/home/paySuccess',
+      'pages/home/selectAddress',
+      'pages/home/addressEdit',
+      'pages/home/rating',
       // 店铺页
-      'pages/store/index',
-      'pages/store/recommend',
+      'pages/home/store',
+      'pages/home/recommend',
       // 购物车页
-      'pages/shop/index',
+      'pages/cart/index',
     ],
     window: {
       backgroundTextStyle: 'dark',
@@ -56,7 +56,7 @@ export default {
           selectedIconPath: './static/image/index/tab_icon33.png'
         },
         {
-          pagePath: 'pages/shop/index',
+          pagePath: 'pages/cart/index',
           text: '购物车',
           iconPath: './static/image/index/tab_icon4.png',
           selectedIconPath: './static/image/index/tab_icon44.png'

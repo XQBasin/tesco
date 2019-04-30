@@ -296,7 +296,7 @@
     </view>
     <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" >
       <view class="top">
-        <image class="product-image" src="../../static/image/details/test/img3.png"></image>
+        <image class="product-image" src="../../static/image/details/test/img2.png"></image>
         <view class="product-info">
           <view class="name">海兴县信用卡三大哈哈</view>
           <view class="price"><text class="pre">¥</text>80.9　<text class="number">+44</text><text class="unit">寸金</text></view>
@@ -544,15 +544,15 @@ export default {
   },
   // 跳转到选择区域地址页面
   toSelectAddress(){
-    wx.navigateTo({ url: '/pages/details/selectAddress' });
+    wx.navigateTo({ url: '/pages/home/selectAddress' });
   },
   // 跳转到商品评价页面
   torRating(){
-    wx.navigateTo({ url: '/pages/details/rating' });
+    wx.navigateTo({ url: '/pages/home/rating' });
   },
   // 下一步操作
   next(){
-    wx.navigateTo({ url: '/pages/details/confirmOrder' });
+    wx.navigateTo({ url: '/pages/home/confirmOrder' });
   },
   // 导航返回
   navigateBack () {

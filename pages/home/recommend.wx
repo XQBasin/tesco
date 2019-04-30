@@ -86,7 +86,7 @@ export default {
   },
   // 跳转到的店铺页面
   toStroe(){
-    wx.navigateTo({ url: '/pages/store/index' });
+    wx.navigateTo({ url: '/pages/home/store' });
   }
 }
 </script>

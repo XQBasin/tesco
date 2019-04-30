@@ -327,7 +327,7 @@
     </view>
     <ui-popup show="{{ buyFlag }}" position="bottom" class="buy-mask" _pid="{{_pid}}">
       <view class="top">
-        <image class="product-image" src="../../static/image/details/test/img3.png" />
+        <image class="product-image" src="../../static/image/details/test/img2.png" />
         <view class="product-info">
           <view class="name">海兴县信用卡三大哈哈</view>
           <view class="price"><text class="pre">¥</text>80.9　<text class="number">+44</text><text class="unit">寸金</text></view>

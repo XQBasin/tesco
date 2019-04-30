@@ -15,6 +15,6 @@ exports.default = Page({
 
   // 跳转到的店铺页面
   toStroe: function toStroe() {
-    wx.navigateTo({ url: '/pages/store/index' });
+    wx.navigateTo({ url: '/pages/home/store' });
   }
 });
