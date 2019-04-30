@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/home/confirmOrder",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
-    "pages/home/confirmOrder",
     "pages/home/paySuccess",
     "pages/home/selectAddress",
     "pages/home/addressEdit",

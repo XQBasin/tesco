@@ -99,7 +99,7 @@
     </view>
   </view>
   <!-- 优惠券内容区 -->
-  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" height="920rpx" _pid="{{_pid}}">
+  <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask" _pid="{{_pid}}">
     <view class="text">优惠</view>
     <span type="shanchu" color="#dbdbdb" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="disHide" style="color: #dbdbdb;font-size: 40rpx;px;"></span>
     <view class="dis-title">
@@ -114,7 +114,7 @@
     </view>
     <view class="tip" wx:if="{{disId==0}}">您已选中优惠券1张<text class="price">可抵用<text>¥{{disPrice}}</text></text></view>
     <!-- 可用优惠券 -->
-    <scroll-view scroll-y style="height: 620rpx;" wx:if="{{disId==0}}">
+    <scroll-view scroll-y style="height: 620rpx;margin-top:40rpx;" wx:if="{{disId==0}}">
       <view class="dis-item" bindtap="bindDis" data-num="0" data-price="20">
         <image src="../../static/image/details/coupons.png" mode="widthFix" class="dis-image" />
         <view class="price"><text>¥</text>20</view>
@@ -143,7 +143,7 @@
       </view>
     </scroll-view>
     <!-- 不可用优惠券 -->
-    <scroll-view scroll-y style="height: 620rpx;" wx:if="{{disId==1}}">
+    <scroll-view scroll-y style="height: 620rpx;margin-top:40rpx;" wx:if="{{disId==1}}">
       <view class="dis-item">
         <image src="../../static/image/details/coupons_b.png" mode="widthFix" class="dis-image" />
         <view class="price"><text>¥</text>20</view>

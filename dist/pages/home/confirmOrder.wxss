@@ -183,7 +183,6 @@
 .dis-mask .dis-item {
   position: relative;
   padding: 0 30rpx;
-  margin-top: 40rpx;
 }
 .dis-mask .dis-item view {
   position: absolute;
