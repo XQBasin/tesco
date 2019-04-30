@@ -59,8 +59,8 @@
       <view class="t2"></view>
     </view>
 
-    <view class="like-group-content">
-      <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
+    <view class="group-content">
+      <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'group-content-left':'group-content-right'}}">
           <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
           <view class="shop-detail">
               <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>
@@ -241,9 +241,9 @@ export default {
   height: 0;
   clear: both;
 }
-.like-group-content{
+.group-content{
   padding: 0 10px;
-  .like-group-content-left,.like-group-content-right{
+  .group-content-left,.group-content-right{
       padding-bottom: 11rpx;
       margin-bottom: 12rpx;
       width: 49%;
@@ -287,14 +287,14 @@ export default {
           }
       }
   }
-  .like-group-content-left{
+  .group-content-left{
     float: left;
   }
-  .like-group-content-right{
+  .group-content-right{
     float: right;
   }
 }
-.like-group-content::after{
+.group-content::after{
   display: block;
   clear: both;
   width: 1px;

@@ -1,0 +1,135 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+swiper {
+  height: 600rpx;
+}
+.tip {
+  height: 68rpx;
+  background: #fecb8d;
+}
+.tip .tip-icon {
+  width: 10%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tip .text {
+  float: left;
+  line-height: 68rpx;
+  font-weight: bold;
+}
+.survey {
+  background: linear-gradient(to bottom, #fda63d, #fd9e35, #fc932a, #fb891f, #f97b10);
+  color: #fff;
+  padding-bottom: 11rpx;
+  margin-bottom: 10rpx;
+}
+.survey .top {
+  text-align: center;
+}
+.survey .top .integral {
+  font-size: 80rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+  padding: 118rpx 0 15rpx 0;
+}
+.survey .top .prompt {
+  font-size: 30rpx;
+}
+.survey .top .statis {
+  font-size: 24rpx;
+  margin: 45rpx 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.survey .top .statis .text {
+  float: left;
+}
+.survey .top .statis .mar {
+  margin: 0 58rpx;
+}
+.survey .top .statis::after {
+  display: block;
+  height: 0;
+  clear: both;
+  content: '';
+}
+.survey .bottom {
+  padding: 0 34rpx;
+}
+.survey .bottom .earn,
+.survey .bottom .bring {
+  width: 45%;
+  background: rgba(255, 255, 255, 0.36);
+  border-radius: 6px;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30rpx;
+}
+.survey .bottom .earn text,
+.survey .bottom .bring text {
+  margin-left: 18rpx;
+}
+.survey .bottom .earn {
+  float: left;
+}
+.survey .bottom .bring {
+  float: right;
+}
+.survey .bottom::after {
+  display: block;
+  height: 0;
+  clear: both;
+  content: '';
+}
+.details {
+  background: #fff;
+}
+.details .content .item {
+  padding: 26rpx 38rpx 0 38rpx;
+  border-top: 2px solid #f4f4f4;
+}
+.details .content .item .action {
+  font-size: 28rpx;
+}
+.details .content .item .order-num {
+  font-size: 24rpx;
+  color: #999999;
+}
+.details .content .item .item1 {
+  float: left;
+}
+.details .content .item .item2 {
+  float: right;
+}
+.details .content .item .action::after,
+.details .content .item .order-num::after {
+  display: block;
+  height: 0;
+  clear: both;
+  content: '';
+}

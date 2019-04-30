@@ -8,7 +8,7 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/home/confirmOrder',
+      
       // 商城首页
       'pages/home/index',
       'pages/home/search',
@@ -24,6 +24,10 @@ export default {
       'pages/home/recommend',
       // 购物车页
       'pages/cart/index',
+      // 个人中心
+      'pages/person/index',
+      'pages/person/wallet',
+      'pages/person/wallet',
     ],
     window: {
       backgroundTextStyle: 'dark',
@@ -62,7 +66,7 @@ export default {
           selectedIconPath: './static/image/index/tab_icon44.png'
         },
         {
-          pagePath: 'pages/home/index',
+          pagePath: 'pages/person/index',
           text: '个人中心',
           iconPath: './static/image/index/tab_icon5.png',
           selectedIconPath: './static/image/index/tab_icon55.png'
@@ -116,6 +120,9 @@ page {
 
       .dingwei text {
         font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
 

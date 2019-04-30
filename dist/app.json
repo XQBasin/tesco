@@ -1,16 +1,18 @@
 {
   "pages": [
-    "pages/home/confirmOrder",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
+    "pages/home/confirmOrder",
     "pages/home/paySuccess",
     "pages/home/selectAddress",
     "pages/home/addressEdit",
     "pages/home/rating",
     "pages/home/store",
     "pages/home/recommend",
-    "pages/cart/index"
+    "pages/cart/index",
+    "pages/person/index",
+    "pages/person/wallet"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -50,7 +52,7 @@
         "selectedIconPath": "./static/image/index/tab_icon44.png"
       },
       {
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/person/index",
         "text": "个人中心",
         "iconPath": "./static/image/index/tab_icon5.png",
         "selectedIconPath": "./static/image/index/tab_icon55.png"

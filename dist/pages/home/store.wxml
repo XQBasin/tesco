@@ -70,8 +70,8 @@
     <view class="t2"></view>
   </view>
 
-  <view class="like-group-content">
-    <view wx:for="{{list}}" wx:key="likeKey" class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
+  <view class="group-content">
+    <view wx:for="{{list}}" wx:key="likeKey" class="{{index%2==0?'group-content-left':'group-content-right'}}">
       <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
       <view class="shop-detail">
         <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>

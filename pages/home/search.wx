@@ -53,7 +53,7 @@ export default {
   },
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
-    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
   },
   // 导航返回
   navigateBack () {
