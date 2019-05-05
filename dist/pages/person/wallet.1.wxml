@@ -57,12 +57,12 @@
 
   <!-- 详细内容 -->
   <view class="details">
-    <ui-tabs style="background: #fff;" index="{{ current }}" bindchange="handleChange" ink-bar="true" active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}" _pid="{{_pid}}">
+    <ui-tabs index="{{ current }}" bindchange="handleChange" ink-bar="true" active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}" _pid="{{_pid}}">
       <ui-tab class="font" _pid="{{_pid}}">全部</ui-tab>
       <ui-tab class="font" _pid="{{_pid}}">收入</ui-tab>
       <ui-tab class="font" _pid="{{_pid}}">支出</ui-tab>
     </ui-tabs>
-    <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="margin-top:-12.5rpx;">
+    <swiper class="content" current="{{ current }}" bindchange="handleContentChange">
       <swiper-item>
         <scroll-view scroll-y style="height: 600rpx;">
           <view class="item">

@@ -106,12 +106,12 @@ swiper {
   clear: both;
   content: '';
 }
+.details {
+  background: #fff;
+}
 .details .font {
   font-weight: bold;
   font-size: 30rpx;
-}
-.details .content {
-  background: #fff;
 }
 .details .content .item {
   padding: 20rpx 38rpx 20rpx 38rpx;

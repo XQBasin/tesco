@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/person/order",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
@@ -12,7 +13,10 @@
     "pages/home/recommend",
     "pages/cart/index",
     "pages/person/index",
-    "pages/person/wallet"
+    "pages/person/wallet",
+    "pages/person/rule",
+    "pages/person/carry",
+    "pages/person/carrySuccess"
   ],
   "window": {
     "backgroundTextStyle": "dark",

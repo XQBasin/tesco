@@ -1,0 +1,625 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="40rpx;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">我的订单</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 内容区 -->
+    <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}">
+      <ui-tab>全部</ui-tab>
+      <ui-tab>待支付</ui-tab>
+      <ui-tab>待发货</ui-tab>
+      <ui-tab>待收货</ui-tab>
+      <ui-tab>待评价</ui-tab>
+    </ui-tabs>
+    <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" style="margin-top:-8rpx;">
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            <!-- 待评价 -->
+            <view class="item">
+              <view class="top">
+                <view class="img">
+                  <image src="../../static/image/person/head.png"></image>
+                </view>
+                <view class="name">
+                  凯德旗舰店
+                </view>
+                <view class="operation">
+                  <view class="evaluate">待评价</view>
+                  <view class="clear-icon">
+                    <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
+                  </view>
+                </view>
+              </view>
+              <view class="middle">
+                <view class="left">
+                  <image src="../../static/image/index/test/computer.png"></image>
+                </view>
+                <view class="right">
+                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                  <view class="des">部分描述</view>
+                  <view class="purchased">已购买1个商品</view>
+                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="unfocused">去评价</view>
+                <view class="focus">再次购买</view>
+              </view>
+            </view>
+            
+            <!-- 待支付 -->
+            <view class="item">
+              <view class="top">
+                <view class="img">
+                  <image src="../../static/image/person/head.png"></image>
+                </view>
+                <view class="name">
+                  凯德旗舰店
+                </view>
+                <view class="operation">
+                  <view class="wait">待支付</view>
+                </view>
+              </view>
+              <view class="middle">
+                <view class="left">
+                  <image src="../../static/image/index/test/computer.png"></image>
+                </view>
+                <view class="right">
+                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                  <view class="des">部分描述</view>
+                  <view class="purchased">已购买1个商品</view>
+                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="unfocused">取消订单</view>
+                <view class="focus pay">去支付</view>
+              </view>
+            </view>
+
+            <!-- 待发货 -->
+            <view class="item">
+              <view class="top">
+                <view class="img">
+                  <image src="../../static/image/person/head.png"></image>
+                </view>
+                <view class="name">
+                  凯德旗舰店
+                </view>
+                <view class="operation">
+                  <view class="wait">待发货</view>
+                </view>
+              </view>
+              <view class="middle">
+                <view class="left">
+                  <image src="../../static/image/index/test/computer.png"></image>
+                </view>
+                <view class="right">
+                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                  <view class="des">部分描述</view>
+                  <view class="purchased">已购买1个商品</view>
+                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="focus">提醒发货</view>
+              </view>
+            </view>
+
+            <!-- 待收货 -->
+            <view class="item">
+              <view class="top">
+                <view class="img">
+                  <image src="../../static/image/person/head.png"></image>
+                </view>
+                <view class="name">
+                  凯德旗舰店
+                </view>
+                <view class="operation">
+                  <view class="wait">待收货</view>
+                </view>
+              </view>
+              <view class="middle">
+                <view class="left">
+                  <image src="../../static/image/index/test/computer.png"></image>
+                </view>
+                <view class="right">
+                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                  <view class="des">部分描述</view>
+                  <view class="purchased">已购买1个商品</view>
+                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                </view>
+              </view>
+              <view class="bottom">
+                <view class="unfocused">查看物流</view>
+                <view class="focus">确认收货</view>
+              </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+        <!-- 待支付 -->
+        <swiper-item>
+          <view class="item">
+            <view class="top">
+              <view class="img">
+                <image src="../../static/image/person/head.png"></image>
+              </view>
+              <view class="name">
+                凯德旗舰店
+              </view>
+              <view class="operation">
+                <view class="wait">待支付</view>
+              </view>
+            </view>
+            <view class="middle">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                <view class="des">部分描述</view>
+                <view class="purchased">已购买1个商品</view>
+                <view class="total">合计：¥49999.00（含运费：¥10）</view>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="unfocused" bindtap="cancel">取消订单</view>
+              <view class="focus pay">去支付</view>
+            </view>
+          </view>
+          <!-- 取消订单理由弹框 -->
+          <ui-mask show="{{showReasonMask}}" effect="scale-in" animation hide-on-tap="{{flag}}">
+            <view class="reasonMask">
+                <view class="head">
+                  请选择您取消订单的理由
+                  <ui-icon class="close" type="shanchu" color="#d1d1d1" size="40rpx;" bindtap="close"></ui-icon>
+                </view>
+                <view class="content">
+                  <view class="list">
+                    收货人信息有误，需要重新填写
+                    <ui-icon class="select" type="gouxuan" color="#666666" size="50rpx;"></ui-icon>
+                  </view>
+                  <view class="list">
+                    商品数量或款式需要调整
+                    <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                  </view>
+                  <view class="list">
+                    有更优惠的购买方案
+                    <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                  </view>
+                  <view class="list">
+                    我不想买
+                    <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                  </view>
+                  <view class="list">
+                    卖家不发货
+                    <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                  </view>
+                  <view class="list">
+                    其他原因
+                    <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="cancel" bindtap="close">取消</view>
+                  <view class="confirm" bindtap="confirm">确认</view>
+                </view>
+            </view>
+          </ui-mask>
+          <!-- 订单已取消弹框 -->
+          <ui-mask show="{{showCancelMask}}" custom-style="{{customStyle}}" effect="scale-in" animation>
+            <view class="cancelMask">
+              订单已取消
+            </view>
+          </ui-mask>
+        </swiper-item>
+        <!-- 待发货 -->
+        <swiper-item>
+          <view class="item">
+            <view class="top">
+              <view class="img">
+                <image src="../../static/image/person/head.png"></image>
+              </view>
+              <view class="name">
+                凯德旗舰店
+              </view>
+              <view class="operation">
+                <view class="wait">待发货</view>
+              </view>
+            </view>
+            <view class="middle">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                <view class="des">部分描述</view>
+                <view class="purchased">已购买1个商品</view>
+                <view class="total">合计：¥49999.00（含运费：¥10）</view>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="focus" bindtap="remind">提醒发货</view>
+            </view>
+          </view>
+        </swiper-item>
+        <!-- 待收货 -->
+        <swiper-item>
+          <view class="item">
+            <view class="top">
+              <view class="img">
+                <image src="../../static/image/person/head.png"></image>
+              </view>
+              <view class="name">
+                凯德旗舰店
+              </view>
+              <view class="operation">
+                <view class="wait">待收货</view>
+              </view>
+            </view>
+            <view class="middle">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                <view class="des">部分描述</view>
+                <view class="purchased">已购买1个商品</view>
+                <view class="total">合计：¥49999.00（含运费：¥10）</view>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="unfocused">查看物流</view>
+              <view class="focus" bindtap="confirmOrder">确认收货</view>
+            </view>
+          </view>
+        </swiper-item>
+        <!-- 待评价 -->
+        <swiper-item>
+          <view class="item">
+            <view class="top">
+              <view class="img">
+                <image src="../../static/image/person/head.png"></image>
+              </view>
+              <view class="name">
+                凯德旗舰店
+              </view>
+              <view class="operation">
+                <view class="evaluate">待评价</view>
+                <view class="clear-icon">
+                  <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
+                </view>
+              </view>
+            </view>
+            <view class="middle">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                <view class="des">部分描述</view>
+                <view class="purchased">已购买1个商品</view>
+                <view class="total">合计：¥49999.00（含运费：¥10）</view>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="unfocused">去评价</view>
+              <view class="focus">再次购买</view>
+            </view>
+          </view>
+        </swiper-item>
+    </swiper>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '我的订单',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    current2: 0,
+    activeTabStyle:{
+      'color': '#f87005',
+    },
+    inkBarStyle:{
+      'border-bottom': '1px solid #f87005',
+      'width': '35%',
+      'color':'#f87005'
+    },
+    showReasonMask: false,          //取消订单理由弹框状态
+    flag:false,                      //点击mask不关闭遮罩
+    showCancelMask:false,           //已取消订单弹框状态
+    customStyle:'background-color:rgba(255, 255, 255, 0)'  //已取消订单背景样式
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 选项卡功能
+  handleChange (e) {
+      let index = e.detail.index
+      this.setData({
+        current:index
+      })
+  },
+  handleContentChange (e) {
+      let current = e.detail.current
+      this.setData({
+        current:current
+      })
+  },
+  //取消订单
+  cancel(){
+    
+    this.setData({
+      showReasonMask:true
+    })
+  },
+  // 关闭订单理由弹框
+  close(){
+    this.setData({
+      showReasonMask:false
+    })
+  },
+  // 确认选择的理由
+  confirm(){
+    this.setData({
+      showReasonMask:false,
+      showCancelMask:true
+    })
+  },
+  //提醒发货
+  remind(){
+    wx.showModal({
+      title: '',
+      content: '已提醒卖家发货',
+      cancelText: '去逛逛',
+      cancelColor: 'rgb(186,186,186)',
+      confirmColor: '#f87005',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击去逛逛')
+        }
+      }
+    })
+  },
+  confirmOrder(){
+    wx.showModal({
+      title: '确认收货',
+      content: '未收到货时确认可能会钱货两空喔~',
+      cancelColor: 'rgb(186,186,186)',
+      confirmColor: '#f87005',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
+}
+</script>
+
+<style lang="less">
+swiper{
+  height: 1100rpx;
+}
+// 内容区
+.content{
+  .item{
+    box-shadow: 5rpx 0 7rpx #dcdcdc;
+    margin-bottom: 14rpx;
+    .top{
+      height: 95rpx;
+      position: relative;
+      padding: 0 10px;
+      background: #fff;
+      .mix-flex-y-center();
+      .img,.name,.operation{
+        float: left;
+      }
+      .img{
+        image{
+          width: 65rpx;
+          height: 65rpx;
+        }
+      }
+      .name{
+        margin-left: 23rpx;
+      }
+      .operation{
+        position: absolute;
+        right: 10px;
+        .mix-flex-y-center();
+        .evaluate,.clear-icon{
+          float: left;
+          padding: 0 20rpx;
+        }
+        .evaluate{
+          box-sizing: border-box;
+          border-right: 1px solid #999999;
+        }
+        .wait{
+          color: #f87005;
+        }
+        .clear-icon{
+          padding:0 0 0 20rpx;
+        }
+      }
+    }
+    .middle{
+      padding: 20rpx 10px;
+      .left,.right{
+        float: left;
+      }
+      .left{
+        width: 30%;
+        image{
+          width: 200rpx;
+          height: 200rpx;
+          border:1px solid #bfbfbf;
+        }
+      }
+      .right{
+        width: 65%;
+        color: #999999;
+        font-size: 24rpx;
+        margin-left: 25rpx;
+        .title{
+          font-size: 26rpx;
+          color: rgb(2, 2, 2);
+          display: -webkit-box;
+          -webkit-line-clamp:2;
+          -webkit-box-orient:vertical;
+          overflow:hidden;
+          text-overflow: ellipsis;
+        }
+        .des{
+          margin-bottom: 17rpx;
+        }
+      }
+    }
+    .middle::after{
+      display: block;
+      content: '';
+      clear: both;
+      height: 0;
+    }
+    .bottom{
+      height: 74rpx;
+      background: #fff;
+      position: relative;
+      .mix-flex-y-center();
+      .unfocused,.focus{
+        float: right;
+        width: 150rpx;
+        height: 44rpx;
+        font-size: 26rpx;
+        .mix-flex-center();
+        position: absolute;
+        right:10px;
+      }
+      .unfocused{
+        color: rgb(102, 102, 102);
+        border-radius: 23rpx;
+        border:1px solid rgb(102, 102, 102);
+        right:190rpx;
+      }
+      .focus{
+        color: #f87005;
+        border-radius: 23rpx;
+        border:1px solid #f87005;
+      }
+      .focus.pay{
+        background: #f87005;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// 取消订单理由弹框
+.reasonMask{
+  width: 698rpx;
+  height: 779rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -349rpx;
+  margin-top: -389.5rpx;
+  .head{
+    height: 90rpx;
+    background: #ececec;
+    border-radius: 20rpx 20rpx 0 0;
+    .mix-flex-center();
+    .close{
+      position: absolute;
+      right: 20rpx;
+      top: 10rpx;
+    }
+  }
+  .content{
+    padding: 0 32rpx;
+    .list{
+      padding: 20rpx 0;
+      border-bottom: 1px dashed #999999;
+      font-size: 30rpx;
+      box-sizing: border-box;
+      position: relative;
+      .mix-flex-y-center();
+      span{
+        padding: 15rpx 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+  .bottom{
+    width: 100%;
+    padding: 19rpx 0;
+    height: 120rpx;
+    background: #ececec;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 20rpx 20rpx;
+    .cancel,.confirm{
+      float: left;
+      box-sizing: border-box;
+      width: 50%;
+      font-size: 36rpx;
+      color: rgb(186, 186, 186);
+      font-weight: bold;
+      height: 100%;
+      .mix-flex-center();
+    }
+    .confirm{
+      color:#f87005;
+      border-left: 1px solid #999999;
+    }
+  }
+}
+// 订单已取消弹框
+.cancelMask{
+  width: 418rpx;
+  height: 160rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  background: rgba(0, 0, 0, .36);
+  color: #fff;
+  font-weight: bold;
+  font-size: 36rpx;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -253rpx;
+  margin-top: -137rpx;
+  .mix-flex-center();
+}
+
+</style>

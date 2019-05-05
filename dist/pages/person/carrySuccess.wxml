@@ -1,0 +1,43 @@
+<view style="height:100%;background:#fff">
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">操作成功</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 支付成功标识 -->
+  <view class="top">
+    <image src="../../static/image/person/icon_Success.png" />
+    <view class="success">转账成功</view>
+    <view class="text">预计10秒内到账</view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="bottom">
+    <view class="more">
+      <view class="continue">继续转账</view>
+      <view class="home" bindtap="toHome">返回首页</view>
+    </view>
+
+    <image src="../../static/image/index/test/banner.png" />
+  </view>
+</view>

@@ -1,0 +1,159 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="40rpx;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">规则说明</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 概况 -->
+    <view class="head">
+      <view class="img">
+        <image src="../../static/image/person/img_integral.png"></image>
+      </view>
+      <view class="survey">
+        <view class="integral">8888</view>
+        <view class="prompt">总寸金</view>
+      </view>
+      <view class="integral-details">积分明细</view>
+    </view>
+    
+    <!-- 内容 -->
+    <view class="content">
+      <view class="top">
+        <view class="v-line"></view>
+        <view class="title">什么是寸金</view>
+      </view>
+      <view class="text">
+        微积分学是微分学和积分学的总称。它是一种数学思想，
+        ‘无限细分’就是微分，‘无限求和’就是积分。十七世纪后
+        半叶，牛顿和莱布尼茨完成了许多数学家都参加过准备的
+        工作，分别独立地建立了微积分学。他们建立微积分的出
+        发点是直观的无穷小量，但是理论基础是不牢固的。因为
+        “无限”的概念是无法用已经拥有的代数公式进行演算，所
+        以，直到十九世纪，柯西和维尔斯特拉斯建立了极限理论
+        ，康托尔等建立了严格的实数理论，这门学科才得以严密
+        化。
+      </view>
+    </view>
+    
+    <view class="content">
+      <view class="top">
+        <view class="v-line"></view>
+        <view class="title">如何获得或者使用寸金？</view>
+      </view>
+      <view class="text">
+        微积分学是微分学和积分学的总称。它是一种数学思想，
+        ‘无限细分’就是微分，‘无限求和’就是积分。十七世纪后
+        半叶，牛顿和莱布尼茨完成了许多数学家都参加过准备的
+        工作，分别独立地建立了微积分学。他们建立微积分的出
+        发点是直观的无穷小量，但是理论基础是不牢固的。因为
+        “无限”的概念是无法用已经拥有的代数公式进行演算，所
+        以，直到十九世纪，柯西和维尔斯特拉斯建立了极限理论
+        ，康托尔等建立了严格的实数理论，这门学科才得以严密
+        化。
+      </view>
+    </view>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '规则说明',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  }
+}
+</script>
+
+<style lang="less">
+// 概况
+.head{
+  position: relative;
+  .img{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    image{
+      height: 486rpx;
+    }
+  }
+  .survey{
+    color: #fff;
+    padding-bottom: 182rpx;
+    margin-bottom: 70rpx;
+    .integral{
+      font-size: 80rpx;
+      line-height: 80rpx;
+      font-weight: bold;
+      padding: 155rpx 0 15rpx 0;
+      text-align: center;
+    }
+    .prompt{
+      font-size: 36rpx;
+      text-align: center;
+    }
+  }
+  .integral-details{
+    position: absolute;
+    right: 10px;
+    top: 370rpx;
+    font-size: 30rpx;
+    color: #fff;
+  }
+}
+
+// 内容
+.content{
+  padding: 0 10px;
+  margin-bottom: 70rpx;
+  .top{
+    .mix-flex-y-center();
+    .v-line{
+      width: 6rpx;
+      height: 27rpx;
+      background: #f87005;
+      border-radius: 3rpx;
+      float: left;
+    }
+    .title{
+      float: left;
+      font-size: 30rpx;
+      margin-left: 18rpx;
+    }
+  }
+  .top::after{
+    display: block;
+    clear: both;
+    height: 0;
+    content: '';
+  }
+  .text{
+    font-size: 28rpx;
+    color: rgb(102, 102, 102);
+    padding-top: 18rpx;
+  }
+}
+</style>

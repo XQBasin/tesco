@@ -1,0 +1,343 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="40rpx;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">转账</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 概况 -->
+    <view class="survey">
+      <!-- 对方账号 -->
+      <view class="item">
+        <view class="icon">
+          <image src="../../static/image/person/icon_number.png"></image>
+        </view>
+        <view class="tip-info">对方账号</view>
+        <view class="text">
+          <input type="text" placeholder="注册的手机号" placeholder-class="placeholder">
+        </view>
+      </view>
+
+      <!-- 寸金数量 -->
+      <view class="item number">
+        <view class="top">
+          <view class="icon">
+            <image src="../../static/image/person/icon_number2.png"></image>
+          </view>
+          <view class="tip-info">寸金数量</view>
+        </view>
+        <view class="middle">
+          <view class="num">1346</view>
+          <view class="tip">参考下面转账说明填写</view>
+        </view>
+      </view>
+
+      <!-- 可以转账寸金 -->
+      <view class="item useful">
+        <view class="left">可以转账寸金：8888</view>
+        <view class="right">全部转账</view>
+      </view>
+
+      <!-- 添加备注 -->
+      <view class="item remarks">
+        <textarea maxlength="50" placeholder="添加备注（50字以内）" placeholder-class="placeholder"/>
+      </view>
+    </view>
+
+    <!-- 确认转账 -->
+    <view class="bottom">
+      <view class="confirm" bindtap="confirm">确认转账</view>
+      <view class="tip">
+        <view class="notes">注：将试试转入对方账户，无法退还</view>
+        <view class="details" bindtap="show">转账说明</view>
+      </view>
+    </view>
+    <ui-popup show="{{ detailsFlag }}" position="bottom" class="show" background="transparent">
+      <view class="popup">
+        <view class="text">转账说明</view>
+        <ui-icon type="shanchu" color="#333333" size="40rpx;" class="cancel-icon" bindtap="hide"></ui-icon>
+        <view class="info">
+          <view class="dot"></view>
+          <view class="address-content">转账寸金数量必须为整数；</view>
+        </view>
+        <view class="info">
+          <view class="dot"></view>
+          <view class="address-content">每日只能转账10次；</view>
+        </view>
+        <view class="info">
+          <view class="dot"></view>
+          <view class="address-content">转账寸金数量必须为整数;</view>
+        </view>
+        <view class="info">
+          <view class="dot"></view>
+          <view class="address-content">单笔转账不能超过10000寸金；</view>
+        </view>
+        <view class="line"></view>
+      </view>
+    </ui-popup>
+    <!-- 寸金数量不够提示框 -->
+    <ui-mask show="{{showMask}}" custom-style="{{customStyle}}" effect="scale-in" animation>
+        <view class="mask">
+            <ui-icon type="gantanhao" color="#ffffff" size="90rpx;"></ui-icon>
+            <view class="lack">寸金数量不够</view>
+            <view class="details">请查看转账说明</view>
+        </view>
+    </ui-mask>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '转账',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    detailsFlag:false,
+    showMask: false,
+    customStyle:'background-color:rgba(255, 255, 255, 0)',
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 转账说明
+  show(){
+    this.setData({
+      detailsFlag:!this.data.detailsFlag
+    })
+  },
+  hide(){
+    this.setData({
+      detailsFlag:false
+    })
+  },
+  // 确认转账功能
+  confirm(){
+    var that = this;
+    wx.showModal({
+      title: '',
+      content: '确定转出全部寸金？',
+      cancelColor: 'rgb(186,186,186)',
+      confirmColor: '#f87005',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          that.setData({
+            showMask: true
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
+}
+</script>
+
+<style lang="less">
+.placeholder{
+  font-size: 30rpx;
+  color: rgb(153, 153, 153);
+}
+.popup{
+  width: 100%;
+  background-color:#fff;
+  margin:0 auto;
+  border-radius:20rpx 20rpx 0 0;
+  overflow:hidden;
+}
+// 概况
+.survey{
+  .item{
+    padding: 0 10px;
+    background: #fff;
+    margin-bottom: 2px;
+    .icon,.tip-info,.text{
+      height: 120rpx;
+      float: left;
+    }
+    .icon{
+      .mix-flex-y-center();
+      image{
+        width: 50rpx;
+        height: 50rpx; 
+      }
+    }
+    .tip-info{
+      line-height: 120rpx;
+      font-weight: bold;
+      font-size: 30rpx;
+      margin: 0 48rpx 0 12rpx;
+    }
+    .text{
+      width: 475rpx;
+      .mix-flex-y-center();
+    }
+  }
+  .item::after{
+    display: block;
+    clear: both;
+    height: 0;
+    content: '';
+  }
+
+  // 寸金数量
+  .item.number{
+    height: 356rpx;
+    .top::after{
+      display: block;
+      clear: both;
+      height: 0;
+      content: '';
+    }
+    .middle{
+      text-align: center;
+      .num{
+        font-size: 80rpx;
+        font-weight: bold;
+        color: #f87005
+      }
+      .tip{
+        font-size: 24rpx;
+        color: rgb(153, 153, 153);
+      }
+    }
+  }
+
+  // 可用寸金
+  .item.useful{
+    height: 100rpx;
+    font-size: 30rpx;
+    line-height: 100rpx;
+    margin-bottom: 10rpx;
+    .left{
+      float: left;
+      color: rgb(153, 153, 153);
+    }
+    .right{
+      float: right;
+      color: #f87005;
+    }
+  }
+
+  // 添加备注
+  .item.remarks{
+    height: 180rpx;
+    padding-top: 30rpx;
+    margin-bottom: 134rpx;
+    textarea{
+      width: 100%;
+      height: 135rpx;
+    }
+  }
+}
+
+// 底部确认转账
+.bottom{
+  padding: 0 10px;
+  .confirm{
+    height: 90rpx;
+    background: #f87005;
+    .mix-flex-center();
+    font-weight: bold;
+    color: #fff;
+    border-radius: 6rpx;
+    font-size: 36rpx;
+  }
+  .tip{
+    margin-top: 22rpx;
+    font-size: 30rpx;
+    .notes{
+      float: left;
+      color: rgb(153, 153, 153);
+    }
+    .details{
+      float: right;
+      color: #f87005;
+    }
+  }
+}
+.show{
+  .text{
+    width: 100%;
+    background: #ececec;
+    line-height: 72rpx;
+    height: 72rpx;
+    padding-left: 24rpx;
+    font-size: 30rpx;
+  }
+  .cancel-icon{
+    position: absolute;
+    right: 20rpx;
+    top: 0;
+    line-height: 72rpx;
+  }
+  .info{
+    padding-left: 24rpx;
+    position: relative;
+    margin-top: 25rpx;
+    .dot{
+      width: 20rpx;
+      height: 20rpx;
+      background: #f87005;
+      position: absolute;
+      top: 10rpx;
+      border-radius: 50%;
+    }
+    .address-content{
+      padding: 0 30rpx 0 45rpx;
+    }
+  }
+  .info::after{
+    display: block;
+    height: 0;
+    content: "";
+    clear: both;
+  }
+  .line{
+    width: 100%;
+    height: 1px;
+    border-top:1px dashed #999999;
+    margin: 40rpx 0;
+  }
+}
+// 寸金数量不够提示框
+.mask{
+  width: 506rpx;
+  height: 274rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  background: rgba(0, 0, 0, .36);
+  color: #fff;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -253rpx;
+  margin-top: -137rpx;
+  text-align: center;
+  .lack{
+    font-size: 36rpx;
+    font-weight: bold;
+  }
+  .details{
+    font-size: 28rpx;
+  }
+}
+</style>

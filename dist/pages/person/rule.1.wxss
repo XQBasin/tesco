@@ -1,0 +1,86 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.head {
+  position: relative;
+}
+.head .img {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.head .img image {
+  height: 486rpx;
+}
+.head .survey {
+  color: #fff;
+  padding-bottom: 182rpx;
+  margin-bottom: 70rpx;
+}
+.head .survey .integral {
+  font-size: 80rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+  padding: 155rpx 0 15rpx 0;
+  text-align: center;
+}
+.head .survey .prompt {
+  font-size: 36rpx;
+  text-align: center;
+}
+.head .integral-details {
+  position: absolute;
+  right: 10px;
+  top: 370rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+.content {
+  padding: 0 10px;
+  margin-bottom: 70rpx;
+}
+.content .top {
+  display: flex;
+  align-items: center;
+}
+.content .top .v-line {
+  width: 6rpx;
+  height: 27rpx;
+  background: #f87005;
+  border-radius: 3rpx;
+  float: left;
+}
+.content .top .title {
+  float: left;
+  font-size: 30rpx;
+  margin-left: 18rpx;
+}
+.content .top::after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: '';
+}
+.content .text {
+  font-size: 28rpx;
+  color: #666666;
+  padding-top: 18rpx;
+}
