@@ -8,7 +8,7 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/person/order',
+      'pages/person/evaluate',
       // 商城首页
       'pages/home/index',
       'pages/home/search',
@@ -31,6 +31,10 @@ export default {
       'pages/person/carry',
       'pages/person/carrySuccess',
       'pages/person/order',
+      'pages/person/toEvaluate',
+      'pages/person/message',
+      'pages/person/footprint',
+      'pages/person/coupon',
     ],
     window: {
       backgroundTextStyle: 'dark',

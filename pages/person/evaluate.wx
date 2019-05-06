@@ -11,7 +11,7 @@
                 </view>
             </ui-col>
             <ui-col vertical-align="middle" class="nav-bar-col">
-                <view class="nav-bar-title">我的订单</view>
+                <view class="nav-bar-title">我的评价</view>
             </ui-col>
             <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
             </ui-col>
@@ -19,16 +19,27 @@
     </ui-nav-bar>
     <view style="height:{{NAV_HEIGHT}}"></view>
 
+    <!-- 用户 -->
+    <view class="item">
+      <view class="top">
+        <view class="img">
+          <image src="../../static/image/person/head.png"></image>
+        </view>
+        <view class="name">
+          开溜
+        </view>
+        <view class="leave">去评价</view>
+      </view>
+    </view>
+
     <!-- 内容区 -->
     <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}">
-      <ui-tab>全部</ui-tab>
-      <ui-tab>待支付</ui-tab>
-      <ui-tab>待发货</ui-tab>
-      <ui-tab>待收货</ui-tab>
-      <ui-tab>待评价</ui-tab>
+      <ui-tab>全部评价</ui-tab>
+      <ui-tab>有图评价</ui-tab>
+      <ui-tab>优质评价</ui-tab>
     </ui-tabs>
     <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" style="margin-top:-8rpx;">
-        <!-- 全部 -->
+        <!-- 全部评价 -->
         <swiper-item>
           <scroll-view scroll-y style="height: 1100rpx;">
             <!-- 待评价 -->
@@ -38,13 +49,14 @@
                   <image src="../../static/image/person/head.png"></image>
                 </view>
                 <view class="name">
-                  凯德旗舰店
+                  <view>开溜</view>
+                  <view class="time">2019-03-17</view>
                 </view>
                 <view class="operation">
-                  <view class="evaluate">待评价</view>
                   <view class="clear-icon">
-                    <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
+                    <ui-icon type="haoping" color="#f87005" size="40rpx;"></ui-icon>
                   </view>
+                  <view class="evaluate">好评</view>
                 </view>
               </view>
               <view class="middle">
@@ -59,7 +71,6 @@
                 </view>
               </view>
               <view class="bottom">
-                <view class="unfocused">去评价</view>
                 <view class="focus">再次购买</view>
               </view>
             </view>
@@ -154,7 +165,7 @@
             </view>
           </scroll-view>
         </swiper-item>
-        <!-- 待支付 -->
+        <!-- 有图评价 -->
         <swiper-item>
           <scroll-view scroll-y style="height: 1100rpx;">
             <view class="item">
@@ -232,7 +243,7 @@
             </ui-mask>
           </scroll-view>
         </swiper-item>
-        <!-- 待发货 -->
+        <!-- 优质评价 -->
         <swiper-item>
           <scroll-view scroll-y style="height: 1100rpx;">
             <view class="item">
@@ -264,75 +275,6 @@
             </view>
           </scroll-view>
         </swiper-item>
-        <!-- 待收货 -->
-        <swiper-item>
-          <scroll-view scroll-y style="height: 1100rpx;">
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="wait">待收货</view>
-                </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="unfocused">查看物流</view>
-                <view class="focus" bindtap="confirmOrder">确认收货</view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
-        <!-- 待评价 -->
-        <swiper-item>
-          <scroll-view scroll-y style="height: 1100rpx;">
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="evaluate">待评价</view>
-                  <view class="clear-icon">
-                    <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
-                  </view>
-                </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="unfocused">去评价</view>
-                <view class="focus">再次购买</view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
     </swiper>
   </view>
 </template>
@@ -340,7 +282,7 @@
 <script>
 export default {
   config: {
-    navigationBarTitleText: '我的订单',
+    navigationBarTitleText: '我的评价',
     navigationBarTextStyle: 'black'
   },
   data: {
@@ -354,11 +296,7 @@ export default {
       'border-bottom': '1px solid #f87005',
       'width': '35%',
       'color':'#f87005'
-    },
-    showReasonMask: false,          //取消订单理由弹框状态
-    flag:false,                      //点击mask不关闭遮罩
-    showCancelMask:false,           //已取消订单弹框状态
-    customStyle:'background-color:rgba(255, 255, 255, 0)'  //已取消订单背景样式
+    }
   },
   // 导航返回
   navigateBack () {
@@ -376,58 +314,6 @@ export default {
       this.setData({
         current:current
       })
-  },
-  //取消订单
-  cancel(){
-    
-    this.setData({
-      showReasonMask:true
-    })
-  },
-  // 关闭订单理由弹框
-  close(){
-    this.setData({
-      showReasonMask:false
-    })
-  },
-  // 确认选择的理由
-  confirm(){
-    this.setData({
-      showReasonMask:false,
-      showCancelMask:true
-    })
-  },
-  //提醒发货
-  remind(){
-    wx.showModal({
-      title: '',
-      content: '已提醒卖家发货',
-      cancelText: '去逛逛',
-      cancelColor: 'rgb(186,186,186)',
-      confirmColor: '#f87005',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击去逛逛')
-        }
-      }
-    })
-  },
-  confirmOrder(){
-    wx.showModal({
-      title: '确认收货',
-      content: '未收到货时确认可能会钱货两空喔~',
-      cancelColor: 'rgb(186,186,186)',
-      confirmColor: '#f87005',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
   }
 }
 </script>
@@ -436,199 +322,131 @@ export default {
 swiper{
   height: 1100rpx;
 }
-// 内容区
-.content{
-  .item{
-    box-shadow: 5rpx 0 7rpx #dcdcdc;
-    margin-bottom: 14rpx;
-    .top{
-      height: 95rpx;
-      position: relative;
-      padding: 0 10px;
-      background: #fff;
-      .mix-flex-y-center();
-      .img,.name,.operation{
-        float: left;
-      }
-      .img{
-        image{
-          width: 65rpx;
-          height: 65rpx;
-        }
-      }
-      .name{
-        margin-left: 23rpx;
-      }
-      .operation{
-        position: absolute;
-        right: 10px;
-        .mix-flex-y-center();
-        .evaluate,.clear-icon{
-          float: left;
-          padding: 0 20rpx;
-        }
-        .evaluate{
-          box-sizing: border-box;
-          border-right: 1px solid #999999;
-        }
-        .wait{
-          color: #f87005;
-        }
-        .clear-icon{
-          padding:0 0 0 20rpx;
-        }
-      }
-    }
-    .middle{
-      padding: 20rpx 10px;
-      .left,.right{
-        float: left;
-      }
-      .left{
-        width: 30%;
-        image{
-          width: 200rpx;
-          height: 200rpx;
-          border:1px solid #bfbfbf;
-        }
-      }
-      .right{
-        width: 65%;
-        color: #999999;
-        font-size: 24rpx;
-        margin-left: 25rpx;
-        .title{
-          font-size: 26rpx;
-          color: rgb(2, 2, 2);
-          display: -webkit-box;
-          -webkit-line-clamp:2;
-          -webkit-box-orient:vertical;
-          overflow:hidden;
-          text-overflow: ellipsis;
-        }
-        .des{
-          margin-bottom: 17rpx;
-        }
-      }
-    }
-    .middle::after{
-      display: block;
-      content: '';
-      clear: both;
-      height: 0;
-    }
-    .bottom{
-      height: 74rpx;
-      background: #fff;
-      position: relative;
-      .mix-flex-y-center();
-      .unfocused,.focus{
-        float: right;
-        width: 150rpx;
-        height: 44rpx;
-        font-size: 26rpx;
-        .mix-flex-center();
-        position: absolute;
-        right:10px;
-      }
-      .unfocused{
-        color: rgb(102, 102, 102);
-        border-radius: 23rpx;
-        border:1px solid rgb(102, 102, 102);
-        right:190rpx;
-      }
-      .focus{
-        color: #f87005;
-        border-radius: 23rpx;
-        border:1px solid #f87005;
-      }
-      .focus.pay{
-        background: #f87005;
-        color: #fff;
-      }
-    }
+// 用户
+.item{
+  .leave{
+    width: 136rpx;
+    height: 50rpx;
+    position: absolute;
+    right: 10px;
+    .mix-flex-center();
+    color: #fff;
+    font-size: 28rpx;
+    background: #f87005;
+    
   }
 }
-
-// 取消订单理由弹框
-.reasonMask{
-  width: 698rpx;
-  height: 779rpx;
-  border-radius: 20rpx;
-  background: #fff;
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -349rpx;
-  margin-top: -389.5rpx;
-  .head{
-    height: 90rpx;
-    background: #ececec;
-    border-radius: 20rpx 20rpx 0 0;
-    .mix-flex-center();
-    .close{
-      position: absolute;
-      right: 20rpx;
-      top: 10rpx;
+// 内容区
+.item{
+  box-shadow: 5rpx 0 7rpx #dcdcdc;
+  margin-bottom: 14rpx;
+  .top{
+    height: 95rpx;
+    position: relative;
+    padding: 0 10px;
+    background: #fff;
+    .mix-flex-y-center();
+    .img,.name,.operation{
+      float: left;
     }
-  }
-  .content{
-    padding: 0 32rpx;
-    .list{
-      padding: 20rpx 0;
-      border-bottom: 1px dashed #999999;
-      font-size: 30rpx;
-      box-sizing: border-box;
-      position: relative;
-      .mix-flex-y-center();
-      span{
-        padding: 15rpx 0;
-        position: absolute;
-        top: 0;
-        right: 0;
+    .img{
+      image{
+        width: 65rpx;
+        height: 65rpx;
       }
     }
+    .name{
+      margin-left: 23rpx;
+      font-size: 26rpx;
+      .time{
+        font-size: 24rpx;
+        color: #999999;
+      }
+    }
+    .operation{
+      position: absolute;
+      right: 10px;
+      .mix-flex-y-center();
+      .evaluate,.clear-icon{
+        float: left;
+        padding: 0 20rpx;
+      }
+      .wait{
+        color: #f87005;
+      }
+      .clear-icon{
+        padding:0 0 0 20rpx;
+      }
+    }
+  }
+  .middle{
+    padding: 20rpx 10px;
+    .left,.right{
+      float: left;
+    }
+    .left{
+      width: 30%;
+      image{
+        width: 200rpx;
+        height: 200rpx;
+        border:1px solid #bfbfbf;
+      }
+    }
+    .right{
+      width: 65%;
+      color: #999999;
+      font-size: 24rpx;
+      margin-left: 25rpx;
+      .title{
+        font-size: 26rpx;
+        color: rgb(2, 2, 2);
+        display: -webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+        text-overflow: ellipsis;
+      }
+      .des{
+        margin-bottom: 17rpx;
+      }
+    }
+  }
+  .middle::after{
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
   }
   .bottom{
-    width: 100%;
-    padding: 19rpx 0;
-    height: 120rpx;
-    background: #ececec;
-    position: absolute;
-    bottom: 0;
-    border-radius: 0 0 20rpx 20rpx;
-    .cancel,.confirm{
-      float: left;
-      box-sizing: border-box;
-      width: 50%;
-      font-size: 36rpx;
-      color: rgb(186, 186, 186);
-      font-weight: bold;
-      height: 100%;
+    height: 74rpx;
+    background: #fff;
+    position: relative;
+    .mix-flex-y-center();
+    .unfocused,.focus{
+      float: right;
+      width: 150rpx;
+      height: 44rpx;
+      font-size: 26rpx;
       .mix-flex-center();
+      position: absolute;
+      right:10px;
     }
-    .confirm{
-      color:#f87005;
-      border-left: 1px solid #999999;
+    .unfocused{
+      color: rgb(102, 102, 102);
+      border-radius: 23rpx;
+      border:1px solid rgb(102, 102, 102);
+      right:190rpx;
+    }
+    .focus{
+      color: #f87005;
+      border-radius: 23rpx;
+      border:1px solid #f87005;
+    }
+    .focus.pay{
+      background: #f87005;
+      color: #fff;
     }
   }
-}
-// 订单已取消弹框
-.cancelMask{
-  width: 418rpx;
-  height: 160rpx;
-  background: #fff;
-  border-radius: 20rpx;
-  background: rgba(0, 0, 0, .36);
-  color: #fff;
-  font-weight: bold;
-  font-size: 36rpx;
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -209rpx;
-  margin-top: -80rpx;
-  .mix-flex-center();
 }
 
 </style>

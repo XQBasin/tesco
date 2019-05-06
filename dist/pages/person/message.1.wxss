@@ -1,0 +1,144 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+swiper {
+  height: 1100rpx;
+}
+.content .item {
+  box-shadow: 5rpx 0 7rpx #dcdcdc;
+  margin-bottom: 14rpx;
+}
+.content .item .top {
+  height: 95rpx;
+  position: relative;
+  padding: 0 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+.content .item .top .name,
+.content .item .top .operation {
+  float: left;
+}
+.content .item .top .name {
+  color: #f87005;
+}
+.content .item .top .operation {
+  position: absolute;
+  right: 10px;
+  font-size: 22rpx;
+  color: #999999;
+  display: flex;
+  align-items: center;
+}
+.content .item .middle {
+  padding: 20rpx 10px;
+  margin-top: 1px;
+  background: #fff;
+}
+.content .item .middle .left,
+.content .item .middle .right {
+  float: left;
+}
+.content .item .middle .left {
+  width: 30%;
+}
+.content .item .middle .left image {
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px solid #bfbfbf;
+  border-radius: 10rpx;
+}
+.content .item .middle .right {
+  width: 65%;
+  color: #999999;
+  font-size: 24rpx;
+  margin-left: 25rpx;
+  position: relative;
+}
+.content .item .middle .right .title {
+  font-size: 26rpx;
+  color: #020202;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content .item .middle .right .order-number {
+  margin: 12rpx 0 10rpx 0;
+}
+.content .item .middle .right .total {
+  color: #eb0202;
+}
+.content .item .middle .right .number {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.content .item .middle::after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.content .list {
+  padding: 0 10px;
+  height: 150rpx;
+  background: #fff;
+  margin-bottom: 3rpx;
+  display: flex;
+  align-items: center;
+}
+.content .list .icon {
+  width: 10%;
+  float: left;
+}
+.content .list .icon image {
+  width: 66rpx;
+  height: 66rpx;
+}
+.content .list .info {
+  float: left;
+  width: 73%;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.content .list .info .detail {
+  font-size: 24rpx;
+  color: #999999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.content .list .time {
+  width: 15%;
+  float: right;
+  font-size: 20rpx;
+  color: #999999;
+  text-align: center;
+}
+.content .list::after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}

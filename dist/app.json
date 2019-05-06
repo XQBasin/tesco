@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/person/order",
+    "pages/person/evaluate",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
@@ -16,7 +16,12 @@
     "pages/person/wallet",
     "pages/person/rule",
     "pages/person/carry",
-    "pages/person/carrySuccess"
+    "pages/person/carrySuccess",
+    "pages/person/order",
+    "pages/person/toEvaluate",
+    "pages/person/message",
+    "pages/person/footprint",
+    "pages/person/coupon"
   ],
   "window": {
     "backgroundTextStyle": "dark",

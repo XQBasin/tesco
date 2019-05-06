@@ -1,0 +1,80 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="40rpx;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 40rpx;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">我的足迹</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 用户操作 -->
+  <view class="head">
+    <view class="tip">共11条，最多为您保存30条</view>
+    <view class="operation" bindtap="clear" wx:if="{{!clearFlag}}">
+      一键清除
+      <span type="clear" color="#999999" size="40rpx;" class="ui-icon icon-clear" style="color: #999999;font-size: 40rpx;px;"></span>
+    </view>
+    <view class="operation" bindtap="clear" wx:if="{{clearFlag}}">完成</view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="list">
+    <view class="cancel" wx:if="{{clearFlag}}">
+      <span type="cancel" color="#f87005" size="60rpx;" class="ui-icon icon-cancel" style="color: #f87005;font-size: 60rpx;px;"></span>
+    </view>
+    <view class="left">
+      <image src="../../static/image/index/test/computer.png" />
+    </view>
+    <view class="right {{clearFlag==true? 'resetW':''}}">
+      <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+      <view class="total">¥3999.00</view>
+    </view>
+    <view class="again">再看看</view>
+  </view>
+
+  <view class="list">
+    <view class="cancel" wx:if="{{clearFlag}}">
+      <span type="cancel" color="#f87005" size="60rpx;" class="ui-icon icon-cancel" style="color: #f87005;font-size: 60rpx;px;"></span>
+    </view>
+    <view class="left">
+      <image src="../../static/image/index/test/computer.png" />
+    </view>
+    <view class="right {{clearFlag==true? 'resetW':''}}">
+      <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+      <view class="total">¥3999.00</view>
+    </view>
+    <view class="again">再看看</view>
+  </view>
+
+  <view class="list">
+    <view class="cancel" wx:if="{{clearFlag}}">
+      <span type="cancel" color="#f87005" size="60rpx;" class="ui-icon icon-cancel" style="color: #f87005;font-size: 60rpx;px;"></span>
+    </view>
+    <view class="left">
+      <image src="../../static/image/index/test/computer.png" />
+    </view>
+    <view class="right {{clearFlag==true? 'resetW':''}}">
+      <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+      <view class="total">¥3999.00</view>
+    </view>
+    <view class="again">再看看</view>
+  </view>
+
+</view>

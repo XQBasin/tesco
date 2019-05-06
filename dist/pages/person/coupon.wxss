@@ -1,0 +1,114 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+swiper {
+  height: 1100rpx;
+}
+.content {
+  padding: 26rpx 10px;
+}
+.content .item {
+  position: relative;
+}
+.content .item .img image {
+  height: 210rpx;
+}
+.content .item .info {
+  width: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  padding: 10rpx 29rpx 18rpx 60rpx;
+}
+.content .item .info .left,
+.content .item .info .right {
+  float: left;
+}
+.content .item .info .left {
+  width: 35%;
+  color: #fff;
+}
+.content .item .info .left .pre {
+  font-size: 46rpx;
+}
+.content .item .info .left .number {
+  font-size: 90rpx;
+  font-weight: bold;
+  line-height: 135rpx;
+}
+.content .item .info .left .fill {
+  font-size: 30rpx;
+}
+.content .item .info .right {
+  width: 65%;
+  font-size: 24rpx;
+}
+.content .item .info .right .type {
+  background: #fbb782;
+  color: #fff;
+  border-radius: 20rpx;
+  width: 130rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .item .info .right .type.unsign {
+  background: #999999;
+}
+.content .item .info .right .name {
+  margin: 12rpx 0 20rpx 0;
+}
+.content .item .info .right .time,
+.content .item .info .right .category {
+  font-size: 20rpx;
+  color: #999999;
+}
+.content .item .info .use {
+  position: absolute;
+  top: 23rpx;
+  right: 30rpx;
+  width: 42rpx;
+  height: 156rpx;
+  background: #f87005;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+  border-radius: 21rpx;
+  text-align: center;
+}
+.content .item .info .useless {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  display: flex;
+  justify-content: center;
+}
+.content .item .info .useless .text {
+  width: 36rpx;
+  font-size: 28rpx;
+  color: #ececec;
+  transform: rotateZ(-45deg);
+}
