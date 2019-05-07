@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index",
+    "ui-tags": "../../packages/touchui-wx-components/ui-tags/dist/index"
+  },
+  "navigationBarTitleText": "意见反馈",
+  "navigationBarTextStyle": "black"
+}

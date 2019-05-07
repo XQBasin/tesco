@@ -40,8 +40,8 @@
     <!-- 评论发表 -->
     <view class="comment">
       <textarea bindinput="bindtext" placeholder="评价发表到晒一晒可获得更多的寸金喔~" maxlength="500" name="comment">
-      <view class="text-number">{{number}}/500</view>
-    </textarea></view>
+        <view class="text-number">{{number}}/500</view>
+      </textarea></view>
     <!-- 添加图片 -->
     <view class="addImage">
       <view class="title">添加图片<text>（{{imageNum}}/6）</text></view>
@@ -89,7 +89,6 @@
         </view>
       </view>
     </view>
-
     <!-- 底部提交按钮 -->
     <button class="submit" form-type="submit">提交</button>
   </form>

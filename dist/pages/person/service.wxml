@@ -1,0 +1,83 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">客户服务中心</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 搜索框 -->
+  <view class="top">
+    <view class="search">
+      <span type="sousuo" color="#666666" size="26rpx;" class="ui-icon icon-sousuo" style="color: #666666;font-size: 26rpx;px;"></span>
+      <input type="text" placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type="search"></input>
+    </view>
+    <view class="text">
+      搜索
+    </view>
+  </view>
+
+  <!-- 内容区 -->
+  <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar="true" active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}" _pid="{{_pid}}">
+    <ui-tab _pid="{{_pid}}">常见问题</ui-tab>
+    <ui-tab _pid="{{_pid}}">协议服务</ui-tab>
+    <ui-tab _pid="{{_pid}}">订单类</ui-tab>
+    <ui-tab _pid="{{_pid}}">物流类</ui-tab>
+    <ui-tab _pid="{{_pid}}">售后类</ui-tab>
+  </ui-tabs>
+  <swiper class="content" current="{{ current }}" bindchange="handleContentChange">
+    <!-- 常见问题 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+        <view class="item">账号无法登陆</view>
+        <view class="item">下单了，无法看到购买信息</view>
+        <view class="item">如何更改新的收货地址？</view>
+        <view class="item">账号无法登陆</view>
+        <view class="item">下单了，无法看到购买信息</view>
+        <view class="item">如何更改新的收货地址？</view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 协议服务 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+
+      </scroll-view>
+    </swiper-item>
+    <!-- 订单类 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+
+      </scroll-view>
+    </swiper-item>
+    <!-- 物流类 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+
+      </scroll-view>
+    </swiper-item>
+    <!-- 售后类 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

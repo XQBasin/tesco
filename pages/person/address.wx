@@ -21,10 +21,6 @@
 
     <!-- 地址管理 -->
     <view class="address" bindtap="clickCheck" data-id="0">
-        <view class="left">
-            <ui-icon type="gouxuan" size="40rpx;" color="#f87005" wx:if="{{addressId==0}}"></ui-icon>
-            <ui-icon type="yuanquan" size="40rpx;" color="#545454" wx:else></ui-icon>
-        </view>
         <view class="text">
             <view class="user">卡卡西丿<text>123******09</text></view>
             <view class="content"><text>[默认]</text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
@@ -34,10 +30,6 @@
         </view>
     </view>
     <view class="address" bindtap="clickCheck" data-id="1">
-        <view class="left">
-            <ui-icon type="gouxuan" size="40rpx;" color="#f87005" wx:if="{{addressId==1}}"></ui-icon>
-            <ui-icon type="yuanquan" size="40rpx;" color="#545454" wx:else></ui-icon>
-        </view>
         <view class="text">
             <view class="user">卡卡西丿<text>123******09</text></view>
             <view class="content"><text></text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
@@ -77,20 +69,18 @@ export default {
 
 <style lang="less">
 .address{
-  background: #fff;
-  margin-bottom: 1px;
-  .left,.right{
-      float: left;
-      width: 15%;
-      line-height: 164rpx;
-  }
-  .left{
-      padding-left:26rpx;
-  }
-  .text{
-        padding: 28rpx 0;
-        width: 75%;
+    background: #fff;
+    margin-bottom: 1px;
+    padding: 0 10px;
+    .left,.right{
         float: left;
+        width: 15%;
+        line-height: 164rpx;
+    }
+    .text{
+        padding: 28rpx 0;
+        float: left;
+        width: 95%;
         .user{
             font-size: 28rpx;
             text{
@@ -111,7 +101,7 @@ export default {
         }
     }
     .right{
-        width: 10%;
+        width: 5%;
     }
 }
 .address::after{

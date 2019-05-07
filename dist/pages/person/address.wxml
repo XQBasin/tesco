@@ -26,10 +26,6 @@
 
   <!-- 地址管理 -->
   <view class="address" bindtap="clickCheck" data-id="0">
-    <view class="left">
-      <span type="gouxuan" size="40rpx;" color="#f87005" wx:if="{{addressId==0}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
-      <span type="yuanquan" size="40rpx;" color="#545454" wx:else="" class="ui-icon icon-yuanquan" style="color: #545454;font-size: 40rpx;px;"></span>
-    </view>
     <view class="text">
       <view class="user">卡卡西丿<text>123******09</text></view>
       <view class="content"><text>[默认]</text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
@@ -39,10 +35,6 @@
     </view>
   </view>
   <view class="address" bindtap="clickCheck" data-id="1">
-    <view class="left">
-      <span type="gouxuan" size="40rpx;" color="#f87005" wx:if="{{addressId==1}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
-      <span type="yuanquan" size="40rpx;" color="#545454" wx:else="" class="ui-icon icon-yuanquan" style="color: #545454;font-size: 40rpx;px;"></span>
-    </view>
     <view class="text">
       <view class="user">卡卡西丿<text>123******09</text></view>
       <view class="content"><text></text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>

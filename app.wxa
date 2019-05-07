@@ -8,39 +8,60 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/home/details',
+      'pages/home/recommend',
       // 商城首页
       'pages/home/index',
-      'pages/home/search',
-      // 商品详情页
-      'pages/home/details',
-      'pages/home/confirmOrder',
-      'pages/home/paySuccess',
-      'pages/home/selectAddress',
-      'pages/home/addressEdit',
-      'pages/home/rating',
-      // 店铺页
-      'pages/home/store',
-      'pages/home/recommend',
+        'pages/home/search',
+        // 商品详情页
+        'pages/home/details',
+        'pages/home/confirmOrder',
+        'pages/home/paySuccess',
+        'pages/home/selectAddress',
+        'pages/home/addressEdit',
+        'pages/home/rating',
+        // 店铺页
+        'pages/home/store',
+        'pages/home/recommend',
       // 购物车页
       'pages/cart/index',
       // 个人中心
       'pages/person/index',
-      'pages/person/wallet',
-      'pages/person/rule',
-      'pages/person/carry',
-      'pages/person/carrySuccess',
-      'pages/person/order',
-      'pages/person/toEvaluate',
-      'pages/person/message',
-      'pages/person/footprint',
-      'pages/person/coupon',
-      'pages/person/evaluate',
-      'pages/person/sendReview',
-      'pages/person/evaluateDetails',
-      'pages/person/collect',
-      'pages/person/account',
-      'pages/person/personInfo',
+        // 我的钱包
+        'pages/person/wallet',
+        // 积分规则
+        'pages/person/rule',
+        // 转账
+        'pages/person/carry',
+        'pages/person/carrySuccess',
+        // 订单
+        'pages/person/order',
+        // 我的评价
+        'pages/person/evaluate',
+        'pages/person/toEvaluate',
+        'pages/person/evaluateDetails',
+        // 追评
+        'pages/person/sendReview',
+        // 信息
+        'pages/person/message',
+        // 足迹
+        'pages/person/footprint',
+        // 优惠库
+        'pages/person/coupon',
+        // 收藏
+        'pages/person/collect',
+        // 账户管理
+        'pages/person/account',
+        // 个人信息
+        'pages/person/personInfo',
+        // 地址管理
+        'pages/person/address',
+        'pages/person/addressEdit',
+        // 关于我们
+        'pages/person/about',
+        // 反馈
+        'pages/person/feedback',
+        // 客户服务中心
+        'pages/person/service',
     ],
     window: {
       backgroundTextStyle: 'dark',

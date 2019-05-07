@@ -1,0 +1,57 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.head .logo {
+  margin-top: 56rpx;
+}
+.head .logo image {
+  width: 228rpx;
+  margin: 0 auto;
+}
+.head .log {
+  text-align: center;
+  margin: 22rpx 0;
+}
+.content {
+  text-indent: 2em;
+  font-size: 28rpx;
+  color: #999999;
+  padding: 0 10px;
+}
+.content .other {
+  text-indent: 0;
+  color: #191919;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.keep {
+  width: 95%;
+  height: 86rpx;
+  margin: 0 auto;
+  background: #f57a1a;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  margin-top: 156rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

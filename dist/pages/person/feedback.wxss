@@ -1,0 +1,92 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.type {
+  padding: 0 10px;
+  background: #fff;
+  margin-top: 20rpx;
+  margin-bottom: 1px;
+}
+.type .title {
+  padding: 25rpx 0;
+}
+.comment {
+  height: 241rpx;
+  padding: 14rpx 10px;
+  background: #fff;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.comment textarea {
+  width: 100%;
+  height: 190rpx;
+}
+.comment .text-number {
+  position: absolute;
+  right: 0;
+  bottom: -40rpx;
+  color: #999999;
+}
+.addImage {
+  padding: 16rpx 10px;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.addImage .title text {
+  color: #999999;
+}
+.addImage .img image {
+  width: 164rpx;
+  height: 164rpx;
+  float: left;
+  margin-right: 10rpx;
+  margin-top: 20rpx;
+}
+.addImage .img::after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: '';
+}
+.contact {
+  padding: 0 10px;
+  height: 80rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+.contact .input {
+  width: 83%;
+  padding-left: 50rpx;
+}
+.submit {
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  background: #f87005;
+  margin: 0;
+  border-radius: 0;
+}
+.submit::after {
+  border: none;
+}

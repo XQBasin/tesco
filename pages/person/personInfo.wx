@@ -20,11 +20,13 @@
     <view style="height:{{NAV_HEIGHT}}"></view>
 
     <ui-row-list>
-      <ui-row class="row">
+      <ui-row class="row head">
           <ui-col class="text">
               头像
           </ui-col>
-          <view class="tip">头像、昵称、性别更改</view>
+          <view class="head-image">
+              <image src="../../static/image/person/head.png"></image>
+          </view>
           <ui-col width="40" vertical-align="middle" align="right">
               <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
           </ui-col>
@@ -109,11 +111,22 @@ export default {
   background: #fff;
   position: relative;
   padding: 0 10px;
+  .mix-flex-y-center();
   .tip{
     position: absolute;
     right: 60rpx;
-    line-height: 90rpx;
     color: #999999;
   }
+  .head-image{
+    image{
+        width: 100rpx;
+        height: 100rpx;
+        border-radius: 50%;
+    }
+  }
+}
+.row.head{
+    height: 110rpx;
+    line-height: 110rpx;
 }
 </style>

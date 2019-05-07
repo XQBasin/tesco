@@ -19,6 +19,19 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
+.tt {
+  width: 300rpx;
+  height: 200rpx;
+  background: lime;
+  margin-left: 10rpx;
+  float: left;
+}
+.far::after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: '';
+}
 .text {
   text-align: center;
   width: 130rpx;

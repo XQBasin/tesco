@@ -1,0 +1,169 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">客户服务中心</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 搜索框 -->
+    <view class="top">
+      <view class="search">
+          <ui-icon type="sousuo" color="#666666" size="26rpx;"></ui-icon>
+          <input type='text' placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type='search'>
+      </view>
+      <view class="text">
+        搜索
+      </view>
+    </view>
+
+    <!-- 内容区 -->
+    <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}">
+      <ui-tab>常见问题</ui-tab>
+      <ui-tab>协议服务</ui-tab>
+      <ui-tab>订单类</ui-tab>
+      <ui-tab>物流类</ui-tab>
+      <ui-tab>售后类</ui-tab>
+    </ui-tabs>
+    <swiper class="content"  current="{{ current }}" bindchange="handleContentChange">
+        <!-- 常见问题 -->
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            <view class="item">账号无法登陆</view>
+            <view class="item">下单了，无法看到购买信息</view>
+            <view class="item">如何更改新的收货地址？</view>
+            <view class="item">账号无法登陆</view>
+            <view class="item">下单了，无法看到购买信息</view>
+            <view class="item">如何更改新的收货地址？</view>
+          </scroll-view>
+        </swiper-item>
+        <!-- 协议服务 -->
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            
+          </scroll-view>
+        </swiper-item>
+        <!-- 订单类 -->
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            
+          </scroll-view>
+        </swiper-item>
+        <!-- 物流类 -->
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            
+          </scroll-view>
+        </swiper-item>
+        <!-- 售后类 -->
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            
+          </scroll-view>
+        </swiper-item>
+    </swiper>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '客户服务中心',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    current: 0,
+    activeTabStyle:{
+      'color': '#f87005',
+    },
+    inkBarStyle:{
+      'border-bottom': '1px solid #f87005',
+      'width': '60%',
+      'color':'#f87005'
+    }
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 选项卡功能
+  handleChange (e) {
+      let index = e.detail.index
+      this.setData({
+        current:index
+      })
+  },
+  handleContentChange (e) {
+      let current = e.detail.current
+      this.setData({
+        current:current
+      })
+  }
+}
+</script>
+
+<style lang="less">
+swiper{
+  height: 1100rpx;
+}
+// 搜索框
+.top{
+  height: 90rpx;
+  background: #fff;
+  .mix-flex-y-center();
+  .search {
+    width: 85%;
+    height: 56rpx;
+    border-radius: 30px;
+    padding: 2px 10px;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    left: 10px;
+    right: 0;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    background: #f4f4f4;
+    .mix-flex-y-center();
+    input {
+        width: 100%;
+        padding: 2rpx 5rpx;
+        margin: 2rpx;
+        font-size: 26rpx;
+    }
+  }
+  .text {
+    height: 56rpx;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    right: 20rpx;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    font-size: 32rpx;
+    .mix-flex-y-center();
+  }
+}
+// 内容区
+.content{
+  .item{
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 10px;
+    background: #fff;
+    margin-bottom: 1px;
+  }
+}
+
+</style>
