@@ -6,7 +6,7 @@
         <view class="ui-col-content align-left valign-middle">
           <view class="containertitle">
             <view class="dingwei">
-              <span type="zuojiantou" color="#333333" size="40rpx;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 40rpx;px;"></span>
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
             </view>
           </view>
         </view>

@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/person/evaluate",
+    "pages/home/details",
     "pages/home/index",
     "pages/home/search",
-    "pages/home/details",
     "pages/home/confirmOrder",
     "pages/home/paySuccess",
     "pages/home/selectAddress",
@@ -21,7 +20,13 @@
     "pages/person/toEvaluate",
     "pages/person/message",
     "pages/person/footprint",
-    "pages/person/coupon"
+    "pages/person/coupon",
+    "pages/person/evaluate",
+    "pages/person/sendReview",
+    "pages/person/evaluateDetails",
+    "pages/person/collect",
+    "pages/person/account",
+    "pages/person/personInfo"
   ],
   "window": {
     "backgroundTextStyle": "dark",

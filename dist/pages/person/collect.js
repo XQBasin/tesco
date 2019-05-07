@@ -12,8 +12,8 @@ exports.default = Page({
       'color': '#f87005'
     },
     inkBarStyle: {
-      'border-bottom': '1px solid #f87005',
-      'width': '50%',
+      'border-bottom': '0px solid #f87005',
+      'width': '35%',
       'color': '#f87005'
     }
   },

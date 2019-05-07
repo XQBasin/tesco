@@ -1,0 +1,67 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">评价详情</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 内容 -->
+  <view class="item">
+    <view class="top">
+      <view class="img">
+        <image src="../../static/image/person/head.png" />
+      </view>
+      <view class="name">
+        <view>开溜</view>
+        <view class="time">2019-03-17</view>
+      </view>
+      <view class="operation">
+        <view class="clear-icon">
+          <span type="haoping" color="#f87005" size="40rpx;" class="ui-icon icon-haoping" style="color: #f87005;font-size: 40rpx;px;"></span>
+        </view>
+        <view class="evaluate good">好评</view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+      <view class="review">
+        <view class="text">
+          <view class="before">用户230天后追评</view>
+          <view>非常实惠的产品，必须再买</view>
+        </view>
+        <view class="time">2019-01-23</view>
+      </view>
+    </view>
+    <view class="middle">
+      <view class="left">
+        <image src="../../static/image/index/test/computer.png" />
+      </view>
+      <view class="right">
+        <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+        <view class="purchased">已购买1个商品</view>
+        <view class="total">¥49999.00</view>
+      </view>
+    </view>
+    <view style="height:30rpx;background:#fff;"></view>
+  </view>
+
+</view>

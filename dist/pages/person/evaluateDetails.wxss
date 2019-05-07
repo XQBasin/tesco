@@ -19,21 +19,6 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-swiper {
-  height: 1100rpx;
-}
-.item .leave {
-  width: 136rpx;
-  height: 50rpx;
-  position: absolute;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 28rpx;
-  background: #f87005;
-}
 .item {
   box-shadow: 5rpx 0 7rpx #dcdcdc;
   margin-bottom: 14rpx;
@@ -159,33 +144,4 @@ swiper {
   content: '';
   clear: both;
   height: 0;
-}
-.item .bottom {
-  height: 74rpx;
-  background: #fff;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.item .bottom .unfocused,
-.item .bottom .focus {
-  float: right;
-  width: 150rpx;
-  height: 44rpx;
-  font-size: 26rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 10px;
-}
-.item .bottom .unfocused {
-  color: #666666;
-  border-radius: 23rpx;
-  border: 1px solid #666666;
-}
-.item .bottom .focus {
-  color: #f87005;
-  border-radius: 23rpx;
-  border: 1px solid #f87005;
 }

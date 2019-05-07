@@ -6,7 +6,7 @@
             <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
                 <view class="containertitle">
                     <view class='dingwei'>
-                        <ui-icon type="zuojiantou" color="#333333" size="40rpx;"></ui-icon>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
                     </view>
                 </view>
             </ui-col>
@@ -42,7 +42,7 @@
         <!-- 全部评价 -->
         <swiper-item>
           <scroll-view scroll-y style="height: 1100rpx;">
-            <!-- 待评价 -->
+            <!-- 好评 -->
             <view class="item">
               <view class="top">
                 <view class="img">
@@ -56,8 +56,11 @@
                   <view class="clear-icon">
                     <ui-icon type="haoping" color="#f87005" size="40rpx;"></ui-icon>
                   </view>
-                  <view class="evaluate">好评</view>
+                  <view class="evaluate good">好评</view>
                 </view>
+              </view>
+              <view class="content">
+                <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
               </view>
               <view class="middle">
                 <view class="left">
@@ -65,17 +68,16 @@
                 </view>
                 <view class="right">
                   <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
                   <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  <view class="total">¥49999.00</view>
                 </view>
               </view>
               <view class="bottom">
-                <view class="focus">再次购买</view>
+                <view class="focus">我要追评</view>
               </view>
             </view>
             
-            <!-- 待支付 -->
+            <!-- 中评 -->
             <view class="item">
               <view class="top">
                 <view class="img">
@@ -85,7 +87,20 @@
                   凯德旗舰店
                 </view>
                 <view class="operation">
-                  <view class="wait">待支付</view>
+                  <view class="clear-icon">
+                    <ui-icon type="haoping" color="#f7b808" size="40rpx;"></ui-icon>
+                  </view>
+                  <view class="evaluate medium">中评</view>
+                </view>
+              </view>
+              <view class="content">
+                <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+                <view class="review">
+                  <view class="text">
+                    <view class="before">用户230天后追评</view>
+                    <view>非常实惠的产品，必须再买</view>
+                  </view>
+                  <view class="time">2019-01-23</view>
                 </view>
               </view>
               <view class="middle">
@@ -94,18 +109,16 @@
                 </view>
                 <view class="right">
                   <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
                   <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  <view class="total">¥49999.00</view>
                 </view>
               </view>
               <view class="bottom">
-                <view class="unfocused">取消订单</view>
-                <view class="focus pay">去支付</view>
+                <view class="unfocused">已追评</view>
               </view>
             </view>
 
-            <!-- 待发货 -->
+            <!-- 差评 -->
             <view class="item">
               <view class="top">
                 <view class="img">
@@ -115,8 +128,14 @@
                   凯德旗舰店
                 </view>
                 <view class="operation">
-                  <view class="wait">待发货</view>
+                  <view class="clear-icon">
+                    <ui-icon type="haoping" color="#999999" size="40rpx;"></ui-icon>
+                  </view>
+                  <view class="evaluate bad">差评</view>
                 </view>
+              </view>
+              <view class="content">
+                <view class="main">产品烂透了，服务态度不好，物流慢......</view>
               </view>
               <view class="middle">
                 <view class="left">
@@ -124,45 +143,15 @@
                 </view>
                 <view class="right">
                   <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
                   <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  <view class="total">¥49999.00</view>
                 </view>
               </view>
               <view class="bottom">
-                <view class="focus">提醒发货</view>
+                <view class="focus">我要追评</view>
               </view>
             </view>
 
-            <!-- 待收货 -->
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="wait">待收货</view>
-                </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="unfocused">查看物流</view>
-                <view class="focus">确认收货</view>
-              </view>
-            </view>
           </scroll-view>
         </swiper-item>
         <!-- 有图评价 -->
@@ -174,10 +163,24 @@
                   <image src="../../static/image/person/head.png"></image>
                 </view>
                 <view class="name">
-                  凯德旗舰店
+                  <view>开溜</view>
+                  <view class="time">2019-03-17</view>
                 </view>
                 <view class="operation">
-                  <view class="wait">待支付</view>
+                  <view class="clear-icon">
+                    <ui-icon type="haoping" color="#f7b808" size="40rpx;"></ui-icon>
+                  </view>
+                  <view class="evaluate medium">中评</view>
+                </view>
+              </view>
+              <view class="content">
+                <view class="main">
+                  <view>一分钱一分货，产品一般般。</view>
+                  <view class="img">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                    <image src="../../static/image/index/test/computer.png"></image>
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
                 </view>
               </view>
               <view class="middle">
@@ -186,77 +189,38 @@
                 </view>
                 <view class="right">
                   <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
                   <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  <view class="total">¥49999.00</view>
                 </view>
               </view>
               <view class="bottom">
-                <view class="unfocused" bindtap="cancel">取消订单</view>
-                <view class="focus pay">去支付</view>
+                <view class="focus">我要追评</view>
               </view>
             </view>
-            <!-- 取消订单理由弹框 -->
-            <ui-mask show="{{showReasonMask}}" effect="scale-in" animation hide-on-tap="{{flag}}">
-              <view class="reasonMask">
-                  <view class="head">
-                    请选择您取消订单的理由
-                    <ui-icon class="close" type="shanchu" color="#d1d1d1" size="40rpx;" bindtap="close"></ui-icon>
-                  </view>
-                  <view class="content">
-                    <view class="list">
-                      收货人信息有误，需要重新填写
-                      <ui-icon class="select" type="gouxuan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      商品数量或款式需要调整
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      有更优惠的购买方案
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      我不想买
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      卖家不发货
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      其他原因
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                  </view>
-                  <view class="bottom">
-                    <view class="cancel" bindtap="close">取消</view>
-                    <view class="confirm" bindtap="confirm">确认</view>
-                  </view>
-              </view>
-            </ui-mask>
-            <!-- 订单已取消弹框 -->
-            <ui-mask show="{{showCancelMask}}" custom-style="{{customStyle}}" effect="scale-in" animation>
-              <view class="cancelMask">
-                订单已取消
-              </view>
-            </ui-mask>
           </scroll-view>
         </swiper-item>
         <!-- 优质评价 -->
         <swiper-item>
           <scroll-view scroll-y style="height: 1100rpx;">
+            <!-- 好评 -->
             <view class="item">
               <view class="top">
                 <view class="img">
                   <image src="../../static/image/person/head.png"></image>
                 </view>
                 <view class="name">
-                  凯德旗舰店
+                  <view>开溜</view>
+                  <view class="time">2019-03-17</view>
                 </view>
                 <view class="operation">
-                  <view class="wait">待发货</view>
+                  <view class="clear-icon">
+                    <ui-icon type="haoping" color="#f87005" size="40rpx;"></ui-icon>
+                  </view>
+                  <view class="evaluate good">好评</view>
                 </view>
+              </view>
+              <view class="content">
+                <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
               </view>
               <view class="middle">
                 <view class="left">
@@ -264,13 +228,12 @@
                 </view>
                 <view class="right">
                   <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
                   <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  <view class="total">¥49999.00</view>
                 </view>
               </view>
               <view class="bottom">
-                <view class="focus" bindtap="remind">提醒发货</view>
+                <view class="focus">我要追评</view>
               </view>
             </view>
           </scroll-view>
@@ -294,7 +257,7 @@ export default {
     },
     inkBarStyle:{
       'border-bottom': '1px solid #f87005',
-      'width': '35%',
+      'width': '50%',
       'color':'#f87005'
     }
   },
@@ -367,16 +330,57 @@ swiper{
       position: absolute;
       right: 10px;
       .mix-flex-y-center();
-      .evaluate,.clear-icon{
-        float: left;
-        padding: 0 20rpx;
+      .evaluate{
+        padding: 0 14rpx;
       }
-      .wait{
+      .evaluate.good{
         color: #f87005;
       }
-      .clear-icon{
-        padding:0 0 0 20rpx;
+      .evaluate.medium{
+        color: #f7b808;
       }
+      .evaluate.bad{
+        color: #999999;
+      }
+    }
+  }
+  .content{
+    font-size: 30rpx;
+    .main{
+      background: #fff;
+      padding: 15rpx 10px 18rpx;
+      margin-bottom: 2rpx;
+      .img{
+        margin-top: 20rpx;
+        image{
+          width: 200rpx;
+          height: 200rpx;
+          float: left;
+          margin: 0 9rpx;
+        }
+      }
+    }
+    .review{
+      background: #fff;
+      padding: 20rpx 10px 38rpx;
+      .text{
+        float: left;
+        width: 70%;
+        .before{
+          color:#f87005;
+        }
+      }
+      .time{
+        float: right;
+        width: 30%;
+        text-align: right;
+      }
+    }
+    .review::after,.main .img::after{
+      display: block;
+      content: '';
+      clear: both;
+      height: 0;
     }
   }
   .middle{
@@ -406,8 +410,8 @@ swiper{
         overflow:hidden;
         text-overflow: ellipsis;
       }
-      .des{
-        margin-bottom: 17rpx;
+      .purchased{
+        margin-bottom: 15rpx;
       }
     }
   }
@@ -435,16 +439,11 @@ swiper{
       color: rgb(102, 102, 102);
       border-radius: 23rpx;
       border:1px solid rgb(102, 102, 102);
-      right:190rpx;
     }
     .focus{
       color: #f87005;
       border-radius: 23rpx;
       border:1px solid #f87005;
-    }
-    .focus.pay{
-      background: #f87005;
-      color: #fff;
     }
   }
 }

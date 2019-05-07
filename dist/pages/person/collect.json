@@ -4,6 +4,6 @@
     "ui-tabs": "../../packages/touchui-wx-components/ui-tabs/dist/index",
     "ui-tab": "../../packages/touchui-wx-components/ui-tab/dist/index"
   },
-  "navigationBarTitleText": "我的评价",
+  "navigationBarTitleText": "我的收藏",
   "navigationBarTextStyle": "black"
 }

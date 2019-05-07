@@ -6,7 +6,7 @@
             <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
                 <view class="containertitle">
                     <view class='dingwei'>
-                        <ui-icon type="zuojiantou" color="#333333" size="40rpx;"></ui-icon>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
                     </view>
                 </view>
             </ui-col>

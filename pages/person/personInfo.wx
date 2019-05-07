@@ -1,0 +1,119 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">个人信息</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <ui-row-list>
+      <ui-row class="row">
+          <ui-col class="text">
+              头像
+          </ui-col>
+          <view class="tip">头像、昵称、性别更改</view>
+          <ui-col width="40" vertical-align="middle" align="right">
+              <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
+          </ui-col>
+      </ui-row>
+      <ui-row class="row">
+          <ui-col class="text">
+              昵称
+          </ui-col>
+          <view class="tip">设置您的个性昵称</view>
+          <ui-col width="40" vertical-align="middle" align="right">
+              <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
+          </ui-col>
+      </ui-row>
+      <ui-row class="row">
+          <ui-col class="text">
+              手机号
+          </ui-col>
+          <ui-col width="40" vertical-align="middle" align="right">
+              <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
+          </ui-col>
+      </ui-row>
+      <ui-row class="row">
+          <ui-col class="text">
+              性别
+          </ui-col>
+          <view class="tip">男</view>
+          <ui-col width="40" vertical-align="middle" align="right">
+              <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
+          </ui-col>
+      </ui-row>
+      <ui-row class="row">
+          <ui-col class="text">
+              出生年月
+          </ui-col>
+          <ui-col width="40" vertical-align="middle" align="right">
+              <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
+          </ui-col>
+      </ui-row>
+    </ui-row-list>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '个人信息',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 退出登录
+  loginOut(){
+    wx.showModal({
+      title: '',
+      content: '你确定要退出登录吗',
+      confirmText: '退出',
+      cancelColor: '#f87005',
+      confirmColor: 'rgb(186,186,186)',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击退出')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
+}
+</script>
+
+<style lang="less">
+.row{
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+  position: relative;
+  padding: 0 10px;
+  .tip{
+    position: absolute;
+    right: 60rpx;
+    line-height: 90rpx;
+    color: #999999;
+  }
+}
+</style>
