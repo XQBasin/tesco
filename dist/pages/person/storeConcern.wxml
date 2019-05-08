@@ -13,7 +13,7 @@
       </view>
       <view class="nav-bar-col ui-col valign-middle" style="">
         <view class="ui-col-content valign-middle">
-          <view class="nav-bar-title">我的消息</view>
+          <view class="nav-bar-title">商店关注</view>
         </view>
       </view>
       <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
@@ -26,93 +26,81 @@
 
   <!-- 内容区 -->
   <ui-tabs style="width:50%;" index="{{ current }}" bindchange="handleChange" ink-bar="true" active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}" _pid="{{_pid}}">
-    <ui-tab _pid="{{_pid}}">交易消息</ui-tab>
-    <ui-tab _pid="{{_pid}}">系统消息</ui-tab>
+    <ui-tab _pid="{{_pid}}">商品</ui-tab>
+    <ui-tab _pid="{{_pid}}">店铺</ui-tab>
   </ui-tabs>
   <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="margin-top:-10rpx;">
-    <!-- 交易消息 -->
+    <!-- 商品 -->
     <swiper-item>
       <scroll-view scroll-y style="height: 1100rpx;">
-        <!-- 已发货 -->
         <view class="item">
           <view class="top">
-            <view class="name">
-              商家已发货
+            <view class="img">
+              <image src="../../static/image/person/head.png" />
             </view>
-            <view class="operation">
-              2019.03.28　23:20:08
+            <view class="name">
+              凯德旗舰店
             </view>
           </view>
           <view class="middle">
             <view class="left">
-              <image src="../../static/image/index/test/computer.png" />
+              <image src="../../static/image/details/test/img2.png" />
             </view>
             <view class="right">
               <view class="title">方式开发商就会防晒服还发收款爱神的箭奥斯卡大囧大事记...</view>
-              <view class="order-number">订单号：3255352525225</view>
               <view class="total">¥89.00</view>
-              <view class="number">x2</view>
             </view>
+            <view class="cancel">删除</view>
+            <view class="enter">进入购买</view>
           </view>
         </view>
-        <!-- 待发货 -->
+
         <view class="item">
           <view class="top">
-            <view class="name">
-              待发货...
+            <view class="img">
+              <image src="../../static/image/person/head.png" />
             </view>
-            <view class="operation">
-              2019.03.28　23:20:08
+            <view class="name">
+              凯德旗舰店
             </view>
           </view>
           <view class="middle">
             <view class="left">
-              <image src="../../static/image/index/test/computer.png" />
+              <image src="../../static/image/details/test/img2.png" />
             </view>
             <view class="right">
               <view class="title">方式开发商就会防晒服还发收款爱神的箭奥斯卡大囧大事记...</view>
-              <view class="order-number">订单号：3255352525225</view>
               <view class="total">¥89.00</view>
-              <view class="number">x2</view>
             </view>
+            <view class="cancel">删除</view>
+            <view class="enter">进入购买</view>
           </view>
         </view>
       </scroll-view>
     </swiper-item>
-    <!-- 系统消息 -->
+    <!-- 店铺 -->
     <swiper-item>
       <scroll-view scroll-y style="height: 1100rpx;">
         <view class="list">
           <view class="icon">
-            <image src="../../static/image/person/icon_message.png" />
+            <!-- <image src=""></image> -->
           </view>
           <view class="info">
-            <view>通知</view>
+            <view>Skuidsnsdd旗舰店</view>
             <view class="detail">水电费很多事复合肥好阀口袋的发生第三煞风景...</view>
           </view>
-          <view class="time">1小时前</view>
+          <view class="enter">进入店铺</view>
         </view>
 
         <view class="list">
           <view class="icon">
-            <image src="../../static/image/person/icon_message.png" />
+            <!-- <image src=""></image> -->
           </view>
           <view class="info">
-            <view>通知</view>
+            <view>Skuidsnsdd旗舰店</view>
             <view class="detail">水电费很多事复合肥好阀口袋的发生第三煞风景...</view>
           </view>
-          <view class="time">1小时前</view>
-        </view>
-
-        <view class="list">
-          <view class="icon">
-            <image src="../../static/image/person/icon_message.png" />
-          </view>
-          <view class="info">
-            <view>通知</view>
-            <view class="detail">水电费很多事复合肥好阀口袋的发生第三煞风景...</view>
-          </view>
-          <view class="time">1小时前</view>
+          <view class="enter">进入店铺</view>
         </view>
       </scroll-view>
     </swiper-item>

@@ -1,0 +1,275 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">晒一晒</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <view class="item">
+      <view class="top">
+        <view class="img">
+          <image src="../../static/image/person/head.png"></image>
+        </view>
+        <view class="name">
+          <view>户设计旗舰店</view>
+          <view class="time">2小时前发布</view>
+        </view>
+        <view class="operation">点击查看</view>
+      </view>
+      <view class="content">
+        <view class="main">时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。...</view>
+      </view>
+      <view class="middle">
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <image src="../../static/image/details/icon_browse.png"></image>
+          <text>浏览10.6万次</text>
+        </view>
+        <view class="right">
+          <image src="../../static/image/details/icon_good_a.png"></image>
+          <text>（5454）</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="item">
+      <view class="top">
+        <view class="img">
+          <image src="../../static/image/person/head.png"></image>
+        </view>
+        <view class="name">
+          <view>户设计旗舰店</view>
+          <view class="time">2小时前发布</view>
+        </view>
+        <view class="operation">点击查看</view>
+      </view>
+      <view class="content">
+        <view class="main">时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。...</view>
+      </view>
+      <view class="middle">
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <image src="../../static/image/details/icon_browse.png"></image>
+          <text>浏览10.6万次</text>
+        </view>
+        <view class="right">
+          <image src="../../static/image/details/icon_good_a.png"></image>
+          <text>（5454）</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="item">
+      <view class="top">
+        <view class="img">
+          <image src="../../static/image/person/head.png"></image>
+        </view>
+        <view class="name">
+          <view>户设计旗舰店</view>
+          <view class="time">2小时前发布</view>
+        </view>
+        <view class="operation">点击查看</view>
+      </view>
+      <view class="content">
+        <view class="main">时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。...</view>
+      </view>
+      <view class="middle">
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <image src="../../static/image/details/icon_browse.png"></image>
+          <text>浏览10.6万次</text>
+        </view>
+        <view class="right">
+          <image src="../../static/image/details/icon_good_a.png"></image>
+          <text>（5454）</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '晒一晒',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    current: 0,
+    activeTabStyle:{
+      'color': '#f87005',
+    },
+    inkBarStyle:{
+      'border-bottom': '1px solid #f87005',
+      'width': '50%',
+      'color':'#f87005'
+    }
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 选项卡功能
+  handleChange (e) {
+      let index = e.detail.index
+      this.setData({
+        current:index
+      })
+  },
+  handleContentChange (e) {
+      let current = e.detail.current
+      this.setData({
+        current:current
+      })
+  }
+}
+</script>
+
+<style lang="less">
+// 内容区
+.item{
+  box-shadow: 5rpx 0 7rpx #dcdcdc;
+  margin-bottom: 14rpx;
+  background: #fff;
+  .top{
+    height: 115rpx;
+    position: relative;
+    padding: 20rpx 10px 0;
+    .mix-flex-y-center();
+    .img,.name,.operation{
+      float: left;
+    }
+    .img{
+      image{
+        width: 80rpx;
+        height: 80rpx;
+      }
+    }
+    .name{
+      margin-left: 23rpx;
+      font-size: 30rpx;
+      font-weight: bold;
+      .time{
+        font-size: 24rpx;
+        color: #999999;
+        font-weight: normal;
+      }
+    }
+    .operation{
+      position: absolute;
+      right: 10px;
+      width: 146rpx;
+      height: 50rpx;
+      background: #f87005;
+      border-radius: 25rpx;
+      font-size: 24rpx;
+      color: #fff;
+      .mix-flex-center();
+    }
+  }
+  .content{
+    font-size: 30rpx;
+    .main{
+      padding: 15rpx 10px 0 18rpx;
+      margin-bottom: 2rpx;
+      .img{
+        margin-top: 20rpx;
+        image{
+          width: 200rpx;
+          height: 200rpx;
+          float: left;
+          margin: 0 9rpx;
+        }
+      }
+    }
+    .review{
+      padding: 20rpx 10px 38rpx;
+      .text{
+        float: left;
+        width: 70%;
+        .before{
+          color:#f87005;
+        }
+      }
+      .time{
+        float: right;
+        width: 30%;
+        text-align: right;
+      }
+    }
+    .review::after,.main .img::after{
+      display: block;
+      content: '';
+      clear: both;
+      height: 0;
+    }
+  }
+  .middle{
+    padding: 20rpx 10px;
+    .img{
+      width: 230rpx;
+      height: 230rpx;
+      border-radius: 10rpx;
+      background: #999999;
+      margin: 3rpx;
+      float: left;
+    }
+  }
+  .bottom{
+    padding: 0 10px 17rpx;
+    .left,.right{
+      float: left;
+      font-size: 24rpx;
+      color: #999999;
+      .mix-flex-y-center();
+      image{
+        width: 32rpx;
+        height: 32rpx;
+        display: inline-block;
+      }
+    }
+    .right{
+      float: right;
+    }
+  }
+  .middle::after,.bottom::after{
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
+  }
+}
+</style>

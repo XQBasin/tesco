@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/home/recommend",
+    "pages/person/storeConcern",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
@@ -10,6 +10,7 @@
     "pages/home/addressEdit",
     "pages/home/rating",
     "pages/home/store",
+    "pages/home/recommend",
     "pages/cart/index",
     "pages/person/index",
     "pages/person/wallet",
@@ -31,7 +32,8 @@
     "pages/person/addressEdit",
     "pages/person/about",
     "pages/person/feedback",
-    "pages/person/service"
+    "pages/person/service",
+    "pages/show/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -59,7 +61,7 @@
         "selectedIconPath": "./static/image/index/tab_icon22.png"
       },
       {
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/show/index",
         "text": "晒一晒",
         "iconPath": "./static/image/index/tab_icon3.png",
         "selectedIconPath": "./static/image/index/tab_icon33.png"

@@ -8,7 +8,7 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/home/recommend',
+      'pages/person/storeConcern',
       // 商城首页
       'pages/home/index',
         'pages/home/search',
@@ -43,6 +43,8 @@ export default {
         'pages/person/sendReview',
         // 信息
         'pages/person/message',
+        //商店关注
+        'pages/person/storeConcern',
         // 足迹
         'pages/person/footprint',
         // 优惠库
@@ -62,6 +64,8 @@ export default {
         'pages/person/feedback',
         // 客户服务中心
         'pages/person/service',
+      // 晒一晒
+      'pages/show/index',
     ],
     window: {
       backgroundTextStyle: 'dark',
@@ -88,7 +92,7 @@ export default {
           selectedIconPath: './static/image/index/tab_icon22.png'
         },
         {
-          pagePath: 'pages/home/index',
+          pagePath: 'pages/show/index',
           text: '晒一晒',
           iconPath: './static/image/index/tab_icon3.png',
           selectedIconPath: './static/image/index/tab_icon33.png'

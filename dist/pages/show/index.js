@@ -13,7 +13,7 @@ exports.default = Page({
     },
     inkBarStyle: {
       'border-bottom': '1px solid #f87005',
-      'width': '35%',
+      'width': '50%',
       'color': '#f87005'
     }
   },

@@ -79,25 +79,25 @@
         </view>
         <view class="operation">
           <view class="order-icon">
-            <image src="../../static/image/person/mine_icon_order.png"></image>
+            <image src="../../static/image/person/mine_icon_order2.png"></image>
           </view>
           <view class="text">待发货</view>
         </view>
         <view class="operation">
           <view class="order-icon">
-            <image src="../../static/image/person/mine_icon_order.png"></image>
+            <image src="../../static/image/person/mine_icon_order3.png"></image>
           </view>
           <view class="text">待收货</view>
         </view>
         <view class="operation">
           <view class="order-icon">
-            <image src="../../static/image/person/mine_icon_order.png"></image>
+            <image src="../../static/image/person/mine_icon_order4.png"></image>
           </view>
           <view class="text">待评价</view>
         </view>
         <view class="operation">
           <view class="order-icon">
-            <image src="../../static/image/person/mine_icon_order.png"></image>
+            <image src="../../static/image/person/mine_icon_order5.png"></image>
           </view>
           <view class="text">退换售后</view>
         </view>

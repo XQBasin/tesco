@@ -19,27 +19,23 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-.tt {
-  width: 300rpx;
-  height: 200rpx;
-  background: lime;
-  margin-left: 10rpx;
-  float: left;
+.head {
+  padding: 27rpx 10px;
 }
-.far::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
-}
-.text {
+.head .text {
   text-align: center;
   width: 130rpx;
   height: 50rpx;
   line-height: 50rpx;
   border-radius: 25rpx;
   background: #fff;
-  float: left;
+  font-size: 25rpx;
+  display: inline-block;
+  margin-right: 12rpx;
+}
+.head .active {
+  background: #f87005;
+  color: #fff;
 }
 .warp {
   padding: 0 10px;

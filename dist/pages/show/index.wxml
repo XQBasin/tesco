@@ -1,0 +1,124 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">晒一晒</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <view class="item">
+    <view class="top">
+      <view class="img">
+        <image src="../../static/image/person/head.png" />
+      </view>
+      <view class="name">
+        <view>户设计旗舰店</view>
+        <view class="time">2小时前发布</view>
+      </view>
+      <view class="operation">点击查看</view>
+    </view>
+    <view class="content">
+      <view class="main">时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。...</view>
+    </view>
+    <view class="middle">
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image src="../../static/image/details/icon_browse.png" />
+        <text>浏览10.6万次</text>
+      </view>
+      <view class="right">
+        <image src="../../static/image/details/icon_good_a.png" />
+        <text>（5454）</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="item">
+    <view class="top">
+      <view class="img">
+        <image src="../../static/image/person/head.png" />
+      </view>
+      <view class="name">
+        <view>户设计旗舰店</view>
+        <view class="time">2小时前发布</view>
+      </view>
+      <view class="operation">点击查看</view>
+    </view>
+    <view class="content">
+      <view class="main">时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。...</view>
+    </view>
+    <view class="middle">
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image src="../../static/image/details/icon_browse.png" />
+        <text>浏览10.6万次</text>
+      </view>
+      <view class="right">
+        <image src="../../static/image/details/icon_good_a.png" />
+        <text>（5454）</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="item">
+    <view class="top">
+      <view class="img">
+        <image src="../../static/image/person/head.png" />
+      </view>
+      <view class="name">
+        <view>户设计旗舰店</view>
+        <view class="time">2小时前发布</view>
+      </view>
+      <view class="operation">点击查看</view>
+    </view>
+    <view class="content">
+      <view class="main">时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。...</view>
+    </view>
+    <view class="middle">
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image src="../../static/image/details/icon_browse.png" />
+        <text>浏览10.6万次</text>
+      </view>
+      <view class="right">
+        <image src="../../static/image/details/icon_good_a.png" />
+        <text>（5454）</text>
+      </view>
+    </view>
+  </view>
+
+</view>
