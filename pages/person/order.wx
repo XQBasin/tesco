@@ -19,321 +19,333 @@
     </ui-nav-bar>
     <view style="height:{{NAV_HEIGHT}}"></view>
 
-    <!-- 内容区 -->
-    <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}">
-      <ui-tab>全部</ui-tab>
-      <ui-tab>待支付</ui-tab>
-      <ui-tab>待发货</ui-tab>
-      <ui-tab>待收货</ui-tab>
-      <ui-tab>待评价</ui-tab>
-    </ui-tabs>
-    <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" style="margin-top:-8rpx;">
-        <!-- 全部 -->
-        <swiper-item>
-          <scroll-view scroll-y style="height: 1100rpx;">
-            <!-- 待评价 -->
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="evaluate">待评价</view>
-                  <view class="clear-icon">
-                    <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
+    <view wx:if='{{!emptyFlag}}'>
+      <!-- 内容区 -->
+      <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}">
+        <ui-tab>全部</ui-tab>
+        <ui-tab>待支付</ui-tab>
+        <ui-tab>待发货</ui-tab>
+        <ui-tab>待收货</ui-tab>
+        <ui-tab>待评价</ui-tab>
+      </ui-tabs>
+      <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" style="margin-top:-8rpx;">
+          <!-- 全部 -->
+          <swiper-item>
+            <scroll-view scroll-y style="height: 1100rpx;">
+              <!-- 待评价 -->
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
+                  </view>
+                  <view class="name">
+                    凯德旗舰店
+                  </view>
+                  <view class="operation">
+                    <view class="evaluate">待评价</view>
+                    <view class="clear-icon">
+                      <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
+                    </view>
                   </view>
                 </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
                 </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="unfocused">去评价</view>
-                <view class="focus">再次购买</view>
-              </view>
-            </view>
-            
-            <!-- 待支付 -->
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="wait">待支付</view>
+                <view class="bottom">
+                  <view class="unfocused">去评价</view>
+                  <view class="focus">再次购买</view>
                 </view>
               </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
+              
+              <!-- 待支付 -->
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
+                  </view>
+                  <view class="name">
+                    凯德旗舰店
+                  </view>
+                  <view class="operation">
+                    <view class="wait">待支付</view>
+                  </view>
                 </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="unfocused">取消订单</view>
+                  <view class="focus pay">去支付</view>
                 </view>
               </view>
-              <view class="bottom">
-                <view class="unfocused">取消订单</view>
-                <view class="focus pay">去支付</view>
-              </view>
-            </view>
 
-            <!-- 待发货 -->
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
+              <!-- 待发货 -->
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
+                  </view>
+                  <view class="name">
+                    凯德旗舰店
+                  </view>
+                  <view class="operation">
+                    <view class="wait">待发货</view>
+                  </view>
                 </view>
-                <view class="name">
-                  凯德旗舰店
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
                 </view>
-                <view class="operation">
-                  <view class="wait">待发货</view>
+                <view class="bottom">
+                  <view class="focus">提醒发货</view>
                 </view>
               </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="focus">提醒发货</view>
-              </view>
-            </view>
 
-            <!-- 待收货 -->
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="wait">待收货</view>
-                </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="unfocused">查看物流</view>
-                <view class="focus">确认收货</view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
-        <!-- 待支付 -->
-        <swiper-item>
-          <scroll-view scroll-y style="height: 1100rpx;">
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="wait">待支付</view>
-                </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="unfocused" bindtap="cancel">取消订单</view>
-                <view class="focus pay">去支付</view>
-              </view>
-            </view>
-            <!-- 取消订单理由弹框 -->
-            <ui-mask show="{{showReasonMask}}" effect="scale-in" animation hide-on-tap="{{flag}}">
-              <view class="reasonMask">
-                  <view class="head">
-                    请选择您取消订单的理由
-                    <ui-icon class="close" type="shanchu" color="#d1d1d1" size="40rpx;" bindtap="close"></ui-icon>
+              <!-- 待收货 -->
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
                   </view>
-                  <view class="content">
-                    <view class="list">
-                      收货人信息有误，需要重新填写
-                      <ui-icon class="select" type="gouxuan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      商品数量或款式需要调整
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      有更优惠的购买方案
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      我不想买
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      卖家不发货
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
-                    <view class="list">
-                      其他原因
-                      <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
-                    </view>
+                  <view class="name">
+                    凯德旗舰店
                   </view>
-                  <view class="bottom">
-                    <view class="cancel" bindtap="close">取消</view>
-                    <view class="confirm" bindtap="confirm">确认</view>
-                  </view>
-              </view>
-            </ui-mask>
-            <!-- 订单已取消弹框 -->
-            <ui-mask show="{{showCancelMask}}" custom-style="{{customStyle}}" effect="scale-in" animation>
-              <view class="cancelMask">
-                订单已取消
-              </view>
-            </ui-mask>
-          </scroll-view>
-        </swiper-item>
-        <!-- 待发货 -->
-        <swiper-item>
-          <scroll-view scroll-y style="height: 1100rpx;">
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="wait">待发货</view>
-                </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="focus" bindtap="remind">提醒发货</view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
-        <!-- 待收货 -->
-        <swiper-item>
-          <scroll-view scroll-y style="height: 1100rpx;">
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="wait">待收货</view>
-                </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
-                </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
-                </view>
-              </view>
-              <view class="bottom">
-                <view class="unfocused">查看物流</view>
-                <view class="focus" bindtap="confirmOrder">确认收货</view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
-        <!-- 待评价 -->
-        <swiper-item>
-          <scroll-view scroll-y style="height: 1100rpx;">
-            <view class="item">
-              <view class="top">
-                <view class="img">
-                  <image src="../../static/image/person/head.png"></image>
-                </view>
-                <view class="name">
-                  凯德旗舰店
-                </view>
-                <view class="operation">
-                  <view class="evaluate">待评价</view>
-                  <view class="clear-icon">
-                    <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
+                  <view class="operation">
+                    <view class="wait">待收货</view>
                   </view>
                 </view>
-              </view>
-              <view class="middle">
-                <view class="left">
-                  <image src="../../static/image/index/test/computer.png"></image>
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
                 </view>
-                <view class="right">
-                  <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
-                  <view class="des">部分描述</view>
-                  <view class="purchased">已购买1个商品</view>
-                  <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                <view class="bottom">
+                  <view class="unfocused">查看物流</view>
+                  <view class="focus">确认收货</view>
                 </view>
               </view>
-              <view class="bottom">
-                <view class="unfocused">去评价</view>
-                <view class="focus">再次购买</view>
+            </scroll-view>
+          </swiper-item>
+          <!-- 待支付 -->
+          <swiper-item>
+            <scroll-view scroll-y style="height: 1100rpx;">
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
+                  </view>
+                  <view class="name">
+                    凯德旗舰店
+                  </view>
+                  <view class="operation">
+                    <view class="wait">待支付</view>
+                  </view>
+                </view>
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="unfocused" bindtap="cancel">取消订单</view>
+                  <view class="focus pay">去支付</view>
+                </view>
               </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
-    </swiper>
+              <!-- 取消订单理由弹框 -->
+              <ui-mask show="{{showReasonMask}}" effect="scale-in" animation hide-on-tap="{{flag}}">
+                <view class="reasonMask">
+                    <view class="head">
+                      请选择您取消订单的理由
+                      <ui-icon class="close" type="shanchu" color="#d1d1d1" size="40rpx;" bindtap="close"></ui-icon>
+                    </view>
+                    <view class="content">
+                      <view class="list">
+                        收货人信息有误，需要重新填写
+                        <ui-icon class="select" type="gouxuan" color="#666666" size="50rpx;"></ui-icon>
+                      </view>
+                      <view class="list">
+                        商品数量或款式需要调整
+                        <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                      </view>
+                      <view class="list">
+                        有更优惠的购买方案
+                        <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                      </view>
+                      <view class="list">
+                        我不想买
+                        <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                      </view>
+                      <view class="list">
+                        卖家不发货
+                        <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                      </view>
+                      <view class="list">
+                        其他原因
+                        <ui-icon class="select" type="yuanquan" color="#666666" size="50rpx;"></ui-icon>
+                      </view>
+                    </view>
+                    <view class="bottom">
+                      <view class="cancel" bindtap="close">取消</view>
+                      <view class="confirm" bindtap="confirm">确认</view>
+                    </view>
+                </view>
+              </ui-mask>
+              <!-- 订单已取消弹框 -->
+              <ui-mask show="{{showCancelMask}}" custom-style="{{customStyle}}" effect="scale-in" animation>
+                <view class="cancelMask">
+                  订单已取消
+                </view>
+              </ui-mask>
+            </scroll-view>
+          </swiper-item>
+          <!-- 待发货 -->
+          <swiper-item>
+            <scroll-view scroll-y style="height: 1100rpx;">
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
+                  </view>
+                  <view class="name">
+                    凯德旗舰店
+                  </view>
+                  <view class="operation">
+                    <view class="wait">待发货</view>
+                  </view>
+                </view>
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="focus" bindtap="remind">提醒发货</view>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+          <!-- 待收货 -->
+          <swiper-item>
+            <scroll-view scroll-y style="height: 1100rpx;">
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
+                  </view>
+                  <view class="name">
+                    凯德旗舰店
+                  </view>
+                  <view class="operation">
+                    <view class="wait">待收货</view>
+                  </view>
+                </view>
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="unfocused">查看物流</view>
+                  <view class="focus" bindtap="confirmOrder">确认收货</view>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+          <!-- 待评价 -->
+          <swiper-item>
+            <scroll-view scroll-y style="height: 1100rpx;">
+              <view class="item">
+                <view class="top">
+                  <view class="img">
+                    <image src="../../static/image/person/head.png"></image>
+                  </view>
+                  <view class="name">
+                    凯德旗舰店
+                  </view>
+                  <view class="operation">
+                    <view class="evaluate">待评价</view>
+                    <view class="clear-icon">
+                      <ui-icon type="clear" color="#999999" size="40rpx;"></ui-icon>
+                    </view>
+                  </view>
+                </view>
+                <view class="middle">
+                  <view class="left">
+                    <image src="../../static/image/index/test/computer.png"></image>
+                  </view>
+                  <view class="right">
+                    <view class="title">副驾驶飞机胜多负少的奇偶基IEUHSFK调附加按实际大家搜评价发无土黄色...</view>
+                    <view class="des">部分描述</view>
+                    <view class="purchased">已购买1个商品</view>
+                    <view class="total">合计：¥49999.00（含运费：¥10）</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="unfocused">去评价</view>
+                  <view class="focus">再次购买</view>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+      </swiper>
+    </view>
+
+    <!-- 订单为空 -->
+    <view wx:if="{{emptyFlag}}" class="empty">
+      <image class="background" src="../../static/image/person/comments_default.png" mode="aspectFit"></image>
+      <view class="title">您还没有相关的订单，快去逛逛吧~</view>
+      <view class="middle">
+        <image class="button" src="../../static/image/btn_sure_nor.png"></image>
+        <view class="text">去逛逛</view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -346,6 +358,7 @@ export default {
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    emptyFlag:true,   //缺省页状态值
     current: 0,
     activeTabStyle:{
       'color': '#f87005',
@@ -630,5 +643,41 @@ swiper{
   margin-top: -80rpx;
   .mix-flex-center();
 }
-
+// 订单为空
+.empty{
+  .background{
+    width: 750rpx;
+    height: 345rpx;
+  }
+  .title{
+    height: 113rpx;
+    line-height: 113rpx;
+    text-align: center;
+    color: #9e9e9e;
+  }
+  .middle{
+    position: relative;
+    .button{
+      width: 180rpx;
+      height: 60rpx;
+      margin: 0 auto;
+    }
+    .text{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      line-height: 60rpx;
+      font-size: 30rpx;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}
+.empty::before{
+  height: 260rpx;
+  width: 1px;
+  display: block;
+  content: '';
+}
 </style>

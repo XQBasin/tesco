@@ -7,6 +7,7 @@ exports.default = Page({
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    emptyFlag: true, //缺省页状态值
     current: 0,
     activeTabStyle: {
       'color': '#f87005'

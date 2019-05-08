@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/person/storeConcern",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
@@ -23,6 +22,7 @@
     "pages/person/evaluateDetails",
     "pages/person/sendReview",
     "pages/person/message",
+    "pages/person/storeConcern",
     "pages/person/footprint",
     "pages/person/coupon",
     "pages/person/collect",

@@ -4,14 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 // 选择颜色样式
-var tagColorStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border:1px solid rgb(204, 204, 204);\n  border-radius: 22rpx;\n  color: rgb(204, 204, 204);\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n';
-var selectColorStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border-radius: 22rpx;\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  border:1px solid #f87005;\n  color: #f87005;\n';
+var tagColorStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border:1px solid rgb(204, 204, 204);\n  border-radius: 22rpx;\n  color: rgb(204, 204, 204);\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  font-size:28rpx;\n';
+var selectColorStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border-radius: 22rpx;\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  border:1px solid #f87005;\n  color: #f87005;\n  font-size:28rpx;\n';
 // 选择尺寸样式
-var tagSizeStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border:1px solid rgb(204, 204, 204);\n  border-radius: 22rpx;\n  color: rgb(204, 204, 204);\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n';
-var selectSizeStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border-radius: 22rpx;\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  border:1px solid #f87005;\n  color: #f87005;\n';
+var tagSizeStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border:1px solid rgb(204, 204, 204);\n  border-radius: 22rpx;\n  color: rgb(204, 204, 204);\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  font-size:28rpx;\n';
+var selectSizeStyle = 'float: left;\n  width: 129rpx;\n  height: 44rpx;\n  text-align: center;\n  line-height: 44rpx;\n  border-radius: 22rpx;\n  margin: 0 9rpx;\n  margin-bottom: 20rpx;\n  border:1px solid #f87005;\n  color: #f87005;\n  font-size:28rpx;\n';
 // 立即购买弹框样式
-var tagStyle = 'background: #ececec;\n  color: rgb(102, 102, 102);\n  padding: 0 5px;\n  border-radius: 10rpx;\n  text-align: center;\n  height: 56rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  margin: 0 20rpx 15rpx 0;\n';
-var selectStyle = 'background: #f87005;\n  color: #fff;\n  padding: 0 5px;\n  border-radius: 10rpx;\n  text-align: center;\n  height: 56rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  margin: 0 20rpx 15rpx 0;\n';
+var tagStyle = 'background: #ececec;\n  color: rgb(102, 102, 102);\n  padding: 0 5px;\n  border-radius: 10rpx;\n  text-align: center;\n  height: 56rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  margin: 0 20rpx 15rpx 0;\n  font-size:28rpx;\n';
+var selectStyle = 'background: #f87005;\n  color: #fff;\n  padding: 0 5px;\n  border-radius: 10rpx;\n  text-align: center;\n  height: 56rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  margin: 0 20rpx 15rpx 0;\n  font-size:28rpx;\n';
 
 exports.default = Page({
   data: {

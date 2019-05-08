@@ -37,7 +37,7 @@
           选择收货地址
         </view>
       </view>
-      <view style="line-height:120rpx;flex:0 0 60rpx;px;" class="ui-col">
+      <view style="line-height:120rpx;flex:0 0 20px;" class="ui-col">
         <view class="ui-col-content">
           <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
         </view>
@@ -91,7 +91,7 @@
           <text>暂无可用</text>
         </view>
       </view>
-      <view style="line-height:80rpx;flex:0 0 60rpx;px;" class="ui-col">
+      <view style="line-height:80rpx;flex:0 0 20px;" class="ui-col">
         <view class="ui-col-content">
           <span type="gengduo" class="ui-icon icon-gengduo" style="font-size: 16px;"></span>
         </view>
@@ -223,7 +223,5 @@
   </view>
 
   <!-- 微信支付 -->
-  <view class="pay">
-    <view bindtap="wxPay">微信支付</view>
-  </view>
+  <button class="pay" bindtap="wxPay">微信支付</button>
 </view>

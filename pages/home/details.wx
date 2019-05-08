@@ -349,6 +349,7 @@ const tagColorStyle = `float: left;
   color: rgb(204, 204, 204);
   margin: 0 9rpx;
   margin-bottom: 20rpx;
+  font-size:28rpx;
 `
 const selectColorStyle = `float: left;
   width: 129rpx;
@@ -360,6 +361,7 @@ const selectColorStyle = `float: left;
   margin-bottom: 20rpx;
   border:1px solid #f87005;
   color: #f87005;
+  font-size:28rpx;
 `
 // 选择尺寸样式
 const tagSizeStyle = `float: left;
@@ -372,6 +374,7 @@ const tagSizeStyle = `float: left;
   color: rgb(204, 204, 204);
   margin: 0 9rpx;
   margin-bottom: 20rpx;
+  font-size:28rpx;
 `
 const selectSizeStyle = `float: left;
   width: 129rpx;
@@ -383,6 +386,7 @@ const selectSizeStyle = `float: left;
   margin-bottom: 20rpx;
   border:1px solid #f87005;
   color: #f87005;
+  font-size:28rpx;
 `
 // 立即购买弹框样式
 const tagStyle = `background: #ececec;
@@ -396,6 +400,7 @@ const tagStyle = `background: #ececec;
   align-items: center;
   line-height: 20px;
   margin: 0 20rpx 15rpx 0;
+  font-size:28rpx;
 `
 const selectStyle = `background: #f87005;
   color: #fff;
@@ -408,6 +413,7 @@ const selectStyle = `background: #f87005;
   align-items: center;
   line-height: 20px;
   margin: 0 20rpx 15rpx 0;
+  font-size:28rpx;
 `
 
 export default {

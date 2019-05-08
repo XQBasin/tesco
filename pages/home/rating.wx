@@ -56,89 +56,142 @@
     </view>
 
     <!-- 评论内容区 -->
-    <ui-row-list class="comment-area" bordered>
-      <ui-row class="comment">
-        <ui-col width="80rpx;" style="position:relative;">
-            <image class="user-image" src="../../static/image/details/icon_Successful.png"></image>
-        </ui-col>
-        <ui-col class="text">
-            4***9
-            <view class="stars">
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-            </view>
-        </ui-col>
-        <ui-col width="160rpx;" class="time">
-            2019-2-25
-        </ui-col>
-      </ui-row>
-      <ui-row class="comment-middle">
-        <view class="text">
-          时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
-        </view>
-      </ui-row>
-      <ui-row class="comment-image">
-        <view class="img">
-          <image src="../../static/image/details/test/img2.png"></image>
-          <image src="../../static/image/details/test/img2.png"></image>
-          <image src="../../static/image/details/test/img2.png"></image>
-        </view>
-      </ui-row>
-      <ui-row class="comment-bottom">
-        <ui-col class="text">
-            好卡3旗舰店
-            <image src="../../static/image/details/icon_good_a.png" class="icon-good"></image>
-        </ui-col>
-        <ui-col width="160rpx;" class="time">
-            （5454）
-        </ui-col>
-      </ui-row>
-    </ui-row-list>
-
-    <ui-row-list class="comment-area" bordered>
-      <ui-row class="comment">
-        <ui-col width="80rpx;" style="position:relative;">
-            <image class="user-image" src="../../static/image/details/icon_Successful.png"></image>
-        </ui-col>
-        <ui-col class="text">
-            4***9
-            <view class="stars">
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-              <image src="../../static/image/details/icon_star_a.png"></image>
-            </view>
-        </ui-col>
-        <ui-col width="160rpx;" class="time">
-            2019-2-25
-        </ui-col>
-      </ui-row>
-      <ui-row class="comment-middle">
-        <view class="text">
-          时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
-        </view>
-      </ui-row>
-      <ui-row class="comment-image">
-        <view class="img">
-          <image src="../../static/image/details/test/img2.png"></image>
-          <image src="../../static/image/details/test/img2.png"></image>
-          <image src="../../static/image/details/test/img2.png"></image>
-        </view>
-      </ui-row>
-      <ui-row class="comment-bottom">
-        <ui-col class="text">
-            好卡3旗舰店
-            <image src="../../static/image/details/icon_good_a.png" class="icon-good"></image>
-        </ui-col>
-        <ui-col width="160rpx;" class="time">
-            （5454）
-        </ui-col>
-      </ui-row>
-    </ui-row-list>
+    <view wx:if="{{itemId==0}}">
+      <ui-row-list class="comment-area" bordered>
+        <ui-row class="comment">
+          <ui-col width="80rpx;" style="position:relative;">
+              <image class="user-image" src="../../static/image/details/icon_Successful.png"></image>
+          </ui-col>
+          <ui-col class="text">
+              4***9
+              <view class="stars">
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+              </view>
+          </ui-col>
+          <ui-col width="160rpx;" class="time">
+              2019-2-25
+          </ui-col>
+        </ui-row>
+        <ui-row class="comment-middle">
+          <view class="text">
+            时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
+          </view>
+        </ui-row>
+        <ui-row class="comment-image">
+          <view class="img">
+            <image src="../../static/image/details/test/img2.png"></image>
+            <image src="../../static/image/details/test/img2.png"></image>
+            <image src="../../static/image/details/test/img2.png"></image>
+          </view>
+        </ui-row>
+        <ui-row class="comment-bottom">
+          <ui-col class="text">
+              好卡3旗舰店
+              <image src="../../static/image/details/icon_good_a.png" class="icon-good"></image>
+          </ui-col>
+          <ui-col width="160rpx;" class="time">
+              （5454）
+          </ui-col>
+        </ui-row>
+      </ui-row-list>
+      <ui-row-list class="comment-area" bordered>
+        <ui-row class="comment">
+          <ui-col width="80rpx;" style="position:relative;">
+              <image class="user-image" src="../../static/image/details/icon_Successful.png"></image>
+          </ui-col>
+          <ui-col class="text">
+              4***9
+              <view class="stars">
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+              </view>
+          </ui-col>
+          <ui-col width="160rpx;" class="time">
+              2019-2-25
+          </ui-col>
+        </ui-row>
+        <ui-row class="comment-middle">
+          <view class="text">
+            时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
+          </view>
+        </ui-row>
+        <ui-row class="comment-image">
+          <view class="img">
+            <image src="../../static/image/details/test/img2.png"></image>
+            <image src="../../static/image/details/test/img2.png"></image>
+            <image src="../../static/image/details/test/img2.png"></image>
+          </view>
+        </ui-row>
+        <ui-row class="comment-bottom">
+          <ui-col class="text">
+              好卡3旗舰店
+              <image src="../../static/image/details/icon_good_a.png" class="icon-good"></image>
+          </ui-col>
+          <ui-col width="160rpx;" class="time">
+              （5454）
+          </ui-col>
+        </ui-row>
+      </ui-row-list>
+    </view>
+    <view wx:if="{{itemId==1}}">
+      <ui-row-list class="comment-area" bordered>
+        <ui-row class="comment">
+          <ui-col width="80rpx;" style="position:relative;">
+              <image class="user-image" src="../../static/image/details/icon_Successful.png"></image>
+          </ui-col>
+          <ui-col class="text">
+              4***9
+              <view class="stars">
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+                <image src="../../static/image/details/icon_star_a.png"></image>
+              </view>
+          </ui-col>
+          <ui-col width="160rpx;" class="time">
+              2019-2-25
+          </ui-col>
+        </ui-row>
+        <ui-row class="comment-middle">
+          <view class="text">
+            时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
+          </view>
+        </ui-row>
+        <ui-row class="comment-image">
+          <view class="img">
+            <image src="../../static/image/details/test/img2.png"></image>
+            <image src="../../static/image/details/test/img2.png"></image>
+            <image src="../../static/image/details/test/img2.png"></image>
+          </view>
+        </ui-row>
+        <ui-row class="comment-bottom">
+          <ui-col class="text">
+              好卡3旗舰店
+              <image src="../../static/image/details/icon_good_a.png" class="icon-good"></image>
+          </ui-col>
+          <ui-col width="160rpx;" class="time">
+              （5454）
+          </ui-col>
+        </ui-row>
+      </ui-row-list>
+    </view>
+    <view wx:if="{{itemId==2}}">
+      12
+    </view>
+    <view wx:if="{{itemId==3}}">
+      12
+    </view>
+    <view wx:if="{{itemId==4}}">
+      12
+    </view>
 
     <view style="width:1px;height:190rpx;"></view>
   </view>

@@ -373,7 +373,6 @@ export default {
       font-weight: bold;
     }
   }
-  
 }
 .empty::before{
   height: 260rpx;
