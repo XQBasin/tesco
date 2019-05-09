@@ -7,7 +7,7 @@ exports.default = Page({
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
-    emptyFlag: true, //缺省页状态值
+    emptyFlag: false, //缺省页状态值
     current: 0,
     activeTabStyle: {
       'color': '#f87005'
@@ -37,13 +37,13 @@ exports.default = Page({
   handleContentChange: function handleContentChange(e) {
     var current = e.detail.current;
     this.setData({
-      current: current
+      current: current,
+      showReasonMask: false
     });
   },
 
   //取消订单
   cancel: function cancel() {
-
     this.setData({
       showReasonMask: true
     });

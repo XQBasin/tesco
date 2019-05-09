@@ -53,64 +53,48 @@
     </view>
 
     <!-- 订单详细内容 -->
-    <view class="order">
-      <view class="ui-row-list" style="">
-        <view class="order-head ui-row" style="">
-          <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 80rpx;px;">
-            <view class="ui-col-content align-center valign-middle">
-              <span type="gouxuan" size="40rpx;" color="#f87005" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
-            </view>
-          </view>
-          <view class="ui-col ui-col-align-left align-left valign-middle" style="flex:0 0 60rpx;px;">
-            <view class="ui-col-content align-left valign-middle">
-              <image src="../../static/image/shop/icon_shop.png" style="width:40rpx;height:40rpx;" />
-            </view>
-          </view>
-          <view class="text ui-col" style="">
-            <view class="ui-col-content">
-              <text>汽车品牌专卖店 ></text>
-            </view>
-          </view>
-          <view style="color:#f87005;flex:0 0 120rpx;px;" class="ui-col ui-col-align-center align-center valign-middle">
-            <view class="ui-col-content align-center valign-middle">
-              优惠券
-            </view>
-          </view>
+    <view class="item">
+      <view class="top">
+        <span class="icon-gouxuan ui-icon icon-gouxuan" type="gouxuan" color="#f87005" size="40rpx;" style="color: #f87005;font-size: 40rpx;px;"></span>
+        <view class="img">
+          <image src="../../static/image/shop/icon_shop.png" />
+        </view>
+        <view class="name">
+          汽车品牌专卖店 >
+        </view>
+        <view class="operation">
+          优惠券
         </view>
       </view>
-      <view class="ui-row-list" style="">
-        <view class="order-content ui-row" style="">
-          <view style="line-height:150rpx;flex:0 0 80rpx;px;" class="ui-col ui-col-align-center align-center">
-            <view class="ui-col-content align-center">
-              <span type="gouxuan" size="40rpx;" color="#f87005" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
-            </view>
+      <view class="middle">
+        <view class="left">
+          <view class="icon">
+            <span class="icon ui-icon icon-gouxuan" type="gouxuan" color="#f87005" size="40rpx;" style="color: #f87005;font-size: 40rpx;px;"></span>
           </view>
-          <view class="ui-col" style="">
-            <view class="ui-col-content">
-              <view class="info">
-                <view class="image"></view>
-                <view class="text">
-                  <view class="name">2019第三方防静电死哦公司丢时代峰峻骚粉建设大街圣诞节欧式的窘迫设大街圣诞节欧式的窘迫...设大街圣诞节欧式的窘迫...</view>
-                  <view class="checkbox">米色皮革+黑色<span class="gengduo ui-icon icon-xiangxiajiantou" type="xiangxiajiantou" size="36rpx;" color="#999999" style="color: #999999;font-size: 36rpx;px;"></span></view>
-                </view>
+          <view class="img">
+            <image src="../../static/image/index/test/computer.png" />
+          </view>
+        </view>
+        <view class="right">
+          <view class="title">2019第三方防静电死哦公司丢时代峰峻骚粉建设大街圣诞节欧式的窘迫......</view>
+          <view class="checkbox">米色皮革+黑色<span class="gengduo ui-icon icon-xiangxiajiantou" type="xiangxiajiantou" size="36rpx;" color="#999999" style="color: #999999;font-size: 36rpx;px;"></span></view>
+          <view class="preview">
+            <view class="selector">
+              <view class="reduce">
+                <span type="jiansvg" color="#999999" size="36rpx;" class="ui-icon icon-jiansvg" style="color: #999999;font-size: 36rpx;px;"></span>
+              </view>
+              <view class="number">1</view>
+              <view class="plus">
+                <span type="jia" color="#999999" size="36rpx;" class="ui-icon icon-jia" style="color: #999999;font-size: 36rpx;px;"></span>
               </view>
             </view>
+            <view class="price">¥569.00</view>
           </view>
         </view>
-      </view>
-      <view class="preview">
-        <view class="selector">
-          <view class="reduce">
-            <span type="jiansvg" color="#999999" size="36rpx;" class="ui-icon icon-jiansvg" style="color: #999999;font-size: 36rpx;px;"></span>
-          </view>
-          <view class="number">1</view>
-          <view class="plus">
-            <span type="jia" color="#999999" size="36rpx;" class="ui-icon icon-jia" style="color: #999999;font-size: 36rpx;px;"></span>
-          </view>
-        </view>
-        <view class="price">¥569.00</view>
       </view>
     </view>
+
+    <view style="height:100rpx;"></view>
 
     <!-- 底部操作界面 -->
     <view class="bottom">

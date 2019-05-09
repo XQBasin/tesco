@@ -84,7 +84,8 @@
                   <image src="../../static/image/person/head.png"></image>
                 </view>
                 <view class="name">
-                  凯德旗舰店
+                  <view>开溜</view>
+                  <view class="time">2019-03-17</view>
                 </view>
                 <view class="operation">
                   <view class="clear-icon">
@@ -125,7 +126,8 @@
                   <image src="../../static/image/person/head.png"></image>
                 </view>
                 <view class="name">
-                  凯德旗舰店
+                  <view>开溜</view>
+                  <view class="time">2019-03-17</view>
                 </view>
                 <view class="operation">
                   <view class="clear-icon">
@@ -374,6 +376,8 @@ swiper{
         float: right;
         width: 30%;
         text-align: right;
+        font-size: 24rpx;
+        color: #999999;
       }
     }
     .review::after,.main .img::after{

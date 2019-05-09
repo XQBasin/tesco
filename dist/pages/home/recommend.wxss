@@ -84,25 +84,25 @@
 .warp .item .image {
   margin-bottom: 28rpx;
 }
-.warp .item .image .t1 {
+.warp .item .image .left {
   float: left;
   width: 70%;
   height: 370rpx;
   background: pink;
   border-radius: 10rpx;
 }
-.warp .item .image .t2 {
+.warp .item .image .right {
   float: right;
   width: 29%;
 }
-.warp .item .image .t2 .t2-1,
-.warp .item .image .t2 .t2-2 {
+.warp .item .image .right .img1,
+.warp .item .image .right .img2 {
   width: 100%;
   height: 180rpx;
   background: pink;
   border-radius: 10rpx;
 }
-.warp .item .image .t2 .t2-1 {
+.warp .item .image .right .img1 {
   margin-bottom: 10rpx;
 }
 .warp .item .bottom .browse,

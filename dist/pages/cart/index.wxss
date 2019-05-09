@@ -38,49 +38,86 @@
   top: 0;
   right: 120rpx;
 }
-.order {
-  background: #fff;
+.item {
   margin-bottom: 28rpx;
+  background: #fff;
 }
-.order .order-head {
-  height: 78rpx;
-  line-height: 78rpx;
+.item .top {
+  height: 95rpx;
+  position: relative;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid #cccccc;
 }
-.order .order-head .text {
+.item .top .img,
+.item .top .name,
+.item .top .operation {
+  float: left;
+}
+.item .top .img {
+  margin: 0 14rpx 0 20rpx;
+}
+.item .top .img image {
+  width: 34rpx;
+  height: 34rpx;
+}
+.item .top .name {
+  font-size: 32rpx;
   font-weight: bold;
 }
-.order .order-content {
-  height: 174rpx;
-  padding-top: 16rpx;
+.item .top .name .time {
+  font-size: 24rpx;
+  color: #999999;
 }
-.order .order-content .info {
-  position: relative;
-}
-.order .order-content .info .image,
-.order .order-content .info .text {
+.item .top .operation {
   position: absolute;
-  top: 0;
+  right: 10px;
+  color: #f87005;
+  display: flex;
+  align-items: center;
 }
-.order .order-content .info .image {
-  left: 0;
+.item .middle {
+  padding: 20rpx 10px;
+}
+.item .middle .left,
+.item .middle .right {
+  float: left;
+}
+.item .middle .left {
+  width: 30%;
+}
+.item .middle .left .icon {
+  float: left;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  margin-right: 5rpx;
+}
+.item .middle .left .img {
+  float: left;
+}
+.item .middle .left .img image {
   width: 150rpx;
   height: 150rpx;
-  background: #ccc;
+  border: 1px solid #bfbfbf;
 }
-.order .order-content .info .text {
-  padding-right: 10px;
-  right: 0;
-  width: 500rpx;
+.item .middle .right {
+  width: 65%;
+  color: #999999;
+  font-size: 24rpx;
+  margin-left: 10rpx;
 }
-.order .order-content .info .text .name {
+.item .middle .right .title {
+  font-size: 26rpx;
+  color: #020202;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
 }
-.order .order-content .info .text .checkbox {
+.item .middle .right .checkbox {
   width: 100%;
   height: 56rpx;
   line-height: 56rpx;
@@ -92,30 +129,27 @@
   margin-top: 10rpx;
   position: relative;
 }
-.order .order-content .info .text .checkbox .gengduo {
+.item .middle .right .checkbox .gengduo {
   position: absolute;
   top: 0;
   right: 10rpx;
 }
-.order .preview {
-  background: #fff;
-  padding-bottom: 12rpx;
+.item .middle .right .preview {
+  margin-top: 12rpx;
 }
-.order .preview .price {
+.item .middle .right .preview .price {
   color: #eb0202;
   font-size: 32rpx;
-  float: right;
-  margin-right: 134rpx;
+  float: left;
 }
-.order .preview .selector {
+.item .middle .right .preview .selector {
   width: 208rpx;
   text-align: center;
   background: #ebebeb;
   float: right;
-  margin-right: 10px;
   border-radius: 10rpx;
 }
-.order .preview .selector view {
+.item .middle .right .preview .selector view {
   float: left;
   width: 33.33%;
   height: 60rpx;
@@ -123,11 +157,11 @@
   color: #666666;
   line-height: 60rpx;
 }
-.order .preview::after {
+.item .middle::after {
   display: block;
-  height: 0;
-  clear: both;
   content: '';
+  clear: both;
+  height: 0;
 }
 .bottom {
   position: fixed;

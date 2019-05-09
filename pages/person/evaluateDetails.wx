@@ -154,6 +154,8 @@ export default {
         float: right;
         width: 30%;
         text-align: right;
+        font-size: 24rpx;
+        color: #999999;
       }
     }
     .review::after,.main .img::after{
@@ -170,10 +172,11 @@ export default {
     }
     .left{
       width: 30%;
+      border:1px solid #bfbfbf;
+      background: #fff;
       image{
         width: 200rpx;
         height: 200rpx;
-        border:1px solid #bfbfbf;
       }
     }
     .right{

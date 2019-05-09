@@ -43,10 +43,10 @@
         <view class="enter" bindtap="toStroe">进入店铺</view>
       </view>
       <view class="image">
-        <view class="t1"></view>
-        <view class="t2">
-          <view class="t2-1"></view>
-          <view class="t2-2"></view>
+        <view class="left"></view>
+        <view class="right">
+          <view class="img1"></view>
+          <view class="img2"></view>
         </view>
       </view>
       <view class="bottom">

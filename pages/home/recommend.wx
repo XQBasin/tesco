@@ -38,10 +38,10 @@
           <view class="enter" bindtap="toStroe">进入店铺</view>
         </view>
         <view class="image">
-          <view class="t1"></view>
-          <view class="t2">
-            <view class="t2-1"></view>
-            <view class="t2-2"></view>
+          <view class="left"></view>
+          <view class="right">
+            <view class="img1"></view>
+            <view class="img2"></view>
           </view>
         </view>
         <view class="bottom">
@@ -158,23 +158,23 @@ export default {
     }
     .image{
       margin-bottom: 28rpx;
-      .t1{
+      .left{
         float: left;
         width: 70%;
         height: 370rpx;
         background: pink;
         border-radius: 10rpx;
       }
-      .t2{
+      .right{
         float: right;
         width: 29%;
-        .t2-1,.t2-2{
+        .img1,.img2{
           width: 100%;
           height: 180rpx;
           background: pink;
           border-radius: 10rpx;
         }
-        .t2-1{
+        .img1{
           margin-bottom: 10rpx;
         }
       }

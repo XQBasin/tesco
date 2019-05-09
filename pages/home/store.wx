@@ -32,18 +32,18 @@
 
     <!-- 店铺信息 -->
     <ui-row-list>
-    <ui-row class="store-info">
-        <ui-col width="80rpx;" vertical-align="middle" align="center">
-          <view class="store-image"></view>
-        </ui-col>
-        <ui-col class="text" vertical-align="middle">
-            <view class="name">salks旗舰店</view>
-            <view class="fans">435.1万粉丝</view>
-        </ui-col>
-        <ui-col width="140rpx;" vertical-align="middle" align="center">
-            <view class="{{followFlag==true? 'unfollow':'follow'}}" bindtap="bindFollow">+　关注</view>
-        </ui-col>
-    </ui-row>
+      <ui-row class="store-info">
+          <ui-col width="80rpx;" vertical-align="middle" align="center">
+            <view class="store-image"></view>
+          </ui-col>
+          <ui-col class="text" vertical-align="middle">
+              <view class="name">salks旗舰店</view>
+              <view class="fans">435.1万粉丝</view>
+          </ui-col>
+          <ui-col width="140rpx;" vertical-align="middle" align="center">
+              <view class="{{followFlag==true? 'unfollow':'follow'}}" bindtap="bindFollow">+　关注</view>
+          </ui-col>
+      </ui-row>
     </ui-row-list>
 
     <!-- 选项卡 -->
@@ -259,6 +259,7 @@ export default {
             -webkit-box-orient:vertical;
             overflow:hidden;
             text-overflow: ellipsis;
+            padding-top: 12rpx;
           }
           .price{
               margin-top: 12rpx;

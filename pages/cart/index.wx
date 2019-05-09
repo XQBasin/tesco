@@ -40,52 +40,48 @@
     </ui-row-list>
 
     <!-- 订单详细内容 -->
-    <view class="order">
-      <ui-row-list>
-        <ui-row class="order-head">
-            <ui-col width="80rpx;" vertical-align="middle" align="center">
-                <ui-icon type="gouxuan" size="40rpx;" color="#f87005"></ui-icon>
-            </ui-col>
-            <ui-col vertical-align="middle" align="left" width="60rpx;">
-                <image src="../../static/image/shop/icon_shop.png" style="width:40rpx;height:40rpx;"></image>
-            </ui-col>
-            <ui-col class="text" >
-                <text>汽车品牌专卖店 ></text>
-            </ui-col>
-            <ui-col width="120rpx;" vertical-align="middle" align="center" style="color:#f87005;">
-                优惠券
-            </ui-col>
-        </ui-row>
-      </ui-row-list>
-      <ui-row-list>
-        <ui-row class="order-content">
-            <ui-col width="80rpx;" align="center" style="line-height:150rpx;">
-                <ui-icon type="gouxuan" size="40rpx;" color="#f87005"></ui-icon>
-            </ui-col>
-            <ui-col>
-              <view class="info" >
-                <view class="image"></view>
-                <view class="text">
-                  <view class="name">2019第三方防静电死哦公司丢时代峰峻骚粉建设大街圣诞节欧式的窘迫设大街圣诞节欧式的窘迫...设大街圣诞节欧式的窘迫...</view>
-                  <view class="checkbox">米色皮革+黑色<ui-icon class="gengduo" type="xiangxiajiantou" size="36rpx;" color="#999999"></ui-icon></view>
-                </view>
-              </view>
-            </ui-col>
-        </ui-row>
-      </ui-row-list>
-      <view class="preview">
-        <view class="selector">
-          <view class="reduce">
-            <ui-icon type="jiansvg" color="#999999" size="36rpx;"></ui-icon>
+    <view class="item">
+      <view class="top">
+        <ui-icon class="icon-gouxuan" type="gouxuan" color="#f87005" size="40rpx;"></ui-icon>
+        <view class="img">
+          <image src="../../static/image/shop/icon_shop.png"></image>
+        </view>
+        <view class="name">
+          汽车品牌专卖店 >
+        </view>
+        <view class="operation">
+          优惠券
+        </view>
+      </view>
+      <view class="middle">
+        <view class="left">
+          <view class="icon">
+            <ui-icon class="icon" type="gouxuan" color="#f87005" size="40rpx;"></ui-icon>
           </view>
-          <view class="number">1</view>
-          <view class="plus">
-            <ui-icon type="jia" color="#999999" size="36rpx;"></ui-icon>
+          <view class="img">
+            <image src="../../static/image/index/test/computer.png"></image>
           </view>
         </view>
-        <view class="price">¥569.00</view>
+        <view class="right">
+          <view class="title">2019第三方防静电死哦公司丢时代峰峻骚粉建设大街圣诞节欧式的窘迫......</view>
+          <view class="checkbox">米色皮革+黑色<ui-icon class="gengduo" type="xiangxiajiantou" size="36rpx;" color="#999999"></ui-icon></view>
+          <view class="preview">
+            <view class="selector">
+              <view class="reduce">
+                <ui-icon type="jiansvg" color="#999999" size="36rpx;"></ui-icon>
+              </view>
+              <view class="number">1</view>
+              <view class="plus">
+                <ui-icon type="jia" color="#999999" size="36rpx;"></ui-icon>
+              </view>
+            </view>
+            <view class="price">¥569.00</view>
+          </view>
+        </view>
       </view>
     </view>
+
+    <view style="height:100rpx;"></view>
 
     <!-- 底部操作界面 -->
     <view class="bottom">
@@ -165,97 +161,132 @@ export default {
 }
 
 // 订单详细内容
-.order{
-  background: #fff;
+.item{
   margin-bottom: 28rpx;
-  .order-head{
-    height: 78rpx;
-    line-height: 78rpx;
+  background: #fff;
+  .top{
+    height: 95rpx;
+    position: relative;
+    padding: 0 10px;
+    .mix-flex-y-center();
     border-bottom: 1px solid #cccccc;
-    .text{
+    .img,.name,.operation{
+      float: left;
+    }
+    .img{
+      margin: 0 14rpx 0 20rpx;
+      image{
+        width: 34rpx;
+        height: 34rpx;
+      }
+    }
+    .name{
+      font-size: 32rpx;
       font-weight: bold;
+      .time{
+        font-size: 24rpx;
+        color: #999999;
+      }
+    }
+    .operation{
+      position: absolute;
+      right: 10px;
+      color: #f87005;
+      .mix-flex-y-center();
     }
   }
-  .order-content{
-    height: 174rpx;
-    padding-top: 16rpx;
-    .info{
-      position: relative;
-      .image,.text{
-        position: absolute;
-        top: 0;
-      }
-      .image{
-        left: 0;
-        width: 150rpx;
+  .middle{
+    padding: 20rpx 10px;
+    .left,.right{
+      float: left;
+    }
+    .left{
+      width: 30%;
+      .icon{
+        float: left;
         height: 150rpx;
-        background: #ccc;
+        .mix-flex-y-center();
+        margin-right: 5rpx;
       }
-      .text{
-        padding-right: 10px;
-        right:0;
-        width: 500rpx;
-        .name{
-          -webkit-line-clamp:2;
-          -webkit-box-orient:vertical;
-          overflow:hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
+      .img{
+        float: left;
+        image{
+          width: 150rpx;
+          height: 150rpx;
+          border:1px solid #bfbfbf;
         }
-        .checkbox{
-          width: 100%;
-          height: 56rpx;
-          line-height: 56rpx;
-          font-size: 28rpx;
-          color: rgb(153, 153, 153);
-          padding-left: 20rpx;
-          border:1px solid rgb(169, 169, 169);
+      }
+    }
+    .right{
+      width: 65%;
+      color: #999999;
+      font-size: 24rpx;
+      margin-left: 10rpx;
+      .title{
+        font-size: 26rpx;
+        color: rgb(2, 2, 2);
+        display: -webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+        text-overflow: ellipsis;
+      }
+      .checkbox{
+        width: 100%;
+        height: 56rpx;
+        line-height: 56rpx;
+        font-size: 28rpx;
+        color: rgb(153, 153, 153);
+        padding-left: 20rpx;
+        border:1px solid rgb(169, 169, 169);
+        border-radius: 10rpx;
+        margin-top: 10rpx;
+        position: relative;
+        .gengduo{
+          position:absolute;
+          top: 0;
+          right:10rpx;
+        }
+      }
+      .preview{
+        margin-top: 12rpx;
+        .price{
+          color: #eb0202;
+          font-size: 32rpx;
+          float: left;
+        }
+        .selector{
+          width: 208rpx;
+          text-align: center;
+          background: #ebebeb;
+          float: right;
           border-radius: 10rpx;
-          margin-top: 10rpx;
-          position: relative;
-          .gengduo{
-            position:absolute;
-            top: 0;
-            right:10rpx;
+          view{
+            float: left;
+            width: 33.33%;
+            height: 60rpx;
+            font-size: 28rpx;
+            color: #666666;
+            line-height: 60rpx;
           }
         }
-        
       }
+      // .preview::after{
+      //   display: block;
+      //   height: 0;
+      //   clear: both;
+      //   content: '';
+      // }
     }
   }
-  .preview{
-    background: #fff;
-    padding-bottom: 12rpx;
-    .price{
-      color: #eb0202;
-      font-size: 32rpx;
-      float: right;
-      margin-right: 134rpx;
-    }
-    .selector{
-      width: 208rpx;
-      text-align: center;
-      background: #ebebeb;
-      float: right;
-      margin-right: 10px;
-      border-radius: 10rpx;
-      view{
-        float: left;
-        width: 33.33%;
-        height: 60rpx;
-        font-size: 28rpx;
-        color: #666666;
-        line-height: 60rpx;
-      }
-    }
-  }
-  .preview::after{
+  .middle::after{
     display: block;
-    height: 0;
-    clear: both;
     content: '';
+    clear: both;
+    height: 0;
   }
 }
+
 // 底部操作界面
 .bottom{
   position: fixed;

@@ -33,187 +33,131 @@
 
   <!-- 选项卡 -->
   <view class="tabs">
-    <view class="item {{itemId==0? 'active':''}}" data-id="0" bindtap="bindItem">
-      <view class="item-title">全部</view>
-      <view class="numbers">2.6万+</view>
-      <view class="line" wx:if="{{itemId==0}}"></view>
-    </view>
-    <view class="item {{itemId==1? 'active':''}}" data-id="1" bindtap="bindItem">
-      <view class="item-title">好评</view>
-      <view class="numbers">2.6万+</view>
-      <view class="line" wx:if="{{itemId==1}}"></view>
-    </view>
-    <view class="item {{itemId==2? 'active':''}}" data-id="2" bindtap="bindItem">
-      <view class="item-title">中评</view>
-      <view class="numbers">100+</view>
-      <view class="line" wx:if="{{itemId==2}}"></view>
-    </view>
-    <view class="item {{itemId==3? 'active':''}}" data-id="3" bindtap="bindItem">
-      <view class="item-title">差评</view>
-      <view class="numbers">99</view>
-      <view class="line" wx:if="{{itemId==3}}"></view>
-    </view>
-    <view class="item {{itemId==4? 'active':''}}" data-id="4" bindtap="bindItem">
-      <view class="item-title">晒单</view>
-      <view class="numbers">2.6万+</view>
-      <view class="line" wx:if="{{itemId==4}}"></view>
+    <view wx:for="{{item}}" wx:key="itemKey" class="item {{itemId==index? 'active':''}}" data-id="{{index}}" bindtap="bindItem">
+      <view class="item-title">{{item.title}}</view>
+      <view class="numbers">{{item.number}}</view>
+      <view class="line" wx:if="{{itemId==index}}"></view>
     </view>
   </view>
 
   <!-- 评论内容区 -->
   <view wx:if="{{itemId==0}}">
-    <view class="comment-area ui-row-list ui-row-list-bordered" style="">
-      <view class="comment ui-row" style="">
-        <view style="position:relative;flex:0 0 80rpx;px;" class="ui-col">
-          <view class="ui-col-content">
-            <image class="user-image" src="../../static/image/details/icon_Successful.png" />
-          </view>
-        </view>
-        <view class="text ui-col" style="">
-          <view class="ui-col-content">
-            4***9
-            <view class="stars">
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-            </view>
-          </view>
-        </view>
-        <view class="time ui-col" style="flex:0 0 160rpx;px;">
-          <view class="ui-col-content">
-            2019-2-25
-          </view>
-        </view>
-      </view>
-      <view class="comment-middle ui-row" style="">
-        <view class="text">
-          时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
-        </view>
-      </view>
-      <view class="comment-image ui-row" style="">
+    <view class="list">
+      <view class="top">
         <view class="img">
-          <image src="../../static/image/details/test/img2.png" />
-          <image src="../../static/image/details/test/img2.png" />
-          <image src="../../static/image/details/test/img2.png" />
+          <image src="../../static/image/person/head.png" />
+        </view>
+        <view class="name">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+        <view class="time">
+          2019-02-25
         </view>
       </view>
-      <view class="comment-bottom ui-row" style="">
-        <view class="text ui-col" style="">
-          <view class="ui-col-content">
-            好卡3旗舰店
-            <image src="../../static/image/details/icon_good_a.png" class="icon-good" />
-          </view>
+      <view class="content">
+        <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+      </view>
+      <view class="middle">
+        <view class="img">
+          <image src="../../static/image/details/icon_star_a.png" mode="widthFix" />
         </view>
-        <view class="time ui-col" style="flex:0 0 160rpx;px;">
-          <view class="ui-col-content">
-            （5454）
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">好卡3旗舰店</view>
+        <view class="right">
+          <view class="icon-good">
+            <image src="../../static/image/details/icon_good_a.png" />
           </view>
+          <view class="number">（5454）</view>
         </view>
       </view>
     </view>
-    <view class="comment-area ui-row-list ui-row-list-bordered" style="">
-      <view class="comment ui-row" style="">
-        <view style="position:relative;flex:0 0 80rpx;px;" class="ui-col">
-          <view class="ui-col-content">
-            <image class="user-image" src="../../static/image/details/icon_Successful.png" />
-          </view>
-        </view>
-        <view class="text ui-col" style="">
-          <view class="ui-col-content">
-            4***9
-            <view class="stars">
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-            </view>
-          </view>
-        </view>
-        <view class="time ui-col" style="flex:0 0 160rpx;px;">
-          <view class="ui-col-content">
-            2019-2-25
-          </view>
-        </view>
-      </view>
-      <view class="comment-middle ui-row" style="">
-        <view class="text">
-          时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
-        </view>
-      </view>
-      <view class="comment-image ui-row" style="">
+    <view class="list">
+      <view class="top">
         <view class="img">
-          <image src="../../static/image/details/test/img2.png" />
-          <image src="../../static/image/details/test/img2.png" />
-          <image src="../../static/image/details/test/img2.png" />
+          <image src="../../static/image/person/head.png" />
+        </view>
+        <view class="name">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+        <view class="time">
+          2019-02-25
         </view>
       </view>
-      <view class="comment-bottom ui-row" style="">
-        <view class="text ui-col" style="">
-          <view class="ui-col-content">
-            好卡3旗舰店
-            <image src="../../static/image/details/icon_good_a.png" class="icon-good" />
-          </view>
+      <view class="content">
+        <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+      </view>
+      <view class="middle">
+        <view class="img">
+          <image src="../../static/image/details/icon_star_a.png" mode="widthFix" />
         </view>
-        <view class="time ui-col" style="flex:0 0 160rpx;px;">
-          <view class="ui-col-content">
-            （5454）
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">好卡3旗舰店</view>
+        <view class="right">
+          <view class="icon-good">
+            <image src="../../static/image/details/icon_good_a.png" />
           </view>
+          <view class="number">（5454）</view>
         </view>
       </view>
     </view>
   </view>
   <view wx:if="{{itemId==1}}">
-    <view class="comment-area ui-row-list ui-row-list-bordered" style="">
-      <view class="comment ui-row" style="">
-        <view style="position:relative;flex:0 0 80rpx;px;" class="ui-col">
-          <view class="ui-col-content">
-            <image class="user-image" src="../../static/image/details/icon_Successful.png" />
-          </view>
-        </view>
-        <view class="text ui-col" style="">
-          <view class="ui-col-content">
-            4***9
-            <view class="stars">
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-              <image src="../../static/image/details/icon_star_a.png" />
-            </view>
-          </view>
-        </view>
-        <view class="time ui-col" style="flex:0 0 160rpx;px;">
-          <view class="ui-col-content">
-            2019-2-25
-          </view>
-        </view>
-      </view>
-      <view class="comment-middle ui-row" style="">
-        <view class="text">
-          时间发货速度进货款适得府，君书登录方式决定就是，东方及品牌的都是快乐分公司的富士康发生卡夫卡帝国时代。
-        </view>
-      </view>
-      <view class="comment-image ui-row" style="">
+    <view class="list">
+      <view class="top">
         <view class="img">
-          <image src="../../static/image/details/test/img2.png" />
-          <image src="../../static/image/details/test/img2.png" />
-          <image src="../../static/image/details/test/img2.png" />
+          <image src="../../static/image/person/head.png" />
+        </view>
+        <view class="name">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+        <view class="time">
+          2019-02-25
         </view>
       </view>
-      <view class="comment-bottom ui-row" style="">
-        <view class="text ui-col" style="">
-          <view class="ui-col-content">
-            好卡3旗舰店
-            <image src="../../static/image/details/icon_good_a.png" class="icon-good" />
-          </view>
+      <view class="content">
+        <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+      </view>
+      <view class="middle">
+        <view class="img">
+          <image src="../../static/image/details/icon_star_a.png" mode="widthFix" />
         </view>
-        <view class="time ui-col" style="flex:0 0 160rpx;px;">
-          <view class="ui-col-content">
-            （5454）
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">好卡3旗舰店</view>
+        <view class="right">
+          <view class="icon-good">
+            <image src="../../static/image/details/icon_good_a.png" />
           </view>
+          <view class="number">（5454）</view>
         </view>
       </view>
     </view>

@@ -171,6 +171,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-top: 12rpx;
 }
 .group-content .group-content-left .shop-detail .price,
 .group-content .group-content-right .shop-detail .price {

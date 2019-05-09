@@ -89,7 +89,8 @@
               <image src="../../static/image/person/head.png" />
             </view>
             <view class="name">
-              凯德旗舰店
+              <view>开溜</view>
+              <view class="time">2019-03-17</view>
             </view>
             <view class="operation">
               <view class="clear-icon">
@@ -130,7 +131,8 @@
               <image src="../../static/image/person/head.png" />
             </view>
             <view class="name">
-              凯德旗舰店
+              <view>开溜</view>
+              <view class="time">2019-03-17</view>
             </view>
             <view class="operation">
               <view class="clear-icon">

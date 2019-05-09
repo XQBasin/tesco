@@ -66,6 +66,7 @@
   position: absolute;
   right: 0;
   bottom: -40rpx;
+  color: #999999;
 }
 .addImage {
   padding: 16rpx 10px;

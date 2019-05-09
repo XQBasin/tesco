@@ -32,28 +32,6 @@
           <image src="../../static/image/index/test/computer.png" />
         </view>
         <view class="details">
-          i7华硕高级笔记本电脑学生装用奥时代发收款阿岁...
-        </view>
-      </view>
-      <!-- 评论发表 -->
-      <view class="comment">
-        <textarea bindinput="bindtext" placeholder="产品已经用了一段时间了，有什么想说说的吗~" maxlength="500" name="comment">
-        </textarea></view>
-      <!-- 添加图片 -->
-      <view class="addImage">
-        <view class="img">
-          <image wx:for="{{imageSrc}}" wx:key="addKey" src="{{item}}" />
-          <image wx:if="{{showAdd}}" src="../../static/image/person/icon_tjtp.png" bindtap="addImage" />
-        </view>
-      </view>
-    </view>
-
-    <view class="list">
-      <view class="head">
-        <view class="img">
-          <image src="../../static/image/index/test/computer.png" />
-        </view>
-        <view class="details">
           华为最新款手机暗示法举案说法附加赛发放假啊...
         </view>
       </view>

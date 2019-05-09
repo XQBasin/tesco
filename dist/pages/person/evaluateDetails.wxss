@@ -98,6 +98,8 @@
   float: right;
   width: 30%;
   text-align: right;
+  font-size: 24rpx;
+  color: #999999;
 }
 .item .content .review::after,
 .item .content .main .img::after {
@@ -115,11 +117,12 @@
 }
 .item .middle .left {
   width: 30%;
+  border: 1px solid #bfbfbf;
+  background: #fff;
 }
 .item .middle .left image {
   width: 200rpx;
   height: 200rpx;
-  border: 1px solid #bfbfbf;
 }
 .item .middle .right {
   width: 65%;
