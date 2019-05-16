@@ -239,6 +239,7 @@ swiper{
     height: 150rpx;
     background: #fff;
     margin-bottom: 3rpx;
+    display: flex;
     .mix-flex-y-center();
     .icon{
       width: 10%;
@@ -266,12 +267,6 @@ swiper{
       color: #999999;
       text-align: center;
     }
-  }
-  .list::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
   }
 }
 </style>

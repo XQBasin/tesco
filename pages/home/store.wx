@@ -26,7 +26,7 @@
           <input type='text' placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type='search'>
       </view>
       <view class="text">
-        <image src="../../static/image/store/icon_screening3.png"></image>
+        <ui-icon type="mulu" color="#999999" size="40rpx;"></ui-icon>
       </view>
     </view>
 
@@ -60,7 +60,7 @@
     </view>
 
     <view class="group-content">
-      <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'group-content-left':'group-content-right'}}">
+      <view wx:for="{{list}}" wx:key='likeKey' class="group-content-list">
           <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
           <view class="shop-detail">
               <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>
@@ -145,12 +145,7 @@ export default {
     position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
     right: 40rpx;           /* 决定了搜索框置顶 */
     z-index: 2;
-    font-size: 32rpx;
     .mix-flex-y-center();
-    image{
-      width: 56rpx;
-      height: 56rpx;
-    }
   }
 }
 // 店铺信息
@@ -223,27 +218,20 @@ export default {
   margin: 17rpx 0 37rpx 0;
   height: 150rpx;
   padding: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
   view{
     width: 49.2%;
     height: 150rpx;
     background: #cccccc;
   }
-  .t1{
-    float: left;
-  }
-  .t2{
-    float: right;
-  }
-}
-.t::after{
-  display: block;
-  content: '';
-  height: 0;
-  clear: both;
 }
 .group-content{
   padding: 0 10px;
-  .group-content-left,.group-content-right{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .group-content-list{
       padding-bottom: 11rpx;
       margin-bottom: 12rpx;
       width: 49%;
@@ -288,18 +276,5 @@ export default {
           }
       }
   }
-  .group-content-left{
-    float: left;
-  }
-  .group-content-right{
-    float: right;
-  }
-}
-.group-content::after{
-  display: block;
-  clear: both;
-  width: 1px;
-  height: 293rpx;
-  content: '';
 }
 </style>

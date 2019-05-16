@@ -129,13 +129,13 @@ export default {
     border-bottom: 1px dashed #999999;
     .item{
         margin: 15rpx 0;
+        display: flex;
         .item-left{
             width: 22%;
             font-size: 30rpx;
             line-height: 45rpx;
             color: #191919;
             display: block;
-            float: left;
         }
         .item-right{
             width: 70%;
@@ -143,14 +143,7 @@ export default {
             line-height: 45rpx;
             color: #999999;
             display: block;
-            float: left;
         }
-    }
-    .item::after{
-        display: block;
-        height: 0;
-        content: '';
-        clear: both;
     }
 }
 // 底部
@@ -161,6 +154,8 @@ export default {
     .more{
         width: 550rpx;
         margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
         .home,.order{
             width: 240rpx;
             height: 99rpx;
@@ -179,12 +174,6 @@ export default {
             border: 1px solid #f87005;
             color: #f87005;
         }
-    }
-    .more::after{
-        display: block;
-        height: 0;
-        content: '';
-        clear: both;
     }
     image{
         width: 690rpx;

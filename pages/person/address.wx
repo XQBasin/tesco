@@ -72,9 +72,8 @@ export default {
     background: #fff;
     margin-bottom: 1px;
     padding: 0 10px;
+    display: flex;
     .left,.right{
-        float: left;
-        width: 15%;
         line-height: 164rpx;
     }
     .text{
@@ -103,12 +102,6 @@ export default {
     .right{
         width: 5%;
     }
-}
-.address::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
 }
 // 添加新地址
 .add{

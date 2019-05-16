@@ -223,19 +223,13 @@ export default {
     }
   }
   .img{
+    display: flex;
     image{
       width: 164rpx;
       height: 164rpx;
-      float: left;
       margin-right: 10rpx;
       margin-top: 20rpx;
     }
-  }
-  .img::after{
-    display: block;
-    clear: both;
-    height: 0;
-    content: '';
   }
 }
 // 联系方式

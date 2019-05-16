@@ -37,10 +37,7 @@ swiper {
   background: #fff;
   position: relative;
   margin-bottom: 3rpx;
-}
-.content .list .left,
-.content .list .right {
-  float: left;
+  display: flex;
 }
 .content .list .left {
   width: 30%;
@@ -98,10 +95,4 @@ swiper {
   right: 173rpx;
   color: #999999;
   border: 1px solid #999999;
-}
-.content .list::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }

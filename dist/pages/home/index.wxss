@@ -46,7 +46,7 @@
   position: relative;
 }
 .swiper-container .swiper {
-  height: 180px;
+  height: 360rpx;
 }
 .swiper-container .swiper .img {
   width: 100%;
@@ -56,13 +56,13 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 30rpx;
   display: flex;
   justify-content: center;
   z-index: 9;
 }
 .swiper-container .dots .dot {
-  margin: 10px 2px;
+  margin: 10px 2rpx;
   width: 5px;
   height: 5px;
   background: #FFFFFF;
@@ -72,13 +72,13 @@
   width: 12px;
   background: #fff;
 }
-.swiper-container .groupsources {
+.groupsources {
   padding: 5px 10px;
   background-color: #FFFFFF;
   margin: 5px 10px;
-  position: absolute;
+  position: relative;
   /* 初始化为相对定位 滑动时改为绝对定位fixed*/
-  top: 160px;
+  top: -35rpx;
   left: 0;
   right: 0;
   /* 决定了搜索框置顶 */
@@ -86,35 +86,32 @@
   border-radius: 20rpx;
   box-shadow: 0 3px 6px 0 #ececec;
 }
-.swiper-container .groupsources .group-item {
+.groupsources .group-item {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: nowrap;
 }
-.swiper-container .groupsources .group-item .authorise_btn {
+.groupsources .group-item .authorise_btn {
   background-color: #FFFFFF;
 }
-.swiper-container .groupsources .group-item .authorise_btn::after {
+.groupsources .group-item .authorise_btn::after {
   border: none;
 }
-.swiper-container .groupsources .buttonitem {
+.groupsources .buttonitem {
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.swiper-container .groupsources .buttonitem image {
+.groupsources .buttonitem image {
   text-align: center;
   width: 55px;
   height: 55px;
 }
-.swiper-container .groupsources .buttonitem text {
+.groupsources .buttonitem text {
   text-align: center;
   font-size: 24rpx;
-}
-.content {
-  margin-top: 200px;
 }
 .manuad .authorise_btn {
   background-color: #F4F4F4;
@@ -202,18 +199,6 @@
 .flex-title .more .authorise_btn::after {
   border: none;
 }
-.rm-group::after,
-.special-panel-item::after,
-.fc-group::after,
-.group-right::after,
-.group-content::after,
-.like-panel-item::after,
-.like-group-content::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
-}
 .shop-title {
   font-size: 24rpx;
   line-height: 36rpx;
@@ -225,6 +210,8 @@
 }
 .rm-group {
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 .rm-group .rm-content {
   position: relative;
@@ -265,12 +252,10 @@
   width: 45%;
   height: 412rpx;
   background: #f4f4f4;
-  float: left;
 }
 .rm-group .rm-group-right {
-  width: 54%;
+  width: 53%;
   height: 412rpx;
-  float: right;
 }
 .rm-group .rm-group-right .rm-group-right1 {
   margin-bottom: 12rpx;
@@ -329,19 +314,19 @@
   background: none;
   padding: 0;
   margin-top: 39rpx;
+  display: flex;
+  justify-content: space-between;
 }
 .special-panel-item .special-group-left {
   width: 49.4%;
   height: 250rpx;
   background: #fff;
-  float: left;
   border-radius: 20rpx;
   position: relative;
 }
 .special-panel-item .special-group-right {
   width: 49.4%;
   height: 250rpx;
-  float: right;
   background: #fff;
   border-radius: 20rpx;
   position: relative;
@@ -381,12 +366,13 @@
 .fc-group {
   padding: 0 1rpx;
   margin-bottom: 32rpx;
+  display: flex;
+  justify-content: space-between;
 }
 .fc-group .fc-group-content {
   width: 23%;
   height: 250rpx;
   margin: 0 7rpx;
-  float: left;
 }
 .fc-group .fc-group-content .shop-title {
   text-align: center;
@@ -456,13 +442,14 @@
 .various-panel-item .group .group-content {
   padding: 0 1rpx;
   margin-top: 28rpx;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 .food-panel-item .group .group-content .group-content1,
 .life-panel-item .group .group-content .group-content1,
 .various-panel-item .group .group-content .group-content1 {
   width: 23%;
-  margin: 0 7rpx;
-  float: left;
 }
 .food-panel-item .group .shop-title,
 .life-panel-item .group .shop-title,
@@ -494,15 +481,14 @@
   width: 50%;
   margin: 0 auto;
   text-align: center;
+  display: flex;
 }
 .like-panel-item .like-title text {
-  float: left;
   font-size: 32rpx;
   height: 32rpx;
   line-height: 32rpx;
 }
 .like-panel-item .like-title image {
-  float: left;
   width: 91rpx;
   height: 14rpx;
 }
@@ -514,9 +500,11 @@
 }
 .like-panel-item .like-group-content {
   padding-top: 18rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.like-panel-item .like-group-content .like-group-content-left,
-.like-panel-item .like-group-content .like-group-content-right {
+.like-panel-item .like-group-content .like-group-content-list {
   margin-top: 18rpx;
   width: 49%;
   height: 530rpx;
@@ -525,20 +513,17 @@
   box-shadow: 2rpx 4rpx 5rpx #c4c4c4;
   overflow: hidden;
 }
-.like-panel-item .like-group-content .like-group-content-left .shop-detail,
-.like-panel-item .like-group-content .like-group-content-right .shop-detail {
+.like-panel-item .like-group-content .like-group-content-list .shop-detail {
   padding: 0 17rpx;
 }
-.like-panel-item .like-group-content .like-group-content-left .shop-detail .shop-title,
-.like-panel-item .like-group-content .like-group-content-right .shop-detail .shop-title {
+.like-panel-item .like-group-content .like-group-content-list .shop-detail .shop-title {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.like-panel-item .like-group-content .like-group-content-left .shop-detail .dis,
-.like-panel-item .like-group-content .like-group-content-right .shop-detail .dis {
+.like-panel-item .like-group-content .like-group-content-list .shop-detail .dis {
   margin-top: 12rpx;
   padding: 0 10rpx;
   border-radius: 32rpx;
@@ -546,27 +531,18 @@
   display: inline-block;
   color: #f87005;
 }
-.like-panel-item .like-group-content .like-group-content-left .shop-detail .price,
-.like-panel-item .like-group-content .like-group-content-right .shop-detail .price {
+.like-panel-item .like-group-content .like-group-content-list .shop-detail .price {
   margin-top: 12rpx;
 }
-.like-panel-item .like-group-content .like-group-content-left .shop-detail .price .payNum,
-.like-panel-item .like-group-content .like-group-content-right .shop-detail .price .payNum {
+.like-panel-item .like-group-content .like-group-content-list .shop-detail .price .payNum {
   font-size: 22rpx;
   color: #999999;
   margin-left: 10rpx;
   font-weight: normal;
 }
-.like-panel-item .like-group-content .like-group-content-left .shop-detail .price .coupon,
-.like-panel-item .like-group-content .like-group-content-right .shop-detail .price .coupon {
+.like-panel-item .like-group-content .like-group-content-list .shop-detail .price .coupon {
   color: #f87005;
   font-size: 22rpx;
   margin-left: 5rpx;
   font-weight: normal;
-}
-.like-panel-item .like-group-content .like-group-content-left {
-  float: left;
-}
-.like-panel-item .like-group-content .like-group-content-right {
-  float: right;
 }

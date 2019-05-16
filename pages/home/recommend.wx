@@ -46,12 +46,12 @@
         </view>
         <view class="bottom">
           <view class="browse">
-            <image src="../../static/image/store/icon_browse.png"></image>
-            <view>　浏览10.6万次</view>
+            <ui-icon type="eye" color="#999999" size="40rpx;"></ui-icon>
+            <text>浏览10.6万次</text>
           </view>
           <view class="praise">
-            <image src="../../static/image/details/icon_good_a.png"></image>
-            <view>　9999</view>
+            <ui-icon type="dianzan" color="#f97006" size="40rpx;"></ui-icon>
+            <text>（9999）</text>
           </view>
         </view>
       </view>
@@ -158,15 +158,15 @@ export default {
     }
     .image{
       margin-bottom: 28rpx;
+      display: flex;
+      justify-content: space-between;
       .left{
-        float: left;
         width: 70%;
         height: 370rpx;
         background: pink;
         border-radius: 10rpx;
       }
       .right{
-        float: right;
         width: 29%;
         .img1,.img2{
           width: 100%;
@@ -180,28 +180,18 @@ export default {
       }
     }
     .bottom{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
       .browse,.praise{
         height: 24rpx;
         font-size: 24rpx;
         line-height: 24rpx;
         color: rgb(186, 186, 186);
-        view{
-          float: left;
-        }
-        image{
-          float: left;
-          width: 24rpx;
-          height: 24rpx;
-        }
-      }
-      .browse{
-        float: left;
-      }
-      .praise{
-        float: right;
+        .mix-flex-y-center();
       }
     }
-    .top::after,.image::after,.bottom::after{
+    .top::after{
       display: block;
       height: 0;
       clear: both;

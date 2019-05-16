@@ -32,6 +32,7 @@
 }
 .tabs {
   background: #fff;
+  display: flex;
 }
 .tabs .numbers {
   font-size: 22rpx;
@@ -44,7 +45,6 @@
 .tabs .item {
   width: 20%;
   height: 100rpx;
-  float: left;
   text-align: center;
   position: relative;
 }
@@ -60,12 +60,6 @@
   background: #f87005;
   margin-left: -25rpx;
   border-radius: 2rpx;
-}
-.tabs::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }
 .list {
   margin: 11rpx 0 14rpx 0;
@@ -128,27 +122,8 @@
   float: left;
   margin: 0 9rpx;
 }
-.list .content .review {
-  padding: 20rpx 10px 38rpx;
-}
-.list .content .review .text {
-  float: left;
-  width: 70%;
-}
-.list .content .review .text .before {
-  color: #f87005;
-}
-.list .content .review .time {
-  float: right;
-  width: 30%;
-  text-align: right;
-}
-.list .content .review::after,
-.list .content .main .img::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
+.list .middle {
+  display: flex;
 }
 .list .middle .img {
   float: left;
@@ -157,12 +132,6 @@
   height: 210rpx;
   background: #999999;
   border-radius: 10rpx;
-}
-.list .middle::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }
 .list .bottom {
   height: 74rpx;

@@ -44,64 +44,65 @@
         <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
       </block>
     </view>
-    <!-- 图标导航 -->
-    <view class="groupsources">
-      <view class="group">
-        <view class="group-item">
-          <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon1.png" />
-              <text>生活用品</text>
-            </view>
-          </button>
-          <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon2.png" />
-              <text>电子产品</text>
-            </view>
-          </button>
-          <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon3.png" />
-              <text>服装服饰</text>
-            </view>
-          </button>
-          <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon4.png" />
-              <text>美妆洗护</text>
-            </view>
-          </button>
-        </view>
-        <view class="group-item">
-          <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon5.png" />
-              <text>书籍特卖</text>
-            </view>
-          </button>
-          <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon6.png" />
-              <text>零食小吃</text>
-            </view>
-          </button>
-          <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon7.png" />
-              <text>体育运动</text>
-            </view>
-          </button>
-          <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-            <view class="buttonitem">
-              <image src="../../static/image/index/home_icon8.png" />
-              <text>礼品饰物</text>
-            </view>
-          </button>
-        </view>
+  </view>
+  <!-- 图标导航 -->
+  <view class="groupsources">
+    <view class="group">
+      <view class="group-item">
+        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon1.png" />
+            <text>生活用品</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon2.png" />
+            <text>电子产品</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon3.png" />
+            <text>服装服饰</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon4.png" />
+            <text>美妆洗护</text>
+          </view>
+        </button>
+      </view>
+      <view class="group-item">
+        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon5.png" />
+            <text>书籍特卖</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon6.png" />
+            <text>零食小吃</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon7.png" />
+            <text>体育运动</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon8.png" />
+            <text>礼品饰物</text>
+          </view>
+        </button>
       </view>
     </view>
   </view>
+
   <view class="content">
     <wxs module="dateUtil" src="../../static/utils/util.wxs"></wxs>
     <!-- 广告位 -->
@@ -359,10 +360,9 @@
       <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill" />
       <text>猜你喜欢</text>
       <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill" />
-
     </view>
     <view class="like-group-content">
-      <view wx:for="{{list}}" wx:key="likeKey" class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
+      <view wx:for="{{list}}" wx:key="likeKey" class="like-group-content-list">
         <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
         <view class="shop-detail">
           <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿浦东烤盘批次卡贫困阿</view>

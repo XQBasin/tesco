@@ -53,18 +53,14 @@
 .addImage .title text {
   color: #999999;
 }
+.addImage .img {
+  display: flex;
+}
 .addImage .img image {
   width: 164rpx;
   height: 164rpx;
-  float: left;
   margin-right: 10rpx;
   margin-top: 20rpx;
-}
-.addImage .img::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 .contact {
   padding: 0 10px;

@@ -74,11 +74,8 @@
 .survey .item.number {
   height: 356rpx;
 }
-.survey .item.number .top::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
+.survey .item.number .top {
+  display: flex;
 }
 .survey .item.number .middle {
   text-align: center;
@@ -170,12 +167,6 @@
 }
 .show .info .address-content {
   padding: 0 30rpx 0 45rpx;
-}
-.show .info::after {
-  display: block;
-  height: 0;
-  content: "";
-  clear: both;
 }
 .show .line {
   width: 100%;

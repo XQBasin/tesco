@@ -101,27 +101,19 @@ swiper {
 .item .content .review {
   background: #fff;
   padding: 20rpx 10px 38rpx;
+  display: flex;
 }
 .item .content .review .text {
-  float: left;
   width: 70%;
 }
 .item .content .review .text .before {
   color: #f87005;
 }
 .item .content .review .time {
-  float: right;
   width: 30%;
   text-align: right;
   font-size: 24rpx;
   color: #999999;
-}
-.item .content .review::after,
-.item .content .main .img::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }
 .item .middle {
   padding: 20rpx 10px;

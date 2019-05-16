@@ -39,64 +39,65 @@
                     <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
                 </block>
             </view>
-            <!-- 图标导航 -->
-            <view class='groupsources'>
-                <view class='group'>
-                    <view class='group-item'>
-                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon1.png"></image>
-                                <text>生活用品</text>
-                            </view>
-                        </button>
-                        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon2.png"></image>
-                                <text>电子产品</text>
-                            </view>
-                        </button>
-                        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon3.png"></image>
-                                <text>服装服饰</text>
-                            </view>
-                        </button>
-                        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon4.png"></image>
-                                <text>美妆洗护</text>
-                            </view>
-                        </button>
-                    </view>
-                    <view class='group-item'>
-                      <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon5.png"></image>
-                                <text>书籍特卖</text>
-                            </view>
-                        </button>
-                        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon6.png"></image>
-                                <text>零食小吃</text>
-                            </view>
-                        </button>
-                        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon7.png"></image>
-                                <text>体育运动</text>
-                            </view>
-                        </button>
-                        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-                            <view class='buttonitem'>
-                                 <image src="../../static/image/index/home_icon8.png"></image>
-                                <text>礼品饰物</text>
-                            </view>
-                        </button>
-                    </view>
+        </view>
+        <!-- 图标导航 -->
+        <view class='groupsources'>
+            <view class='group'>
+                <view class='group-item'>
+                    <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                            <image src="../../static/image/index/home_icon1.png"></image>
+                            <text>生活用品</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon2.png"></image>
+                            <text>电子产品</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon3.png"></image>
+                            <text>服装服饰</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon4.png"></image>
+                            <text>美妆洗护</text>
+                        </view>
+                    </button>
+                </view>
+                <view class='group-item'>
+                    <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                            <image src="../../static/image/index/home_icon5.png"></image>
+                            <text>书籍特卖</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon6.png"></image>
+                            <text>零食小吃</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon7.png"></image>
+                            <text>体育运动</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon8.png"></image>
+                            <text>礼品饰物</text>
+                        </view>
+                    </button>
                 </view>
             </view>
         </view>
+
         <view class='content'>
             <wxs module="dateUtil" src="../../static/utils/util.wxs"></wxs>
             <!-- 广告位 -->
@@ -354,10 +355,9 @@
             <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill"></image>
             <text>猜你喜欢</text>
             <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill"></image>
-            
           </view>
           <view class="like-group-content">
-            <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'like-group-content-left':'like-group-content-right'}}">
+            <view wx:for="{{list}}" wx:key='likeKey' class="like-group-content-list">
                 <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
                 <view class="shop-detail">
                     <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿浦东烤盘批次卡贫困阿</view>
@@ -398,10 +398,10 @@ export default {
             {src:'../../static/image/index/test/hufu.png',title:'爆款精选'}
         ],
         list:[                  //猜你喜欢数据
-          {'src':'../../static/image/index/test/cooker.png'},
-          {'src':'../../static/image/index/test/cooker.png'},
-          {'src':'../../static/image/index/test/cooker.png'},
-          {'src':'../../static/image/index/test/cooker.png'}
+          {'src':'../../static/image/index/test/hufu.png'},
+          {'src':'../../static/image/index/test/hufu.png'},
+          {'src':'../../static/image/index/test/hufu.png'},
+          {'src':'../../static/image/index/test/hufu.png'}
         ]
     },
     onLoad(options) {
@@ -486,7 +486,7 @@ export default {
     position: relative;
 }
 .swiper-container .swiper {
-    height: 180px;
+    height: 360rpx;
 }
 .swiper-container .swiper .img {
     width: 100%;
@@ -496,13 +496,13 @@ export default {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 10px;
+    bottom: 30rpx;
     display: flex;
     justify-content: center;
     z-index:9;
 }
 .swiper-container .dots .dot{
-    margin: 10px 2px;
+    margin: 10px 2rpx;
     width: 5px;
     height: 5px;
     background: #FFFFFF;
@@ -513,12 +513,12 @@ export default {
     background: #fff;
 }
 // 图标导航
-.swiper-container .groupsources {
+.groupsources {
     padding: 5px 10px;
     background-color: #FFFFFF;
     margin: 5px 10px;
-    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
-    top: 160px;
+    position: relative;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    top: -35rpx;
     left: 0;
     right: 0;               /* 决定了搜索框置顶 */
     z-index: 2;
@@ -553,7 +553,7 @@ export default {
 }
 // 内容区公共样式
 .content {
-    margin-top: 200px;
+    // margin-top: 400rpx;
 }
 // 广告位
 .manuad {
@@ -632,13 +632,6 @@ export default {
 }
 
 // 商品展示区公共样式
-.rm-group::after,.special-panel-item::after,.fc-group::after,.group-right::after,
-.group-content::after,.like-panel-item::after,.like-group-content::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
-}
 .shop-title{
     font-size: 24rpx;
     line-height: 36rpx;
@@ -651,6 +644,8 @@ export default {
 // 热卖抢购
 .rm-group {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
     .rm-content{
         position: relative;
         padding: 0 10rpx 0 16rpx;
@@ -691,12 +686,10 @@ export default {
       width: 45%;
       height: 412rpx;
       background: #f4f4f4;
-      float: left;
     }
     .rm-group-right{
-      width: 54%;
+      width: 53%;
       height: 412rpx;
-      float: right;
       .rm-group-right1{
         margin-bottom: 12rpx;
       }
@@ -749,18 +742,18 @@ export default {
   background: none;
   padding: 0;
   margin-top: 39rpx;
+  display: flex;
+  justify-content: space-between;
   .special-group-left{
     width: 49.4%;
     height: 250rpx;
     background: #fff;
-    float: left;
     border-radius: 20rpx;
     position: relative;
   }
   .special-group-right{
     width: 49.4%;
     height: 250rpx;
-    float: right;
     background: #fff;
     border-radius: 20rpx;
     position: relative;
@@ -803,11 +796,12 @@ export default {
 .fc-group{
   padding: 0 1rpx;
   margin-bottom: 32rpx;
+  display: flex;
+  justify-content: space-between;
   .fc-group-content{
     width: 23%;
     height: 250rpx;
     margin: 0 7rpx;
-    float: left;
     .shop-title{
         text-align: center;
         margin-top: 12rpx;
@@ -861,10 +855,11 @@ export default {
     .group-content{
       padding: 0 1rpx;
       margin-top: 28rpx;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
       .group-content1{
         width: 23%;
-        margin: 0 7rpx;
-        float: left;
       }
     }
     // 公共样式
@@ -895,14 +890,13 @@ export default {
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    display: flex;
     text{
-      float: left;
       font-size: 32rpx;
       height: 32rpx;
       line-height: 32rpx;
     }
     image{
-      float: left;
       width: 91rpx;
       height: 14rpx;
     }
@@ -915,7 +909,10 @@ export default {
   }
   .like-group-content{
     padding-top: 18rpx;
-    .like-group-content-left,.like-group-content-right{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .like-group-content-list{
         margin-top: 18rpx;
         width: 49%;
         height: 530rpx;
@@ -956,12 +953,6 @@ export default {
                 }
             }
         }
-    }
-    .like-group-content-left{
-      float: left;
-    }
-    .like-group-content-right{
-      float: right;
     }
   }
   

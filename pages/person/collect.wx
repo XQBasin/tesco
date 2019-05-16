@@ -179,9 +179,7 @@ swiper{
     background: #fff;
     position: relative;
     margin-bottom: 3rpx;
-    .left,.right{
-      float: left;
-    }
+    display: flex;
     .left{
       width: 30%;
       image{
@@ -234,12 +232,6 @@ swiper{
       color: #999999;
       border: 1px solid #999999;
     }
-  }
-  .list::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
   }
 }
 </style>

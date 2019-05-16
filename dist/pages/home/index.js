@@ -13,7 +13,7 @@ exports.default = Page({
         { 'name': 1 }, { 'name': 2 }],
         specialList: [{ src: '../../static/image/index/test/hufu.png', title: '每日特惠价' }, { src: '../../static/image/index/test/hufu.png', title: '爆款精选' }],
         list: [//猜你喜欢数据
-        { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }]
+        { 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }]
     },
     onLoad: function onLoad(options) {
         var that = this;

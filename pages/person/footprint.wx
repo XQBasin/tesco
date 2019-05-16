@@ -124,9 +124,7 @@ export default {
   background: #fff;
   position: relative;
   margin-bottom: 3rpx;
-  .left,.right{
-    float: left;
-  }
+  display: flex;
   .left{
     width: 30%;
     image{
@@ -158,7 +156,6 @@ export default {
   }
   .cancel{
     width: 10%;
-    float: left;
     height: 204rpx;
     .mix-flex-y-center();
   }
@@ -174,11 +171,5 @@ export default {
     border-radius: 4rpx;
     border: 1px solid #f87005
   }
-}
-.list::after{
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }
 </style>

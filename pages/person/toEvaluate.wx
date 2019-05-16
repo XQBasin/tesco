@@ -190,6 +190,7 @@ export default {
   padding: 30rpx 10px;
   background: #fff;
   margin-bottom: 6rpx;
+  display: flex;
   .img{
     width: 30%;
     float: left;
@@ -203,12 +204,6 @@ export default {
     width: 70%;
     font-size: 30rpx;
   }
-}
-.head::after{
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 // 评分星标
 .star-demo {
@@ -248,6 +243,7 @@ export default {
     }
   }
   .img{
+    display: flex;
     image{
       width: 164rpx;
       height: 164rpx;
@@ -255,12 +251,6 @@ export default {
       margin-right: 10rpx;
       margin-top: 20rpx;
     }
-  }
-  .img::after{
-    display: block;
-    clear: both;
-    height: 0;
-    content: '';
   }
 }
 // 匿名发布
@@ -290,6 +280,7 @@ export default {
   background: #fff;
   padding-bottom: 170rpx;
   .title{
+    display: flex;
     .car-icon,.text{
       float: left;
     }
@@ -303,12 +294,6 @@ export default {
       font-weight: bold;
       font-size: 36rpx;
     }
-  }
-  .title::after{
-    display: block;
-    clear: both;
-    height: 0;
-    content: '';
   }
   .star{
     position: relative;

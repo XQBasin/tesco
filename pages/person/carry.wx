@@ -209,11 +209,8 @@ export default {
   // 寸金数量
   .item.number{
     height: 356rpx;
-    .top::after{
-      display: block;
-      clear: both;
-      height: 0;
-      content: '';
+    .top{
+      display: flex;
     }
     .middle{
       text-align: center;
@@ -312,12 +309,6 @@ export default {
     .address-content{
       padding: 0 30rpx 0 45rpx;
     }
-  }
-  .info::after{
-    display: block;
-    height: 0;
-    content: "";
-    clear: both;
   }
   .line{
     width: 100%;

@@ -49,55 +49,39 @@
   color: #999999;
   font-size: 24rpx;
 }
-.order-title .store-image {
-  height: 80rpx;
+.order-title .store-icon {
   line-height: 80rpx;
-  position: relative;
-}
-.order-title .store-image image {
-  width: 42rpx;
-  height: 42rpx;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -21rpx;
-  margin-left: -21rpx;
 }
 .order-content {
-  padding-top: 12rpx;
+  padding: 12rpx 10px 24rpx 10px;
+}
+.order-content .shop-image {
+  float: left;
+  width: 28%;
 }
 .order-content .text {
-  padding-right: 24rpx;
+  float: right;
+  width: 70%;
   font-size: 24rpx;
+  position: relative;
 }
 .order-content .text .specs {
   color: #999999;
-  margin: 10rpx 0;
+  margin: 20rpx 0 10rpx 0;
 }
 .order-content .text .total {
-  width: 100%;
+  color: #eb0202;
 }
-.order-content .text .total .sum {
-  float: left;
-  color: #f87005;
-}
-.order-content .text .total .number {
-  float: right;
+.order-content .text .number {
+  position: absolute;
+  right: 0;
+  bottom: 0;
   color: #666666;
 }
-.order-content .stop-image {
-  height: 220rpx;
-  line-height: 220rpx;
-  position: relative;
-}
-.order-content .stop-image image {
-  width: 174rpx;
-  height: 180rpx;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -87rpx;
-  margin-left: -90rpx;
+.order-content::after {
+  display: block;
+  content: '';
+  clear: both;
 }
 .coupon,
 .coupon-list,

@@ -57,7 +57,7 @@
         <ui-tab class="font">收入</ui-tab>
         <ui-tab class="font">支出</ui-tab>
       </ui-tabs>
-      <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" style="margin-top:-12.5rpx;">
+      <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" >
           <swiper-item>
             <scroll-view scroll-y style="height: 600rpx;">
               <view class="item">

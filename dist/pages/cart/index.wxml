@@ -57,7 +57,8 @@
       <view class="top">
         <span class="icon-gouxuan ui-icon icon-gouxuan" type="gouxuan" color="#f87005" size="40rpx;" style="color: #f87005;font-size: 40rpx;px;"></span>
         <view class="img">
-          <image src="../../static/image/shop/icon_shop.png" />
+          <!-- <image src="../../static/image/shop/icon_shop.png"></image> -->
+          <span type="dianpu" color="#999999" size="40rpx;" class="ui-icon icon-dianpu" style="color: #999999;font-size: 40rpx;px;"></span>
         </view>
         <view class="name">
           汽车品牌专卖店 >

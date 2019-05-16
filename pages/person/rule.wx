@@ -130,25 +130,18 @@ export default {
   padding: 0 10px;
   margin-bottom: 70rpx;
   .top{
+    display: flex;
     .mix-flex-y-center();
     .v-line{
       width: 6rpx;
       height: 27rpx;
       background: #f87005;
       border-radius: 3rpx;
-      float: left;
     }
     .title{
-      float: left;
       font-size: 30rpx;
       margin-left: 18rpx;
     }
-  }
-  .top::after{
-    display: block;
-    clear: both;
-    height: 0;
-    content: '';
   }
   .text{
     font-size: 28rpx;

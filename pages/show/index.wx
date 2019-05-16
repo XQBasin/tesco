@@ -39,14 +39,17 @@
         <view class="img"></view>
         <view class="img"></view>
         <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
+        <view class="img"></view>
       </view>
       <view class="bottom">
         <view class="left">
-          <image src="../../static/image/details/icon_browse.png"></image>
+          <ui-icon type="eye" color="#dcdcdc" size="40rpx;"></ui-icon>
           <text>浏览10.6万次</text>
         </view>
         <view class="right">
-          <image src="../../static/image/details/icon_good_a.png"></image>
+          <ui-icon type="dianzan" color="#dcdcdc" size="40rpx;"></ui-icon>
           <text>（5454）</text>
         </view>
       </view>
@@ -75,11 +78,11 @@
       </view>
       <view class="bottom">
         <view class="left">
-          <image src="../../static/image/details/icon_browse.png"></image>
+          <ui-icon type="eye" color="#dcdcdc" size="40rpx;"></ui-icon>
           <text>浏览10.6万次</text>
         </view>
         <view class="right">
-          <image src="../../static/image/details/icon_good_a.png"></image>
+          <ui-icon type="dianzan" color="#f97006" size="40rpx;"></ui-icon>
           <text>（5454）</text>
         </view>
       </view>
@@ -106,11 +109,11 @@
       </view>
       <view class="bottom">
         <view class="left">
-          <image src="../../static/image/details/icon_browse.png"></image>
+          <ui-icon type="eye" color="#dcdcdc" size="40rpx;"></ui-icon>
           <text>浏览10.6万次</text>
         </view>
         <view class="right">
-          <image src="../../static/image/details/icon_good_a.png"></image>
+          <ui-icon type="dianzan" color="#f97006" size="40rpx;"></ui-icon>
           <text>（5454）</text>
         </view>
       </view>
@@ -215,61 +218,29 @@ export default {
         }
       }
     }
-    .review{
-      padding: 20rpx 10px 38rpx;
-      .text{
-        float: left;
-        width: 70%;
-        .before{
-          color:#f87005;
-        }
-      }
-      .time{
-        float: right;
-        width: 30%;
-        text-align: right;
-      }
-    }
-    .review::after,.main .img::after{
-      display: block;
-      content: '';
-      clear: both;
-      height: 0;
-    }
   }
   .middle{
     padding: 20rpx 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     .img{
       width: 230rpx;
       height: 230rpx;
       border-radius: 10rpx;
       background: #999999;
-      margin: 3rpx;
-      float: left;
+      margin-top: 3rpx;
     }
   }
   .bottom{
     padding: 0 10px 17rpx;
+    display: flex;
+    justify-content: space-between;
     .left,.right{
-      float: left;
       font-size: 24rpx;
       color: #999999;
       .mix-flex-y-center();
-      image{
-        width: 32rpx;
-        height: 32rpx;
-        display: inline-block;
-      }
     }
-    .right{
-      float: right;
-    }
-  }
-  .middle::after,.bottom::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
   }
 }
 </style>

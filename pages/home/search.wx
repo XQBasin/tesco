@@ -99,13 +99,16 @@ export default {
 
 // 热门搜索
 .search-content{
-  padding-left: 20rpx;
+  padding: 0 20rpx;
   .title{
     padding: 24rpx 0 19rpx 0;
   }
   .text{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     view{
-      float: left;
+      // float: left;
       width: 220rpx;
       height: 58rpx;
       font-size: 28rpx;
@@ -113,14 +116,8 @@ export default {
       background: rgb(244, 244, 244);
       text-align: center;
       line-height: 58rpx;
-      margin: 0 20rpx 20rpx 0;
+      margin-bottom: 20rpx;
     }
-  }
-  .text::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
   }
 }
 </style>

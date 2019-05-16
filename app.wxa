@@ -8,40 +8,44 @@ export default {
   config: {
     usingComponents: {},
     pages: [
+      'pages/home/index',
+
       // 商城首页
-      // 'pages/home/index',
-        // 'pages/home/search',
+      'pages/home/index',
+        'pages/home/search',
         // 商品详情页
-        // 'pages/home/details',
-        // 'pages/home/confirmOrder',
-        // 'pages/home/paySuccess',
-        // 'pages/home/selectAddress',
-        // 'pages/home/addressEdit',
-        // 'pages/home/rating',
+        'pages/home/details',
+        'pages/home/confirmOrder',
+        'pages/home/paySuccess',
+        'pages/home/selectAddress',
+        'pages/home/addressEdit',
+        'pages/home/rating',
         // 店铺页
-        // 'pages/home/store',
-        // 'pages/home/recommend',
+        'pages/home/store',
+        'pages/home/recommend',
       // 购物车页
-      // 'pages/cart/index',
+      'pages/cart/index',
       // 个人中心
-      // 'pages/person/index',
+      'pages/person/index',
         // 我的钱包
-        // 'pages/person/wallet',
+        'pages/person/wallet',
         // 积分规则
-        // 'pages/person/rule',
+        'pages/person/rule',
         // 转账
-        // 'pages/person/carry',
-        // 'pages/person/carrySuccess',
+        'pages/person/carry',
+        'pages/person/carrySuccess',
         // 订单
-        // 'pages/person/order',
+        'pages/person/order',
         // 我的评价
-        // 'pages/person/evaluate',
-        // 'pages/person/toEvaluate',
-        // 'pages/person/evaluateDetails',
+        'pages/person/evaluate',
+        'pages/person/toEvaluate',
+        'pages/person/evaluateDetails',
+        //物流
+        'pages/person/logistics',
         // 追评
-        // 'pages/person/sendReview',
+        'pages/person/sendReview',
         // 信息
-        // 'pages/person/message',
+        'pages/person/message',
         //商店关注
         'pages/person/storeConcern',
         // 足迹

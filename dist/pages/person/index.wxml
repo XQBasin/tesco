@@ -180,7 +180,7 @@
   <!-- 为您推荐 -->
   <view class="recommend">为您推荐</view>
   <view class="group-content">
-    <view wx:for="{{list}}" wx:key="likeKey" class="{{index%2==0?'group-content-left':'group-content-right'}}">
+    <view wx:for="{{list}}" wx:key="likeKey" class="group-content-list">
       <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
       <view class="shop-detail">
         <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>

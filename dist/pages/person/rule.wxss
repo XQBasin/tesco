@@ -66,18 +66,10 @@
   height: 27rpx;
   background: #f87005;
   border-radius: 3rpx;
-  float: left;
 }
 .content .top .title {
-  float: left;
   font-size: 30rpx;
   margin-left: 18rpx;
-}
-.content .top::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 .content .text {
   font-size: 28rpx;

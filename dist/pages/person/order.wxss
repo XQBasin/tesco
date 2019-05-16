@@ -69,10 +69,7 @@ swiper {
 }
 .content .item .middle {
   padding: 20rpx 10px;
-}
-.content .item .middle .left,
-.content .item .middle .right {
-  float: left;
+  display: flex;
 }
 .content .item .middle .left {
   width: 30%;
@@ -99,12 +96,6 @@ swiper {
 }
 .content .item .middle .right .des {
   margin-bottom: 17rpx;
-}
-.content .item .middle::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }
 .content .item .bottom {
   height: 74rpx;

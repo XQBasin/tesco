@@ -218,6 +218,7 @@ export default {
 // 选项卡
 .tabs{
   background: #fff;
+  display: flex;
   .numbers{
     font-size: 22rpx;
     color: #999999;
@@ -228,13 +229,11 @@ export default {
   .item{
     width: 20%;
     height: 100rpx;
-    float: left;
     text-align: center;
     position: relative;
     .item-title{
       font-size: 30rpx;
     }
-    
     .line{
       width: 50rpx;
       height: 4rpx;
@@ -245,16 +244,7 @@ export default {
       margin-left: -25rpx;
       border-radius: 2rpx;
     }
-    // .active{
-    //   color: #f87005;
-    // }
   } 
-}
-.tabs::after{
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }
 // 评论内容区
 .list{
@@ -314,29 +304,9 @@ export default {
         }
       }
     }
-    .review{
-      padding: 20rpx 10px 38rpx;
-      .text{
-        float: left;
-        width: 70%;
-        .before{
-          color:#f87005;
-        }
-      }
-      .time{
-        float: right;
-        width: 30%;
-        text-align: right;
-      }
-    }
-    .review::after,.main .img::after{
-      display: block;
-      content: '';
-      clear: both;
-      height: 0;
-    }
   }
   .middle{
+    display: flex;
     .img{
       float: left;
       margin: 0 20rpx;
@@ -345,12 +315,6 @@ export default {
       background: #999999;
       border-radius: 10rpx;
     }
-  }
-  .middle::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
   }
   .bottom{
     height: 74rpx;

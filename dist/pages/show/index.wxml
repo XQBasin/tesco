@@ -44,14 +44,17 @@
       <view class="img"></view>
       <view class="img"></view>
       <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
+      <view class="img"></view>
     </view>
     <view class="bottom">
       <view class="left">
-        <image src="../../static/image/details/icon_browse.png" />
+        <span type="eye" color="#dcdcdc" size="40rpx;" class="ui-icon icon-eye" style="color: #dcdcdc;font-size: 40rpx;px;"></span>
         <text>浏览10.6万次</text>
       </view>
       <view class="right">
-        <image src="../../static/image/details/icon_good_a.png" />
+        <span type="dianzan" color="#dcdcdc" size="40rpx;" class="ui-icon icon-dianzan" style="color: #dcdcdc;font-size: 40rpx;px;"></span>
         <text>（5454）</text>
       </view>
     </view>
@@ -80,11 +83,11 @@
     </view>
     <view class="bottom">
       <view class="left">
-        <image src="../../static/image/details/icon_browse.png" />
+        <span type="eye" color="#dcdcdc" size="40rpx;" class="ui-icon icon-eye" style="color: #dcdcdc;font-size: 40rpx;px;"></span>
         <text>浏览10.6万次</text>
       </view>
       <view class="right">
-        <image src="../../static/image/details/icon_good_a.png" />
+        <span type="dianzan" color="#f97006" size="40rpx;" class="ui-icon icon-dianzan" style="color: #f97006;font-size: 40rpx;px;"></span>
         <text>（5454）</text>
       </view>
     </view>
@@ -111,11 +114,11 @@
     </view>
     <view class="bottom">
       <view class="left">
-        <image src="../../static/image/details/icon_browse.png" />
+        <span type="eye" color="#dcdcdc" size="40rpx;" class="ui-icon icon-eye" style="color: #dcdcdc;font-size: 40rpx;px;"></span>
         <text>浏览10.6万次</text>
       </view>
       <view class="right">
-        <image src="../../static/image/details/icon_good_a.png" />
+        <span type="dianzan" color="#f97006" size="40rpx;" class="ui-icon icon-dianzan" style="color: #f97006;font-size: 40rpx;px;"></span>
         <text>（5454）</text>
       </view>
     </view>

@@ -40,10 +40,7 @@
   background: #fff;
   position: relative;
   margin-bottom: 3rpx;
-}
-.list .left,
-.list .right {
-  float: left;
+  display: flex;
 }
 .list .left {
   width: 30%;
@@ -76,7 +73,6 @@
 }
 .list .cancel {
   width: 10%;
-  float: left;
   height: 204rpx;
   display: flex;
   align-items: center;
@@ -94,10 +90,4 @@
   justify-content: center;
   border-radius: 4rpx;
   border: 1px solid #f87005;
-}
-.list::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }

@@ -114,16 +114,15 @@ export default {
   padding: 30rpx 10px;
   background: #fff;
   margin-bottom: 14rpx;
+  display: flex;
   .img{
     width: 30%;
-    float: left;
     image{
       width: 144rpx;
       height: 144rpx;
     }
   }
   .details{
-    float: right;
     width: 70%;
     font-size: 24rpx;
     color: #999999;
@@ -135,12 +134,6 @@ export default {
       }
     }
   }
-}
-.head::after{
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 // 派送员
 .middle{

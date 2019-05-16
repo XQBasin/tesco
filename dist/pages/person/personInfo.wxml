@@ -34,7 +34,7 @@
       <view class="head-image">
         <image src="../../static/image/person/head.png" />
       </view>
-      <view class="ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 40px;">
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 20px;">
         <view class="ui-col-content align-right valign-middle">
           <span type="gengduo" size="40rpx;" color="#999999" class="ui-icon icon-gengduo" style="color: #999999;font-size: 40rpx;px;"></span>
         </view>

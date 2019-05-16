@@ -112,6 +112,7 @@ export default {
     padding: 30rpx 10px;
     background: #fff;
     margin-bottom: 2rpx;
+    display: flex;
     .mix-flex-y-center();
     .img{
       width: 84rpx;
@@ -128,12 +129,6 @@ export default {
       font-size: 26rpx;
       .mix-text-overflow();
     }
-  }
-  .head::after{
-    display: block;
-    clear: both;
-    height: 0;
-    content: '';
   }
   // 评价发表
   .comment{
@@ -157,19 +152,14 @@ export default {
       }
     }
     .img{
+      display: flex;
+      flex-wrap: wrap;
       image{
         width: 164rpx;
         height: 164rpx;
-        float: left;
         margin-right: 10rpx;
         margin-top: 20rpx;
       }
-    }
-    .img::after{
-      display: block;
-      clear: both;
-      height: 0;
-      content: '';
     }
   }
 }

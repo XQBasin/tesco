@@ -83,16 +83,16 @@
 }
 .warp .item .image {
   margin-bottom: 28rpx;
+  display: flex;
+  justify-content: space-between;
 }
 .warp .item .image .left {
-  float: left;
   width: 70%;
   height: 370rpx;
   background: pink;
   border-radius: 10rpx;
 }
 .warp .item .image .right {
-  float: right;
   width: 29%;
 }
 .warp .item .image .right .img1,
@@ -105,32 +105,21 @@
 .warp .item .image .right .img1 {
   margin-bottom: 10rpx;
 }
+.warp .item .bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 .warp .item .bottom .browse,
 .warp .item .bottom .praise {
   height: 24rpx;
   font-size: 24rpx;
   line-height: 24rpx;
   color: #bababa;
+  display: flex;
+  align-items: center;
 }
-.warp .item .bottom .browse view,
-.warp .item .bottom .praise view {
-  float: left;
-}
-.warp .item .bottom .browse image,
-.warp .item .bottom .praise image {
-  float: left;
-  width: 24rpx;
-  height: 24rpx;
-}
-.warp .item .bottom .browse {
-  float: left;
-}
-.warp .item .bottom .praise {
-  float: right;
-}
-.warp .item .top::after,
-.warp .item .image::after,
-.warp .item .bottom::after {
+.warp .item .top::after {
   display: block;
   height: 0;
   clear: both;

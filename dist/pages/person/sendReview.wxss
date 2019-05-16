@@ -46,12 +46,6 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.list .head::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
-}
 .list .comment {
   height: 216rpx;
   padding: 14rpx 10px;
@@ -70,18 +64,15 @@
 .list .addImage .title text {
   color: #999999;
 }
+.list .addImage .img {
+  display: flex;
+  flex-wrap: wrap;
+}
 .list .addImage .img image {
   width: 164rpx;
   height: 164rpx;
-  float: left;
   margin-right: 10rpx;
   margin-top: 20rpx;
-}
-.list .addImage .img::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 .form::after {
   display: block;

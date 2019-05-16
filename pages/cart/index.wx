@@ -44,7 +44,8 @@
       <view class="top">
         <ui-icon class="icon-gouxuan" type="gouxuan" color="#f87005" size="40rpx;"></ui-icon>
         <view class="img">
-          <image src="../../static/image/shop/icon_shop.png"></image>
+          <!-- <image src="../../static/image/shop/icon_shop.png"></image> -->
+          <ui-icon type="dianpu" color="#999999" size="40rpx;"></ui-icon>
         </view>
         <view class="name">
           汽车品牌专卖店 >
@@ -175,10 +176,6 @@ export default {
     }
     .img{
       margin: 0 14rpx 0 20rpx;
-      image{
-        width: 34rpx;
-        height: 34rpx;
-      }
     }
     .name{
       font-size: 32rpx;
@@ -197,19 +194,16 @@ export default {
   }
   .middle{
     padding: 20rpx 10px;
-    .left,.right{
-      float: left;
-    }
+    display: flex;
     .left{
       width: 30%;
+      display: flex;
       .icon{
-        float: left;
         height: 150rpx;
         .mix-flex-y-center();
         margin-right: 5rpx;
       }
       .img{
-        float: left;
         image{
           width: 150rpx;
           height: 150rpx;
@@ -271,19 +265,7 @@ export default {
           }
         }
       }
-      // .preview::after{
-      //   display: block;
-      //   height: 0;
-      //   clear: both;
-      //   content: '';
-      // }
     }
-  }
-  .middle::after{
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
   }
 }
 
@@ -340,9 +322,9 @@ export default {
   .operation{
     width: 90%;
     line-height: 100rpx;
-    float: right;
-    .mix-flex-center();
-    text-align: rigth;
+    padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
     button{
       width: 204rpx;
       height: 64rpx;
@@ -366,12 +348,6 @@ export default {
       background: #f87005;
       margin-left: 26rpx;
     }
-  }
-  .operation::after{
-    display: block;
-    content: "";
-    height: 0;
-    clear: both;
   }
 }
 // 购物车为空

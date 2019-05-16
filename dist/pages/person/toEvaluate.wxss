@@ -23,6 +23,7 @@
   padding: 30rpx 10px;
   background: #fff;
   margin-bottom: 6rpx;
+  display: flex;
 }
 .head .img {
   width: 30%;
@@ -36,12 +37,6 @@
   float: right;
   width: 70%;
   font-size: 30rpx;
-}
-.head::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 .star-demo {
   padding: 20rpx 0;
@@ -76,18 +71,15 @@
 .addImage .title text {
   color: #999999;
 }
+.addImage .img {
+  display: flex;
+}
 .addImage .img image {
   width: 164rpx;
   height: 164rpx;
   float: left;
   margin-right: 10rpx;
   margin-top: 20rpx;
-}
-.addImage .img::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 .anonymous,
 .show {
@@ -112,6 +104,9 @@
   background: #fff;
   padding-bottom: 170rpx;
 }
+.log-evaluate .title {
+  display: flex;
+}
 .log-evaluate .title .car-icon,
 .log-evaluate .title .text {
   float: left;
@@ -123,12 +118,6 @@
 .log-evaluate .title .text {
   font-weight: bold;
   font-size: 36rpx;
-}
-.log-evaluate .title::after {
-  display: block;
-  clear: both;
-  height: 0;
-  content: '';
 }
 .log-evaluate .star {
   position: relative;

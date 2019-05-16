@@ -56,13 +56,17 @@
   align-items: center;
 }
 .search-content {
-  padding-left: 20rpx;
+  padding: 0 20rpx;
 }
 .search-content .title {
   padding: 24rpx 0 19rpx 0;
 }
+.search-content .text {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .search-content .text view {
-  float: left;
   width: 220rpx;
   height: 58rpx;
   font-size: 28rpx;
@@ -70,11 +74,5 @@
   background: #f4f4f4;
   text-align: center;
   line-height: 58rpx;
-  margin: 0 20rpx 20rpx 0;
-}
-.search-content .text::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
+  margin-bottom: 20rpx;
 }

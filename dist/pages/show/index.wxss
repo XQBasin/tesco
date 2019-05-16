@@ -79,63 +79,28 @@
   float: left;
   margin: 0 9rpx;
 }
-.item .content .review {
-  padding: 20rpx 10px 38rpx;
-}
-.item .content .review .text {
-  float: left;
-  width: 70%;
-}
-.item .content .review .text .before {
-  color: #f87005;
-}
-.item .content .review .time {
-  float: right;
-  width: 30%;
-  text-align: right;
-}
-.item .content .review::after,
-.item .content .main .img::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
-}
 .item .middle {
   padding: 20rpx 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .item .middle .img {
   width: 230rpx;
   height: 230rpx;
   border-radius: 10rpx;
   background: #999999;
-  margin: 3rpx;
-  float: left;
+  margin-top: 3rpx;
 }
 .item .bottom {
   padding: 0 10px 17rpx;
+  display: flex;
+  justify-content: space-between;
 }
 .item .bottom .left,
 .item .bottom .right {
-  float: left;
   font-size: 24rpx;
   color: #999999;
   display: flex;
   align-items: center;
-}
-.item .bottom .left image,
-.item .bottom .right image {
-  width: 32rpx;
-  height: 32rpx;
-  display: inline-block;
-}
-.item .bottom .right {
-  float: right;
-}
-.item .middle::after,
-.item .bottom::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }

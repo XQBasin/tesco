@@ -175,7 +175,7 @@
     <!-- 为您推荐 -->
     <view class="recommend">为您推荐</view>
     <view class="group-content">
-      <view wx:for="{{list}}" wx:key='likeKey' class="{{index%2==0?'group-content-left':'group-content-right'}}">
+      <view wx:for="{{list}}" wx:key='likeKey' class="group-content-list">
           <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
           <view class="shop-detail">
               <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>
@@ -338,8 +338,11 @@ export default {
   margin-top: 0;
   border-radius: 0;
   .middle{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     .operation{
-      float: left;
       width: 20%;
       .order-icon{
         image{
@@ -360,9 +363,12 @@ export default {
   margin-top: 0;
   border-radius: 0;
   .middle{
+    width: 100%;
     padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     .operation{
-      float: left;
       width: 25%;
       margin-top: 30rpx;
       .order-icon{
@@ -397,7 +403,10 @@ export default {
 }
 .group-content{
   padding: 0 10px;
-  .group-content-left,.group-content-right{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .group-content-list{
       padding-bottom: 11rpx;
       margin-bottom: 12rpx;
       width: 49%;
@@ -441,17 +450,9 @@ export default {
           }
       }
   }
-  .group-content-left{
-    float: left;
-  }
-  .group-content-right{
-    float: right;
-  }
 }
 
-.wallet .bottom::after,.wallet .middle::after,
-.myorder .middle::after,.need::after,
-.group-content::after{
+.wallet .bottom::after,.wallet .middle::after{
   display: block;
   content: '';
   clear: both;

@@ -49,6 +49,7 @@ swiper {
   padding: 0 10px 20rpx;
   background: #fff;
   position: relative;
+  display: flex;
 }
 .content .item .middle .left,
 .content .item .middle .right {
@@ -99,12 +100,6 @@ swiper {
   border: 1px solid #f87005;
   right: 20rpx;
 }
-.content .item .middle::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
-}
 .content .list {
   padding: 0 10px;
   height: 150rpx;
@@ -145,10 +140,4 @@ swiper {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.content .list::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }

@@ -154,17 +154,17 @@
 .specs-content {
   background: #fff;
   padding-bottom: 40rpx;
+  display: flex;
+  flex-wrap: wrap;
 }
 .specs-content .colors-title,
 .specs-content .colors {
-  float: left;
   margin-top: 37rpx;
 }
 .specs-content .size-title,
 .specs-content .sizes,
 .specs-content .num-title,
 .specs-content .number {
-  float: left;
   margin-top: 25rpx;
 }
 .specs-content .colors,
@@ -194,12 +194,6 @@
   width: 100rpx;
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc;
-}
-.specs-content::after {
-  display: block;
-  height: 0;
-  content: "";
-  clear: both;
 }
 .sel-address,
 .freight {
@@ -258,12 +252,6 @@
 .address-mask .info .address-content {
   padding: 0 30rpx 0 45rpx;
 }
-.address-mask .info::after {
-  display: block;
-  height: 0;
-  content: "";
-  clear: both;
-}
 .address-mask .line {
   width: 100%;
   height: 1px;
@@ -303,7 +291,6 @@
 .service-mask .info {
   padding-left: 24rpx;
   position: relative;
-  margin-top: 25rpx;
 }
 .service-mask .info .hook {
   width: 40rpx;
@@ -328,12 +315,6 @@
 .service-mask .info .info-content .type-text {
   font-size: 28rpx;
   color: #999999;
-}
-.service-mask .info::after {
-  display: block;
-  height: 0;
-  content: "";
-  clear: both;
 }
 .service-mask .complete {
   background: #f87005;
@@ -512,11 +493,12 @@
 }
 .store .middle {
   margin-top: 24rpx;
+  display: flex;
+  align-items: center;
 }
 .store .middle .collectNum,
 .store .middle .productNum,
 .store .middle .service {
-  float: left;
   width: 33.3%;
   line-height: 45rpx;
 }
@@ -547,39 +529,22 @@
   margin-left: 5rpx;
   display: inline-block;
 }
-.store .middle::after {
-  display: block;
-  height: 0;
-  content: "";
-  clear: both;
-}
-.store::after {
-  display: block;
-  height: 0;
-  content: "";
-  clear: both;
-}
 .details-nav {
   width: 100%;
   padding: 0 50rpx;
   padding-bottom: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
 }
 .details-nav view {
   width: 33.3%;
   height: 70rpx;
-  float: left;
   line-height: 70rpx;
   text-align: center;
 }
 .details-nav view.active {
   color: #f87005;
   border-bottom: 4rpx solid #f87005;
-}
-.details-nav::after {
-  display: block;
-  height: 0;
-  content: "";
-  clear: both;
 }
 .tab {
   position: fixed;
@@ -595,13 +560,6 @@
   height: 100%;
   float: left;
   color: #999999;
-  padding-top: 10rpx;
-}
-.tab .tab-store image,
-.tab .tab-shopCart image {
-  width: 54rpx;
-  height: 54rpx;
-  margin: 0 auto;
 }
 .tab .tab-add-shopCart,
 .tab .tab-buy {
@@ -628,17 +586,16 @@
 }
 .buy-mask .top {
   padding-left: 20rpx;
+  display: flex;
 }
 .buy-mask .top .product-image {
   width: 200rpx;
   height: 200rpx;
-  float: left;
   border: 1rpx solid #fff;
   margin: -40rpx 28rpx 0 0;
   border-radius: 10rpx;
 }
 .buy-mask .top .product-info {
-  float: left;
   padding-top: 23rpx;
 }
 .buy-mask .top .product-info .price {
@@ -659,22 +616,10 @@
 .buy-mask .top .product-info .reserve {
   color: #999999;
 }
-.buy-mask .top::after {
-  display: block;
-  height: 0;
-  content: '';
-  clear: both;
-}
 .buy-mask .content {
   padding: 20rpx;
   padding-bottom: 0;
   border-bottom: 1px solid #eeeeee;
-}
-.buy-mask .content .item::after {
-  display: block;
-  height: 0;
-  content: '';
-  clear: both;
 }
 .buy-mask .counts {
   position: relative;

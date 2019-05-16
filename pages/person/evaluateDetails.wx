@@ -143,26 +143,19 @@ export default {
     .review{
       background: #fff;
       padding: 20rpx 10px 38rpx;
+      display: flex;
       .text{
-        float: left;
         width: 70%;
         .before{
           color:#f87005;
         }
       }
       .time{
-        float: right;
         width: 30%;
         text-align: right;
         font-size: 24rpx;
         color: #999999;
       }
-    }
-    .review::after,.main .img::after{
-      display: block;
-      content: '';
-      clear: both;
-      height: 0;
     }
   }
   .middle{

@@ -136,9 +136,3 @@ swiper {
   color: #999999;
   text-align: center;
 }
-.content .list::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
-}

@@ -22,10 +22,10 @@
 .address {
   background: #fff;
   margin-bottom: 1px;
+  display: flex;
 }
 .address .left,
 .address .right {
-  float: left;
   width: 15%;
   line-height: 164rpx;
 }
@@ -35,7 +35,6 @@
 .address .text {
   padding: 28rpx 0;
   width: 75%;
-  float: left;
 }
 .address .text .user {
   font-size: 28rpx;
@@ -57,12 +56,6 @@
 }
 .address .right {
   width: 10%;
-}
-.address::after {
-  display: block;
-  content: '';
-  clear: both;
-  height: 0;
 }
 .add {
   width: 698rpx;

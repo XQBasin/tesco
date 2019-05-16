@@ -28,7 +28,7 @@
         <ui-tab>待收货</ui-tab>
         <ui-tab>待评价</ui-tab>
       </ui-tabs>
-      <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" style="margin-top:-8rpx;">
+      <swiper class="content"  current="{{ current }}" bindchange="handleContentChange">
           <!-- 全部 -->
           <swiper-item>
             <scroll-view scroll-y style="height: 1100rpx;">
@@ -494,9 +494,7 @@ swiper{
     }
     .middle{
       padding: 20rpx 10px;
-      .left,.right{
-        float: left;
-      }
+      display: flex;
       .left{
         width: 30%;
         image{
@@ -523,12 +521,6 @@ swiper{
           margin-bottom: 17rpx;
         }
       }
-    }
-    .middle::after{
-      display: block;
-      content: '';
-      clear: both;
-      height: 0;
     }
     .bottom{
       height: 74rpx;

@@ -27,7 +27,7 @@
           <view class="head-image">
               <image src="../../static/image/person/head.png"></image>
           </view>
-          <ui-col width="40" vertical-align="middle" align="right">
+          <ui-col width="20" vertical-align="middle" align="right">
               <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
           </ui-col>
       </ui-row>
