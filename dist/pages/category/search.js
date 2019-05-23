@@ -7,6 +7,7 @@ exports.default = Page({
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    showType: false,
     selectId: 0, //选择条件
     list: [{ 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }] //商品列表
   },
@@ -19,6 +20,13 @@ exports.default = Page({
   select: function select(e) {
     this.setData({
       selectId: e.currentTarget.dataset.id
+    });
+  },
+
+  // 选择商品显示方式
+  bindShowType: function bindShowType() {
+    this.setData({
+      showType: !this.data.showType
     });
   }
 });

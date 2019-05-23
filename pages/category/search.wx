@@ -27,7 +27,8 @@
             <input type='text' placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type='search'>
         </view>
         <view class="text">
-          <ui-icon type="fenlei" color="#666666" size="60rpx;"></ui-icon>
+          <ui-icon type="fenlei" color="#666666" size="60rpx;" bindtap="bindShowType" wx:if="{{!showType}}"></ui-icon>
+          <ui-icon type="liebiao" color="#666666" size="60rpx;" bindtap="bindShowType" wx:if="{{showType}}"></ui-icon>
         </view>
       </view>
     </view>
@@ -48,20 +49,20 @@
     
     <!-- 商品列表 -->
     <!-- 横向显示 -->
-    <!-- <view class="list">
+    <view class="list" wx:if="{{!showType}}" wx:for="{{list}}" wx:key='likeKey'>
       <view class="left">
-        <image src="../../static/image/index/test/computer.png"></image>
+        <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
       </view>
       <view class="right">
         <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
-        <view class="total">¥3999.00<text>+30寸金</text></view>
+        <view class="total">¥124.00<text>+66寸金</text></view>
         <view class="fill">满199减100</view>
         <view class="comment">10+评价 100%好评</view>
       </view>
-    </view> -->
+    </view>
 
     <!-- 纵向显示 -->
-    <view class="group-content">
+    <view class="group-content" wx:if="{{showType}}">
       <view wx:for="{{list}}" wx:key='likeKey' class="group-content-list">
           <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
           <view class="shop-detail">
@@ -85,6 +86,7 @@ export default {
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    showType:false,
     selectId:0,        //选择条件
     list:[        
       {'src':'../../static/image/index/test/hufu.png'},
@@ -101,6 +103,12 @@ export default {
   select(e){
     this.setData({
       selectId:e.currentTarget.dataset.id
+    })
+  },
+  // 选择商品显示方式
+  bindShowType(){
+    this.setData({
+      showType:!this.data.showType
     })
   }
 }

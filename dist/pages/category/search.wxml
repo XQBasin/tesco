@@ -32,7 +32,8 @@
         <input type="text" placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type="search"></input>
       </view>
       <view class="text">
-        <span type="fenlei" color="#666666" size="60rpx;" class="ui-icon icon-fenlei" style="color: #666666;font-size: 60rpx;px;"></span>
+        <span type="fenlei" color="#666666" size="60rpx;" bindtap="bindShowType" wx:if="{{!showType}}" class="ui-icon icon-fenlei" style="color: #666666;font-size: 60rpx;px;"></span>
+        <span type="liebiao" color="#666666" size="60rpx;" bindtap="bindShowType" wx:if="{{showType}}" class="ui-icon icon-liebiao" style="color: #666666;font-size: 60rpx;px;"></span>
       </view>
     </view>
   </view>
@@ -53,20 +54,20 @@
 
   <!-- 商品列表 -->
   <!-- 横向显示 -->
-  <!-- <view class="list">
-      <view class="left">
-        <image src="../../static/image/index/test/computer.png"></image>
-      </view>
-      <view class="right">
-        <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
-        <view class="total">¥3999.00<text>+30寸金</text></view>
-        <view class="fill">满199减100</view>
-        <view class="comment">10+评价 100%好评</view>
-      </view>
-    </view> -->
+  <view class="list" wx:if="{{!showType}}" wx:for="{{list}}" wx:key="likeKey">
+    <view class="left">
+      <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
+    </view>
+    <view class="right">
+      <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+      <view class="total">¥124.00<text>+66寸金</text></view>
+      <view class="fill">满199减100</view>
+      <view class="comment">10+评价 100%好评</view>
+    </view>
+  </view>
 
   <!-- 纵向显示 -->
-  <view class="group-content">
+  <view class="group-content" wx:if="{{showType}}">
     <view wx:for="{{list}}" wx:key="likeKey" class="group-content-list">
       <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
       <view class="shop-detail">
