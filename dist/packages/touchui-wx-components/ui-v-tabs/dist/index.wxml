@@ -1,3 +1,0 @@
-<scroll-view scroll-with-animation class="ui-v-tabs" style="{{ selfStyle }}" scroll-y="{{ true }}" scroll-top="{{ scrollTop }}">
-  <slot></slot>
-</scroll-view>

@@ -8,8 +8,7 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/category/index',
-      'pages/home/index',
+      'pages/category/search',
 
       // 商城首页
       'pages/home/index',
@@ -68,6 +67,8 @@ export default {
       'pages/person/feedback',
       // 客户服务中心
       'pages/person/service',
+      // 商品分类
+      'pages/category/index',
       // 晒一晒
       'pages/show/index',
     ],

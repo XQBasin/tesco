@@ -26,7 +26,7 @@
           <input type='text' placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type='search'>
       </view>
       <view class="text">
-        搜索
+        <ui-icon type="fenlei" color="#666666" size="60rpx;"></ui-icon>
       </view>
     </view>
     <!-- 热门搜索 -->

@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/category/index",
+    "pages/category/search",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
@@ -35,6 +35,7 @@
     "pages/person/about",
     "pages/person/feedback",
     "pages/person/service",
+    "pages/category/index",
     "pages/show/index"
   ],
   "window": {

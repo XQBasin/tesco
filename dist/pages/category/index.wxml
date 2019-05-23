@@ -41,7 +41,7 @@
             <view class="titles">{{item.name}}</view>
             <view class="goods-box">
               <view class="goods-list" wx:for="{{item.son}}" wx:for-item="idx" wx:key="sonKey">
-                <image class="imgbox" src="{{idx.image}}" mode="widthFix" />
+                <image class="imgbox" src="{{idx.image}}" mode="aspectFill" lazy-load="true" />
                 <view class="small-title">{{idx.name}}</view>
               </view>
             </view>
