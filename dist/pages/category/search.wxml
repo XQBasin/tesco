@@ -1,4 +1,4 @@
-<view style="height:100%;background:#fff;">
+<view>
   <!-- 自定义导航栏 -->
   <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
     <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
@@ -25,26 +25,57 @@
   <view style="height:{{NAV_HEIGHT}}"></view>
 
   <!-- 搜索框 -->
-  <view class="top">
-    <view class="search">
-      <span type="sousuo" color="#666666" size="26rpx;" class="ui-icon icon-sousuo" style="color: #666666;font-size: 26rpx;px;"></span>
-      <input type="text" placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type="search"></input>
-    </view>
-    <view class="text">
-      <span type="fenlei" color="#666666" size="60rpx;" class="ui-icon icon-fenlei" style="color: #666666;font-size: 60rpx;px;"></span>
-    </view>
-  </view>
-  <!-- 热门搜索 -->
-  <view class="search-content">
-    <view class="title">热门搜索</view>
-    <view class="text">
-      <view>iPhone8s</view>
-      <view>iPhone8s</view>
-      <view>iPhone8s</view>
-      <view>iPhone8s</view>
-      <view>iPhone8s</view>
-      <view>iPhone8s</view>
-      <view>iPhone8s</view>
+  <view class="warp">
+    <view class="top">
+      <view class="search">
+        <span type="sousuo" color="#666666" size="26rpx;" class="ui-icon icon-sousuo" style="color: #666666;font-size: 26rpx;px;"></span>
+        <input type="text" placeholder="iPhone xs" placeholder-style="color:#666666;" confirm-type="search"></input>
+      </view>
+      <view class="text">
+        <span type="fenlei" color="#666666" size="60rpx;" class="ui-icon icon-fenlei" style="color: #666666;font-size: 60rpx;px;"></span>
+      </view>
     </view>
   </view>
+
+  <!-- 条件查询 -->
+  <view class="select">
+    <view class="sel-title {{selectId==0? 'active':''}}" data-id="0" bindtap="select">综合</view>
+    <view class="sel-title {{selectId==1? 'active':''}}" data-id="1" bindtap="select">销量</view>
+    <view class="sel-title {{selectId==2? 'active':''}}" data-id="2" bindtap="select">
+      价格
+      <view class="sort">
+        <span type="top" color="#999999" size="15rpx;" class="ui-icon icon-top" style="color: #999999;font-size: 15rpx;px;"></span>
+        <span type="bottom" color="{{selectId==2? '#f87005':'#999999'}}" size="15rpx;" class="ui-icon icon-bottom" style="color: {{selectId==2? '#f87005':'#999999'}};font-size: 15rpx;px;"></span>
+      </view>
+    </view>
+    <view class="sel-title {{selectId==3? 'active':''}}" data-id="3" bindtap="select">筛选</view>
+  </view>
+
+  <!-- 商品列表 -->
+  <!-- 横向显示 -->
+  <!-- <view class="list">
+      <view class="left">
+        <image src="../../static/image/index/test/computer.png"></image>
+      </view>
+      <view class="right">
+        <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+        <view class="total">¥3999.00<text>+30寸金</text></view>
+        <view class="fill">满199减100</view>
+        <view class="comment">10+评价 100%好评</view>
+      </view>
+    </view> -->
+
+  <!-- 纵向显示 -->
+  <view class="group-content">
+    <view wx:for="{{list}}" wx:key="likeKey" class="group-content-list">
+      <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
+      <view class="shop-detail">
+        <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>
+        <view class="price">¥124<text class="coupon">+66寸金</text></view>
+        <view class="fill">满199减100</view>
+        <view class="evaluate">10+评价　100好评</view>
+      </view>
+    </view>
+  </view>
+
 </view>

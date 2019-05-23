@@ -87,10 +87,10 @@ export default {
     itemId:0,                             //选项卡选项序号
     followFlag:false,                     //关注状态
     list:[
-      {'src':'../../static/image/index/test/cooker.png'},
-      {'src':'../../static/image/index/test/cooker.png'},
-      {'src':'../../static/image/index/test/cooker.png'},
-      {'src':'../../static/image/index/test/cooker.png'}
+      {'src':'../../static/image/index/test/hufu.png'},
+      {'src':'../../static/image/index/test/hufu.png'},
+      {'src':'../../static/image/index/test/hufu.png'},
+      {'src':'../../static/image/index/test/hufu.png'}
     ]
   },
   // 导航返回

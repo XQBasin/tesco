@@ -10,7 +10,7 @@ exports.default = Page({
     item: ['首页', '推荐', '商品', '新品'], //选项卡选项
     itemId: 0, //选项卡选项序号
     followFlag: false, //关注状态
-    list: [{ 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }, { 'src': '../../static/image/index/test/cooker.png' }]
+    list: [{ 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }, { 'src': '../../static/image/index/test/hufu.png' }]
   },
   // 导航返回
   navigateBack: function navigateBack() {
