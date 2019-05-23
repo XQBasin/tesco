@@ -814,7 +814,7 @@ export default {
 // 吃货小天地
 .food-panel-item,.life-panel-item,.various-panel-item{
   .sub{
-    font-size: 24rpx;
+    font-size: 12px;
     color: #f87005;
   }
   .group {

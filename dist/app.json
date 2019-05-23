@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/category/index",
     "pages/home/index",
     "pages/home/search",
     "pages/home/details",
@@ -56,7 +57,7 @@
         "selectedIconPath": "./static/image/index/tab_icon11.png"
       },
       {
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/category/index",
         "text": "分类",
         "iconPath": "./static/image/index/tab_icon2.png",
         "selectedIconPath": "./static/image/index/tab_icon22.png"

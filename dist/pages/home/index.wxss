@@ -384,7 +384,7 @@
 .food-panel-item .sub,
 .life-panel-item .sub,
 .various-panel-item .sub {
-  font-size: 24rpx;
+  font-size: 12px;
   color: #f87005;
 }
 .food-panel-item .group,
