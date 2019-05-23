@@ -56,25 +56,23 @@
   <!-- 横向显示 -->
   <view class="list" wx:if="{{!showType}}" wx:for="{{list}}" wx:key="likeKey">
     <view class="left">
-      <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
+      <image src="{{item.original_img}}" mode="widthFix" lazy-load="true" />
     </view>
     <view class="right">
-      <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
-      <view class="total">¥124.00<text>+66寸金</text></view>
-      <view class="fill">满199减100</view>
-      <view class="comment">10+评价 100%好评</view>
+      <view class="title">{{item.title}}</view>
+      <view class="total">¥{{item.j_price}}<text>+{{item.s_point}}寸金</text></view>
+      <view class="comment">{{comment_count}}条评价 100%好评</view>
     </view>
   </view>
 
   <!-- 纵向显示 -->
   <view class="group-content" wx:if="{{showType}}">
     <view wx:for="{{list}}" wx:key="likeKey" class="group-content-list">
-      <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
+      <image src="{{item.original_img}}" mode="widthFix" lazy-load="true" />
       <view class="shop-detail">
-        <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>
-        <view class="price">¥124<text class="coupon">+66寸金</text></view>
-        <view class="fill">满199减100</view>
-        <view class="evaluate">10+评价　100好评</view>
+        <view class="shop-title">{{item.title}}</view>
+        <view class="price">¥{{item.j_price}}<text class="coupon">+{{item.s_point}}寸金</text></view>
+        <view class="evaluate">{{comment_count}}条评价　100好评</view>
       </view>
     </view>
   </view>

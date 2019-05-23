@@ -9,6 +9,7 @@ export default {
     usingComponents: {},
     pages: [
       'pages/category/search',
+      'pages/category/index',
 
       // 商城首页
       'pages/home/index',

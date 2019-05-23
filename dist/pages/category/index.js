@@ -32,7 +32,8 @@ exports.default = Page({
     // 请求分类
     this.getCategory();
     // 请求分类详细内容
-    this.getList(-1);
+    // this.getList(-1);
+    this.getList(44);
     // 设置内容区高度
     wx.getSystemInfo({
       success: function success(res) {
@@ -50,7 +51,7 @@ exports.default = Page({
 
     wx.request({
       url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
-      method: 'GET',
+      method: 'POST',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
       success: function success(res) {
         _this2.setData({
@@ -74,7 +75,7 @@ exports.default = Page({
     wx.request({
       url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
       data: { cid: cid },
-      method: 'GET',
+      method: 'POST',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
       success: function success(res) {
         var data = [];
@@ -88,7 +89,7 @@ exports.default = Page({
           list: _this3.data.list,
           listContent: _this3.data.list[cid]
         });
-        // console.log(res);
+        console.log(res);
       }
     });
   }

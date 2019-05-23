@@ -124,17 +124,6 @@
   font-weight: normal;
   font-size: 24rpx;
 }
-.list .right .fill {
-  font-size: 20rpx;
-  color: #fff;
-  width: 137rpx;
-  height: 28rpx;
-  background: #f87005;
-  border-radius: 14rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .list .right .comment {
   font-size: 24rpx;
   color: #bababa;
@@ -184,18 +173,6 @@
   font-size: 24rpx;
   margin-left: 5rpx;
   font-weight: normal;
-}
-.group-content .group-content-list .shop-detail .fill {
-  width: 136rpx;
-  height: 28rpx;
-  background: #f87005;
-  color: #fff;
-  border-radius: 14rpx;
-  font-size: 20rpx;
-  margin: 10rpx 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .group-content .group-content-list .shop-detail .evaluate {
   font-size: 24rpx;
