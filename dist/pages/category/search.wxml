@@ -42,11 +42,11 @@
   <view class="select">
     <view class="sel-title {{selectId==0? 'active':''}}" data-id="0" bindtap="select">综合</view>
     <view class="sel-title {{selectId==1? 'active':''}}" data-id="1" bindtap="select">销量</view>
-    <view class="sel-title {{selectId==2? 'active':''}}" data-id="2" bindtap="select">
+    <view class="sel-title {{selectId==2? 'active':''}}" data-id="2" bindtap="select" data-sort="{{sort}}">
       价格
       <view class="sort">
-        <span type="top" color="#999999" size="15rpx;" class="ui-icon icon-top" style="color: #999999;font-size: 15rpx;px;"></span>
-        <span type="bottom" color="{{selectId==2? '#f87005':'#999999'}}" size="15rpx;" class="ui-icon icon-bottom" style="color: {{selectId==2? '#f87005':'#999999'}};font-size: 15rpx;px;"></span>
+        <span type="top" color="{{selectId==2&&sort=='asc'? '#f87005':'#999999'}}" size="15rpx;" class="ui-icon icon-top" style="color: {{selectId==2&&sort=='asc'? '#f87005':'#999999'}};font-size: 15rpx;px;"></span>
+        <span type="bottom" color="{{selectId==2&&sort=='des'? '#f87005':'#999999'}}" size="15rpx;" class="ui-icon icon-bottom" style="color: {{selectId==2&&sort=='des'? '#f87005':'#999999'}};font-size: 15rpx;px;"></span>
       </view>
     </view>
     <view class="sel-title {{selectId==3? 'active':''}}" data-id="3" bindtap="select">筛选</view>
@@ -56,23 +56,23 @@
   <!-- 横向显示 -->
   <view class="list" wx:if="{{!showType}}" wx:for="{{list}}" wx:key="likeKey">
     <view class="left">
-      <image src="{{item.original_img}}" mode="widthFix" lazy-load="true" />
+      <image src="{{item.original_img}}" mode="aspectFill" lazy-load="true" />
     </view>
     <view class="right">
       <view class="title">{{item.title}}</view>
       <view class="total">¥{{item.j_price}}<text>+{{item.s_point}}寸金</text></view>
-      <view class="comment">{{comment_count}}条评价 100%好评</view>
+      <view class="comment">{{item.comment_count}}条评价 100%好评</view>
     </view>
   </view>
 
   <!-- 纵向显示 -->
   <view class="group-content" wx:if="{{showType}}">
     <view wx:for="{{list}}" wx:key="likeKey" class="group-content-list">
-      <image src="{{item.original_img}}" mode="widthFix" lazy-load="true" />
+      <image src="{{item.original_img}}" mode="aspectFill" lazy-load="true" />
       <view class="shop-detail">
         <view class="shop-title">{{item.title}}</view>
         <view class="price">¥{{item.j_price}}<text class="coupon">+{{item.s_point}}寸金</text></view>
-        <view class="evaluate">{{comment_count}}条评价　100好评</view>
+        <view class="evaluate">{{item.comment_count}}条评价　100%好评</view>
       </view>
     </view>
   </view>

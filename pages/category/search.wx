@@ -37,11 +37,11 @@
     <view class="select">
       <view class="sel-title {{selectId==0? 'active':''}}" data-id="0" bindtap="select">综合</view>
       <view class="sel-title {{selectId==1? 'active':''}}" data-id="1" bindtap="select">销量</view>
-      <view class="sel-title {{selectId==2? 'active':''}}" data-id="2" bindtap="select">
+      <view class="sel-title {{selectId==2? 'active':''}}" data-id="2" bindtap="select" data-sort="{{sort}}">
         价格
         <view class="sort">
-          <ui-icon type="top" color="#999999" size="15rpx;"></ui-icon>
-          <ui-icon type="bottom" color="{{selectId==2? '#f87005':'#999999'}}" size="15rpx;"></ui-icon>
+          <ui-icon type="top" color="{{selectId==2&&sort=='asc'? '#f87005':'#999999'}}" size="15rpx;"></ui-icon>
+          <ui-icon type="bottom" color="{{selectId==2&&sort=='des'? '#f87005':'#999999'}}" size="15rpx;"></ui-icon>
         </view>
       </view>
       <view class="sel-title {{selectId==3? 'active':''}}" data-id="3" bindtap="select">筛选</view>
@@ -51,23 +51,23 @@
     <!-- 横向显示 -->
     <view class="list" wx:if="{{!showType}}" wx:for="{{list}}" wx:key='likeKey'>
       <view class="left">
-        <image src="{{item.original_img}}" mode="widthFix" lazy-load="true"></image>
+        <image src="{{item.original_img}}" mode="aspectFill" lazy-load="true"></image>
       </view>
       <view class="right">
         <view class="title">{{item.title}}</view>
         <view class="total">¥{{item.j_price}}<text>+{{item.s_point}}寸金</text></view>
-        <view class="comment">{{comment_count}}条评价 100%好评</view>
+        <view class="comment">{{item.comment_count}}条评价 100%好评</view>
       </view>
     </view>
 
     <!-- 纵向显示 -->
     <view class="group-content" wx:if="{{showType}}">
       <view wx:for="{{list}}" wx:key='likeKey' class="group-content-list">
-          <image src="{{item.original_img}}" mode="widthFix" lazy-load="true"></image>
+          <image src="{{item.original_img}}" mode="aspectFill" lazy-load="true"></image>
           <view class="shop-detail">
               <view class="shop-title">{{item.title}}</view>
               <view class="price">¥{{item.j_price}}<text class="coupon">+{{item.s_point}}寸金</text></view>
-              <view class="evaluate">{{comment_count}}条评价　100好评</view>
+              <view class="evaluate">{{item.comment_count}}条评价　100%好评</view>
           </view>
       </view>
     </view>
@@ -85,44 +85,138 @@ export default {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
     showType:false,
-    selectId:0,        //选择条件
-    // list:[        
-    //   {'src':'../../static/image/index/test/hufu.png'},
-    //   {'src':'../../static/image/index/test/hufu.png'},
-    //   {'src':'../../static/image/index/test/hufu.png'},
-    //   {'src':'../../static/image/index/test/hufu.png'}
-    // ]                //商品列表\
-    list:''
+    selectId:'0',                  //选择条件Id
+    selectContent:'time',        //选择条件
+    sort:'',                     //排序
+    dataSort:'',                 //记录当前排序方式
+    reqId:'',                    //请求商品ID
+    list:[],
+    page:1                       //页码数
   },
-  onLoad(){
-    wx.request({
-      url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址",
-      data: {id:44,sort:'time',pagesize:1}, //请求的参数",
-      method: 'GET',
-      dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
-      success: res => {
-        console.log(res.data.list);
-        this.setData({
-          list:res.data.list
-        })
-      }
-    });
+  onLoad(option){
+    this.getList(option.id,this.data.selectContent,this.data.page);
+    this.setData({
+      reqId:option.id
+    })
   },
   // 导航返回
   navigateBack () {
       wx.navigateBack()
-  },
-  // 选择选择查询条件
-  select(e){
-    this.setData({
-      selectId:e.currentTarget.dataset.id
-    })
   },
   // 选择商品显示方式
   bindShowType(){
     this.setData({
       showType:!this.data.showType
     })
+  },
+  // 选择选择查询条件
+  select(e){
+    var selId = e.currentTarget.dataset.id;
+    var dataSort = e.currentTarget.dataset.sort;
+    this.setData({
+      list:[]
+    })
+    switch(selId){
+      case '0':
+        this.dataSelect(selId,'time');
+        break;
+      case '1':
+        this.dataSelect(selId,'sales');
+        break;
+      case '2':
+        switch(dataSort){
+          case 'des':
+            this.setData({
+              sort:'asc'
+            });
+            this.dataSelect(selId,'price2');
+            break;
+          default:
+            this.setData({
+              sort:'des'
+            });
+            this.dataSelect(selId,'price');
+            break;
+        }
+        break;
+      case '3':
+        break;
+    }
+  },
+  // 商品筛选请求数据
+  dataSelect(selId,con){
+    this.setData({
+      selectId:selId,
+      selectContent:con,
+      page:1
+    });
+    this.getList(this.data.reqId,this.data.selectContent,this.data.page);
+  },
+  //加载更多
+  onReachBottom(){
+      // setTimeout(() => {
+      //     this.setData({
+      //         isHideLoadMore: true,
+      //     })
+      // }, 2000)
+      var reqId = this.data.reqId;
+      var page = this.data.page;
+      switch(this.data.selectId){
+        case '0':
+          this.setData({
+            page:++this.data.page
+          });
+          this.getList(reqId,'time',page);
+          break;
+        case '1':
+          this.setData({
+            page:++this.data.page
+          });
+          this.getList(reqId,'sales',page);
+          break;
+        case '2':
+          this.setData({
+            page:++this.data.page
+          });
+          switch(this.data.sort){
+            case 'des':
+              this.getList(reqId,'price',page);
+              break;
+            case 'asc':
+              this.getList(reqId,'price2',page);
+              break;
+          }
+          break;
+        case '3':
+          break;
+      }
+  },
+  // 请求数据
+  getList(id,sort,page){
+    wx.request({
+      url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址",
+      data: {id:id,sort:sort,page:page}, //请求的参数",
+      method: 'GET',
+      dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
+      success: res => {
+        // console.log(res.data.list);
+        var data = res.data.list;
+        if(this.data.list.length<=0){
+          this.setData({
+            list:data
+          });
+        }else{
+          if(data != undefined){
+            for(var i=0;i<data.length;i++){
+              this.data.list.push(data[i]);
+            }
+            this.setData({
+              list:this.data.list
+            })
+          }
+        }
+      }
+    });
   }
 }
 </script>
@@ -211,6 +305,7 @@ export default {
   .right{
     width: 55%;
     font-size: 28rpx;
+    position: relative;
     .title{
       display: -webkit-box;
       -webkit-line-clamp:2;
@@ -221,8 +316,9 @@ export default {
     .total{
       font-size: 36rpx;
       color: #f87005;
-      margin: 50rpx 0 6rpx 0;
       font-weight: bold;
+      position: absolute;
+      bottom: 40rpx;
       text{
         margin-left: 30rpx;
         font-weight: normal;
@@ -232,6 +328,8 @@ export default {
     .comment{
       font-size: 24rpx;
       color:rgb(186, 186, 186);
+      position: absolute;
+      bottom:0;
     }
   }
   .resetW{
@@ -257,6 +355,9 @@ export default {
       background: #fff;
       box-shadow: 5rpx 7rpx 9rpx #c5c5c5;
       overflow: hidden;
+      image{
+        height: 370rpx;
+      }
       .shop-detail{
           padding: 0 17rpx;
           .shop-title{

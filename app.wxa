@@ -8,8 +8,8 @@ export default {
   config: {
     usingComponents: {},
     pages: [
-      'pages/category/search',
       'pages/category/index',
+      'pages/category/search',
 
       // 商城首页
       'pages/home/index',

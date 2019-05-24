@@ -105,6 +105,7 @@
 .list .right {
   width: 55%;
   font-size: 28rpx;
+  position: relative;
 }
 .list .right .title {
   display: -webkit-box;
@@ -116,8 +117,9 @@
 .list .right .total {
   font-size: 36rpx;
   color: #f87005;
-  margin: 50rpx 0 6rpx 0;
   font-weight: bold;
+  position: absolute;
+  bottom: 40rpx;
 }
 .list .right .total text {
   margin-left: 30rpx;
@@ -127,6 +129,8 @@
 .list .right .comment {
   font-size: 24rpx;
   color: #bababa;
+  position: absolute;
+  bottom: 0;
 }
 .list .resetW {
   width: 55%;
@@ -151,6 +155,9 @@
   background: #fff;
   box-shadow: 5rpx 7rpx 9rpx #c5c5c5;
   overflow: hidden;
+}
+.group-content .group-content-list image {
+  height: 370rpx;
 }
 .group-content .group-content-list .shop-detail {
   padding: 0 17rpx;

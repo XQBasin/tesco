@@ -7,9 +7,8 @@ exports.default = Page({
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
-    windowHeight: '',
-    Clickflag: '-1',
-    current: 0,
+    windowHeight: '', //可操作窗口高度
+    Clickflag: '-1', //左边栏点击状态值
     tabStyle: {
       'color': '#333',
       'width:': '80px'
@@ -32,8 +31,7 @@ exports.default = Page({
     // 请求分类
     this.getCategory();
     // 请求分类详细内容
-    // this.getList(-1);
-    this.getList(44);
+    this.getList(-1);
     // 设置内容区高度
     wx.getSystemInfo({
       success: function success(res) {
@@ -51,7 +49,7 @@ exports.default = Page({
 
     wx.request({
       url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
-      method: 'POST',
+      method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
       success: function success(res) {
         _this2.setData({
@@ -75,7 +73,7 @@ exports.default = Page({
     wx.request({
       url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
       data: { cid: cid },
-      method: 'POST',
+      method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
       success: function success(res) {
         var data = [];
@@ -91,6 +89,14 @@ exports.default = Page({
         });
         console.log(res);
       }
+    });
+  },
+
+  // 跳转商品
+  toGoods: function toGoods(e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/category/search?id=' + id
     });
   }
 });

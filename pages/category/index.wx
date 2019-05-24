@@ -32,7 +32,7 @@
           <view class="" wx:for="{{listContent}}" wx:key="listKey">
             <view class="titles">{{item.name}}</view>
             <view class="goods-box">
-              <view class="goods-list" wx:for="{{item.son}}" wx:for-item="idx" wx:key="sonKey">
+              <view class="goods-list" wx:for="{{item.son}}" wx:for-item="idx" wx:key="sonKey" data-id="{{idx.id}}" bindtap="toGoods">
                   <image class="imgbox" src="{{idx.image}}" mode="aspectFill" lazy-load="true"></image>
                   <view class="small-title">{{idx.name}}</view>
               </view>
@@ -55,9 +55,8 @@ export default {
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
-    windowHeight:'',
-    Clickflag:'-1',
-    current: 0,
+    windowHeight:'',            //可操作窗口高度
+    Clickflag:'-1',             //左边栏点击状态值
     tabStyle:{
       'color':'#333',
       'width:':'80px'
@@ -82,8 +81,7 @@ export default {
     // 请求分类
     this.getCategory();
     // 请求分类详细内容
-    // this.getList(-1);
-    this.getList(44);
+    this.getList(-1);
     // 设置内容区高度
     wx.getSystemInfo({
       success:(res)=>{
@@ -98,7 +96,7 @@ export default {
   getCategory(){
     wx.request({
       url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
-      method: 'POST',
+      method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
       success:(res)=>{
         this.setData({
@@ -119,7 +117,7 @@ export default {
     wx.request({
       url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
       data:{cid:cid},
-      method: 'POST',
+      method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
       success: res => {
         var data = [];
@@ -135,6 +133,13 @@ export default {
         });
         console.log(res);
       }
+    });
+  },
+  // 跳转商品
+  toGoods(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/category/search?id='+id
     });
   }
 }
