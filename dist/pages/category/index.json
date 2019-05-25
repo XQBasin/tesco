@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index"
+  },
+  "navigationBarTitleText": "商品分类",
+  "disableScroll": true,
+  "navigationBarTextStyle": "black"
+}

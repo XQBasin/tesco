@@ -1,0 +1,46 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">关于方乐购</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- logo -->
+  <view class="head">
+    <view class="logo">
+      <image src="../../static/image/person/logo.png" mode="widthFix" />
+    </view>
+    <view class="log">版本：1.0</view>
+  </view>
+
+  <!-- 内容 -->
+  <view class="content">
+    <view>广州希仁阁网络信息科技有限公司创立于2016年。公司名称来源于包拯字号，立志于打造一个服务社会和百姓的公信力平台。</view>
+    <view>公司设有产品部、市场部、运营部、技术部、投融资部、客服部、财务部8个职能部门。</view>
+    <view>“今日桃园”是公司鼎力铸造的一个服务于所有消费领域的行业、品牌、商家、产品，连通线上产品、线下服务和消费群体的综合移动互联网平台。</view>
+    <view class="other">官方微信公众号：方寸奶爸</view>
+    <view class="other">商务合作热线：400-189-0511</view>
+  </view>
+
+  <!-- 分享 -->
+  <button class="keep">分享给好友</button>
+</view>

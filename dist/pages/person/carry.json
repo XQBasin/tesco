@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index",
+    "ui-popup": "../../packages/touchui-wx-components/ui-popup/dist/index",
+    "ui-mask": "../../packages/touchui-wx-components/ui-mask/dist/index"
+  },
+  "navigationBarTitleText": "转账",
+  "navigationBarTextStyle": "black"
+}

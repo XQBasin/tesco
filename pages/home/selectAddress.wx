@@ -1,0 +1,212 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">选择区域地址</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 填写区域 -->
+    <view class="address">
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-top">地址</text>
+                <text class="content">
+                    <text wx:for="{{info}}" wx:key="infoKey">{{item}}</text>
+                </text>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-text">所在地区</text>
+                <picker class="area" bindchange="changePro" value="{{provinceId}}" range="{{province}}">
+                    <view class="picker">
+                    {{province[provinceId]}}
+                    </view>
+                </picker>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-text">市</text>
+                <picker class="area" bindchange="changeCity" value="{{cityId}}" range="{{city}}">
+                    <view class="picker">
+                    {{city[cityId]}}
+                    </view>
+                </picker>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;">
+            <ui-col class="text">
+                <text class="left-text">区/县</text>
+                <picker class="area" bindchange="changeReg" value="{{regionId}}" range="{{region}}">
+                    <view class="picker">
+                    {{region[regionId]}}
+                    </view>
+                </picker>
+            </ui-col>
+        </ui-row>
+        <ui-row height="78rpx;" class="clear-border">
+            <ui-col class="text">
+                <text class="left-text">详细地址</text>
+                <view class="right-text">
+                    <input type="text" placeholder="请输入详细地址" name="detail" bindinput="keyUp"/>
+                </view>
+            </ui-col>
+        </ui-row>
+    </view>
+
+    <!-- 底部确认区域 -->
+    <view class="bottom">
+        <button class="cancel" bindtap="navigateBack" type="default">取消</button>
+        <button class="confirm" type="default" bindtap="confirm">确定</button>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '选择区域地址',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    province: ['广东省', '广西省', '海南省', '湖南省'],
+    provinceId: 0,
+    cityId:0,
+    city:['广州市','深圳市','佛山市'],
+    regionId:0,
+    region:['番禺区','天河区','越秀区'],
+    detail:'',
+    info:['广东省','广州市','番禺区','市桥地铁口兴华']
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  //改变后的值
+  changePro(e) {
+    this.data.info[0] = this.data.province[e.detail.value];
+    this.setData({
+      provinceId: e.detail.value,
+      info:this.data.info
+    })
+  },
+  changeCity(e) {
+    this.data.info[1] = this.data.city[e.detail.value];
+    this.setData({
+      cityId: e.detail.value,
+      info:this.data.info
+    })
+  },
+  changeReg(e) {
+    this.data.info[2] = this.data.region[e.detail.value];
+    this.setData({
+      regionId: e.detail.value,
+      info:this.data.info
+    })
+  },
+  keyUp(e){
+    this.data.info[3] = e.detail.value;
+    this.setData({
+        info:this.data.info
+    })
+  },
+  // 表单数据收集
+  confirm(){
+      var info = this.data.info.join('');
+      console.log(info);
+  }
+}
+</script>
+
+<style lang="less">
+// 填写区域
+.address{
+  line-height: 78rpx;
+  background: #fff;
+  padding: 0 10px;
+  .ui-row{
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .clear-border{
+      border: none;
+  }
+  .text{
+    position: relative;
+    .left-top{
+        font-weight: bold;
+    }
+    .left-text{
+        color: #999999;
+    }
+    .content{
+      position: absolute;
+      top: 0;
+      left: 150rpx;
+      width: 545rpx;
+      overflow:hidden; 
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .area{
+      position: absolute;
+      top: 0;
+      left: 150rpx;
+      color: #f87005;
+    }
+  }
+  .right-text{
+      position: absolute;
+      width: 585rpx;
+      line-height: 78rpx;
+      top: 0;
+      left: 135rpx;
+      padding: 14rpx;
+  }
+}
+
+// 底部确认区域
+.bottom{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    .cancel,.confirm{
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        height: 98rpx;
+        line-height: 98rpx;
+        text-align: center;
+        margin: 0;
+        background: #fff;
+        border-radius:0;
+        font-size: 36rpx;
+    }
+    .cancel{
+        border-right: 1px solid #eeeeee;
+        color: #999999;
+    }
+    .confirm{
+        color: #f87005;
+    }
+    .confirm::after,.cancel::after{
+        border:none;
+    }
+}
+</style>

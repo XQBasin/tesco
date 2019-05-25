@@ -1,9 +1,377 @@
 <view>
-  <view class="starContent" wx:if="{{ isShow }}">
-    <ui-star _pid="{{_pid}}"></ui-star>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <image src="../../static/image/index/home_icon_Location.png" mode="aspectFit" style="width:20px;height:20px;" />
+              <text>广州市番禺区</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">方乐购</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+  <view class="search">
+    <span type="sousuo" color="#ffffff" size="13px;" class="ui-icon icon-sousuo" style="color: #ffffff;font-size: 13px;px;"></span>
+    <input type="text" placeholder="欢乐搜" placeholder-style="color:#ffffff;" confirm-type="search"></input>
+  </view>
+  <!-- 自动播放广告 -->
+  <view class="swiper-container">
+    <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
+      <block wx:for="{{banner}}" wx:key="unique">
+        <swiper-item>
+          <image wx:if="{{index == 0}}" src="{{item.src}}" class="img" mode="aspectFill" data-route="activity/show" data-param="activityid=3" bindtap="navigateToShow" />
+          <image wx:else="" src="{{item.src}}" class="img" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 广告切换图标 -->
+    <view class="dots">
+      <block wx:for="{{banner}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+  <!-- 图标导航 -->
+  <view class="groupsources">
+    <view class="group">
+      <view class="group-item">
+        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon1.png" />
+            <text>生活用品</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon2.png" />
+            <text>电子产品</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon3.png" />
+            <text>服装服饰</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon4.png" />
+            <text>美妆洗护</text>
+          </view>
+        </button>
+      </view>
+      <view class="group-item">
+        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon5.png" />
+            <text>书籍特卖</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon6.png" />
+            <text>零食小吃</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon7.png" />
+            <text>体育运动</text>
+          </view>
+        </button>
+        <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <view class="buttonitem">
+            <image src="../../static/image/index/home_icon8.png" />
+            <text>礼品饰物</text>
+          </view>
+        </button>
+      </view>
+    </view>
   </view>
 
-  <view class="buttonContent">
-    <button type="primary" bindtap="starShow">创建评分控件</button>
+  <view class="content">
+    <wxs module="dateUtil" src="../../static/utils/util.wxs"></wxs>
+    <!-- 广告位 -->
+    <view class="manuad">
+      <button class="authorise_btn" data-route="main/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        <view class="image">
+          <image src="http://file.taoyuantoday.com/213/20190115/3fd5d9348a62a75ec3dc3b8363627706.jpg" />
+        </view>
+      </button>
+    </view>
+    <!-- 热卖抢购 -->
+    <view class="tab-panel-item">
+      <view class="flex-title">
+        <view class="label">
+          <text class="label_content"></text>
+        </view>
+        <view class="main">热卖抢购</view>
+        <view class="more">
+          <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <span type="youjiantou" color="#f87005" size="15" class="ui-icon icon-youjiantou" style="color: #f87005;font-size: 15px;"></span></button>
+        </view>
+      </view>
+      <view class="rm-group">
+        <view class="rm-group-left">
+          <view class="rm-content">
+            <image class="hot-image" src="../../static/image/index/home_icon_heat.png" />
+            <view class="shop">
+              <image class="shop-image" src="../../static/image/index/test/computer.png" />
+              <view class="shop-title">苹果电脑最新款按罚款破伤风食品技术附件傲......</view>
+              <view class="dis">满1000减100</view>
+              <view class="price">¥ 8888.00<text class="payNum">3452已付款</text></view>
+            </view>
+          </view>
+        </view>
+        <view class="rm-group-right">
+          <view wx:for="{{rmList}}" wx:key="rmKey" class="{{index==0? 'rm-group-right1':'rm-group-right2'}}">
+            <image class="hot-image" src="../../static/image/index/home_icon_heat.png" />
+            <view class="shop">
+              <view class="shop-left">
+                <view class="shop-title">齐强速效洗粉多买多送......</view>
+                <view class="dis">满1000减40</view>
+                <view class="price">¥ 33.90</view>
+              </view>
+              <view class="shop-right">
+                <image class="shop-image" src="../../static/image/index/test/hufu.png" />
+                <text class="payNum">3452已付款</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 特卖 -->
+    <view class="tab-panel-item special-panel-item">
+      <view wx:for="{{specialList}}" wx:key="specialKey" class="{{index%2==0? 'special-group-left':'special-group-right'}}">
+        <image class="special-image" src="../../static/image/index/home_icon_Special.png" />
+        <view class="special-title">{{item.title}}</view>
+        <view class="shop-left">
+          <view class="shop-title">护肤润滑手段和年...</view>
+          <view class="price">¥ 353</view>
+        </view>
+        <view class="shop-right">
+          <image src="{{item.src}}" mode="widthFix" />
+        </view>
+      </view>
+    </view>
+    <!-- 方寸推荐 -->
+    <view class="tab-panel-item">
+      <view class="flex-title">
+        <view class="label">
+          <text class="label_content"></text>
+        </view>
+        <view class="main">方寸推荐</view>
+        <view class="more"></view>
+      </view>
+      <view class="fc-group">
+        <view class="fc-group-content">
+          <image src="../../static/image/index/test/01.png" mode="widthFix" />
+          <view class="shop-title">护肤水晶华液</view>
+          <view class="price">¥ 456</view>
+        </view>
+        <view class="fc-group-content">
+          <image src="../../static/image/index/test/02.png" mode="widthFix" />
+          <view class="shop-title">护肤水晶华液</view>
+          <view class="price">¥ 456</view>
+        </view>
+        <view class="fc-group-content">
+          <image src="../../static/image/index/test/01.png" mode="widthFix" />
+          <view class="shop-title">护肤水晶华液</view>
+          <view class="price">¥ 456</view>
+        </view>
+        <view class="fc-group-content">
+          <image src="../../static/image/index/test/02.png" mode="widthFix" />
+          <view class="shop-title">护肤水晶华液</view>
+          <view class="price">¥ 456</view>
+        </view>
+      </view>
+    </view>
+    <!-- 吃货小天地 -->
+    <view class="tab-panel-item food-panel-item">
+      <view class="flex-title">
+        <view class="label">
+          <text class="label_content"></text>
+        </view>
+        <view class="main">吃货小天地<text class="sub"> · 你也来馋一下吧?!</text></view>
+        <view class="more">
+          <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <span type="youjiantou" color="#f87005" size="15" class="ui-icon icon-youjiantou" style="color: #f87005;font-size: 15px;"></span></button>
+        </view>
+      </view>
+      <view class="group">
+        <view class="group-left">
+          <image src="../../static/image/index/test/banner.png" mode="aspectFill" />
+          <view class="mask">猪年送大礼，您的优选......</view>
+        </view>
+        <view class="group-right">
+          <view class="shop-title">
+            国外进口零食
+            <text class="shop-type">原装进口</text>
+          </view>
+          <view class="shop-subtitle">
+            无加工 无添加产品
+          </view>
+          <image src="../../static/image/index/test/03.png" class="img1" />
+          <image src="../../static/image/index/test/03.png" class="img2" />
+        </view>
+        <view class="group-content">
+          <view class="group-content1">
+            <view class="shop-title">坚果类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">肉干类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">饼干类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">果冻布丁</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 生活必备 -->
+    <view class="tab-panel-item life-panel-item">
+      <view class="flex-title">
+        <view class="label">
+          <text class="label_content"></text>
+        </view>
+        <view class="main">生活必备<text class="sub"> · 看看你需要哪些</text></view>
+        <view class="more">
+          <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <span type="youjiantou" color="#f87005" size="15" class="ui-icon icon-youjiantou" style="color: #f87005;font-size: 15px;"></span></button>
+        </view>
+      </view>
+      <view class="group">
+        <view class="group-left">
+          <image src="../../static/image/index/test/banner.png" mode="aspectFill" />
+          <view class="mask">猪年送大礼，您的优选......</view>
+        </view>
+        <view class="group-right">
+          <view class="shop-title">
+            国外进口零食
+            <text class="shop-type">原装进口</text>
+          </view>
+          <view class="shop-subtitle">
+            无加工 无添加产品
+          </view>
+          <image src="../../static/image/index/test/03.png" class="img1" />
+          <image src="../../static/image/index/test/03.png" class="img2" />
+        </view>
+        <view class="group-content">
+          <view class="group-content1">
+            <view class="shop-title">坚果类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">肉干类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">饼干类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">果冻布丁</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 五花八门 -->
+    <view class="tab-panel-item various-panel-item">
+      <view class="flex-title">
+        <view class="label">
+          <text class="label_content"></text>
+        </view>
+        <view class="main">五花八门<text class="sub"> · 随便挑，绝对有你喜欢的！</text></view>
+        <view class="more">
+          <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <span type="youjiantou" color="#f87005" size="15" class="ui-icon icon-youjiantou" style="color: #f87005;font-size: 15px;"></span></button>
+        </view>
+      </view>
+      <view class="group">
+        <view class="group-left">
+          <image src="../../static/image/index/test/banner.png" mode="aspectFill" />
+          <view class="mask">猪年送大礼，您的优选......</view>
+        </view>
+        <view class="group-right">
+          <view class="shop-title">
+            国外进口零食
+            <text class="shop-type">原装进口</text>
+          </view>
+          <view class="shop-subtitle">
+            无加工 无添加产品
+          </view>
+          <image src="../../static/image/index/test/03.png" class="img1" />
+          <image src="../../static/image/index/test/03.png" class="img2" />
+        </view>
+        <view class="group-content">
+          <view class="group-content1">
+            <view class="shop-title">坚果类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">肉干类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">饼干类</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+          <view class="group-content1">
+            <view class="shop-title">果冻布丁</view>
+            <view class="shop-subtitle">满199减99</view>
+            <image src="../../static/image/index/test/03.png" mode="widthFix" />
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
+  <!-- 猜你喜欢 -->
+  <view class="like-panel-item">
+    <view class="like-title">
+      <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill" />
+      <text>猜你喜欢</text>
+      <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill" />
+    </view>
+    <view class="like-group-content">
+      <view wx:for="{{list}}" wx:key="likeKey" class="like-group-content-list">
+        <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
+        <view class="shop-detail">
+          <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿浦东烤盘批次卡贫困阿</view>
+          <text class="dis">秒199减99</text>
+          <view class="price">¥124<text class="coupon">+66寸金</text><text class="payNum">2390人付款</text></view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
 </view>

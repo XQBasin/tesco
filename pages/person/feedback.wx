@@ -1,0 +1,260 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">意见反馈</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <form bindsubmit="formSubmit">
+      <!-- 反馈类型 -->
+      <view class="type">
+        <view class="title">反馈类型</view>
+        <view>
+          <ui-tags data="{{typeList}}" bindchange="singleTap" fixed-width></ui-tags>
+          <input type="text" hidden value="{{type}}" name="type">
+        </view>
+      </view>
+      <!-- 评论发表 -->
+      <view class="comment">
+        <textarea bindinput="bindtext" placeholder="描述您的意见" maxlength="500" name="comment"/>
+        <view class="text-number">{{number}}/500</view>
+      </view>
+      <!-- 添加图片 -->
+      <view class="addImage">
+        <view class="title">添加图片<text>（选填，最多三张）</text></view>
+        <view class="img">
+          <image wx:for="{{imageSrc}}" wx:key="addKey" src="{{item}}"></image>
+          <image wx:if="{{showAdd}}" src="../../static/image/person/icon_shi.png" bindtap="addImage"></image>
+        </view>
+      </view>
+      <!-- 联系方式 -->
+      <view class="contact">
+        <view>联系方式</view>
+        <view class="input">
+          <input placeholder="输入您的手机号或邮箱" placeholder-style="color:#999999;" name="number"/>
+        </view>
+      </view>
+      <!-- 底部提交按钮 -->
+      <button class="submit" form-type="submit">提交</button>
+    </form>
+  </view>
+</template>
+
+<script>
+const tagStyle = `background: #ececec;
+color: rgb(102,102,102);
+padding: 0 20rpx;
+border-radius: 25rpx;
+text-align: center;
+height: 50rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+line-height: 50rpx;
+font-size:24rpx;
+margin-bottom:20rpx;
+`
+const selectStyle = `background: #fdd6b6;
+color: rgb(248,112,5);
+padding: 0 20rpx;
+border-radius: 25rpx;
+text-align: center;
+height: 50rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+line-height: 50rpx;
+font-size:24rpx;
+margin-bottom:20rpx;
+`
+
+export default {
+  config: {
+    navigationBarTitleText: '意见反馈',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    typeList: [{
+        text: '登录注册',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: true
+    }, {
+        text: '物流速度',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '产品质量',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '付款流程',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '用户体验',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }, {
+        text: '其它',
+        tagStyle: tagStyle,
+        tagSelectedStyle: selectStyle,
+        checked: false
+    }],
+    type:'',             //已选择的反馈类型
+    number:0,            //字数统计
+    showAdd:true,       //是否显示添加
+    imageSrc:[],        //图片路径
+    imageNum:0          //图片数量
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 反馈类型选择
+  singleTap (e) {
+      let opt = e.detail.index
+      wx.showToast({
+          title: this.data.typeList[opt].text,
+          icon:'none'
+      })
+      this.data.typeList.forEach((item, index) => {
+          item.checked = (index === opt)
+      })
+      this.setData({
+          typeList:this.data.typeList,
+          type:this.data.typeList[opt].text
+      })
+  },
+  // 统计字数
+  bindtext(e){
+    this.setData({
+      number:e.detail.cursor
+    })
+  },
+  // 添加图片
+  addImage(){
+    var that = this;
+    wx.chooseImage({
+      count: 3,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        if(res.tempFilePaths.length >= 3){
+          that.setData({
+            showAdd:false,
+            imageSrc:res.tempFilePaths,
+            imageNum:res.tempFilePaths.length
+          })
+        }else{
+          that.setData({
+            imageSrc:res.tempFilePaths,
+            imageNum:res.tempFilePaths.length
+          })
+        }
+      }
+    })
+  },
+  // 提交，数据收集
+  formSubmit(e){
+    console.log(e.detail.value)
+  }
+}
+</script>
+
+<style lang="less">
+// 反馈类型
+.type{
+  padding: 0 10px;
+  background: #fff;
+  margin-top: 20rpx;
+  margin-bottom: 1px;
+  .title{
+    padding: 25rpx 0;
+  }
+}
+// 评价发表
+.comment{
+  height: 241rpx;
+  padding: 14rpx 10px;
+  background: #fff;
+  margin-bottom: 20rpx;
+  position: relative;
+  textarea{
+    width: 100%;
+    height: 190rpx;
+  }
+  .text-number{
+    position: absolute;
+    right: 0;
+    bottom: -40rpx;
+    color: #999999;
+  }
+}
+// 添加图片
+.addImage{
+  padding: 16rpx 10px;
+  background: #fff;
+  margin-bottom: 20rpx;
+  .title{
+    text{
+      color: #999999;
+    }
+  }
+  .img{
+    display: flex;
+    image{
+      width: 164rpx;
+      height: 164rpx;
+      margin-right: 10rpx;
+      margin-top: 20rpx;
+    }
+  }
+}
+// 联系方式
+.contact{
+  padding: 0 10px;
+  height: 80rpx;
+  background: #fff;
+  .mix-flex-y-center();
+  .input{
+    width: 83%;
+    padding-left: 50rpx;
+  }
+}
+// 底部提交按钮
+.submit{
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  background: #f87005;
+  margin: 0;
+  border-radius: 0;
+}
+.submit::after{
+  border:none;
+}
+</style>

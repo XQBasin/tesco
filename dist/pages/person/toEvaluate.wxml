@@ -1,0 +1,95 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">评价晒单</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <form bindsubmit="formSubmit">
+    <!-- 商品评价 -->
+    <view class="head">
+      <view class="img">
+        <image src="../../static/image/index/test/computer.png" />
+      </view>
+      <view class="details">
+        <view>商品评价</view>
+        <view class="star-demo">
+          <ui-star bindchange="handleStar" _pid="{{_pid}}"></ui-star>
+        </view>
+      </view>
+    </view>
+    <!-- 评论发表 -->
+    <view class="comment">
+      <textarea bindinput="bindtext" placeholder="评价发表到晒一晒可获得更多的寸金喔~" maxlength="500" name="comment">
+        <view class="text-number">{{number}}/500</view>
+      </textarea></view>
+    <!-- 添加图片 -->
+    <view class="addImage">
+      <view class="title">添加图片<text>（{{imageNum}}/6）</text></view>
+      <view class="img">
+        <image wx:for="{{imageSrc}}" wx:key="addKey" src="{{item}}" />
+        <image wx:if="{{showAdd}}" src="../../static/image/person/icon_shi.png" bindtap="addImage" />
+      </view>
+    </view>
+    <!-- 匿名发布 -->
+    <view class="anonymous" bindtap="bindAnonymous">
+      <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!anonymousFlag}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+      <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{anonymousFlag}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+      <text>匿名发布</text>
+    </view>
+    <!-- 发布到晒一晒 -->
+    <view class="show" bindtap="bindShow">
+      <span type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!showFlag}}" class="ui-icon icon-yuanquan" style="color: #999999;font-size: 40rpx;px;"></span>
+      <span type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{showFlag}}" class="ui-icon icon-gouxuan" style="color: #f87005;font-size: 40rpx;px;"></span>
+      <text>发表到晒一晒，即可获得 <text class="cunjing">+88寸金</text></text>
+    </view>
+    <!-- 物流服务评价 -->
+    <view class="log-evaluate">
+      <view class="title">
+        <view class="car-icon">
+          <image src="../../static/image/person/icon_car.png" />
+        </view>
+        <view class="text">【物流服务评价】</view>
+      </view>
+      <view class="star">
+        商品描述相符
+        <view class="star-demo">
+          <ui-star bindchange="handleStar" star-width="20" star-height="20" _pid="{{_pid}}"></ui-star>
+        </view>
+      </view>
+      <view class="star">
+        卖家服务态度
+        <view class="star-demo">
+          <ui-star bindchange="handleStar" star-width="20" star-height="20" _pid="{{_pid}}"></ui-star>
+        </view>
+      </view>
+      <view class="star">
+        物流发货速度
+        <view class="star-demo">
+          <ui-star bindchange="handleStar" star-width="20" star-height="20" _pid="{{_pid}}"></ui-star>
+        </view>
+      </view>
+    </view>
+    <!-- 底部提交按钮 -->
+    <button class="submit" form-type="submit">提交</button>
+  </form>
+</view>

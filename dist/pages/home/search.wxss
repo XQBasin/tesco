@@ -1,0 +1,78 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.top {
+  margin-top: 22rpx;
+  height: 56rpx;
+}
+.top .search {
+  width: 80%;
+  height: 56rpx;
+  border-radius: 60rpx;
+  padding: 2px 10px;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  left: 10px;
+  right: 0;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+}
+.top .search input {
+  width: 100%;
+  padding: 2rpx 5rpx;
+  margin: 2rpx;
+  font-size: 26rpx;
+}
+.top .text {
+  height: 56rpx;
+  position: absolute;
+  /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+  right: 50rpx;
+  /* 决定了搜索框置顶 */
+  z-index: 2;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+.search-content {
+  padding: 0 20rpx;
+}
+.search-content .title {
+  padding: 24rpx 0 19rpx 0;
+}
+.search-content .text {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.search-content .text view {
+  width: 220rpx;
+  height: 58rpx;
+  font-size: 28rpx;
+  border-radius: 16rpx;
+  background: #f4f4f4;
+  text-align: center;
+  line-height: 58rpx;
+  margin-bottom: 20rpx;
+}

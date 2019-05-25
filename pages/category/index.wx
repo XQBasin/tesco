@@ -1,0 +1,194 @@
+<template>
+  <view style="background:#fff;">
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+              <view class="containertitle">
+                  <view class='dingwei'>
+                      <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                  </view>
+              </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">商品分类</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 内容区 -->
+    <ui-row>
+      <ui-col span="3">
+        <scroll-view scroll-y style="height:{{windowHeight}}">
+          <view class="tabs {{Clickflag==-1? 'active':''}}" bindtap="select" data-cid='-1'>热门推荐</view>
+          <view class="tabs {{Clickflag==item.id? 'active':''}}" wx:for="{{tabs}}" wx:key="tabKey" data-cid='{{item.id}}' bindtap="select">{{item.name}}</view>
+        </scroll-view>
+      </ui-col>
+      <ui-col>
+        <scroll-view scroll-y style="height:{{windowHeight}}">
+          <view class="" wx:for="{{listContent}}" wx:key="listKey">
+            <view class="titles">{{item.name}}</view>
+            <view class="goods-box">
+              <view class="goods-list" wx:for="{{item.son}}" wx:for-item="idx" wx:key="sonKey" data-id="{{idx.id}}" bindtap="toGoods">
+                  <image class="imgbox" src="{{idx.image}}" mode="aspectFill" lazy-load="true"></image>
+                  <view class="small-title">{{idx.name}}</view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </ui-col>
+    </ui-row>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '商品分类',
+    disableScroll:true,
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    windowHeight:'',            //可操作窗口高度
+    Clickflag:'-1',             //左边栏点击状态值
+    tabStyle:{
+      'color':'#333',
+      'width:':'80px'
+    },
+    activeTabStyle:{
+      'color': '#ff2a00',
+      'border-right':'1px solid #ff2a00'
+    },
+    tabItems: [
+      { name: '美妆' },
+      { name: '配饰' },
+      { name: '鞋靴' }
+    ],
+    tabs:[],
+    list:[],
+    listContent:''
+  },
+  navigateBack () {
+    wx.navigateBack()
+  },
+  onLoad(){
+    // 请求分类
+    this.getCategory();
+    // 请求分类详细内容
+    this.getList(-1);
+    // 设置内容区高度
+    wx.getSystemInfo({
+      success:(res)=>{
+        var SH = res.windowHeight-wx.STATUS_BAR_HEIGHT-wx.DEFAULT_HEADER_HEIGHT;
+        this.setData({
+          windowHeight:SH+'px'
+        });
+      }
+    });
+  },
+  // 商品类别
+  getCategory(){
+    wx.request({
+      url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
+      method: 'GET',
+      dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
+      success:(res)=>{
+        this.setData({
+          tabs:res.data
+        });
+      }
+    });
+  },
+  select(e){
+    var cid = e.currentTarget.dataset.cid;
+    this.getList(cid);
+    this.setData({
+      Clickflag:cid
+    })
+  },
+  // 商品列表
+  getList(cid){
+    wx.request({
+      url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
+      data:{cid:cid},
+      method: 'GET',
+      dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
+      success: res => {
+        var data = [];
+        for(var i=0;i<res.data.length;i++){
+          if(res.data[i].son.length>0){
+            data.push(res.data[i]);
+          }
+        }
+        this.data.list[cid] = data;
+        this.setData({
+          list:this.data.list,
+          listContent:this.data.list[cid]
+        });
+        console.log(res);
+      }
+    });
+  },
+  // 跳转商品
+  toGoods(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/category/search?id='+id
+    });
+  }
+}
+</script>
+
+<style lang="less">
+.container {
+  display: flex;
+}
+.imgbox{
+  width:160rpx;
+  height:160rpx;
+  overflow: hidden;
+  margin:0 auto;
+  .ui-image{
+    width:100%
+  }
+}
+.tabs{
+  padding: 30rpx 0;
+  .mix-flex-x-center();
+  background: #F6F6F9;
+}
+// 选中状态
+.active{
+  border:none;
+  border-left: 3px solid red;
+  background: #fff;
+}
+.small-title{
+  font-size: 24rpx;
+  text-align:center;
+}
+.titles{
+  height: 60rpx;
+  // line-height: 80rpx;
+  margin-top: 20rpx;
+  margin-left: 15rpx;
+  font-weight: bold;
+}
+.goods-box{
+  display: flex;
+  flex-wrap:wrap;
+  align-content: flex-start;
+  margin-bottom: 10rpx;
+  .goods-list{
+    // flex:0 0 33.33%;
+    margin: 0rpx 9rpx 20rpx 15rpx;
+    background: #fff;
+  }
+}
+</style>

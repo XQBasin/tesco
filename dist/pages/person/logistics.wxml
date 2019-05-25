@@ -1,0 +1,76 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">查看物流</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+  <!-- 物流状态 -->
+  <view class="head">
+    <view class="img">
+      <image src="../../static/image/index/test/computer.png" />
+    </view>
+    <view class="details">
+      <view class="flag">物流状态：<text>已签收</text></view>
+      <view>承运来源：中通快递</view>
+      <view>运单编号：32432325252398</view>
+      <view>官方电话：12580</view>
+    </view>
+  </view>
+
+  <!-- 派送员 -->
+  <view class="middle">
+    <view class="img">
+      <image src="../../static/image/person/icon_Courier.png" />
+    </view>
+    <view class="info">
+      <view class="title">派送员</view>
+      <view>卡卡西</view>
+    </view>
+    <view class="phone" bindtap="call">
+      13335555552
+      <span type="phone" color="#f87005" size="52rpx;" class="ui-icon icon-phone" style="color: #f87005;font-size: 52rpx;px;"></span>
+    </view>
+  </view>
+
+  <!-- 物流过程 -->
+  <view class="content">
+    <view class="item success">
+      <view class="green">
+        <image src="../../static/image/person/icon_green.png" />
+      </view>
+      <view>【广州市】已签收，签收人是本人，感谢使用</view>
+      <view>中通快递，期待再次为您服务</view>
+      <view class="time">2019-03-03　11:30:23</view>
+    </view>
+    <view class="item">
+      <view class="gray"></view>
+      <view>【广州市】已签收，签收人是本人，感谢使用</view>
+      <view>中通快递，期待再次为您服务</view>
+      <view class="time">2019-03-03　11:30:23</view>
+    </view>
+    <view class="item">
+      <view class="gray"></view>
+      <view>【成都市】商家已发货</view>
+      <view class="time">2019-03-03　11:30:23</view>
+    </view>
+  </view>
+</view>

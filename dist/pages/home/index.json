@@ -1,8 +1,8 @@
 {
   "usingComponents": {
-    "ui-star": "../../packages/touchui-wx-components/ui-star/dist/index"
+    "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index"
   },
-  "navigationBarTitleText": "首页",
-  "backgroundColor": "#F4F4F4",
-  "navigationBarTextStyle": "black"
+  "navigationBarTitleText": "方乐购",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
 }

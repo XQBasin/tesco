@@ -1,0 +1,59 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">意见反馈</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <form bindsubmit="formSubmit">
+    <!-- 反馈类型 -->
+    <view class="type">
+      <view class="title">反馈类型</view>
+      <view>
+        <ui-tags data="{{typeList}}" bindchange="singleTap" fixed-width _pid="{{_pid}}"></ui-tags>
+        <input type="text" hidden value="{{type}}" name="type"></input>
+      </view>
+    </view>
+    <!-- 评论发表 -->
+    <view class="comment">
+      <textarea bindinput="bindtext" placeholder="描述您的意见" maxlength="500" name="comment">
+        <view class="text-number">{{number}}/500</view>
+      </textarea></view>
+    <!-- 添加图片 -->
+    <view class="addImage">
+      <view class="title">添加图片<text>（选填，最多三张）</text></view>
+      <view class="img">
+        <image wx:for="{{imageSrc}}" wx:key="addKey" src="{{item}}" />
+        <image wx:if="{{showAdd}}" src="../../static/image/person/icon_shi.png" bindtap="addImage" />
+      </view>
+    </view>
+    <!-- 联系方式 -->
+    <view class="contact">
+      <view>联系方式</view>
+      <view class="input">
+        <input placeholder="输入您的手机号或邮箱" placeholder-style="color:#999999;" name="number"></input>
+      </view>
+    </view>
+    <!-- 底部提交按钮 -->
+    <button class="submit" form-type="submit">提交</button>
+  </form>
+</view>

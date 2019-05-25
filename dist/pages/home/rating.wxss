@@ -1,0 +1,161 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.top .title {
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  padding-left: 15px;
+  background: #fff;
+}
+.top .title text {
+  font-size: 22rpx;
+  color: #f87005;
+}
+.tabs {
+  background: #fff;
+  display: flex;
+}
+.tabs .numbers {
+  font-size: 22rpx;
+  color: #999999;
+}
+.tabs .item.active,
+.tabs .item.active .numbers {
+  color: #f87005;
+}
+.tabs .item {
+  width: 20%;
+  height: 100rpx;
+  text-align: center;
+  position: relative;
+}
+.tabs .item .item-title {
+  font-size: 30rpx;
+}
+.tabs .item .line {
+  width: 50rpx;
+  height: 4rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: #f87005;
+  margin-left: -25rpx;
+  border-radius: 2rpx;
+}
+.list {
+  margin: 11rpx 0 14rpx 0;
+  background: #fff;
+}
+.list .top {
+  height: 95rpx;
+  position: relative;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.list .top .img,
+.list .top .name {
+  float: left;
+}
+.list .top .img image {
+  width: 65rpx;
+  height: 65rpx;
+}
+.list .top .name {
+  margin-left: 23rpx;
+  font-size: 26rpx;
+}
+.list .top .name .stars {
+  position: absolute;
+  left: 220rpx;
+  top: 0;
+  height: 95rpx;
+  display: flex;
+  align-items: center;
+}
+.list .top .name .stars image {
+  float: left;
+  margin: 0 5rpx;
+  width: 22rpx;
+  height: 22rpx;
+}
+.list .top .time {
+  position: absolute;
+  right: 10px;
+  font-size: 22rpx;
+  color: #999999;
+  display: flex;
+  align-items: center;
+}
+.list .content {
+  font-size: 30rpx;
+}
+.list .content .main {
+  padding: 15rpx 10px 18rpx;
+  margin-bottom: 2rpx;
+}
+.list .content .main .img {
+  margin-top: 20rpx;
+}
+.list .content .main .img image {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  margin: 0 9rpx;
+}
+.list .middle {
+  display: flex;
+}
+.list .middle .img {
+  float: left;
+  margin: 0 20rpx;
+  width: 210rpx;
+  height: 210rpx;
+  background: #999999;
+  border-radius: 10rpx;
+}
+.list .bottom {
+  height: 74rpx;
+  padding: 0 10px;
+}
+.list .bottom .left {
+  float: left;
+  line-height: 74rpx;
+  color: #999999;
+  font-size: 26rpx;
+}
+.list .bottom .right {
+  float: right;
+  height: 74rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.list .bottom .right .icon-good {
+  width: 30rpx;
+  height: 30rpx;
+  float: left;
+}
+.list .bottom .right .number {
+  float: left;
+  color: #999999;
+}

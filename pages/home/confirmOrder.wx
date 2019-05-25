@@ -1,0 +1,513 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">确认订单</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 选择收货地址 -->
+    <ui-row-list class="top" bindtap="toAddressEdit">
+    <ui-row>
+        <ui-col width="120rpx;" class="select">
+          <image src="../../static/image/details/icon_increase.png"></image>
+        </ui-col>
+        <ui-col class="text">
+            选择收货地址
+        </ui-col>
+        <ui-col width="20" style="line-height:120rpx;">
+            <ui-icon type="gengduo"></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    <image src="../../static/image/details/Slider.png" mode="widthFix"></image>
+
+    <!-- 订单店铺信息 -->
+    <ui-row-list class="order-title">
+    <ui-row>
+        <ui-col width="90rpx;" class="store-icon" align="center">
+          <ui-icon type="dianpu" color="#333333" size="40rpx;"></ui-icon>
+        </ui-col>
+        <ui-col class="text">
+            sfiasdih 旗舰店
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    <!-- 订单内容 -->
+    <ui-row-list class="order-content">
+      <view class="shop-image">
+        <image src="../../static/image/details/icon_bottom.png" mode="widthFix"></image>
+      </view>
+      <view class="text">
+        <view>方式开发商就会防晒服还发收款爱神的箭奥斯卡大囧大事记</view>
+        <view class="specs">规格</view>
+        <view class="total">¥89.8</view>
+        <view class="number">x2</view>
+      </view>
+    </ui-row-list>
+
+    <!-- 优惠券 -->
+    <ui-row-list class="coupon" bindtap="openDis" data-show="{{ true }}">
+    <ui-row>
+        <ui-col class="text">
+            优惠券
+            <text>暂无可用</text>
+        </ui-col>
+        <ui-col width="20" style="line-height:80rpx;">
+            <ui-icon type="gengduo"></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    <!-- 优惠券内容区 -->
+    <ui-popup show="{{ disFlag }}" position="bottom" class="dis-mask">
+      <view class="text">优惠</view>
+      <ui-icon type="shanchu" color="#dbdbdb" size="40rpx;" class="cancel-icon" bindtap="disHide"></ui-icon>
+      <view class="dis-title">
+        <view class="available {{disId==0? 'active':''}}" bindtap="select" data-id='0'>
+          可用优惠券（23）
+          <view class="bottom" wx:if="{{disId==0}}"></view>
+        </view>
+        <view class="unavailable {{disId==1? 'active':''}}" bindtap="select" data-id='1'>
+          不可用优惠券（33）
+          <view class="bottom" wx:if="{{disId==1}}"></view>
+        </view>    
+      </view>
+      <view class="tip" wx:if="{{disId==0}}">您已选中优惠券1张<text class="price">可抵用<text>¥{{disPrice}}</text></text></view>
+      <!-- 可用优惠券 -->
+      <scroll-view scroll-y style="height: 620rpx;margin-top:40rpx;" wx:if="{{disId==0}}">
+        <view class="dis-item" bindtap="bindDis" data-num="0" data-price="20">
+          <image src="../../static/image/details/coupons.png" mode="widthFix" class="dis-image"></image>
+          <view class="price"><text>¥</text>20</view>
+          <view class="fill">满100使用</view>
+          <view class="specs-title">店铺特卷</view>
+          <view class="store">卡刷卡号旗舰店</view>
+          <view class="time">有效期：2019.03.20-2019.03.28</view>
+          <view class="limit">仅限于洗护用品使用</view>
+          <view class="circle">
+            <ui-icon type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disNum==0}}"></ui-icon>
+            <ui-icon type="yuanquan" color="#999999" size="40rpx;" wx:else></ui-icon>
+          </view>
+        </view>
+        <view class="dis-item" bindtap="bindDis" data-num="1" data-price="50">
+          <image src="../../static/image/details/coupons.png" mode="widthFix" class="dis-image"></image>
+          <view class="price"><text>¥</text>50</view>
+          <view class="fill">满1000使用</view>
+          <view class="specs-title">店铺特卷</view>
+          <view class="store">卡刷卡号旗舰店</view>
+          <view class="time">有效期：2019.03.20-2019.03.28</view>
+          <view class="limit">仅限于洗护用品使用</view>
+          <view class="circle">
+            <ui-icon type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{disNum==1}}"></ui-icon>
+            <ui-icon type="yuanquan" color="#999999" size="40rpx;" wx:else></ui-icon>
+          </view>
+        </view>
+      </scroll-view>
+      <!-- 不可用优惠券 -->
+      <scroll-view scroll-y style="height: 620rpx;margin-top:40rpx;" wx:if="{{disId==1}}">
+        <view class="dis-item">
+          <image src="../../static/image/details/coupons_b.png" mode="widthFix" class="dis-image"></image>
+          <view class="price"><text>¥</text>20</view>
+          <view class="fill">满100使用</view>
+          <view class="specs-title">店铺特卷</view>
+          <view class="store">卡刷卡号旗舰店</view>
+          <view class="time">有效期：2019.03.20-2019.03.28</view>
+          <view class="limit">仅限于洗护用品使用</view>
+        </view>
+        <view class="dis-item">
+          <image src="../../static/image/details/coupons_b.png" mode="widthFix" class="dis-image"></image>
+          <view class="price"><text>¥</text>20</view>
+          <view class="fill">满100使用</view>
+          <view class="specs-title">店铺特卷</view>
+          <view class="store">卡刷卡号旗舰店</view>
+          <view class="time">有效期：2019.03.20-2019.03.28</view>
+          <view class="limit">仅限于洗护用品使用</view>
+        </view>
+      </scroll-view>
+      <!-- 立即使用 -->
+      <view class="use" wx:if="{{disId==0}}">
+        使用
+      </view>
+    </ui-popup>
+
+
+    <ui-row-list class="coupon-list" bindtap="checked" data-id="0">
+    <ui-row>
+        <ui-col class="text">
+            可用20寸金抵扣20元
+        </ui-col>
+        <ui-col width="60rpx;" style="line-height:80rpx;">
+            <ui-icon type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{couponId==0}}"></ui-icon>
+            <ui-icon type="yuanquan" color="#999999" size="40rpx;" wx:else></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    <ui-row-list class="coupon-list" bindtap="checked" data-id="1">
+    <ui-row>
+        <ui-col class="text">
+            可用20寸金抵扣20元
+        </ui-col>
+        <ui-col width="60rpx;" style="line-height:80rpx;">
+            <ui-icon type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{couponId==1}}"></ui-icon>
+            <ui-icon type="yuanquan" color="#999999" size="40rpx;" wx:else></ui-icon>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+    
+    
+    <!-- 买家留言 -->
+    <view class="message">
+      <view class="text">
+          买家留言
+          <input class="msg-area" placeholder="向卖家留言（50字以内）" placeholder-style="color:#999999;" maxlength="50"/>
+      </view>
+    </view>
+
+    <!-- 商品总额 -->
+    <ui-row-list class="goods-total">
+    <ui-row>
+        <ui-col class="text">
+            商品总额
+            <view class="price">合计：<text class="number">¥159.6</text></view>
+        </ui-col>
+    </ui-row>
+    </ui-row-list>
+
+    <!-- 微信支付 -->
+    <button class="pay" bindtap="wxPay">微信支付</button>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '确认订单',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    checked:true,     //优惠券勾选状态
+    disFlag:false,    //优惠选项状态
+    disId:0,          //popup可用和不可用优惠券序号
+    disNum:-1,          //popup优惠券张数序号
+    disChecked:false, //popup优惠券勾选状态
+    disPrice:'0',      //popup优惠券金额
+    couponId:0  //寸金优惠序号
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 链接到地址管理页面
+  toAddressEdit(){
+    wx.navigateTo({ url: '/pages/home/addressEdit' });
+  },
+  // 微信支付功能
+  wxPay(){
+    wx.navigateTo({ url: '/pages/home/paySuccess' });
+  },
+  // 优惠券勾选
+  checked(e){
+    this.setData({
+      couponId:e.currentTarget.dataset.id
+    })
+  },
+  // 打开优惠卷内容区
+  openDis(e){
+    let show = e.currentTarget.dataset.show;
+    this.setData({
+      disFlag: show
+    })
+  },
+  disHide(){
+    this.setData({
+      disFlag:false
+    })
+  },
+  // 选择优惠券选项序号(可用和不可用优惠券)
+  select(e){
+    this.setData({
+      disId:e.currentTarget.dataset.id
+    })
+  },
+  // 选择优惠券
+  bindDis(e){
+    this.setData({
+      disPrice:e.currentTarget.dataset.price,
+      disNum:e.currentTarget.dataset.num
+    })
+  }
+}
+</script>
+
+<style lang="less">
+// 选择收货地址
+.top{
+  background: #fff;
+  padding-right: 10px;
+  .text{
+    line-height: 120rpx; 
+  }
+  .select{
+    height: 120rpx;
+    position: relative;
+    line-height: 120rpx;
+    image{
+      width: 62rpx;
+      height: 62rpx;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -31rpx;
+      margin-left: -31rpx;
+    }
+  }
+}
+// 订单店铺信息
+.order-title{
+  background: #fff;
+  margin-top: 18rpx;
+  .text{
+    line-height: 80rpx;
+    color: #999999;
+    font-size: 24rpx;
+  }
+  .store-icon{
+    line-height: 80rpx;
+  }
+}
+// 订单内容
+.order-content{
+  padding: 12rpx 10px 24rpx 10px;
+  .shop-image{
+    float: left;
+    width: 28%;
+  }
+  .text{
+    float: right;
+    width: 70%;
+    font-size: 24rpx;
+    position: relative;
+    .specs{
+      color: #999999;
+      margin: 20rpx 0 10rpx 0;
+    }
+    .total{
+      color: rgb(235, 2, 2);
+    }
+    .number{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: rgb(102, 102, 102);
+    }
+  } 
+}
+.order-content::after{
+  display: block;
+  content: '';
+  clear: both;
+}
+// 优惠券
+.coupon,.coupon-list,.message,.goods-total{
+  padding: 0 10px;
+  background: #fff;
+  margin-bottom: 6rpx;
+  .text{
+    line-height: 80rpx;
+    position: relative;
+    text{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #999999;
+    }
+  }
+}
+// 优惠券内容区
+.dis-mask{
+  .text{
+    width: 100%;
+    background: #ececec;
+    line-height: 72rpx;
+    height: 72rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    padding-left: 30rpx;
+  }
+  .cancel-icon{
+    position: absolute;
+    right:38rpx;
+    top:0;
+    line-height: 72rpx;
+  }
+  .dis-title{
+    height: 70rpx;
+    .available.active,.unavailable.active{
+      color: #f87005;
+    }
+    .available,.unavailable{
+      width: 50%;
+      line-height: 70rpx;
+      color: rgb(153, 153, 153);
+      text-align: center;
+      float: left;
+      font-size: 28rpx;
+      position: relative;
+      .bottom{
+        width: 144rpx;
+        height: 4rpx;
+        background: #f87005;
+        position: absolute; 
+        bottom:0;
+        left: 50%;
+        margin-left: -85rpx;
+      } 
+    }
+  }
+  .tip{
+    padding-left: 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    background: rgba(248, 112, 5 ,.24);
+    .price{
+      margin-left: 60rpx;
+      text{
+        color: rgb(235, 2, 2)
+      }
+    }
+  }
+  .dis-image{
+    margin-bottom: 20rpx;
+  }
+  .dis-item{
+    position: relative;
+    padding:0 30rpx;
+    view{
+      position: absolute;
+    }
+    .price{
+      left: 90rpx;
+      top:0;
+      font-size: 90rpx;
+      font-weight: bold;
+      color: #fff;
+      text{
+        font-size: 46rpx;
+      }
+    }
+    .fill{
+      top: 146rpx;
+      left: 90rpx;
+      color: #fff;
+      font-size: 30rpx;
+    }
+    .specs-title{
+      top: 15rpx;
+      left: 295rpx;
+      width: 130rpx;
+      height: 40rpx;
+      line-height: 40rpx;
+      color: #fff;
+      text-align: center;
+      border-radius: 20rpx;
+      background: rgba(248, 112, 5 ,.24);
+      font-size: 24rpx;
+    }
+    .store{
+      top: 73rpx;
+      left: 295rpx;
+      font-weight: bold;
+      font-size: 24rpx;
+    }
+    .time{
+      top: 133rpx;
+      left: 295rpx;
+      color: rgb(102, 102, 102);
+      font-size: 20rpx;
+    }
+    .limit{
+      top: 160rpx;
+      left: 295rpx;
+      color: rgb(102, 102, 102);
+      font-size: 20rpx;
+    }
+    .circle{
+      right: 40rpx;
+      top: 0;
+      line-height: 200rpx;
+    }
+  }
+  .use{
+    width: 100%;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #f87005;
+    font-weight: bold;
+    font-size: 36rpx;
+    color: #fff;
+    border-radius: 40rpx;
+  }
+}
+// 买家留言
+.message{
+  position: relative;
+  margin-bottom: 20rpx;
+  .msg-area{
+    position: absolute;
+    top: 0;
+    left: 145rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 550rpx;
+  }
+}
+// 商品总额
+.goods-total{
+  padding-right: 10px;
+  .text{
+    text{
+      position: relative;
+    }
+    .price{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #999999;
+      .number{
+        color: #f87005;
+      }
+    }
+  }
+}
+// 微信支付
+.pay{
+  width: 100%;
+  height: 80rpx;
+  background: #61b077;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+}
+.pay::after{
+  border:none;
+}
+</style>

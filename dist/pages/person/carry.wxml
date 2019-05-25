@@ -1,0 +1,105 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">转账</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 概况 -->
+  <view class="survey">
+    <!-- 对方账号 -->
+    <view class="item">
+      <view class="icon">
+        <image src="../../static/image/person/icon_number.png" />
+      </view>
+      <view class="tip-info">对方账号</view>
+      <view class="text">
+        <input type="text" placeholder="注册的手机号" placeholder-class="placeholder"></input>
+      </view>
+    </view>
+
+    <!-- 寸金数量 -->
+    <view class="item number">
+      <view class="top">
+        <view class="icon">
+          <image src="../../static/image/person/icon_number2.png" />
+        </view>
+        <view class="tip-info">寸金数量</view>
+      </view>
+      <view class="middle">
+        <view class="num">1346</view>
+        <view class="tip">参考下面转账说明填写</view>
+      </view>
+    </view>
+
+    <!-- 可以转账寸金 -->
+    <view class="item useful">
+      <view class="left">可以转账寸金：8888</view>
+      <view class="right">全部转账</view>
+    </view>
+
+    <!-- 添加备注 -->
+    <view class="item remarks">
+      <textarea maxlength="50" placeholder="添加备注（50字以内）" placeholder-class="placeholder">
+      </textarea></view>
+  </view>
+
+  <!-- 确认转账 -->
+  <view class="bottom">
+    <view class="confirm" bindtap="confirm">确认转账</view>
+    <view class="tip">
+      <view class="notes">注：将试试转入对方账户，无法退还</view>
+      <view class="details" bindtap="show">转账说明</view>
+    </view>
+  </view>
+  <ui-popup show="{{ detailsFlag }}" position="bottom" class="show" background="transparent" _pid="{{_pid}}">
+    <view class="popup">
+      <view class="text">转账说明</view>
+      <span type="shanchu" color="#333333" size="40rpx;" class="cancel-icon ui-icon icon-shanchu" bindtap="hide" style="color: #333333;font-size: 40rpx;px;"></span>
+      <view class="info">
+        <view class="dot"></view>
+        <view class="address-content">转账寸金数量必须为整数；</view>
+      </view>
+      <view class="info">
+        <view class="dot"></view>
+        <view class="address-content">每日只能转账10次；</view>
+      </view>
+      <view class="info">
+        <view class="dot"></view>
+        <view class="address-content">转账寸金数量必须为整数;</view>
+      </view>
+      <view class="info">
+        <view class="dot"></view>
+        <view class="address-content">单笔转账不能超过10000寸金；</view>
+      </view>
+      <view class="line"></view>
+    </view>
+  </ui-popup>
+  <!-- 寸金数量不够提示框 -->
+  <ui-mask show="{{showMask}}" custom-style="{{customStyle}}" effect="scale-in" animation="" _pid="{{_pid}}">
+    <view class="mask">
+      <span type="gantanhao" color="#ffffff" size="90rpx;" class="ui-icon icon-gantanhao" style="color: #ffffff;font-size: 90rpx;px;"></span>
+      <view class="lack">寸金数量不够</view>
+      <view class="details">请查看转账说明</view>
+    </view>
+  </ui-mask>
+</view>

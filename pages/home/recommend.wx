@@ -1,0 +1,204 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">店铺热推</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 为你推荐 -->
+    <view class="head">
+      <scroll-view scroll-x style="width: 100%; white-space: nowrap;">
+        <view class="text {{listId==index? 'active':''}}" bindtap="bindClick" wx:for="{{list}}" wx:key="listKey" data-info="{{item}}" data-id={{index}}>{{item}}</view>
+      </scroll-view>
+    </view>
+
+    <!-- 店铺 -->
+    <view class="warp">
+      <view class="item">
+        <view class="top">
+          <view class="store-image"></view>
+          <view class="store-info">
+            <view class="name">Skuidsnsdd旗舰店</view>
+            <view class="detail">水电费很多事复合肥好阀口袋...</view>
+          </view>
+          <view class="enter" bindtap="toStroe">进入店铺</view>
+        </view>
+        <view class="image">
+          <view class="left"></view>
+          <view class="right">
+            <view class="img1"></view>
+            <view class="img2"></view>
+          </view>
+        </view>
+        <view class="bottom">
+          <view class="browse">
+            <ui-icon type="eye" color="#999999" size="40rpx;"></ui-icon>
+            <text>浏览10.6万次</text>
+          </view>
+          <view class="praise">
+            <ui-icon type="dianzan" color="#f97006" size="40rpx;"></ui-icon>
+            <text>（9999）</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '店铺热推',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    list:['零食小吃','智能电器','画册书籍','美妆护肤','零食小吃','智能电器','画册书籍','美妆护肤'],
+    listId:0
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 为你推荐
+  bindClick(e){
+    wx.showToast({
+      title: e.currentTarget.dataset.info, //提示的内容,
+      icon: 'none', //图标,
+      success: res => {}
+    });
+    this.setData({
+      listId:e.currentTarget.dataset.id
+    })
+  },
+  // 跳转到的店铺页面
+  toStroe(){
+    wx.navigateTo({ url: '/pages/home/store' });
+  }
+}
+</script>
+
+<style lang="less">
+// 为你推荐
+.head{
+  padding: 27rpx 10px;
+  .text{
+    text-align: center;
+    width: 130rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 25rpx;
+    background: #fff;
+    font-size: 25rpx;
+    display: inline-block;
+    margin-right: 12rpx;
+  }
+  .active{
+    background: #f87005;
+    color: #fff;  
+  }
+}
+// 店铺
+.warp{
+  padding: 0 10px;
+  margin-bottom: 27rpx;
+  .item{
+    background: #fff;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    .top{
+      margin-bottom: 19rpx;
+      .store-image,.store-info{
+        float: left;
+      }
+      .store-image{
+        width: 80rpx;
+        height: 80rpx;
+        border-radius: 10rpx;
+        background: #999999;
+      }
+      .store-info{
+        margin-left: 20rpx;
+        .name{
+          font-size: 28rpx;
+          font-weight: bold;
+        }
+        .detail{
+          font-size: 24rpx;
+          color: #999999;
+        }
+      }
+      .enter{
+        font-size: 24rpx;
+        border-radius: 25rpx;
+        width: 120rpx;
+        height: 50rpx;
+        text-align: center;
+        line-height: 50rpx;
+        border:1px solid #f87005;
+        color: #f87005;
+        float: right;
+      }
+    }
+    .image{
+      margin-bottom: 28rpx;
+      display: flex;
+      justify-content: space-between;
+      .left{
+        width: 70%;
+        height: 370rpx;
+        background: pink;
+        border-radius: 10rpx;
+      }
+      .right{
+        width: 29%;
+        .img1,.img2{
+          width: 100%;
+          height: 180rpx;
+          background: pink;
+          border-radius: 10rpx;
+        }
+        .img1{
+          margin-bottom: 10rpx;
+        }
+      }
+    }
+    .bottom{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .browse,.praise{
+        height: 24rpx;
+        font-size: 24rpx;
+        line-height: 24rpx;
+        color: rgb(186, 186, 186);
+        .mix-flex-y-center();
+      }
+    }
+    .top::after{
+      display: block;
+      height: 0;
+      clear: both;
+      content:'';
+    }
+  }
+}
+
+
+</style>

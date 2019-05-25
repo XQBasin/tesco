@@ -1,0 +1,106 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.item {
+  box-shadow: 5rpx 0 7rpx #dcdcdc;
+  margin-bottom: 14rpx;
+  background: #fff;
+}
+.item .top {
+  height: 115rpx;
+  position: relative;
+  padding: 20rpx 10px 0;
+  display: flex;
+  align-items: center;
+}
+.item .top .img,
+.item .top .name,
+.item .top .operation {
+  float: left;
+}
+.item .top .img image {
+  width: 80rpx;
+  height: 80rpx;
+}
+.item .top .name {
+  margin-left: 23rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.item .top .name .time {
+  font-size: 24rpx;
+  color: #999999;
+  font-weight: normal;
+}
+.item .top .operation {
+  position: absolute;
+  right: 10px;
+  width: 146rpx;
+  height: 50rpx;
+  background: #f87005;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item .content {
+  font-size: 30rpx;
+}
+.item .content .main {
+  padding: 15rpx 10px 0 18rpx;
+  margin-bottom: 2rpx;
+}
+.item .content .main .img {
+  margin-top: 20rpx;
+}
+.item .content .main .img image {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  margin: 0 9rpx;
+}
+.item .middle {
+  padding: 20rpx 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.item .middle .img {
+  width: 230rpx;
+  height: 230rpx;
+  border-radius: 10rpx;
+  background: #999999;
+  margin-top: 3rpx;
+}
+.item .bottom {
+  padding: 0 10px 17rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.item .bottom .left,
+.item .bottom .right {
+  font-size: 24rpx;
+  color: #999999;
+  display: flex;
+  align-items: center;
+}

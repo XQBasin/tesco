@@ -1,0 +1,95 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">个人信息</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <view class="ui-row-list" style="">
+    <view class="row head ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          头像
+        </view>
+      </view>
+      <view class="head-image">
+        <image src="../../static/image/person/head.png" />
+      </view>
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 20px;">
+        <view class="ui-col-content align-right valign-middle">
+          <span type="gengduo" size="40rpx;" color="#999999" class="ui-icon icon-gengduo" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+    </view>
+    <view class="row ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          昵称
+        </view>
+      </view>
+      <view class="tip">设置您的个性昵称</view>
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 40px;">
+        <view class="ui-col-content align-right valign-middle">
+          <span type="gengduo" size="40rpx;" color="#999999" class="ui-icon icon-gengduo" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+    </view>
+    <view class="row ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          手机号
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 40px;">
+        <view class="ui-col-content align-right valign-middle">
+          <span type="gengduo" size="40rpx;" color="#999999" class="ui-icon icon-gengduo" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+    </view>
+    <view class="row ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          性别
+        </view>
+      </view>
+      <view class="tip">男</view>
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 40px;">
+        <view class="ui-col-content align-right valign-middle">
+          <span type="gengduo" size="40rpx;" color="#999999" class="ui-icon icon-gengduo" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+    </view>
+    <view class="row ui-row" style="">
+      <view class="text ui-col" style="">
+        <view class="ui-col-content">
+          出生年月
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 40px;">
+        <view class="ui-col-content align-right valign-middle">
+          <span type="gengduo" size="40rpx;" color="#999999" class="ui-icon icon-gengduo" style="color: #999999;font-size: 40rpx;px;"></span>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

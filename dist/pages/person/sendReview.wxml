@@ -1,0 +1,54 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">发表追评</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <form bindsubmit="formSubmit" class="form">
+    <!-- 发表追评 -->
+    <view class="list">
+      <view class="head">
+        <view class="img">
+          <image src="../../static/image/index/test/computer.png" />
+        </view>
+        <view class="details">
+          华为最新款手机暗示法举案说法附加赛发放假啊...
+        </view>
+      </view>
+      <!-- 评论发表 -->
+      <view class="comment">
+        <textarea bindinput="bindtext" placeholder="产品已经用了一段时间了，有什么想说说的吗~" maxlength="500" name="comment">
+        </textarea></view>
+      <!-- 添加图片 -->
+      <view class="addImage">
+        <view class="img">
+          <image wx:for="{{imageSrc}}" wx:key="addKey" src="{{item}}" />
+          <image wx:if="{{showAdd}}" src="../../static/image/person/icon_tjtp.png" bindtap="addImage" />
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部提交按钮 -->
+    <button class="submit" form-type="submit">提交</button>
+  </form>
+</view>

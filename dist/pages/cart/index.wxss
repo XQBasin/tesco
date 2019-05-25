@@ -1,0 +1,268 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.head {
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+  margin-bottom: 32rpx;
+  position: relative;
+}
+.head .text text {
+  width: 200rpx;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.head .clear {
+  position: absolute;
+  top: 0;
+  right: 120rpx;
+}
+.item {
+  margin-bottom: 28rpx;
+  background: #fff;
+}
+.item .top {
+  height: 95rpx;
+  position: relative;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #cccccc;
+}
+.item .top .img,
+.item .top .name,
+.item .top .operation {
+  float: left;
+}
+.item .top .img {
+  margin: 0 14rpx 0 20rpx;
+}
+.item .top .name {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.item .top .name .time {
+  font-size: 24rpx;
+  color: #999999;
+}
+.item .top .operation {
+  position: absolute;
+  right: 10px;
+  color: #f87005;
+  display: flex;
+  align-items: center;
+}
+.item .middle {
+  padding: 20rpx 10px;
+  display: flex;
+}
+.item .middle .left {
+  width: 30%;
+  display: flex;
+}
+.item .middle .left .icon {
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  margin-right: 5rpx;
+}
+.item .middle .left .img image {
+  width: 150rpx;
+  height: 150rpx;
+  border: 1px solid #bfbfbf;
+}
+.item .middle .right {
+  width: 65%;
+  color: #999999;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+.item .middle .right .title {
+  font-size: 26rpx;
+  color: #020202;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item .middle .right .checkbox {
+  width: 100%;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  color: #999999;
+  padding-left: 20rpx;
+  border: 1px solid #a9a9a9;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+  position: relative;
+}
+.item .middle .right .checkbox .gengduo {
+  position: absolute;
+  top: 0;
+  right: 10rpx;
+}
+.item .middle .right .preview {
+  margin-top: 12rpx;
+}
+.item .middle .right .preview .price {
+  color: #eb0202;
+  font-size: 32rpx;
+  float: left;
+}
+.item .middle .right .preview .selector {
+  width: 208rpx;
+  text-align: center;
+  background: #ebebeb;
+  float: right;
+  border-radius: 10rpx;
+}
+.item .middle .right .preview .selector view {
+  float: left;
+  width: 33.33%;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 60rpx;
+}
+.bottom {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  height: 100rpx;
+  width: 100%;
+}
+.bottom .check {
+  width: 10%;
+  float: left;
+  text-align: center;
+  padding-left: 20rpx;
+}
+.bottom .check view {
+  font-size: 22rpx;
+  color: #999999;
+}
+.bottom .total {
+  width: 65%;
+  float: left;
+  text-align: right;
+  padding-right: 36rpx;
+}
+.bottom .total .all,
+.bottom .total .number {
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.bottom .total .number {
+  color: #eb0202;
+}
+.bottom .total .detail {
+  font-size: 24rpx;
+  color: #999999;
+}
+.bottom .total .detail text {
+  margin-left: 46rpx;
+}
+.bottom .pay {
+  width: 25%;
+  float: left;
+  color: #fff;
+  background: #f87005;
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+}
+.bottom .pay text {
+  font-size: 20rpx;
+}
+.bottom .operation {
+  width: 90%;
+  line-height: 100rpx;
+  padding-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.bottom .operation button {
+  width: 204rpx;
+  height: 64rpx;
+  font-size: 32rpx;
+  border-radius: 32rpx;
+  float: left;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom .operation button::after {
+  border: none;
+}
+.bottom .operation .collect {
+  color: #f87005;
+  background: #fff;
+  border-radius: 32rpx;
+  border: 1px solid #f87005;
+}
+.bottom .operation .cancel {
+  color: #fff;
+  background: #f87005;
+  margin-left: 26rpx;
+}
+.empty .background {
+  width: 750rpx;
+  height: 345rpx;
+}
+.empty .title {
+  height: 113rpx;
+  line-height: 113rpx;
+  text-align: center;
+  color: #9e9e9e;
+}
+.empty .middle {
+  position: relative;
+}
+.empty .middle .button {
+  width: 180rpx;
+  height: 60rpx;
+  margin: 0 auto;
+}
+.empty .middle .text {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.empty::before {
+  height: 260rpx;
+  width: 1px;
+  display: block;
+  content: '';
+}

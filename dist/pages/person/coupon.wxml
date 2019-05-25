@@ -1,0 +1,114 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">优惠券库</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 内容区 -->
+  <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar="true" active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}" _pid="{{_pid}}">
+    <ui-tab _pid="{{_pid}}">未使用（2）</ui-tab>
+    <ui-tab _pid="{{_pid}}">已使用（1）</ui-tab>
+    <ui-tab _pid="{{_pid}}">已过期（3）</ui-tab>
+  </ui-tabs>
+  <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="margin-top:-8rpx;">
+    <!-- 未使用 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+        <view class="item">
+          <view class="img">
+            <image src="../../static/image/details/coupons.png" />
+          </view>
+          <view class="info">
+            <view class="left">
+              <view>
+                <text class="pre">¥</text>
+                <text class="number">20</text>
+              </view>
+              <view class="fill">满100使用</view>
+            </view>
+            <view class="right">
+              <view class="type">店铺特卷</view>
+              <view class="name">卡刷卡号旗舰店</view>
+              <view class="time">有效期：2019.03.20-2019.03.28</view>
+              <view class="category">仅限于洗护用品使用</view>
+            </view>
+            <view class="use">立即使用</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 已使用 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+        <view class="item">
+          <view class="img">
+            <image src="../../static/image/details/coupons_b.png" />
+          </view>
+          <view class="info">
+            <view class="left">
+              <view>
+                <text class="pre">¥</text>
+                <text class="number">20</text>
+              </view>
+              <view class="fill">满100使用</view>
+            </view>
+            <view class="right">
+              <view class="type unsign">店铺特卷</view>
+              <view class="name">卡刷卡号旗舰店</view>
+              <view class="time">有效期：2019.03.20-2019.03.28</view>
+              <view class="category">仅限于洗护用品使用</view>
+            </view>
+            <view class="useless">
+              <view class="text">已使用</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 已过期 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+        <view class="item">
+          <view class="img">
+            <image src="../../static/image/details/coupons_b.png" />
+          </view>
+          <view class="info">
+            <view class="left">
+              <view>
+                <text class="pre">¥</text>
+                <text class="number">20</text>
+              </view>
+              <view class="fill">满100使用</view>
+            </view>
+            <view class="right">
+              <view class="type unsign">店铺特卷</view>
+              <view class="name">卡刷卡号旗舰店</view>
+              <view class="time">有效期：2019.03.20-2019.03.28</view>
+              <view class="category">仅限于洗护用品使用</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

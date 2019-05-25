@@ -1,42 +1,961 @@
 <template>
-  <view>
-    <view class="starContent" wx:if="{{ isShow }}">
-      <ui-star></ui-star>
-    </view>
+    <view>
+        <!-- 自定义导航栏 -->
+        <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+            <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+                <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px">
+                    <view class="containertitle">
+                        <view class='dingwei'>
+                            <image src="../../static/image/index/home_icon_Location.png" mode="aspectFit" style="width:20px;height:20px;"></image>
+                            <text>广州市番禺区</text>
+                        </view>
+                    </view>
+                </ui-col>
+                <ui-col vertical-align="middle" class="nav-bar-col">
+                    <view class="nav-bar-title">方乐购</view>
+                </ui-col>
+                <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+                </ui-col>
+            </ui-row>
+        </ui-nav-bar>
+        <view style="height:{{NAV_HEIGHT}}"></view>
+        <view class="search">
+            <ui-icon type="sousuo" color="#ffffff" size="13px;"></ui-icon>
+            <input type='text' placeholder="欢乐搜" placeholder-style="color:#ffffff;" confirm-type='search'>
+        </view>
+        <!-- 自动播放广告 -->
+        <view class="swiper-container">
+            <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
+                <block wx:for="{{banner}}" wx:key="unique">
+                    <swiper-item>
+                        <image wx:if="{{index == 0}}" src="{{item.src}}" class="img" mode="aspectFill" data-route='activity/show' data-param='activityid=3' bindtap='navigateToShow'></image>
+                        <image wx:else src="{{item.src}}" class="img" mode="aspectFill"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <!-- 广告切换图标 -->
+            <view class="dots">
+                <block wx:for="{{banner}}" wx:key="unique">
+                    <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+                </block>
+            </view>
+        </view>
+        <!-- 图标导航 -->
+        <view class='groupsources'>
+            <view class='group'>
+                <view class='group-item'>
+                    <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                            <image src="../../static/image/index/home_icon1.png"></image>
+                            <text>生活用品</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon2.png"></image>
+                            <text>电子产品</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon3.png"></image>
+                            <text>服装服饰</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon4.png"></image>
+                            <text>美妆洗护</text>
+                        </view>
+                    </button>
+                </view>
+                <view class='group-item'>
+                    <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                            <image src="../../static/image/index/home_icon5.png"></image>
+                            <text>书籍特卖</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon6.png"></image>
+                            <text>零食小吃</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon7.png"></image>
+                            <text>体育运动</text>
+                        </view>
+                    </button>
+                    <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                        <view class='buttonitem'>
+                                <image src="../../static/image/index/home_icon8.png"></image>
+                            <text>礼品饰物</text>
+                        </view>
+                    </button>
+                </view>
+            </view>
+        </view>
 
-    <view class="buttonContent">
-      
-      <button type="primary" bindtap="starShow">创建评分控件</button>
-    </view> 
-  </view>
+        <view class='content'>
+            <wxs module="dateUtil" src="../../static/utils/util.wxs"></wxs>
+            <!-- 广告位 -->
+            <view class="manuad">
+                <button class="authorise_btn" data-route="main/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                    <view class="image">
+                        <image src="http://file.taoyuantoday.com/213/20190115/3fd5d9348a62a75ec3dc3b8363627706.jpg"></image>
+                    </view>
+                </button>
+            </view>
+            <!-- 热卖抢购 -->
+            <view class="tab-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>热卖抢购</view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='rm-group'>
+                  <view class="rm-group-left">
+                      <view class="rm-content">
+                          <image class="hot-image" src="../../static/image/index/home_icon_heat.png"></image>
+                          <view class="shop">
+                            <image class="shop-image" src="../../static/image/index/test/computer.png"></image>
+                            <view class="shop-title">苹果电脑最新款按罚款破伤风食品技术附件傲......</view>
+                            <view class="dis">满1000减100</view>
+                            <view class="price">¥ 8888.00<text class="payNum">3452已付款</text></view>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="rm-group-right">
+                    <view wx:for="{{rmList}}" wx:key="rmKey" class="{{index==0? 'rm-group-right1':'rm-group-right2'}}">
+                        <image class="hot-image" src="../../static/image/index/home_icon_heat.png"></image>
+                        <view class="shop">
+                            <view class="shop-left">
+                                <view class="shop-title">齐强速效洗粉多买多送......</view>
+                                <view class="dis">满1000减40</view>
+                                <view class="price">¥ 33.90</view>
+                            </view>
+                            <view class="shop-right">
+                                <image class="shop-image" src="../../static/image/index/test/hufu.png"></image>
+                                <text class="payNum">3452已付款</text>
+                            </view>
+                        </view>
+                    </view>
+                  </view>
+                </view>
+            </view>
+            <!-- 特卖 -->
+            <view class="tab-panel-item special-panel-item">
+                <view wx:for="{{specialList}}" wx:key="specialKey" class="{{index%2==0? 'special-group-left':'special-group-right'}}">
+                    <image class="special-image" src="../../static/image/index/home_icon_Special.png"></image>
+                    <view class="special-title">{{item.title}}</view>
+                    <view class="shop-left">
+                        <view class="shop-title">护肤润滑手段和年...</view>
+                        <view class="price">¥ 353</view>
+                    </view>
+                    <view class="shop-right">
+                        <image src="{{item.src}}" mode="widthFix"></image>
+                    </view>
+                </view>
+            </view>
+            <!-- 方寸推荐 -->
+            <view class="tab-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>方寸推荐</view>
+                    <view class='more'></view>
+                </view>
+                <view class='fc-group'>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/01.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/02.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/01.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
+                  <view class="fc-group-content">
+                      <image src="../../static/image/index/test/02.png" mode="widthFix"></image>
+                      <view class="shop-title">护肤水晶华液</view>
+                      <view class="price">¥ 456</view>
+                  </view>
+                </view>
+            </view>
+            <!-- 吃货小天地 -->
+            <view class="tab-panel-item food-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>吃货小天地<text class="sub"> · 你也来馋一下吧?!</text></view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='group'>
+                  <view class="group-left">
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <view class="mask">猪年送大礼，您的优选......</view>
+                  </view>
+                  <view class="group-right">
+                      <view class="shop-title">
+                          国外进口零食
+                          <text class="shop-type">原装进口</text>   
+                      </view>
+                      <view class="shop-subtitle">
+                          无加工 无添加产品
+                      </view>
+                      <image src="../../static/image/index/test/03.png" class="img1"></image>
+                      <image src="../../static/image/index/test/03.png" class="img2"></image>
+                  </view>
+                  <view class="group-content">
+                    <view class="group-content1">
+                        <view class="shop-title">坚果类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">肉干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">饼干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">果冻布丁</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                  </view>
+                </view>
+            </view>
+            <!-- 生活必备 -->
+            <view class="tab-panel-item life-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>生活必备<text class="sub"> · 看看你需要哪些</text></view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='group'>
+                  <view class="group-left">
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <view class="mask">猪年送大礼，您的优选......</view>
+                  </view>
+                  <view class="group-right">
+                      <view class="shop-title">
+                          国外进口零食
+                          <text class="shop-type">原装进口</text>   
+                      </view>
+                      <view class="shop-subtitle">
+                          无加工 无添加产品
+                      </view>
+                      <image src="../../static/image/index/test/03.png" class="img1"></image>
+                      <image src="../../static/image/index/test/03.png" class="img2"></image>
+                  </view>
+                  <view class="group-content">
+                    <view class="group-content1">
+                        <view class="shop-title">坚果类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">肉干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">饼干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">果冻布丁</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                  </view>
+                </view>
+            </view>
+            <!-- 五花八门 -->
+            <view class="tab-panel-item various-panel-item">
+                <view class="flex-title">
+                    <view class="label">
+                        <text class="label_content"></text>
+                    </view>
+                    <view class='main'>五花八门<text class="sub"> · 随便挑，绝对有你喜欢的！</text></view>
+                    <view class='more'>
+                        <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">更多 <ui-icon type="youjiantou" color="#f87005" size="15"></ui-icon></button>
+                    </view>
+                </view>
+                <view class='group'>
+                  <view class="group-left">
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <view class="mask">猪年送大礼，您的优选......</view>
+                  </view>
+                  <view class="group-right">
+                      <view class="shop-title">
+                          国外进口零食
+                          <text class="shop-type">原装进口</text>   
+                      </view>
+                      <view class="shop-subtitle">
+                          无加工 无添加产品
+                      </view>
+                      <image src="../../static/image/index/test/03.png" class="img1"></image>
+                      <image src="../../static/image/index/test/03.png" class="img2"></image>
+                  </view>
+                  <view class="group-content">
+                    <view class="group-content1">
+                        <view class="shop-title">坚果类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">肉干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">饼干类</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                    <view class="group-content1">
+                        <view class="shop-title">果冻布丁</view>
+                        <view class="shop-subtitle">满199减99</view>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                    </view>
+                  </view>
+                </view>
+            </view>
+        </view>
+        <!-- 猜你喜欢 -->
+        <view class="like-panel-item">
+          <view class="like-title">
+            <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill"></image>
+            <text>猜你喜欢</text>
+            <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill"></image>
+          </view>
+          <view class="like-group-content">
+            <view wx:for="{{list}}" wx:key='likeKey' class="like-group-content-list">
+                <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
+                <view class="shop-detail">
+                    <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿浦东烤盘批次卡贫困阿</view>
+                    <text class="dis">秒199减99</text>
+                    <view class="price">¥124<text class="coupon">+66寸金</text><text class="payNum">2390人付款</text></view>
+                </view>
+            </view>
+            
+          </view>
+        </view>
+    
+    </view>
 </template>
 
 <script>
 export default {
-  config: {
-    navigationBarTitleText: '首页',
-    backgroundColor: '#F4F4F4',
-    navigationBarTextStyle: 'black'
-  },
-  data: {
-    isShow:false
-  },
-  starShow () {
-    this.setData({ 
-      isShow: true
-    })
-  }
+    config: {
+        navigationBarTitleText: '方乐购',
+        navigationBarTextStyle: 'black',
+        enablePullDownRefresh: true
+    },
+    data: {
+        NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+        DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+        banner: [
+            {src: 'http://file.taoyuantoday.com/213/20190118/696af11d6687092383174fddfb463137.jpg_0x0.jpg'},
+            {src: 'http://file.taoyuantoday.com/213/20190109/cd0bd4b383fb190dbafddc93edcc562d.jpg'},
+            {src: 'http://file.taoyuantoday.com/213/20190111/f7e9684f2a50926daa2361c19173e582.png'},
+            {src: 'http://file.taoyuantoday.com/213/20190114/29224e27cb98ee82ac2486bbc303bd53.jpg'},
+        ],
+        swiperCurrent: 0,
+        rmList:[                //热卖数据
+          {'name':1},
+          {'name':2}
+        ],
+        specialList:[
+            {src:'../../static/image/index/test/hufu.png',title:'每日特惠价'},
+            {src:'../../static/image/index/test/hufu.png',title:'爆款精选'}
+        ],
+        list:[                  //猜你喜欢数据
+          {'src':'../../static/image/index/test/hufu.png'},
+          {'src':'../../static/image/index/test/hufu.png'},
+          {'src':'../../static/image/index/test/hufu.png'},
+          {'src':'../../static/image/index/test/hufu.png'}
+        ]
+    },
+    onLoad(options) {
+        var that = this;
+        wx.login({
+            success(res) {
+                if (res.code) {
+                    //发起网络请求
+                    wx.request({
+                        url: 'https://wx.taoyuantoday.com/mini.Index/wxQuickLogin.html',
+                        data: {
+                            code: res.code
+                        },
+                        header: {
+                            'content-type': 'application/json' // 默认值
+                        },
+                        success(res) {
+                            if (res.data != "") {
+                                that.setData({
+                                    uid: res.data
+                                })
+                            }
+                        }
+                    })
+                } else {
+                    console.log('登录失败，请检查网络设置！' + res.errMsg)
+                }
+            }
+        })
+    },
+    //下拉刷新
+    onPullDownRefresh:function() {
+        wx.showNavigationBarLoading() //在标题栏中显示加载
+        //模拟加载
+        setTimeout(function() {
+            // complete
+            wx.hideNavigationBarLoading() //完成停止加载
+            wx.stopPullDownRefresh() //停止下拉刷新
+        }, 1500);
+    },
+    swiperChange: function(option) {
+        this.setData({
+            swiperCurrent: option.detail.current
+        })
+    },
+    // 获取路由页面
+    navigateToShow: function (e) {
+        let route = e.currentTarget.dataset.route
+        let param = e.currentTarget.dataset.param
+        wx.navigateTo({
+            url: '../' + route + '?' + param
+        })
+    }
 }
 </script>
 
 <style lang="less">
-.content{
-  .mix-flex-center();
+// 搜索框
+.search {
+    width: 90%;
+    height: 28px;
+    border-radius: 30px;
+    padding: 2px 10px;
+    display: flex;
+    position: absolute;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    top: 78px;
+    left: 0;
+    right: 0;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    background: rgba(255, 255, 255, .6);
+    margin: auto;
+    .mix-flex-y-center();
+    input {
+        width: 100%;
+        padding: 2px 5px;
+        margin: 2px;
+        font-size: 13px;
+    }
 }
-.starContent{
-  padding:50px 50px 0px 50px;
+// 自动播放广告
+.swiper-container {
+    position: relative;
 }
-.buttonContent{
-  padding:50px;
+.swiper-container .swiper {
+    height: 360rpx;
 }
+.swiper-container .swiper .img {
+    width: 100%;
+    height: 100%;
+}
+.swiper-container .dots{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30rpx;
+    display: flex;
+    justify-content: center;
+    z-index:9;
+}
+.swiper-container .dots .dot{
+    margin: 10px 2rpx;
+    width: 5px;
+    height: 5px;
+    background: #FFFFFF;
+    border-radius: 2px;
+}
+.swiper-container .dots .dot.active{
+    width: 12px;
+    background: #fff;
+}
+// 图标导航
+.groupsources {
+    padding: 5px 10px;
+    background-color: #FFFFFF;
+    margin: 5px 10px;
+    position: relative;     /* 初始化为相对定位 滑动时改为绝对定位fixed*/
+    top: -35rpx;
+    left: 0;
+    right: 0;               /* 决定了搜索框置顶 */
+    z-index: 2;
+    border-radius: 20rpx;
+    box-shadow: 0 3px 6px 0 rgb(236, 236, 236);
+    .group-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        .authorise_btn {
+            background-color: #FFFFFF;
+        }
+        .authorise_btn::after {
+            border: none;
+        }
+    }
+    .buttonitem {
+        display: flex;
+        flex-direction: column;
+        .mix-flex-center();
+        image {
+            text-align: center;
+            width: 55px;
+            height: 55px;
+        }
+        text {
+            text-align: center;
+            font-size: 24rpx;
+        }
+    }
+}
+// 内容区公共样式
+.content {
+    // margin-top: 400rpx;
+}
+// 广告位
+.manuad {
+    .authorise_btn {
+        background-color: #F4F4F4;
+    }
+    .authorise_btn::after {
+        border: none;
+    }
+    .image {
+        height: 62px;
+        border-radius: 50px;
+        image {
+            border-radius: 20rpx;
+        }
+    }
+}
+// 推荐模块
+.tab-panel-item {
+    margin: 10px;
+    padding: 5px 10px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgb(240, 240, 240);
+    .flex-title{
+      position: static;
+    }
+}
+.flex-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    text-align: left;
+    .mix-1px(0, 0, 1, 0, #ccc);
+    .mix-flex-y-center();
+    .label {
+        margin: 10px 0px;
+        width: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        .mix-flex-y-center();
+        .label_content {
+            width: 5px;
+            height: 16px;
+            background-color:#f87005;
+            border-radius: 5px;
+        }
+    }
+    .main {
+        margin: 10px 0px;
+        width: 70%;
+        font-size: 16px;
+        text-align: left;
+        font-weight: 600;
+    }
+    .more {
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        .authorise_btn {
+            color: #848484;
+            font-size: 13px;
+            background-color: #FFFFFF;
+            padding-right: 0;
+        }
+        .authorise_btn::after {
+            border: none;
+        }
+    }
+}
+
+// 商品展示区公共样式
+.shop-title{
+    font-size: 24rpx;
+    line-height: 36rpx;
+}
+.price{
+    font-size: 30rpx;
+    color: #eb0202;
+    font-weight: bold;
+}
+// 热卖抢购
+.rm-group {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    .rm-content{
+        position: relative;
+        padding: 0 10rpx 0 16rpx;
+        .hot-image{
+            width: 34rpx;
+            height: 46rpx;
+            position: absolute;
+        }
+        .shop{
+            width: 282rpx;
+            .shop-image{
+                height: 230rpx;
+            }
+            .dis{
+                width: 136rpx;
+                text-align: center;
+                height: 30rpx;
+                line-height: 30rpx;
+                font-size: 18rpx;
+                background: #f87005;
+                border-radius: 10rpx;
+                margin-top: 18rpx;
+                color: #fff;
+            }
+            .price{
+                margin-top: 20rpx;
+            }
+            .payNum{
+                font-size: 20rpx;
+                color: #999999;
+                margin-left: 20rpx;
+                font-weight: normal;
+            }
+        }
+        
+    }
+    .rm-group-left{
+      width: 45%;
+      height: 412rpx;
+      background: #f4f4f4;
+    }
+    .rm-group-right{
+      width: 53%;
+      height: 412rpx;
+      .rm-group-right1{
+        margin-bottom: 12rpx;
+      }
+      .rm-group-right1,.rm-group-right2{
+        width: 100%;
+        height: 200rpx;
+        background: #f4f4f4;
+        padding: 0 10rpx 0 18rpx;
+        .hot-image{
+            width: 34rpx;
+            height: 46rpx;
+            position: absolute;
+        }
+        .shop-left{
+            float: left;
+            width: 55%;
+            padding-top: 44rpx;
+            .dis{
+                width: 136rpx;
+                text-align: center;
+                height: 30rpx;
+                line-height: 30rpx;
+                font-size: 18rpx;
+                background: #f87005;
+                border-radius: 10rpx;
+                margin-top: 3rpx;
+                color: #fff;
+            }
+            .price{
+                margin-top: 10rpx;
+            }
+        }
+        .shop-right{
+            float: right;
+            width: 45%;
+            .shop-image{
+                width: 180rpx;
+                height: 160rpx;
+            }
+            .payNum{
+                font-size: 20rpx;
+                color: #999999;
+            }
+        }
+      }
+    }
+}
+// 每日优惠，特卖
+.special-panel-item{
+  background: none;
+  padding: 0;
+  margin-top: 39rpx;
+  display: flex;
+  justify-content: space-between;
+  .special-group-left{
+    width: 49.4%;
+    height: 250rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    position: relative;
+  }
+  .special-group-right{
+    width: 49.4%;
+    height: 250rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    position: relative;
+  }
+  //公共样式   
+  .special-title{
+      font-weight: bold;
+      color: #fff;
+      position: absolute;
+      line-height: 51rpx;
+      font-size: 30rpx;
+      top: -15rpx;
+      left: 15rpx;
+  }
+  .special-image{
+      position: absolute;
+      top: -15rpx;
+      width: 191rpx;
+      height: 52rpx;
+  }
+  .shop-left{
+      width: 50%;
+      float: left;
+      padding-left: 18rpx;
+      padding-top: 30rpx;
+      .shop-title{
+          margin-top: 42rpx;   
+      }
+      .price{
+          margin-top: 46rpx;
+      }
+  }
+  .shop-right{
+      width: 50%;
+      float: right;
+      padding-top: 40rpx;
+  }
+}
+// 方寸推荐
+.fc-group{
+  padding: 0 1rpx;
+  margin-bottom: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  .fc-group-content{
+    width: 23%;
+    height: 250rpx;
+    margin: 0 7rpx;
+    .shop-title{
+        text-align: center;
+        margin-top: 12rpx;
+    }
+    .price{
+        text-align: center;
+    }
+  }
+}
+// 吃货小天地
+.food-panel-item,.life-panel-item,.various-panel-item{
+  .sub{
+    font-size: 12px;
+    color: #f87005;
+  }
+  .group {
+    margin-bottom: 20rpx;
+    .group-left{
+      width: 49.3%;
+      height: 250rpx;
+      float: left;
+      position: relative;
+      .mask{
+          width: 100%;
+          height: 40rpx;
+          color: #fff;
+          line-height: 40rpx;
+          padding-left: 20rpx;
+          background: rgba(0, 0, 0, 0.3);
+          position: absolute;
+          bottom: 0;
+          .mix-text-overflow();
+      }
+    }
+    .group-right{
+      width: 49.3%;
+      height: 250rpx;
+      float: right;
+      background: #f4f4f4;
+      .img1{
+          width:50%;
+          height: 155rpx;
+          float: left;
+      }
+      .img2{
+          width:50%;
+          height: 155rpx;
+          float: right;
+      }
+    }
+    .group-content{
+      padding: 0 1rpx;
+      margin-top: 28rpx;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      .group-content1{
+        width: 23%;
+      }
+    }
+    // 公共样式
+    .shop-title{
+        font-weight: bold;
+        font-size: 28rpx;
+        margin: 10rpx 0 0 10rpx;
+    }
+    .shop-type{
+        color: #fff;
+        font-size: 20rpx;
+        background: #ffb345;
+        padding: 0 17rpx;
+        border-radius: 16rpx;
+    }
+    .shop-subtitle{
+        color: rgb(186, 186, 186);
+        margin-left: 10rpx;
+    }
+    
+  }
+}
+// 猜你喜欢
+.like-panel-item{
+  margin:10px;
+  padding:5px 10px;
+  .like-title{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    text{
+      font-size: 32rpx;
+      height: 32rpx;
+      line-height: 32rpx;
+    }
+    image{
+      width: 91rpx;
+      height: 14rpx;
+    }
+    .left-image{
+        margin: 9rpx 12rpx 9rpx 0;
+    }
+    .right-image{
+        margin: 9rpx 0 9rpx 12rpx;
+    }
+  }
+  .like-group-content{
+    padding-top: 18rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .like-group-content-list{
+        margin-top: 18rpx;
+        width: 49%;
+        height: 530rpx;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 2rpx 4rpx 5rpx #c4c4c4;
+        overflow: hidden;
+        .shop-detail{
+            padding: 0 17rpx;
+            .shop-title{
+                display: -webkit-box;
+                -webkit-line-clamp:2;
+                -webkit-box-orient:vertical;
+                overflow:hidden;
+                text-overflow: ellipsis;
+            }
+            .dis{
+                margin-top: 12rpx;
+                padding: 0 10rpx;
+                border-radius: 32rpx;
+                border: 1px solid rgb(248, 112, 5);
+                display: inline-block;
+                color: rgb(248, 112, 5);
+            }
+            .price{
+                margin-top: 12rpx;
+                .payNum{
+                    font-size: 22rpx;
+                    color: #999999;
+                    margin-left: 10rpx;
+                    font-weight: normal;
+                }
+                .coupon{
+                    color: #f87005;
+                    font-size: 22rpx;
+                    margin-left: 5rpx;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+  }
+  
+}
+
 </style>

@@ -1,0 +1,323 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">评价晒单</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <form bindsubmit="formSubmit">
+      <!-- 商品评价 -->
+      <view class="head">
+        <view class="img">
+          <image src="../../static/image/index/test/computer.png"></image>
+        </view>
+        <view class="details">
+          <view>商品评价</view>
+          <view class="star-demo">
+            <ui-star bindchange="handleStar"></ui-star>
+          </view>
+        </view>
+      </view>
+      <!-- 评论发表 -->
+      <view class="comment">
+        <textarea bindinput="bindtext" placeholder="评价发表到晒一晒可获得更多的寸金喔~" maxlength="500" name="comment"/>
+        <view class="text-number">{{number}}/500</view>
+      </view>
+      <!-- 添加图片 -->
+      <view class="addImage">
+        <view class="title">添加图片<text>（{{imageNum}}/6）</text></view>
+        <view class="img">
+          <image wx:for="{{imageSrc}}" wx:key="addKey" src="{{item}}"></image>
+          <image wx:if="{{showAdd}}" src="../../static/image/person/icon_shi.png" bindtap="addImage"></image>
+        </view>
+      </view>
+      <!-- 匿名发布 -->
+      <view class="anonymous" bindtap="bindAnonymous">
+        <ui-icon type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!anonymousFlag}}"></ui-icon>
+        <ui-icon type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{anonymousFlag}}"></ui-icon>
+        <text>匿名发布</text>
+      </view>
+      <!-- 发布到晒一晒 -->
+      <view class="show" bindtap="bindShow">
+        <ui-icon type="yuanquan" color="#999999" size="40rpx;" wx:if="{{!showFlag}}"></ui-icon>
+        <ui-icon type="gouxuan" color="#f87005" size="40rpx;" wx:if="{{showFlag}}"></ui-icon>
+        <text>发表到晒一晒，即可获得 <text class="cunjing">+88寸金</text></text>
+      </view>
+      <!-- 物流服务评价 -->
+      <view class="log-evaluate">
+        <view class="title">
+          <view class="car-icon">
+            <image src="../../static/image/person/icon_car.png"></image>
+          </view>
+          <view class="text">【物流服务评价】</view>
+        </view>
+        <view class="star">
+          商品描述相符
+          <view class="star-demo">
+            <ui-star bindchange="handleStar" star-width="20" star-height="20"></ui-star>
+          </view>
+        </view>
+        <view class="star">
+          卖家服务态度
+          <view class="star-demo">
+            <ui-star bindchange="handleStar" star-width="20" star-height="20"></ui-star>
+          </view>
+        </view>
+        <view class="star">
+          物流发货速度
+          <view class="star-demo">
+            <ui-star bindchange="handleStar" star-width="20" star-height="20"></ui-star>
+          </view>
+        </view>
+      </view>
+      <!-- 底部提交按钮 -->
+      <button class="submit" form-type="submit">提交</button>
+    </form>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '评价晒单',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    number:0,            //字数统计
+    showAdd:true,       //是否显示添加
+    imageSrc:[],        //图片路径
+    imageNum:0,         //图片数量
+    anonymousFlag:false,//匿名发布勾选状态
+    showFlag:false      //发布到晒一晒勾选状态
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 评分星标
+  handleStar (e) {
+      let index= e.detail
+      if (index === 1) {
+          this.setData({
+              starResult:'非常差，不会再来'
+          })
+      } else if (index === 2) {
+          this.setData({
+              starResult:'感觉很一般'
+          })
+      } else if (index === 3) {
+          this.setData({
+              starResult:'满意，感觉不错'
+          })
+      } else if (index === 4) {
+          this.setData({
+              starResult:'很满意，下次还要来'
+          })
+      } else if (index === 5) {
+          this.setData({
+              starResult:'非常棒，值得推荐给朋友'
+          })
+      }
+  },
+  // 统计字数
+  bindtext(e){
+    this.setData({
+      number:e.detail.cursor
+    })
+  },
+  // 添加图片
+  addImage(){
+    var that = this;
+    wx.chooseImage({
+      count: 6,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        if(res.tempFilePaths.length >= 6){
+          that.setData({
+            showAdd:false,
+            imageSrc:res.tempFilePaths,
+            imageNum:res.tempFilePaths.length
+          })
+        }else{
+          that.setData({
+            imageSrc:res.tempFilePaths,
+            imageNum:res.tempFilePaths.length
+          })
+        }
+      }
+    })
+  },
+  // 匿名发布勾选
+  bindAnonymous(){
+    this.setData({
+      anonymousFlag:!this.data.anonymousFlag
+    })
+  },
+  // 发布到晒一晒勾选
+  bindShow(){
+    this.setData({
+      showFlag:!this.data.showFlag
+    })
+  },
+  // 提交，数据收集
+  formSubmit(e){
+    console.log(e.detail.value)
+  }
+}
+</script>
+
+<style lang="less">
+// 物流状态
+.head{
+  padding: 30rpx 10px;
+  background: #fff;
+  margin-bottom: 6rpx;
+  display: flex;
+  .img{
+    width: 30%;
+    float: left;
+    image{
+      width: 144rpx;
+      height: 144rpx;
+    }
+  }
+  .details{
+    float: right;
+    width: 70%;
+    font-size: 30rpx;
+  }
+}
+// 评分星标
+.star-demo {
+  padding: 20rpx 0;
+  .result {
+    padding-left: 20rpx; 
+    font-size: 28rpx; 
+    color: #ff5800;
+  }
+}
+// 评价发表
+.comment{
+  height: 241rpx;
+  padding: 14rpx 10px;
+  background: #fff;
+  margin-bottom: 6rpx;
+  position: relative;
+  textarea{
+    width: 100%;
+    height: 190rpx;
+  }
+  .text-number{
+    position: absolute;
+    right: 0;
+    bottom: -40rpx;
+    color: #999999;
+  }
+}
+// 添加图片
+.addImage{
+  padding: 16rpx 10px;
+  background: #fff;
+  margin-bottom: 6rpx;
+  .title{
+    text{
+      color: #999999;
+    }
+  }
+  .img{
+    display: flex;
+    image{
+      width: 164rpx;
+      height: 164rpx;
+      float: left;
+      margin-right: 10rpx;
+      margin-top: 20rpx;
+    }
+  }
+}
+// 匿名发布
+.anonymous,.show{
+  height: 100rpx;
+  background: #fff;
+  padding: 0 10px;
+  margin-bottom: 6rpx;
+  .mix-flex-y-center();
+  text{
+    margin-left: 20rpx;
+  }
+}
+// 发布到晒一晒
+.show{
+  text{
+    .cunjing{
+      margin: 0;
+      color: rgb(235, 2, 2);
+      font-weight: bold;
+    }
+  }
+}
+// 物流服务评价
+.log-evaluate{
+  padding: 24rpx 10px;
+  background: #fff;
+  padding-bottom: 170rpx;
+  .title{
+    display: flex;
+    .car-icon,.text{
+      float: left;
+    }
+    .car-icon{
+      image{
+        width: 54rpx;
+        height: 54rpx;
+      }
+    }
+    .text{
+      font-weight: bold;
+      font-size: 36rpx;
+    }
+  }
+  .star{
+    position: relative;
+    margin-top: 20rpx;
+    .star-demo{
+      position:absolute;
+      top: 0;
+      left: 200rpx;
+      padding: 0;
+    }
+  }
+}
+// 底部提交按钮
+.submit{
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  background: #f87005;
+  margin: 0;
+  border-radius: 0;
+}
+.submit::after{
+  border:none;
+}
+</style>

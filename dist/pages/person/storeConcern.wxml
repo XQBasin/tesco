@@ -1,0 +1,108 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">商店关注</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 内容区 -->
+  <ui-tabs style="width:50%;" index="{{ current }}" bindchange="handleChange" ink-bar="true" active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}" _pid="{{_pid}}">
+    <ui-tab _pid="{{_pid}}">商品</ui-tab>
+    <ui-tab _pid="{{_pid}}">店铺</ui-tab>
+  </ui-tabs>
+  <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="margin-top:-10rpx;">
+    <!-- 商品 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+        <view class="item">
+          <view class="top">
+            <view class="img">
+              <image src="../../static/image/person/head.png" />
+            </view>
+            <view class="name">
+              凯德旗舰店
+            </view>
+          </view>
+          <view class="middle">
+            <view class="left">
+              <image src="../../static/image/details/test/img2.png" />
+            </view>
+            <view class="right">
+              <view class="title">方式开发商就会防晒服还发收款爱神的箭奥斯卡大囧大事记...</view>
+              <view class="total">¥89.00</view>
+            </view>
+            <view class="cancel">删除</view>
+            <view class="enter">进入购买</view>
+          </view>
+        </view>
+
+        <view class="item">
+          <view class="top">
+            <view class="img">
+              <image src="../../static/image/person/head.png" />
+            </view>
+            <view class="name">
+              凯德旗舰店
+            </view>
+          </view>
+          <view class="middle">
+            <view class="left">
+              <image src="../../static/image/details/test/img2.png" />
+            </view>
+            <view class="right">
+              <view class="title">方式开发商就会防晒服还发收款爱神的箭奥斯卡大囧大事记...</view>
+              <view class="total">¥89.00</view>
+            </view>
+            <view class="cancel">删除</view>
+            <view class="enter">进入购买</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 店铺 -->
+    <swiper-item>
+      <scroll-view scroll-y style="height: 1100rpx;">
+        <view class="list">
+          <view class="icon">
+            <!-- <image src=""></image> -->
+          </view>
+          <view class="info">
+            <view>Skuidsnsdd旗舰店</view>
+            <view class="detail">水电费很多事复合肥好阀口袋的发生第三煞风景...</view>
+          </view>
+          <view class="enter">进入店铺</view>
+        </view>
+
+        <view class="list">
+          <view class="icon">
+            <!-- <image src=""></image> -->
+          </view>
+          <view class="info">
+            <view>Skuidsnsdd旗舰店</view>
+            <view class="detail">水电费很多事复合肥好阀口袋的发生第三煞风景...</view>
+          </view>
+          <view class="enter">进入店铺</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

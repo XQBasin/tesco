@@ -1,0 +1,176 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">商品评价</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 好评率 -->
+  <view class="top">
+    <view class="title">
+      好评率　<text>99%</text>
+    </view>
+  </view>
+
+  <!-- 选项卡 -->
+  <view class="tabs">
+    <view wx:for="{{item}}" wx:key="itemKey" class="item {{itemId==index? 'active':''}}" data-id="{{index}}" bindtap="bindItem">
+      <view class="item-title">{{item.title}}</view>
+      <view class="numbers">{{item.number}}</view>
+      <view class="line" wx:if="{{itemId==index}}"></view>
+    </view>
+  </view>
+
+  <!-- 评论内容区 -->
+  <view wx:if="{{itemId==0}}">
+    <view class="list">
+      <view class="top">
+        <view class="img">
+          <image src="../../static/image/person/head.png" />
+        </view>
+        <view class="name">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+        <view class="time">
+          2019-02-25
+        </view>
+      </view>
+      <view class="content">
+        <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+      </view>
+      <view class="middle">
+        <view class="img">
+          <image src="../../static/image/details/icon_star_a.png" mode="widthFix" />
+        </view>
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">好卡3旗舰店</view>
+        <view class="right">
+          <view class="icon-good">
+            <image src="../../static/image/details/icon_good_a.png" />
+          </view>
+          <view class="number">（5454）</view>
+        </view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="top">
+        <view class="img">
+          <image src="../../static/image/person/head.png" />
+        </view>
+        <view class="name">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+        <view class="time">
+          2019-02-25
+        </view>
+      </view>
+      <view class="content">
+        <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+      </view>
+      <view class="middle">
+        <view class="img">
+          <image src="../../static/image/details/icon_star_a.png" mode="widthFix" />
+        </view>
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">好卡3旗舰店</view>
+        <view class="right">
+          <view class="icon-good">
+            <image src="../../static/image/details/icon_good_a.png" />
+          </view>
+          <view class="number">（5454）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{itemId==1}}">
+    <view class="list">
+      <view class="top">
+        <view class="img">
+          <image src="../../static/image/person/head.png" />
+        </view>
+        <view class="name">
+          4***9
+          <view class="stars">
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+            <image src="../../static/image/details/icon_star_a.png" />
+          </view>
+        </view>
+        <view class="time">
+          2019-02-25
+        </view>
+      </view>
+      <view class="content">
+        <view class="main">产品非常不错三大航空开发撒开了加沙拉酱拉萨分散阿来得及啊加上了解到阿斯兰的骄傲了...</view>
+      </view>
+      <view class="middle">
+        <view class="img">
+          <image src="../../static/image/details/icon_star_a.png" mode="widthFix" />
+        </view>
+        <view class="img"></view>
+        <view class="img"></view>
+      </view>
+      <view class="bottom">
+        <view class="left">好卡3旗舰店</view>
+        <view class="right">
+          <view class="icon-good">
+            <image src="../../static/image/details/icon_good_a.png" />
+          </view>
+          <view class="number">（5454）</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{itemId==2}}">
+    12
+  </view>
+  <view wx:if="{{itemId==3}}">
+    12
+  </view>
+  <view wx:if="{{itemId==4}}">
+    12
+  </view>
+
+  <view style="width:1px;height:190rpx;"></view>
+</view>

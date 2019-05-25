@@ -1,0 +1,121 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">地址管理</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 地址管理 -->
+    <view class="address" bindtap="clickCheck" data-id="0">
+        <view class="text">
+            <view class="user">卡卡西丿<text>123******09</text></view>
+            <view class="content"><text>[默认]</text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
+        </view>
+        <view class="right">
+            <ui-icon type="gengduo" size="40rpx;"></ui-icon>
+        </view>
+    </view>
+    <view class="address" bindtap="clickCheck" data-id="1">
+        <view class="text">
+            <view class="user">卡卡西丿<text>123******09</text></view>
+            <view class="content"><text></text>广东省广州市番禺区建基路9909号信息科技快捷支学后门29号楼</view>
+        </view>
+        <view class="right">
+            <ui-icon type="gengduo" size="40rpx;"></ui-icon>
+        </view>
+    </view>
+    <!-- 添加新地址 -->
+    <view class="add">+添加新的地址</view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '地址管理',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    addressId:0
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 选中地址
+  clickCheck(e){
+      this.setData({
+          addressId:e.currentTarget.dataset.id
+      })
+  }  
+}
+</script>
+
+<style lang="less">
+.address{
+    background: #fff;
+    margin-bottom: 1px;
+    padding: 0 10px;
+    display: flex;
+    .left,.right{
+        line-height: 164rpx;
+    }
+    .text{
+        padding: 28rpx 0;
+        float: left;
+        width: 95%;
+        .user{
+            font-size: 28rpx;
+            text{
+                margin-left: 74rpx;
+            }
+        }
+        .content{
+            font-size: 26rpx;
+            color: #999999;
+            display: -webkit-box;
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+            overflow:hidden;
+            text-overflow: ellipsis;
+            text{
+                color: #f87005;
+            }
+        }
+    }
+    .right{
+        width: 5%;
+    }
+}
+// 添加新地址
+.add{
+  width: 698rpx;
+  height: 96rpx;
+  background: #f87005;
+  font-size: 36rpx;
+  line-height: 96rpx;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  margin-left: -349rpx;
+  bottom: 30rpx;
+  border-radius: 10rpx;
+}
+</style>

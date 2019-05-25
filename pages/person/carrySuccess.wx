@@ -1,0 +1,134 @@
+<template>
+  <view style="height:100%;background:#fff">
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">操作成功</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 支付成功标识 -->
+    <view class="top">
+        <image src="../../static/image/person/icon_Success.png"></image>
+        <view class="success">转账成功</view>
+        <view class="text">预计10秒内到账</view>
+    </view>
+
+    <!-- 底部 -->
+    <view class="bottom">
+        <view class="more">
+            <view class="continue">继续转账</view>
+            <view class="home" bindtap="toHome">返回首页</view>
+        </view>
+
+        <image src="../../static/image/index/test/banner.png"></image>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '操作成功',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    user:'卡卡西',            //收件人信息
+    orderNum:'3425352355552',
+    address:'广东省广州市番禺区对话框按时发链接广告费的故事大概 大V搜索',
+    pay:'280.00',
+    discount:'52.00',
+    time:'2019.03.24 12:35:10'
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  //回到首页   
+  toHome(){
+      wx.switchTab({ url: '/pages/home/index' });
+  }
+}
+</script>
+
+<style lang="less">
+// 支付成功标识
+.top{
+    padding-top: 50rpx;
+    image{
+        width: 157rpx;
+        height: 157rpx;
+        margin: 0 auto;
+    }
+    .success{
+        width: 100%;
+        height: 54rpx;
+        line-height: 54rpx;
+        font-weight: bold;
+        font-size: 36rpx;
+        .mix-flex-x-center();
+        margin: 24rpx 0 13rpx 0;
+    }
+    .text{
+        width: 100%;
+        height: 45rpx;
+        line-height: 45rpx;
+        font-size: 30rpx;
+        .mix-flex-x-center();
+        color: #999999;
+    }
+}
+// 底部
+.bottom{
+    width: 100%;
+    padding: 32rpx 0;
+    .more{
+        width: 550rpx;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        .home,.continue{
+            width: 240rpx;
+            height: 99rpx;
+            border-radius: 10rpx;
+            font-size: 30rpx;
+            line-height: 99rpx;
+            text-align: center;
+        }
+        .continue{
+            border: 1px solid #999999;
+            color: #999999;
+        }
+        .home{
+            border: 1px solid #f87005;
+            color: #f87005;
+        }
+    }
+    image{
+        width: 690rpx;
+        height: 200rpx;
+        margin: 0 auto;
+        margin-top: 109rpx;
+    }
+}
+.bottom::before{
+    width: 1px;
+    height: 342rpx;
+    display: block;
+    content: '';
+}
+</style>

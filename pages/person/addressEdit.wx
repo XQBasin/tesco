@@ -1,0 +1,218 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">编辑地址</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 填写区域 -->
+    <form bindsubmit="formSubmit">
+        <ui-row-list>
+            <ui-row class="row">
+                <ui-col class="text">
+                    收货人
+                </ui-col>
+                <view class="input">
+                    <input name="username" placeholder="收货人姓名" placeholder-style="color:#999999;"/>
+                </view>
+            </ui-row>
+            <ui-row class="row">
+                <ui-col class="text">
+                    手机号码
+                </ui-col>
+                <view class="input">
+                    <input name="phone" placeholder="收货人手机号码" placeholder-style="color:#999999;" type="number" maxlength="11"/>
+                </view>
+            </ui-row>
+            <ui-row class="row">
+                <ui-col class="text">
+                    所在地区
+                </ui-col>
+                <input type="text" hidden value="广州" name="area">
+                <ui-col width="40" vertical-align="middle" align="right">
+                    <ui-icon type="gengduo" size="40rpx;" color="#999999"></ui-icon>
+                </ui-col>
+            </ui-row>
+            <ui-row class="row">
+                <ui-col class="text">
+                    详细地址
+                </ui-col>
+                <view class="input">
+                    <input name="address" placeholder="请填写详细的地址" placeholder-style="color:#999999;"/>
+                </view>
+            </ui-row>
+            <ui-row class="row">
+                <ui-col class="text">
+                    邮政编码
+                </ui-col>
+                <view class="input">
+                    <input name="code" placeholder="请填写邮政编码" placeholder-style="color:#999999;" type="number"/>
+                </view>
+            </ui-row>
+            <ui-row class="row">
+                <ui-col class="text">
+                    设为默认地址
+                </ui-col>
+                <checkbox name="default" value="" checked/>
+            </ui-row>
+        </ui-row-list>
+
+        <!-- 保存 -->
+        <button class="keep" form-type="submit">保存并使用</button>
+    </form>
+  </view>
+</template>
+
+<script>
+import WxValidate from '../../static/utils/WxValidate.js';
+export default {
+  config: {
+    navigationBarTitleText: '个人信息',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  onLoad(options) {
+      this.initValidate();
+  },
+  // 初始化表单校验
+  initValidate() {
+    // 验证字段的规则
+    const rules = {
+        username: {
+            required: true,
+        },
+        phone: {
+            required: true,
+        },
+        area: {
+            required: true,
+        },
+        address: {
+            required: true,
+        },
+        code: {
+            required: true,
+        }
+    }
+    // 验证字段的提示信息，若不传则调用默认的信息
+    const messages = {
+        username: {
+            required: '请输入收货人姓名！',
+        },
+        phone: {
+            required: '请输入收货人手机号码！',
+        },
+        area: {
+            required: '请选择地区！',
+        },
+        address: {
+            required: '请输入详细地址！',
+        },
+        code: {
+            required: '请输入邮政编码！',
+        }
+    }
+    // 创建实例对象
+    this.validate = new WxValidate(rules, messages)
+  },
+  // 数据收集
+  formSubmit(e){
+    var data = e.detail.value;
+    // 校验表单
+    if (!this.validate.checkForm(data)) {
+        const error = this.validate.errorList[0];
+        wx.showToast({
+            title: error.msg,
+            icon: 'none'
+        })
+        return false
+    }
+    console.log(e.detail.value);
+  }
+}
+</script>
+
+<style lang="less">
+.row{
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+  position: relative;
+  padding: 0 10px;
+  .mix-flex-y-center();
+  .input{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 10px 0 200rpx;
+    input{
+        height: 90rpx;
+    }
+  }
+  checkbox{
+    position: absolute;
+    top: 0;
+    left: 220rpx;
+  }
+}
+// 保存
+.keep{
+    width: 90%;
+    height: 86rpx;
+    margin: 0 auto;
+    background: rgb(245, 122, 26);
+    color: #fff;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    margin-top: 40rpx;
+    .mix-flex-center();
+}
+
+/*  重写 checkbox 样式  */
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+    width: 32rpx; /* 背景的宽 */
+    height: 32rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+    background: #f87005;
+    border:none;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+    /* border-radius: 50%;圆角 */
+    width: 32rpx;    /* 选中后对勾大小，不要超过背景的尺寸 */
+    height: 32rpx;   /* 选中后对勾大小，不要超过背景的尺寸 */
+    line-height: 30rpx;
+    text-align: center;
+    font-size:30rpx;     /* 对勾大小 30rpx */
+    color:#fff;      /* 对勾颜色 白色 */
+    
+    background: transparent;
+    transform:translate(-50%, -50%) scale(1);
+    -webkit-transform:translate(-50%, -50%) scale(1);
+}
+</style>

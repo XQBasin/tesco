@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index"
+  },
+  "navigationBarTitleText": "规则说明",
+  "navigationBarTextStyle": "black"
+}

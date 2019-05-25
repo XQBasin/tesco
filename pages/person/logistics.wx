@@ -1,0 +1,207 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">查看物流</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+    <!-- 物流状态 -->
+    <view class="head">
+      <view class="img">
+        <image src="../../static/image/index/test/computer.png"></image>
+      </view>
+      <view class="details">
+        <view class="flag">物流状态：<text>已签收</text></view>
+        <view>承运来源：中通快递</view>
+        <view>运单编号：32432325252398</view>
+        <view>官方电话：12580</view>
+      </view>
+    </view>
+
+    <!-- 派送员 -->
+    <view class="middle">
+      <view class="img">
+        <image src="../../static/image/person/icon_Courier.png"></image>
+      </view>
+      <view class="info">
+        <view class="title">派送员</view>
+        <view>卡卡西</view>
+      </view>
+      <view class="phone" bindtap="call">
+        13335555552
+        <ui-icon type="phone" color="#f87005" size="52rpx;"></ui-icon>
+      </view>
+    </view>
+
+    <!-- 物流过程 -->
+    <view class="content">
+      <view class="item success">
+        <view class="green">
+          <image src="../../static/image/person/icon_green.png"></image>
+        </view>
+        <view>【广州市】已签收，签收人是本人，感谢使用</view>
+        <view>中通快递，期待再次为您服务</view>
+        <view class="time">2019-03-03　11:30:23</view>
+      </view>
+      <view class="item">
+        <view class="gray"></view>
+        <view>【广州市】已签收，签收人是本人，感谢使用</view>
+        <view>中通快递，期待再次为您服务</view>
+        <view class="time">2019-03-03　11:30:23</view>
+      </view>
+      <view class="item">
+        <view class="gray"></view>
+        <view>【成都市】商家已发货</view>
+        <view class="time">2019-03-03　11:30:23</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '查看物流',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  //拨打电话
+  call(){
+    wx.showModal({
+      title: '',
+      content: '13335555552',
+      confirmText: '呼叫',
+      cancelColor: 'rgb(186,186,186)',
+      confirmColor: '#f87005',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击呼叫');
+          wx.makePhoneCall({
+            phoneNumber: '13335555552' // 仅为示例，并非真实的电话号码
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  } 
+}
+</script>
+
+<style lang="less">
+// 物流状态
+.head{
+  padding: 30rpx 10px;
+  background: #fff;
+  margin-bottom: 14rpx;
+  display: flex;
+  .img{
+    width: 30%;
+    image{
+      width: 144rpx;
+      height: 144rpx;
+    }
+  }
+  .details{
+    width: 70%;
+    font-size: 24rpx;
+    color: #999999;
+    .flag{
+      font-size: 28rpx;
+      color: rgb(25, 25, 25);
+      text{
+        color: #f87005;
+      }
+    }
+  }
+}
+// 派送员
+.middle{
+  padding: 24rpx 10px;
+  background: #fff;
+  margin-bottom: 14rpx;
+  height: 130rpx;
+  .img,.info{
+    float: left;
+  }
+  .img{
+    height: 100%;
+    .mix-flex-y-center();
+    image{
+      width: 64rpx;
+      height: 64rpx;
+    }
+  }
+  .info{
+    font-size: 28rpx;
+    margin-left: 24rpx;
+    .title{
+      color: #999999;
+      font-size: 24rpx;
+    }
+  }
+  .phone{
+    float: right;
+    font-size: 24rpx;
+    color: #999999;
+    .mix-flex-y-center();
+  }
+}
+// 物流过程
+.content{
+  padding: 40rpx 10px 40rpx 72rpx;
+  .item{
+    padding: 0 44rpx 62rpx 44rpx;
+    border-left: 1px solid #999999;
+    color: #999999;
+    font-size: 28rpx;
+    position: relative;
+    .gray{
+      position: absolute;
+      top: 14rpx;
+      left: -12rpx;
+      width: 25rpx;
+      height: 25rpx;
+      background: #999999;
+      border-radius: 50%;
+    }
+    .time{
+      font-size: 24rpx;
+    }
+  }
+  .item.success{
+    // padding: 0 0rpx 62rpx 44rpx;
+    color: rgb(86, 191, 22);
+    position: relative;
+    .green{
+      position: absolute;
+      top: -5rpx;
+      left: -18rpx;
+      image{
+        width: 36rpx;
+        height: 36rpx;
+      }
+    }
+  }
+}
+</style>

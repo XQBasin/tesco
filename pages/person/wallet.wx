@@ -1,0 +1,295 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">我的钱包</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 提示 -->
+    <view class="tip">
+      <view class="tip-icon">
+        <ui-icon type="laba" color="#de6201" size="40rpx;"></ui-icon>
+      </view>
+      <view class="text">新手必看！什么是寸金？</view>
+    </view>
+
+    <!-- 概况 -->
+    <view class="survey">
+      <view class="top">
+        <view class="integral">8888.88</view>
+        <view class="prompt">（可用寸金）</view>
+        <view class="statis">
+          <view class="text">今日：<text>0.00</text></view>
+          <view class="text mar">昨日：<text>345.00</text></view>
+          <view class="text">本月：<text>5778.00</text></view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="earn">
+          <ui-icon type="qiandai" color="#ffffff" size="40rpx;"></ui-icon>
+          <text>赚寸金</text>
+        </view>
+        <view class="bring">
+          <ui-icon type="zhuanzhang" color="#ffffff" size="40rpx;"></ui-icon>
+          <text>转账</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 详细内容 -->
+    <view class="details">
+      <ui-tabs style="background: #fff;" index="{{ current }}" bindchange="handleChange" ink-bar active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}">
+        <ui-tab class="font">全部</ui-tab>
+        <ui-tab class="font">收入</ui-tab>
+        <ui-tab class="font">支出</ui-tab>
+      </ui-tabs>
+      <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" >
+          <swiper-item>
+            <scroll-view scroll-y style="height: 600rpx;">
+              <view class="item">
+                <view class="action">
+                  <text class="item1">余额支出</text>
+                  <text class="item2">-435.00</text>
+                </view>
+                <view class="order-num">
+                  <text class="item1">订单号：3439352052852</text>
+                  <text class="item2">2019.02.27</text>
+                </view>
+              </view>
+              <view class="item">
+                <view class="action">
+                  <text class="item1">余额支出</text>
+                  <text class="item2">-435.00</text>
+                </view>
+                <view class="order-num">
+                  <text class="item1">订单号：3439352052852</text>
+                  <text class="item2">2019.02.27</text>
+                </view>
+              </view>
+              <view class="item">
+                <view class="action">
+                  <text class="item1">余额支出</text>
+                  <text class="item2">-435.00</text>
+                </view>
+                <view class="order-num">
+                  <text class="item1">订单号：3439352052852</text>
+                  <text class="item2">2019.02.27</text>
+                </view>
+              </view>
+              <view class="item">
+                <view class="action">
+                  <text class="item1">余额支出</text>
+                  <text class="item2">-435.00</text>
+                </view>
+                <view class="order-num">
+                  <text class="item1">订单号：3439352052852</text>
+                  <text class="item2">2019.02.27</text>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+          <swiper-item>
+            <scroll-view scroll-y style="height: 600rpx;">
+              <view class="item">
+                <view class="action">
+                  <text class="item1">余额支出</text>
+                  <text class="item2">-435.00</text>
+                </view>
+                <view class="order-num">
+                  <text class="item1">订单号：3439352052852</text>
+                  <text class="item2">2019.02.27</text>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+          <swiper-item>
+            <scroll-view scroll-y style="height: 600rpx;">
+              <view class="item">
+                <view class="action">
+                  <text class="item1">余额支出</text>
+                  <text class="item2">-435.00</text>
+                </view>
+                <view class="order-num">
+                  <text class="item1">订单号：3439352052852</text>
+                  <text class="item2">2019.02.27</text>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+      </swiper>
+    </view>
+
+    <!--  -->
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '我的钱包',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    current: 0,
+    activeTabStyle:{
+      'color': '#f87005',
+    },
+    inkBarStyle:{
+      'border-bottom': '1px solid #f87005',
+      'width': '60%',
+      'color':'#f87005'
+    }
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 选项卡
+  handleChange (e) {
+      let index = e.detail.index
+      this.setData({
+        current:index
+      })
+  },
+  handleContentChange (e) {
+      let current = e.detail.current
+      this.setData({
+        current:current
+      })
+  }
+}
+</script>
+
+<style lang="less">
+swiper{
+  height: 600rpx;
+}
+// 提示
+.tip{
+  height: 68rpx;
+  background: #fecb8d;
+  .tip-icon{
+    width: 10%;
+    float: left;
+    .mix-flex-center();
+  }
+  .text{
+    float: left;
+    line-height: 68rpx;
+    font-weight: bold;
+  }
+}
+// 概况
+.survey{
+  background: linear-gradient(to bottom, #fda63d, #fd9e35, #fc932a,#fb891f,#f97b10);
+  color: #fff;
+  padding-bottom: 11rpx;
+  margin-bottom: 10rpx;
+  .top{
+    text-align: center;
+    .integral{
+      font-size: 80rpx;
+      line-height: 80rpx;
+      font-weight: bold;
+      padding: 118rpx 0 15rpx 0;
+    }
+    .prompt{
+      font-size: 30rpx;
+    }
+    .statis{
+      font-size: 24rpx;
+      margin: 45rpx 0 30rpx;
+      .mix-flex-center();
+      .text{
+        float: left;
+        
+      }
+      .mar{
+        margin: 0 58rpx;
+      }
+    }
+    .statis::after{
+      display: block;
+      height: 0;
+      clear: both;
+      content: '';
+    }
+  }
+  .bottom{
+    padding: 0 34rpx;
+    .earn,.bring{
+      width: 45%;
+      background: rgba(255, 255, 255, .36);
+      border-radius: 6px;
+      height: 88rpx;
+      .mix-flex-center();
+      color: #fff;
+      font-size: 30rpx;
+      text{
+        margin-left: 18rpx;
+      }
+    }
+    .earn{
+      float: left;
+    }
+    .bring{
+      float: right;
+    }
+  }
+  .bottom::after{
+    display: block;
+    height: 0;
+    clear: both;
+    content: '';
+  }
+}
+// 详细内容
+.details{
+  .font{
+    font-weight: bold;
+    font-size: 30rpx;
+  }
+  .content{
+    background: #fff;
+    .item{
+      padding: 20rpx 38rpx 20rpx 38rpx;
+      border-top: 2px solid #f4f4f4;
+      .action{
+        font-size: 28rpx;
+      }
+      .order-num{
+        font-size: 24rpx;
+        color: #999999;
+      }
+      .item1{
+        float: left;
+      }
+      .item2{
+        float: right;
+      }
+      .action::after,.order-num::after{
+        display: block;
+        height: 0;
+        clear: both;
+        content: '';
+      }
+    }
+  }
+}
+</style>

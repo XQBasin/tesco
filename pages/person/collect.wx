@@ -1,0 +1,237 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">我的收藏</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 内容区 -->
+    <ui-tabs style="background:#fff;" index="{{ current }}" bindchange="handleChange" ink-bar active-tab-style="{{activeTabStyle}}" ink-bar-style="{{inkBarStyle}}">
+      <ui-tab>商品</ui-tab>
+      <ui-tab>店铺</ui-tab>
+    </ui-tabs>
+    <swiper class="content"  current="{{ current }}" bindchange="handleContentChange" style="margin-top:0px;">
+        <!-- 商品 -->
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            <!-- 用户操作 -->
+            <view class="head">
+              <view class="tip">共11条，最多为您保存30条</view>
+            </view>
+
+            <!-- 商品列表 -->
+            <view class="list">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+                <view class="total">¥3999.00</view>
+              </view>
+              <view class="enter">进入店铺</view>
+            </view>
+
+            <view class="list">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+                <view class="total">¥3999.00</view>
+              </view>
+              <view class="enter">进入店铺</view>
+            </view>
+
+            <view class="list">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+                <view class="total">¥3999.00</view>
+              </view>
+              <view class="enter">进入店铺</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+        <!-- 店铺 -->
+        <swiper-item>
+          <scroll-view scroll-y style="height: 1100rpx;">
+            <!-- 用户操作 -->
+            <view class="head">
+              <view class="tip">共11条，最多为您保存30条</view>
+            </view>
+
+            <!-- 商品列表 -->
+            <view class="list">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+                <view class="fill">满100减20</view>
+              </view>
+              <view class="enter">进去看看</view>
+              <view class="cancel">删除</view>
+            </view>
+
+            <view class="list">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+                <view class="fill">满100减20</view>
+              </view>
+              <view class="enter">进去看看</view>
+              <view class="cancel">删除</view>
+            </view>
+
+            <view class="list">
+              <view class="left">
+                <image src="../../static/image/index/test/computer.png"></image>
+              </view>
+              <view class="right">
+                <view class="title">疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款疯狂的首付款</view>
+                <view class="fill">满100减20</view>
+              </view>
+              <view class="enter">进去看看</view>
+              <view class="cancel">删除</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+    </swiper>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '我的收藏',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
+    current: 0,
+    activeTabStyle:{
+      'color': '#f87005',
+    },
+    inkBarStyle:{
+      'border-bottom': '0px solid #f87005',
+      'width': '35%',
+      'color':'#f87005'
+    }
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  },
+  // 选项卡功能
+  handleChange (e) {
+      let index = e.detail.index
+      this.setData({
+        current:index
+      })
+  },
+  handleContentChange (e) {
+      let current = e.detail.current
+      this.setData({
+        current:current
+      })
+  }
+}
+</script>
+
+<style lang="less">
+swiper{
+  height: 1100rpx;
+}
+.content{
+  // 用户操作
+  .head{
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 10px;
+    .tip{
+      color: #999999;
+      float: left;
+    }
+  }
+  // 商品列表
+  .list{
+    padding: 20rpx 10px;
+    margin-top: 1px;
+    background: #fff;
+    position: relative;
+    margin-bottom: 3rpx;
+    display: flex;
+    .left{
+      width: 30%;
+      image{
+        width: 200rpx;
+        height: 200rpx;
+        border:1px solid #bfbfbf;
+      }
+    }
+    .right{
+      width: 65%;
+      font-size: 28rpx;
+      margin-left: 25rpx;
+      .title{
+        display: -webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+        text-overflow: ellipsis;
+      }
+      .total{
+        font-size: 36rpx;
+        color: #f87005;
+        margin-top: 10rpx;
+        font-weight: bold;
+      }
+      .fill{
+        background: #f87005;
+        color: #fff;
+        width: 140rpx;
+        height: 30rpx;
+        border-radius: 4rpx;
+        font-size: 24rpx;
+        .mix-flex-center();
+      }
+    }
+    .enter,.cancel{
+      position: absolute;
+      right: 10px;
+      bottom: 20rpx;
+      font-size: 28rpx;
+      width: 136rpx;
+      height: 40rpx;
+      color: #f87005;
+      .mix-flex-center();
+      border-radius: 4rpx;
+      border: 1px solid #f87005
+    }
+    .cancel{
+      right: 173rpx;
+      color: #999999;
+      border: 1px solid #999999;
+    }
+  }
+}
+</style>

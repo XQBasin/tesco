@@ -1,0 +1,193 @@
+<view>
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">我的乐购</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- head -->
+  <view class="head">
+    <view class="after">
+      <!-- <image src="{{}}"></image> -->
+    </view>
+    <view class="before">
+      <view class="left">
+        <image src="../../static/image/person/head.png" width="100%" />
+      </view>
+      <view class="middle">
+        <view class="username">Sl-卡卡xi</view>
+        <view class="member">乐购会员</view>
+      </view>
+      <view class="right">
+        <view class="footprint">
+          <view class="zuji-icon">
+            <span type="zuji" color="#ffffff" size="40rpx;" class="ui-icon icon-zuji" style="color: #ffffff;font-size: 40rpx;px;"></span>
+          </view>
+          <view>足迹</view>
+        </view>
+        <view class="collect">
+          <view class="shoucang-icon">
+            <span type="shoucang" color="#ffffff" size="40rpx;" class="ui-icon icon-shoucang" style="color: #ffffff;font-size: 40rpx;px;"></span>
+          </view>
+          <view>收藏</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的钱包 -->
+  <view class="wallet">
+    <view class="top">
+      <view class="title">我的钱包</view>
+      <view class="more">查看更多<span type="gengduo" color="#999999" size="22rpx;" class="ui-icon icon-gengduo" style="color: #999999;font-size: 22rpx;px;"></span></view>
+    </view>
+    <view class="middle">
+      <view class="money">8888.88<text>寸金</text></view>
+      <view class="handle">
+        <view class="use">去使用</view>
+        <view class="text">（有200寸金将要过期）</view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="text">今日：<text>0.00</text></view>
+      <view class="text mar">昨日：<text>345.00</text></view>
+      <view class="text mar">本月：<text>5778.00</text></view>
+    </view>
+  </view>
+
+  <!-- 我的订单 -->
+  <view class="myorder">
+    <view class="top">
+      <view class="title">我的钱包</view>
+      <view class="more">查看全部<span type="gengduo" color="#999999" size="22rpx;" class="ui-icon icon-gengduo" style="color: #999999;font-size: 22rpx;px;"></span></view>
+    </view>
+    <view class="middle">
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_order.png" />
+        </view>
+        <view class="text">待支付</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_order2.png" />
+        </view>
+        <view class="text">待发货</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_order3.png" />
+        </view>
+        <view class="text">待收货</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_order4.png" />
+        </view>
+        <view class="text">待评价</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_order5.png" />
+        </view>
+        <view class="text">退换售后</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 您需要的 -->
+  <view class="need">
+    <view class="top">
+      <view class="title">您需要的</view>
+    </view>
+    <view class="middle">
+      <view class="operation">
+        <view class="order-icon">
+          20
+        </view>
+        <view class="text">商店关注</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions1.png" />
+        </view>
+        <view class="text">购物车</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions2.png" />
+        </view>
+        <view class="text">优惠券</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions3.png" />
+        </view>
+        <view class="text">我的消息</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions4.png" />
+        </view>
+        <view class="text">收货地址</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions5.png" />
+        </view>
+        <view class="text">实名认证</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions6.png" />
+        </view>
+        <view class="text">客户服务</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions7.png" />
+        </view>
+        <view class="text">意见反馈</view>
+      </view>
+      <view class="operation">
+        <view class="order-icon">
+          <image src="../../static/image/person/mine_icon_functions8.png" />
+        </view>
+        <view class="text">我的评价</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 广告区 -->
+  <view class="banner">
+    <image src="../../static/image/index/test/banner.png" />
+  </view>
+
+  <!-- 为您推荐 -->
+  <view class="recommend">为您推荐</view>
+  <view class="group-content">
+    <view wx:for="{{list}}" wx:key="likeKey" class="group-content-list">
+      <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
+      <view class="shop-detail">
+        <view class="shop-title">分公司决定了价格是的发到发生地方发生订购方式分公司决定了价格</view>
+        <view class="price">¥124<text class="coupon">+66寸金</text></view>
+        <view class="fill">满199减100</view>
+        <view class="evaluate">10+评价　100好评</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,100 @@
+<template>
+  <view>
+    <!-- 自定义导航栏 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}">
+        <ui-row height="{{DEFAULT_HEADER_HEIGHT}}" class="nav_bar">
+            <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px" bindtap="navigateBack">
+                <view class="containertitle">
+                    <view class='dingwei'>
+                        <ui-icon type="zuojiantou" color="#333333" size="20px;"></ui-icon>
+                    </view>
+                </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col">
+                <view class="nav-bar-title">关于方乐购</view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="nav-bar-col" align="right"  width="100px">
+            </ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- logo -->
+    <view class="head">
+        <view class="logo">
+            <image src="../../static/image/person/logo.png" mode="widthFix"></image>
+        </view>
+        <view class="log">版本：1.0</view>
+    </view>
+
+    <!-- 内容 -->
+    <view class="content">
+        <view>广州希仁阁网络信息科技有限公司创立于2016年。公司名称来源于包拯字号，立志于打造一个服务社会和百姓的公信力平台。</view>
+        <view>公司设有产品部、市场部、运营部、技术部、投融资部、客服部、财务部8个职能部门。</view>
+        <view>“今日桃园”是公司鼎力铸造的一个服务于所有消费领域的行业、品牌、商家、产品，连通线上产品、线下服务和消费群体的综合移动互联网平台。</view>
+        <view class="other">官方微信公众号：方寸奶爸</view>
+        <view class="other">商务合作热线：400-189-0511</view>
+    </view>
+
+    <!-- 分享 -->
+    <button class="keep">分享给好友</button>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '关于方乐购',
+    navigationBarTextStyle: 'black'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT
+  },
+  // 导航返回
+  navigateBack () {
+      wx.navigateBack()
+  }
+}
+</script>
+
+<style lang="less">
+// logo
+.head{
+    .logo{
+        margin-top: 56rpx;
+        image{
+            width: 228rpx;
+            margin: 0 auto;
+        }
+    }
+    .log{
+        text-align: center;
+        margin: 22rpx 0;
+    }
+}
+.content{
+    text-indent: 2em;
+    font-size: 28rpx;
+    color: #999999;
+    padding: 0 10px;
+    .other{
+        text-indent: 0;
+        color: rgb(25, 25, 25);
+        font-size: 30rpx;
+        margin-top: 10rpx;
+    }
+}
+// 保存
+.keep{
+    width: 95%;
+    height: 86rpx;
+    margin: 0 auto;
+    background: rgb(245, 122, 26);
+    color: #fff;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    margin-top: 156rpx;
+    .mix-flex-center();
+}
+</style>

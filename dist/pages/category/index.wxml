@@ -1,0 +1,54 @@
+<view style="background:#fff;">
+  <!-- 自定义导航栏 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#FFFFFF'} }}" _pid="{{_pid}}">
+    <view class="nav_bar ui-row" style="height:{{DEFAULT_HEADER_HEIGHT}}px;">
+      <view class="nav-bar-col ui-col ui-col-align-left align-left valign-middle" bindtap="navigateBack" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-left valign-middle">
+          <view class="containertitle">
+            <view class="dingwei">
+              <span type="zuojiantou" color="#333333" size="20px;" class="ui-icon icon-zuojiantou" style="color: #333333;font-size: 20px;px;"></span>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <view class="nav-bar-title">商品分类</view>
+        </view>
+      </view>
+      <view class="nav-bar-col ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 100pxpx;">
+        <view class="ui-col-content align-right valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 内容区 -->
+  <view class="ui-row" style="">
+    <view class="ui-col ui-col-3" style="flex: 0 0 25%;">
+      <view class="ui-col-content">
+        <scroll-view scroll-y style="height:{{windowHeight}}">
+          <view class="tabs {{Clickflag==-1? 'active':''}}" bindtap="select" data-cid="-1">热门推荐</view>
+          <view class="tabs {{Clickflag==item.id? 'active':''}}" wx:for="{{tabs}}" wx:key="tabKey" data-cid="{{item.id}}" bindtap="select">{{item.name}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="ui-col" style="">
+      <view class="ui-col-content">
+        <scroll-view scroll-y style="height:{{windowHeight}}">
+          <view class="" wx:for="{{listContent}}" wx:key="listKey">
+            <view class="titles">{{item.name}}</view>
+            <view class="goods-box">
+              <view class="goods-list" wx:for="{{item.son}}" wx:for-item="idx" wx:key="sonKey" data-id="{{idx.id}}" bindtap="toGoods">
+                <image class="imgbox" src="{{idx.image}}" mode="aspectFill" lazy-load="true" />
+                <view class="small-title">{{idx.name}}</view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+
+</view>
