@@ -6,7 +6,7 @@
                 <ui-col vertical-align="middle" class="nav-bar-col" align="left" width="100px">
                     <view class="containertitle">
                         <view class='dingwei'>
-                            <image src="../../static/image/index/home_icon_Location.png" mode="aspectFit" style="width:20px;height:20px;"></image>
+                            <image src="../../static/image/index/home_icon_Location.png" mode="aspectFit" style="width:20px;height:20px;" />
                             <text>广州市番禺区</text>
                         </view>
                     </view>
@@ -28,8 +28,8 @@
             <swiper circular autoplay interval="5000" duration="500" bindchange="swiperChange" class="swiper">
                 <block wx:for="{{banner}}" wx:key="unique">
                     <swiper-item>
-                        <image wx:if="{{index == 0}}" src="{{item.src}}" class="img" mode="aspectFill" data-route='activity/show' data-param='activityid=3' bindtap='navigateToShow'></image>
-                        <image wx:else src="{{item.src}}" class="img" mode="aspectFill"></image>
+                        <image wx:if="{{index == 0}}" src="{{item.src}}" class="img" mode="aspectFill" data-route='activity/show' data-param='activityid=3' bindtap='navigateToShow' />
+                        <image wx:else src="{{item.src}}" class="img" mode="aspectFill" />
                     </swiper-item>
                 </block>
             </swiper>
@@ -46,25 +46,25 @@
                 <view class='group-item'>
                     <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                            <image src="../../static/image/index/home_icon1.png"></image>
+                            <image src="../../static/image/index/home_icon1.png" />
                             <text>生活用品</text>
                         </view>
                     </button>
                     <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon2.png"></image>
+                                <image src="../../static/image/index/home_icon2.png" />
                             <text>电子产品</text>
                         </view>
                     </button>
                     <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon3.png"></image>
+                                <image src="../../static/image/index/home_icon3.png" />
                             <text>服装服饰</text>
                         </view>
                     </button>
                     <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon4.png"></image>
+                                <image src="../../static/image/index/home_icon4.png" />
                             <text>美妆洗护</text>
                         </view>
                     </button>
@@ -72,25 +72,25 @@
                 <view class='group-item'>
                     <button class="authorise_btn" data-route="social/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                            <image src="../../static/image/index/home_icon5.png"></image>
+                            <image src="../../static/image/index/home_icon5.png" />
                             <text>书籍特卖</text>
                         </view>
                     </button>
                     <button class="authorise_btn" data-route="parttime/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon6.png"></image>
+                                <image src="../../static/image/index/home_icon6.png" />
                             <text>零食小吃</text>
                         </view>
                     </button>
                     <button class="authorise_btn" data-route="activity/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon7.png"></image>
+                                <image src="../../static/image/index/home_icon7.png" />
                             <text>体育运动</text>
                         </view>
                     </button>
                     <button class="authorise_btn" data-route="character/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                         <view class='buttonitem'>
-                                <image src="../../static/image/index/home_icon8.png"></image>
+                                <image src="../../static/image/index/home_icon8.png" />
                             <text>礼品饰物</text>
                         </view>
                     </button>
@@ -104,7 +104,7 @@
             <view class="manuad">
                 <button class="authorise_btn" data-route="main/index" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
                     <view class="image">
-                        <image src="http://file.taoyuantoday.com/213/20190115/3fd5d9348a62a75ec3dc3b8363627706.jpg"></image>
+                        <image src="http://file.taoyuantoday.com/213/20190115/3fd5d9348a62a75ec3dc3b8363627706.jpg" />
                     </view>
                 </button>
             </view>
@@ -122,9 +122,9 @@
                 <view class='rm-group'>
                   <view class="rm-group-left">
                       <view class="rm-content">
-                          <image class="hot-image" src="../../static/image/index/home_icon_heat.png"></image>
+                          <image class="hot-image" src="../../static/image/index/home_icon_heat.png" />
                           <view class="shop">
-                            <image class="shop-image" src="../../static/image/index/test/computer.png"></image>
+                            <image class="shop-image" src="../../static/image/index/test/computer.png" />
                             <view class="shop-title">苹果电脑最新款按罚款破伤风食品技术附件傲......</view>
                             <view class="dis">满1000减100</view>
                             <view class="price">¥ 8888.00<text class="payNum">3452已付款</text></view>
@@ -133,7 +133,7 @@
                   </view>
                   <view class="rm-group-right">
                     <view wx:for="{{rmList}}" wx:key="rmKey" class="{{index==0? 'rm-group-right1':'rm-group-right2'}}">
-                        <image class="hot-image" src="../../static/image/index/home_icon_heat.png"></image>
+                        <image class="hot-image" src="../../static/image/index/home_icon_heat.png" />
                         <view class="shop">
                             <view class="shop-left">
                                 <view class="shop-title">齐强速效洗粉多买多送......</view>
@@ -141,7 +141,7 @@
                                 <view class="price">¥ 33.90</view>
                             </view>
                             <view class="shop-right">
-                                <image class="shop-image" src="../../static/image/index/test/hufu.png"></image>
+                                <image class="shop-image" src="../../static/image/index/test/hufu.png" />
                                 <text class="payNum">3452已付款</text>
                             </view>
                         </view>
@@ -152,14 +152,14 @@
             <!-- 特卖 -->
             <view class="tab-panel-item special-panel-item">
                 <view wx:for="{{specialList}}" wx:key="specialKey" class="{{index%2==0? 'special-group-left':'special-group-right'}}">
-                    <image class="special-image" src="../../static/image/index/home_icon_Special.png"></image>
+                    <image class="special-image" src="../../static/image/index/home_icon_Special.png" />
                     <view class="special-title">{{item.title}}</view>
                     <view class="shop-left">
                         <view class="shop-title">护肤润滑手段和年...</view>
                         <view class="price">¥ 353</view>
                     </view>
                     <view class="shop-right">
-                        <image src="{{item.src}}" mode="widthFix"></image>
+                        <image src="{{item.src}}" mode="widthFix" />
                     </view>
                 </view>
             </view>
@@ -174,22 +174,22 @@
                 </view>
                 <view class='fc-group'>
                   <view class="fc-group-content">
-                      <image src="../../static/image/index/test/01.png" mode="widthFix"></image>
+                      <image src="../../static/image/index/test/01.png" mode="widthFix" />
                       <view class="shop-title">护肤水晶华液</view>
                       <view class="price">¥ 456</view>
                   </view>
                   <view class="fc-group-content">
-                      <image src="../../static/image/index/test/02.png" mode="widthFix"></image>
+                      <image src="../../static/image/index/test/02.png" mode="widthFix" />
                       <view class="shop-title">护肤水晶华液</view>
                       <view class="price">¥ 456</view>
                   </view>
                   <view class="fc-group-content">
-                      <image src="../../static/image/index/test/01.png" mode="widthFix"></image>
+                      <image src="../../static/image/index/test/01.png" mode="widthFix" />
                       <view class="shop-title">护肤水晶华液</view>
                       <view class="price">¥ 456</view>
                   </view>
                   <view class="fc-group-content">
-                      <image src="../../static/image/index/test/02.png" mode="widthFix"></image>
+                      <image src="../../static/image/index/test/02.png" mode="widthFix" />
                       <view class="shop-title">护肤水晶华液</view>
                       <view class="price">¥ 456</view>
                   </view>
@@ -208,7 +208,7 @@
                 </view>
                 <view class='group'>
                   <view class="group-left">
-                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill" />
                       <view class="mask">猪年送大礼，您的优选......</view>
                   </view>
                   <view class="group-right">
@@ -219,29 +219,29 @@
                       <view class="shop-subtitle">
                           无加工 无添加产品
                       </view>
-                      <image src="../../static/image/index/test/03.png" class="img1"></image>
-                      <image src="../../static/image/index/test/03.png" class="img2"></image>
+                      <image src="../../static/image/index/test/03.png" class="img1" />
+                      <image src="../../static/image/index/test/03.png" class="img2" />
                   </view>
                   <view class="group-content">
                     <view class="group-content1">
                         <view class="shop-title">坚果类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">肉干类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">饼干类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">果冻布丁</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                   </view>
                 </view>
@@ -259,7 +259,7 @@
                 </view>
                 <view class='group'>
                   <view class="group-left">
-                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill" />
                       <view class="mask">猪年送大礼，您的优选......</view>
                   </view>
                   <view class="group-right">
@@ -270,29 +270,29 @@
                       <view class="shop-subtitle">
                           无加工 无添加产品
                       </view>
-                      <image src="../../static/image/index/test/03.png" class="img1"></image>
-                      <image src="../../static/image/index/test/03.png" class="img2"></image>
+                      <image src="../../static/image/index/test/03.png" class="img1" />
+                      <image src="../../static/image/index/test/03.png" class="img2" />
                   </view>
                   <view class="group-content">
                     <view class="group-content1">
                         <view class="shop-title">坚果类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">肉干类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">饼干类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">果冻布丁</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                   </view>
                 </view>
@@ -310,7 +310,7 @@
                 </view>
                 <view class='group'>
                   <view class="group-left">
-                      <image src="../../static/image/index/test/banner.png" mode="aspectFill"></image>
+                      <image src="../../static/image/index/test/banner.png" mode="aspectFill" />
                       <view class="mask">猪年送大礼，您的优选......</view>
                   </view>
                   <view class="group-right">
@@ -321,29 +321,29 @@
                       <view class="shop-subtitle">
                           无加工 无添加产品
                       </view>
-                      <image src="../../static/image/index/test/03.png" class="img1"></image>
-                      <image src="../../static/image/index/test/03.png" class="img2"></image>
+                      <image src="../../static/image/index/test/03.png" class="img1" />
+                      <image src="../../static/image/index/test/03.png" class="img2" />
                   </view>
                   <view class="group-content">
                     <view class="group-content1">
                         <view class="shop-title">坚果类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">肉干类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">饼干类</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                     <view class="group-content1">
                         <view class="shop-title">果冻布丁</view>
                         <view class="shop-subtitle">满199减99</view>
-                        <image src="../../static/image/index/test/03.png" mode="widthFix"></image>
+                        <image src="../../static/image/index/test/03.png" mode="widthFix" />
                     </view>
                   </view>
                 </view>
@@ -352,13 +352,13 @@
         <!-- 猜你喜欢 -->
         <view class="like-panel-item">
           <view class="like-title">
-            <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill"></image>
+            <image class="left-image" src="../../static/image/index/home_icon_Left.png" mode="scaleToFill" />
             <text>猜你喜欢</text>
-            <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill"></image>
+            <image class="right-image" src="../../static/image/index/home_icon_right.png" mode="scaleToFill" />
           </view>
           <view class="like-group-content">
             <view wx:for="{{list}}" wx:key='likeKey' class="like-group-content-list">
-                <image src="{{item.src}}" mode="widthFix" lazy-load="true"></image>
+                <image src="{{item.src}}" mode="widthFix" lazy-load="true" />
                 <view class="shop-detail">
                     <view class="shop-title">澳十大跑商点卡搜奥斯大搜浦东烤盘批次卡贫困阿浦东烤盘批次卡贫困阿</view>
                     <text class="dis">秒199减99</text>
