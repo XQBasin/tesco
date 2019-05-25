@@ -48,7 +48,7 @@ exports.default = Page({
     var _this2 = this;
 
     wx.request({
-      url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
+      url: 'https://wx.taoyuantoday.com/tesco.test/category', //开发者服务器接口地址
       method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
       success: function success(res) {
@@ -71,7 +71,7 @@ exports.default = Page({
     var _this3 = this;
 
     wx.request({
-      url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址
+      url: 'https://wx.taoyuantoday.com/tesco.test/category', //开发者服务器接口地址
       data: { cid: cid },
       method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
