@@ -10,13 +10,14 @@ exports.default = Page({
     key: '', //搜索内容
     showType: false, //选择商品显示方式
     selectId: '0', //选择条件Id
-    selectContent: 'time', //选择条件
-    clickNum: '', //点击条件选项次数
-    sort: '', //排序
+    selectContent: 'time', //条件
+    sort: '', //排序条件
     dataSort: '', //记录当前排序方式
-    reqId: '', //请求商品ID
-    list: [],
-    page: 1, //页码数
+    reqId: '', //请求商种类ID
+    page: 1, // 当前页码
+    list: [], // 初始显示论坛数据
+    totalNum: 0, // 总记录数
+    totalPage: 0, // 总页码
     isHideLoadMore: false //加载更多
   },
   onLoad: function onLoad(option) {
@@ -27,8 +28,7 @@ exports.default = Page({
     };
     this.getList(param);
     this.setData({
-      reqId: option.id,
-      page: ++this.data.page
+      reqId: option.id
     });
   },
 
@@ -39,17 +39,18 @@ exports.default = Page({
 
   // 搜索
   search: function search(e) {
-    // console.log(e.detail.value);
     this.setData({
       key: e.detail.value,
       list: [],
       page: 1,
+      totalNum: 0,
+      totalPage: 0,
       isHideLoadMore: false
     });
     var param = {
       reqId: this.data.reqId,
       sort: this.data.selectContent,
-      page: this.data.page,
+      page: 1,
       key: e.detail.value
     };
     this.getList(param);
@@ -70,7 +71,6 @@ exports.default = Page({
       list: [],
       isHideLoadMore: false
     });
-    console.log(111);
     switch (selId) {
       case '0':
         this.dataSelect(selId, 'time');
@@ -103,13 +103,11 @@ exports.default = Page({
   dataSelect: function dataSelect(selId, con) {
     this.setData({
       selectId: selId,
-      selectContent: con,
-      page: 1
+      selectContent: con
     });
     var param = {
       id: this.data.reqId,
-      sort: this.data.selectContent,
-      page: this.data.page
+      sort: this.data.selectContent
     };
     if (this.data.key != '') {
       param['key'] = this.data.key;
@@ -146,53 +144,57 @@ exports.default = Page({
 
   // 加载更多请求数据
   getMore: function getMore(sort) {
-    this.setData({
-      page: ++this.data.page
-    });
     var param = {
       id: this.data.reqId,
       sort: sort,
-      page: this.data.page
+      page: parseInt(this.data.page) + 1
     };
     if (this.data.key != '') {
       param['key'] = this.data.key;
     }
-    this.getList(param);
+    this.getList(param, true);
   },
 
   // 请求商品数据
-  getList: function getList(param) {
+  getList: function getList(param, concat) {
     var _this = this;
 
     if (param.key) {
-      var url = 'https://wx.taoyuantoday.com/tesco.test/search';
+      var url = 'https://wx.taoyuantoday.com/tesco.screen/search';
     } else {
-      var url = 'https://wx.taoyuantoday.com/tesco.test/category';
+      var url = 'https://wx.taoyuantoday.com/tesco.screen/category';
     }
-    console.log(param);
     wx.request({
       url: url, //开发者服务器接口地址",
       data: param, //请求的参数",
       method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
       success: function success(res) {
-        console.log(res.data);
-        var data = res.data.list;
-        if (data != undefined) {
-          if (_this.data.list.length <= 0) {
+        if (res.data.code) {
+          if (concat) {
             _this.setData({
-              list: data,
-              isHideLoadMore: true
+              page: res.data.page,
+              list: _this.data.list.concat(res.data.list),
+              totalNum: res.data.totalNum,
+              totalPage: res.data.total
             });
           } else {
-            for (var i = 0; i < data.length; i++) {
-              _this.data.list.push(data[i]);
-            }
+            console.log(res);
             _this.setData({
-              list: _this.data.list
+              list: null
+            });
+            _this.setData({
+              page: res.data.page,
+              list: res.data.list,
+              totalNum: res.data.totalNum,
+              totalPage: res.data.total
             });
           }
-        } else {
+        }
+        if (_this.data.page >= _this.data.totalPage) {
           _this.setData({
             isHideLoadMore: true
           });
