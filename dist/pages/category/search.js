@@ -7,17 +7,26 @@ exports.default = Page({
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px',
     DEFAULT_HEADER_HEIGHT: wx.DEFAULT_HEADER_HEIGHT,
-    showType: false,
+    key: '', //搜索内容
+    showType: false, //选择商品显示方式
     selectId: '0', //选择条件Id
-    selectContent: 'time', //选择条件
-    sort: '', //排序
+    selectContent: 'time', //条件
+    sort: '', //排序条件
     dataSort: '', //记录当前排序方式
-    reqId: '', //请求商品ID
-    list: [],
-    page: 1 //页码数
+    reqId: '', //请求商种类ID
+    page: 1, // 当前页码
+    list: [], // 初始显示论坛数据
+    totalNum: 0, // 总记录数
+    totalPage: 0, // 总页码
+    isHideLoadMore: false //加载更多
   },
   onLoad: function onLoad(option) {
-    this.getList(option.id, this.data.selectContent, this.data.page);
+    var param = {
+      id: option.id,
+      selectContent: this.data.selectContent,
+      page: this.data.page
+    };
+    this.getList(param);
     this.setData({
       reqId: option.id
     });
@@ -28,6 +37,25 @@ exports.default = Page({
     wx.navigateBack();
   },
 
+  // 搜索
+  search: function search(e) {
+    this.setData({
+      key: e.detail.value,
+      list: [],
+      page: 1,
+      totalNum: 0,
+      totalPage: 0,
+      isHideLoadMore: false
+    });
+    var param = {
+      reqId: this.data.reqId,
+      sort: this.data.selectContent,
+      page: 1,
+      key: e.detail.value
+    };
+    this.getList(param);
+  },
+
   // 选择商品显示方式
   bindShowType: function bindShowType() {
     this.setData({
@@ -35,12 +63,13 @@ exports.default = Page({
     });
   },
 
-  // 选择选择查询条件
+  // 商品筛选
   select: function select(e) {
     var selId = e.currentTarget.dataset.id;
     var dataSort = e.currentTarget.dataset.sort;
     this.setData({
-      list: []
+      list: [],
+      isHideLoadMore: false
     });
     switch (selId) {
       case '0':
@@ -74,44 +103,37 @@ exports.default = Page({
   dataSelect: function dataSelect(selId, con) {
     this.setData({
       selectId: selId,
-      selectContent: con,
-      page: 1
+      selectContent: con
     });
-    this.getList(this.data.reqId, this.data.selectContent, this.data.page);
+    var param = {
+      id: this.data.reqId,
+      sort: this.data.selectContent
+    };
+    if (this.data.key != '') {
+      param['key'] = this.data.key;
+    }
+    this.getList(param);
   },
 
   //加载更多
   onReachBottom: function onReachBottom() {
-    // setTimeout(() => {
-    //     this.setData({
-    //         isHideLoadMore: true,
-    //     })
-    // }, 2000)
-    var reqId = this.data.reqId;
-    var page = this.data.page;
+    this.setData({
+      isHideLoadMore: false
+    });
     switch (this.data.selectId) {
       case '0':
-        this.setData({
-          page: ++this.data.page
-        });
-        this.getList(reqId, 'time', page);
+        this.getMore('time');
         break;
       case '1':
-        this.setData({
-          page: ++this.data.page
-        });
-        this.getList(reqId, 'sales', page);
+        this.getMore('sales');
         break;
       case '2':
-        this.setData({
-          page: ++this.data.page
-        });
         switch (this.data.sort) {
           case 'des':
-            this.getList(reqId, 'price', page);
+            this.getMore('price');
             break;
           case 'asc':
-            this.getList(reqId, 'price2', page);
+            this.getMore('price2');
             break;
         }
         break;
@@ -120,31 +142,62 @@ exports.default = Page({
     }
   },
 
-  // 请求数据
-  getList: function getList(id, sort, page) {
+  // 加载更多请求数据
+  getMore: function getMore(sort) {
+    var param = {
+      id: this.data.reqId,
+      sort: sort,
+      page: parseInt(this.data.page) + 1
+    };
+    if (this.data.key != '') {
+      param['key'] = this.data.key;
+    }
+    this.getList(param, true);
+  },
+
+  // 请求商品数据
+  getList: function getList(param, concat) {
     var _this = this;
 
+    if (param.key) {
+      var url = 'https://wx.taoyuantoday.com/tesco.screen/search';
+    } else {
+      var url = 'https://wx.taoyuantoday.com/tesco.screen/category';
+    }
     wx.request({
-      url: 'https://wx.taoyuantoday.com/test/category', //开发者服务器接口地址",
-      data: { id: id, sort: sort, page: page }, //请求的参数",
+      url: url, //开发者服务器接口地址",
+      data: param, //请求的参数",
       method: 'GET',
       dataType: 'json', //如果设为json，会尝试对返回的数据做一次 JSON.parse
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
       success: function success(res) {
-        // console.log(res.data.list);
-        var data = res.data.list;
-        if (_this.data.list.length <= 0) {
-          _this.setData({
-            list: data
-          });
-        } else {
-          if (data != undefined) {
-            for (var i = 0; i < data.length; i++) {
-              _this.data.list.push(data[i]);
-            }
+        if (res.data.code) {
+          if (concat) {
             _this.setData({
-              list: _this.data.list
+              page: res.data.page,
+              list: _this.data.list.concat(res.data.list),
+              totalNum: res.data.totalNum,
+              totalPage: res.data.total
+            });
+          } else {
+            console.log(res);
+            _this.setData({
+              list: null
+            });
+            _this.setData({
+              page: res.data.page,
+              list: res.data.list,
+              totalNum: res.data.totalNum,
+              totalPage: res.data.total
             });
           }
+        }
+        if (_this.data.page >= _this.data.totalPage) {
+          _this.setData({
+            isHideLoadMore: true
+          });
         }
       }
     });
